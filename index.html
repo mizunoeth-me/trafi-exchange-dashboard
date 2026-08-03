@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trafi 交易所分析 Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0d1117;
+    --surface:  #161b22;
+    --border:   #30363d;
+    --accent:   #58a6ff;
+    --green:    #3fb950;
+    --red:      #f85149;
+    --yellow:   #d29922;
+    --text:     #c9d1d9;
+    --muted:    #8b949e;
+    --tab-active-bg: #21262d;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'SF Mono', 'Cascadia Code', monospace;
+    font-size: 13px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    flex-shrink: 0;
+  }
+  header h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+  .header-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .header-meta span { margin-left: 16px; }
+  .status-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-right: 4px;
+  }
+
+  /* ── Tabs ── */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    flex-shrink: 0;
+    padding: 0 24px;
+  }
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    font-size: 13px;
+    transition: color .15s, border-color .15s;
+    user-select: none;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Controls ── */
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .controls label { color: var(--muted); font-size: 12px; }
+  select {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    min-width: 180px;
+    font-family: inherit;
+  }
+  select:focus { outline: 1px solid var(--accent); }
+
+  /* ── Main ── */
+  main {
+    flex: 1;
+    overflow: auto;
+    padding: 20px 24px;
+  }
+  .panel { display: none; height: 100%; }
+  .panel.active { display: flex; flex-direction: column; gap: 16px; }
+
+  /* ── Table ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .data-table th {
+    background: var(--surface);
+    color: var(--muted);
+    padding: 8px 12px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .data-table th:first-child { text-align: left; }
+  .data-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #21262d;
+    text-align: right;
+    color: var(--text);
+  }
+  .data-table td:first-child { text-align: left; font-weight: 500; }
+  .data-table tr:hover td { background: #1c2128; }
+  .data-table td.na { color: var(--muted); font-style: italic; }
+  .data-table td.ex-name { color: var(--accent); font-size: 11px; }
+  .data-table td.highlight { color: var(--yellow); font-weight: 600; }
+  .data-table td.low { color: var(--muted); }
+  .data-table td.top { color: var(--green); font-weight: 600; }
+
+  /* ── Charts area ── */
+  .charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+  }
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .chart-card h3 {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  .chart-wrap {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+  }
+  canvas { width: 100% !important; height: 100% !important; }
+  .legend-wrap {
+    flex: 0 0 auto;
+    max-height: 84px;
+    overflow: auto;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 12px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+  .legend-item.off {
+    opacity: 0.35;
+    text-decoration: line-through;
+  }
+
+  /* ── Index Components ── */
+  .ic-section { flex-shrink: 0; }
+  .ic-section h3 {
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .ic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .ic-table th {
+    background: var(--surface);
+    color: var(--muted);
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .ic-table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid #21262d;
+  }
+  .ic-table tr:hover td { background: #1c2128; }
+  .ic-table td.dev-ok  { color: var(--green); }
+  .ic-table td.dev-warn { color: var(--yellow); }
+  .ic-table td.dev-high { color: var(--red); font-weight: 600; }
+  .ic-lists-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    min-height: 0;
+  }
+  .ic-list-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--panel);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .ic-list-card h3 {
+    font-size: 12px;
+    color: #c9d1d9;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid #21262d;
+    margin: 0;
+  }
+  .ic-scroll-wrap {
+    max-height: 420px;
+    overflow: auto;
+  }
+  .sortable {
+    cursor: pointer;
+    user-select: none;
+  }
+  .sort-indicator {
+    margin-left: 4px;
+    color: #8b949e;
+    font-size: 11px;
+  }
+  @media (max-width: 1200px) {
+    .ic-lists-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── No data ── */
+  .no-data {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .overview-filters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .overview-filters input,
+  .overview-filters select {
+    min-width: 140px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+  .heatmap-legend {
+    margin-top: 6px;
+    color: #8b949e;
+    font-size: 11px;
+    max-height: 70px;
+    overflow: auto;
+    border-top: 1px solid #21262d;
+    padding-top: 6px;
+    line-height: 1.5;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #21262d;
+    color: var(--text);
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .badge.high, .badge.stale { color: var(--red); border-color: #7f1d1d; background: #2d1517; }
+  .badge.medium, .badge.lagging, .badge.static_anchor { color: var(--yellow); border-color: #6b4e16; background: #2b2111; }
+  .badge.low, .badge.fresh { color: var(--green); border-color: #1f6f3b; background: #102318; }
+  .rule-link { color: var(--accent); text-decoration: none; }
+  .rule-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>📊 Trafi 交易所分析</h1>
+  <div class="header-meta">
+    <span><span class="status-dot"></span>实时</span>
+    <span id="fs-ts"></span>
+    <span id="ic-ts"></span>
+  </div>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab(0, this)">合约横向对比</div>
+  <div class="tab" onclick="switchTab(1, this)">指数成分权重偏离度</div>
+  <div class="tab" onclick="switchTab(2, this)">Futures 总览</div>
+  <div class="tab" onclick="switchTab(3, this)">Spot 总览</div>
+  <div class="tab" onclick="switchTab(4, this)">Session 风险</div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <label for="sym-select">选择标的：</label>
+  <select id="sym-select" onchange="onSymbolChange()">
+    <option value="">-- 加载中 --</option>
+  </select>
+  <span id="sym-count" style="color:var(--muted);font-size:11px;margin-left:4px;"></span>
+</div>
+
+<!-- Main -->
+<main>
+
+  <!-- ── Tab0: Futures Comparison ── -->
+  <div class="panel active" id="panel-0">
+    <div class="ic-section">
+      <h3 id="futures-title">—</h3>
+    </div>
+
+    <!-- Summary table -->
+    <div style="overflow-x:auto; flex-shrink:0;">
+      <table class="data-table" id="futures-table">
+        <thead>
+          <tr>
+            <th>交易所</th>
+            <th>合约</th>
+            <th>价格 (USD)</th>
+            <th>OI Value (USD)</th>
+            <th>OI 数量</th>
+            <th>24h 成交量</th>
+            <th>资金费率</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-row" style="flex:0 0 auto; height:320px;">
+      <div class="chart-card">
+        <h3>OI Value 对比</h3>
+        <div class="chart-wrap"><canvas id="chart-oi"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>24h 成交量对比</h3>
+        <div class="chart-wrap"><canvas id="chart-vol"></canvas></div>
+      </div>
+    </div>
+
+    <div class="ic-section">
+      <h3 id="ts-title">历史时序对比</h3>
+    </div>
+    <div class="overview-filters">
+      <label>underlying</label>
+      <select id="ts-underlying"></select>
+      <label>Index 时间</label>
+      <select id="ts-range-index">
+        <option value="24h">24h</option>
+        <option value="7d" selected>7d</option>
+        <option value="30d">30d</option>
+        <option value="all">全部</option>
+      </select>
+      <label>Funding 时间</label>
+      <select id="ts-range-funding">
+        <option value="24h">24h</option>
+        <option value="7d" selected>7d</option>
+        <option value="30d">30d</option>
+        <option value="all">全部</option>
+      </select>
+      <button id="ts-apply">更新图表</button>
+    </div>
+    <div class="charts-row" style="flex:0 0 auto; height:320px;">
+      <div class="chart-card">
+        <h3>Index Price（原始价格）</h3>
+        <div class="chart-wrap"><canvas id="chart-ts-index"></canvas></div>
+        <div class="legend-wrap" id="legend-ts-index"></div>
+      </div>
+      <div class="chart-card">
+        <h3>Funding Rate（%）</h3>
+        <div class="chart-wrap"><canvas id="chart-ts-funding"></canvas></div>
+        <div class="legend-wrap" id="legend-ts-funding"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Tab1: Index Components ── -->
+  <div class="panel" id="panel-1">
+    <div class="ic-section">
+      <h3 id="ic-title">—</h3>
+    </div>
+    <div class="charts-row" style="flex: 0 0 auto; height: auto;">
+      <div class="chart-card" style="height: 420px;">
+        <h3>成分权重分布</h3>
+        <div class="chart-wrap" style="height:360px;"><canvas id="chart-ic-bar"></canvas></div>
+      </div>
+      <div class="chart-card" style="height: 420px;">
+        <h3>重叠度</h3>
+        <div class="chart-wrap" style="height:360px;"><canvas id="chart-ic-dev"></canvas></div>
+        <div id="ic-heatmap-legend" class="heatmap-legend"></div>
+      </div>
+    </div>
+    <div class="ic-section" style="flex:1 1 auto; min-height:0;">
+      <div class="ic-lists-grid">
+        <div class="ic-list-card">
+          <h3>成分明细（source / spot_pair / weight）</h3>
+          <div class="ic-scroll-wrap">
+            <table class="ic-table" id="ic-table">
+              <thead>
+                <tr>
+                  <th>source</th>
+                  <th>spot_pair</th>
+                  <th>weight</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="ic-list-card">
+          <h3>同 underlying 交易对两两重叠度</h3>
+          <div class="ic-scroll-wrap">
+            <table class="ic-table" id="ic-pair-table">
+              <thead>
+                <tr>
+                  <th class="sortable" data-key="pair_a">symbol+exchange A<span class="sort-indicator"></span></th>
+                  <th class="sortable" data-key="pair_b">symbol+exchange B<span class="sort-indicator"></span></th>
+                  <th class="sortable" data-key="overlap_pct">重叠度(%)<span class="sort-indicator"></span></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Tab2: Futures Overview ── -->
+  <div class="panel" id="panel-2">
+    <div class="ic-section">
+      <h3 id="overview-title">Futures 总览（最新快照）</h3>
+    </div>
+    <div class="overview-filters">
+      <input id="ov-q-symbol" placeholder="筛选 symbol" />
+      <select id="ov-exchange"><option value="">全部交易所</option></select>
+      <select id="ov-underlying"><option value="">全部 underlying</option></select>
+      <select id="ov-asset-class"><option value="">全部 asset_class</option></select>
+      <button id="ov-reset">重置筛选</button>
+    </div>
+    <div style="overflow:auto; flex:1;">
+      <table class="data-table" id="overview-table">
+        <thead>
+          <tr>
+            <th>exchange</th>
+            <th>symbol</th>
+            <th>underlying</th>
+            <th>asset_class</th>
+            <th>base</th>
+            <th>quote</th>
+            <th>price</th>
+            <th>oi_base</th>
+            <th>oi_value</th>
+            <th>volume_24h</th>
+            <th>funding_rate</th>
+            <th>market_type</th>
+            <th>contract_type</th>
+            <th>timestamp</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Tab3: Spot Overview ── -->
+  <div class="panel" id="panel-3">
+    <div class="ic-section">
+      <h3 id="spot-overview-title">Spot 总览（最新快照）</h3>
+    </div>
+    <div class="overview-filters">
+      <input id="sov-q-symbol" placeholder="筛选 symbol" />
+      <select id="sov-exchange"><option value="">全部交易所</option></select>
+      <select id="sov-underlying"><option value="">全部 underlying</option></select>
+      <select id="sov-asset-class"><option value="">全部 asset_class</option></select>
+      <button id="sov-reset">重置筛选</button>
+    </div>
+    <div style="overflow:auto; flex:1;">
+      <table class="data-table" id="spot-overview-table">
+        <thead>
+          <tr>
+            <th>exchange</th>
+            <th>symbol</th>
+            <th>underlying</th>
+            <th>asset_class</th>
+            <th>base</th>
+            <th>quote</th>
+            <th>price</th>
+            <th>volume_24h</th>
+            <th>depth_bid_2p</th>
+            <th>depth_ask_2p</th>
+            <th>market_type</th>
+            <th>timestamp</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Tab4: Session Risk ── -->
+  <div class="panel" id="panel-4">
+    <div class="ic-section">
+      <h3 id="sr-title">Session 风险（最新快照）</h3>
+    </div>
+    <div class="overview-filters">
+      <input id="sr-q-symbol" placeholder="筛选 underlying" />
+      <select id="sr-asset-class"><option value="">全部 asset_class</option></select>
+      <select id="sr-risk"><option value="">全部风险</option></select>
+      <select id="sr-session"><option value="">全部 session</option></select>
+      <button id="sr-reset">重置筛选</button>
+    </div>
+    <div style="overflow:auto; flex:0 0 340px;">
+      <table class="data-table" id="sr-underlying-table">
+        <thead>
+          <tr>
+            <th>underlying</th>
+            <th>asset_class</th>
+            <th>session</th>
+            <th>liquidity</th>
+            <th>venues</th>
+            <th>usable</th>
+            <th>fresh</th>
+            <th>stale</th>
+            <th>min</th>
+            <th>median</th>
+            <th>max</th>
+            <th>spread bps</th>
+            <th>med/high bps</th>
+            <th>risk</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="ic-section">
+      <h3 id="sr-detail-title">交易所明细</h3>
+    </div>
+    <div style="overflow:auto; flex:1;">
+      <table class="data-table" id="sr-detail-table">
+        <thead>
+          <tr>
+            <th>exchange</th>
+            <th>symbol</th>
+            <th>price</th>
+            <th>index</th>
+            <th>mark</th>
+            <th>last</th>
+            <th>basis bps</th>
+            <th>mark-index bps</th>
+            <th>pricing_mode</th>
+            <th>overnight</th>
+            <th>freshness</th>
+            <th>age</th>
+            <th>timestamp</th>
+            <th>rule</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ─────────────────────────────────────────────
+// Global state
+// ─────────────────────────────────────────────
+let futuresData   = null;  // futures_summary.json
+let icData        = null;  // index_components_summary.json
+let overviewData  = null;  // futures_overview.json
+let spotOverviewData = null; // spot_overview.json
+let tsData = null; // futures_timeseries.json
+let overlapData   = null;  // overlap_matrix_latest.json
+let sessionRiskData = null; // session_risk_summary.json
+let currentSymbol = '';
+
+const EX_COLORS = {
+  binance:     '#F3BA2F',
+  bybit:       '#F7B731',
+  okx:         '#3CC9BF',
+  gateio:      '#17D49B',
+  bitget:      '#00C9A7',
+  hyperliquid: '#A855F7',
+  aster:       '#E11D48',
+  lighter:     '#2563EB',
+};
+
+const EX_ORDER = ['binance', 'bybit', 'okx', 'gateio', 'bitget', 'hyperliquid', 'aster', 'lighter'];
+
+let chartOI  = null;
+let chartVol = null;
+let chartICBar = null;
+let chartICDev = null;
+let chartTsIndex = null;
+let chartTsFunding = null;
+let ovSortKey = '';
+let ovSortDir = 'desc';
+let sovSortKey = '';
+let sovSortDir = 'desc';
+let srSelectedUnderlying = '';
+let srSortKey = 'spread_bps';
+let srSortDir = 'desc';
+const icPairSort = { key: 'overlap_pct', dir: 'desc' };
+
+// ─────────────────────────────────────────────
+// Tab switching
+// ─────────────────────────────────────────────
+function switchTab(idx, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + idx).classList.add('active');
+  // Resize charts when tab shown
+  setTimeout(() => {
+    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding].forEach(c => { if (c) c.resize(); });
+  }, 10);
+}
+
+// ─────────────────────────────────────────────
+// Number formatters
+// ─────────────────────────────────────────────
+function fmt(n, dec=2) {
+  if (n === null || n === undefined || n === '') return null;
+  return Number(n).toFixed(dec);
+}
+function parsePctLike(v) {
+  if (v === null || v === undefined || v === '') return null;
+  if (typeof v === 'string') {
+    const s = v.trim();
+    if (s.endsWith('%')) {
+      const x = Number(s.slice(0, -1));
+      return Number.isFinite(x) ? x : null;
+    }
+  }
+  const x = Number(v);
+  return Number.isFinite(x) ? x : null;
+}
+function fmtOI(v) {
+  if (!v) return null;
+  v = Number(v);
+  if (v >= 1e9) return (v/1e9).toFixed(2) + 'B';
+  if (v >= 1e6) return (v/1e6).toFixed(2) + 'M';
+  if (v >= 1e3) return (v/1e3).toFixed(2) + 'K';
+  return v.toFixed(2);
+}
+
+function cmpNullable(a, b, dir = 'asc') {
+  const d = dir === 'asc' ? 1 : -1;
+  const an = (a === null || a === undefined || a === '') ? null : a;
+  const bn = (b === null || b === undefined || b === '') ? null : b;
+  if (an === null && bn === null) return 0;
+  if (an === null) return 1;
+  if (bn === null) return -1;
+  if (typeof an === 'number' && typeof bn === 'number') return (an - bn) * d;
+  return String(an).localeCompare(String(bn), 'zh-CN') * d;
+}
+
+// ─────────────────────────────────────────────
+// Load data
+// ─────────────────────────────────────────────
+async function loadData() {
+  const [fsRes, icRes, ovRes, sovRes, overlapRes, srRes] = await Promise.all([
+    fetch('futures_summary.json?_t=' + Date.now()),
+    fetch('index_components_summary.json?_t=' + Date.now()),
+    fetch('futures_overview.json?_t=' + Date.now()),
+    fetch('spot_overview.json?_t=' + Date.now()),
+    fetch('overlap_matrix_latest.json?_t=' + Date.now()),
+    fetch('session_risk_summary.json?_t=' + Date.now()),
+  ]);
+  futuresData = await fsRes.json();
+  icData      = await icRes.json();
+  overviewData = await ovRes.json();
+  spotOverviewData = await sovRes.json();
+  overlapData = await overlapRes.json();
+  sessionRiskData = srRes.ok ? await srRes.json() : { underlyings: [], rows: [], ts: null };
+
+  // 时序文件容错：失败时不影响原有看板渲染
+  try {
+    const tsRes = await fetch('futures_timeseries.json?_t=' + Date.now());
+    if (tsRes.ok) {
+      tsData = await tsRes.json();
+    } else {
+      tsData = { underlyings: [], data: {}, ts: null };
+    }
+  } catch (_) {
+    tsData = { underlyings: [], data: {}, ts: null };
+  }
+
+  document.getElementById('fs-ts').textContent = '期货汇总: ' + futuresData.ts;
+  document.getElementById('ic-ts').textContent = '指数成分: ' + icData.ts;
+
+  // Populate select
+  const sel = document.getElementById('sym-select');
+  sel.innerHTML = '';
+  futuresData.symbols.forEach(sym => {
+    const opt = document.createElement('option');
+    opt.value = sym;
+    opt.textContent = sym;
+    sel.appendChild(opt);
+  });
+  document.getElementById('sym-count').textContent =
+    `${futuresData.symbols.length} 标的可选`;
+
+  // Auto-select TSLA if present
+  if (futuresData.symbols.includes('TSLA')) {
+    sel.value = 'TSLA';
+  } else {
+    sel.value = futuresData.symbols[0];
+  }
+  initICPairSorting();
+  initTsControls();
+  initSessionRiskControls();
+  onSymbolChange();
+  renderOverview();
+  renderSpotOverview();
+  renderSessionRisk();
+}
+
+function onSymbolChange() {
+  const sym = document.getElementById('sym-select').value;
+  currentSymbol = sym;
+  renderFutures(sym);
+  renderIC(sym);
+  syncTsUnderlyingWithCurrentSymbol(sym);
+  renderTsCharts();
+}
+
+// ─────────────────────────────────────────────
+// Tab 0: Futures Comparison
+// ─────────────────────────────────────────────
+function renderFutures(sym) {
+  const rec = futuresData.data.find(r => r.symbol === sym);
+  const table = document.querySelector('#futures-table tbody');
+  const title = document.getElementById('futures-title');
+
+  if (!rec) {
+    title.textContent = sym + ' — 无期货数据';
+    table.innerHTML = '<tr><td colspan="7" class="na">暂无数据</td></tr>';
+    renderFuturesCharts([], sym);
+    return;
+  }
+
+  const exs = Object.entries(rec.exchanges);
+  const points = [];
+  exs.forEach(([ex, v]) => {
+    const contracts = (v && Array.isArray(v.contracts)) ? v.contracts : [];
+    contracts.forEach(ct => points.push({ exchange: ex, ...ct }));
+  });
+
+  // Find max for highlighting
+  const prices = points.map(v => v.price).filter(Boolean);
+  const maxPrice = Math.max(...prices);
+  const minPrice = Math.min(...prices);
+
+  title.textContent = `${sym} — ${exs.length} 个交易所，${points.length} 个合约`;
+
+  table.innerHTML = '';
+  points.sort((a,b) => (a.exchange || '').localeCompare(b.exchange || '') || (a.symbol || '').localeCompare(b.symbol || ''));
+  points.forEach((v) => {
+    const tr = document.createElement('tr');
+    const ex = v.exchange;
+    const isHigh = v.price && v.price === maxPrice;
+    const isLow  = v.price && v.price === minPrice && points.length > 1;
+    tr.innerHTML = `
+      <td class="ex-name">${ex}</td>
+      <td>${v.symbol || '<span class="na">—</span>'}</td>
+      <td class="${isHigh ? 'top' : isLow ? 'low' : ''}">${v.price != null ? '$' + fmt(v.price) : '<span class="na">—</span>'}</td>
+      <td>${v.oi_value  != null ? fmtOI(v.oi_value)  : '<span class="na">—</span>'}</td>
+      <td>${v.oi_base   != null ? fmtOI(v.oi_base)   : '<span class="na">—</span>'}</td>
+      <td>${v.volume_24h != null ? fmtOI(v.volume_24h) : '<span class="na">—</span>'}</td>
+      <td>${v.funding_rate != null ? (fmt(Number(v.funding_rate) * 100, 4) + '%') : '<span class="na">—</span>'}</td>
+    `;
+    table.appendChild(tr);
+  });
+
+  renderFuturesCharts(points, sym);
+}
+
+function renderFuturesCharts(points, sym) {
+  if (typeof Chart === 'undefined') return;
+  const labels = points.map(p => `${p.exchange}:${p.symbol || '-'}`);
+  const oiVals = points.map(p => p.oi_value || 0);
+  const volVals = points.map(p => p.volume_24h || 0);
+  const bgColors = points.map(p => EX_COLORS[p.exchange] || '#58a6ff');
+  const borderColors = points.map(p => EX_COLORS[p.exchange] || '#58a6ff');
+
+  const commonOpts = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#21262d',
+        titleColor: '#c9d1d9',
+        bodyColor: '#8b949e',
+        borderColor: '#30363d',
+        borderWidth: 1,
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#8b949e', font: { size: 11 } },
+        grid:  { color: '#21262d' }
+      },
+      y: {
+        ticks: { color: '#8b949e', font: { size: 11 } },
+        grid:  { color: '#21262d' }
+      }
+    }
+  };
+
+  // OI chart
+  if (chartOI) chartOI.destroy();
+  chartOI = new Chart(document.getElementById('chart-oi'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'OI Value (USD)',
+        data: oiVals,
+        backgroundColor: bgColors.map(c => c + '99'),
+        borderColor: borderColors,
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      ...commonOpts,
+      plugins: { ...commonOpts.plugins, title: { display: false } }
+    }
+  });
+
+  // Volume chart
+  if (chartVol) chartVol.destroy();
+  chartVol = new Chart(document.getElementById('chart-vol'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: '24h Volume',
+        data: volVals,
+        backgroundColor: bgColors.map(c => c + '66'),
+        borderColor: borderColors,
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      ...commonOpts,
+      plugins: { ...commonOpts.plugins, title: { display: false } }
+    }
+  });
+}
+
+function tsColor(i) {
+  const palette = ['#58a6ff', '#f78166', '#3fb950', '#d2a8ff', '#ffa657', '#79c0ff', '#e3b341', '#ff7b72'];
+  return palette[i % palette.length];
+}
+
+function initTsControls() {
+  const uEl = document.getElementById('ts-underlying');
+  const riEl = document.getElementById('ts-range-index');
+  const rfEl = document.getElementById('ts-range-funding');
+  const bEl = document.getElementById('ts-apply');
+  if (!uEl || !riEl || !rfEl || !bEl || !tsData) return;
+  if (uEl.dataset.ready) return;
+
+  const underlyings = (tsData.underlyings || []).slice();
+  uEl.innerHTML = '';
+  underlyings.forEach(u => {
+    const opt = document.createElement('option');
+    opt.value = u;
+    opt.textContent = u;
+    uEl.appendChild(opt);
+  });
+  if (underlyings.length) uEl.value = underlyings[0];
+
+  uEl.addEventListener('change', () => {
+    renderTsCharts();
+  });
+  bEl.addEventListener('click', renderTsCharts);
+  riEl.addEventListener('change', renderTsCharts);
+  rfEl.addEventListener('change', renderTsCharts);
+
+  uEl.dataset.ready = '1';
+  if (currentSymbol) {
+    syncTsUnderlyingWithCurrentSymbol(currentSymbol);
+  }
+  renderTsCharts();
+}
+
+function syncTsUnderlyingWithCurrentSymbol(underlying) {
+  const uEl = document.getElementById('ts-underlying');
+  if (!uEl || !tsData || !underlying) return;
+  if (!(tsData.data || {})[underlying]) return;
+  if (uEl.value === underlying) return;
+  uEl.value = underlying;
+}
+
+function filterSeriesByRange(series, rangeKey) {
+  if (!Array.isArray(series) || series.length === 0 || rangeKey === 'all') return series || [];
+  const endTs = series[series.length - 1][0];
+  let spanMs = 0;
+  if (rangeKey === '24h') spanMs = 24 * 3600 * 1000;
+  else if (rangeKey === '7d') spanMs = 7 * 24 * 3600 * 1000;
+  else if (rangeKey === '30d') spanMs = 30 * 24 * 3600 * 1000;
+  const startTs = endTs - spanMs;
+  return series.filter(p => p[0] >= startTs);
+}
+
+function renderTsCharts() {
+  if (typeof Chart === 'undefined') return;
+  const uEl = document.getElementById('ts-underlying');
+  const riEl = document.getElementById('ts-range-index');
+  const rfEl = document.getElementById('ts-range-funding');
+  const titleEl = document.getElementById('ts-title');
+  if (!uEl || !riEl || !rfEl || !titleEl || !tsData) return;
+
+  const u = uEl.value;
+  const lines = (((tsData.data || {})[u] || {}).lines || []);
+  const rangeIndex = riEl.value || '7d';
+  const rangeFunding = rfEl.value || '7d';
+
+  const chosen = lines;
+  titleEl.textContent = `历史时序对比（${u}，${chosen.length}/${lines.length} 条线）`;
+
+  const idxDatasets = [];
+  const frDatasets = [];
+  chosen.forEach((ln, i) => {
+    const c = tsColor(i);
+    const idx = filterSeriesByRange(ln.index_series || [], rangeIndex)
+      .filter(p => p[1] !== null && p[1] !== undefined)
+      .map(p => ({ x: p[0], y: p[1] }));
+    const fr = filterSeriesByRange(ln.funding_series || [], rangeFunding)
+      .filter(p => p[1] !== null && p[1] !== undefined)
+      .map(p => ({ x: p[0], y: p[1] * 100 }));
+    idxDatasets.push({
+      label: ln.line_label || `${ln.exchange}:${ln.symbol}`,
+      data: idx,
+      borderColor: c,
+      backgroundColor: c,
+      parsing: false,
+      pointRadius: 0,
+      borderWidth: 1.6,
+      tension: 0.15,
+    });
+    frDatasets.push({
+      label: ln.line_label || `${ln.exchange}:${ln.symbol}`,
+      data: fr,
+      borderColor: c,
+      backgroundColor: c,
+      parsing: false,
+      pointRadius: 1.8,
+      pointHoverRadius: 3,
+      borderWidth: 1.3,
+      tension: 0,
+    });
+  });
+
+  const common = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        type: 'linear',
+        ticks: {
+          color: '#8b949e',
+          callback: v => {
+            const d = new Date(Number(v));
+            return `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+          }
+        },
+        grid: { color: '#21262d' }
+      },
+      y: {
+        ticks: { color: '#8b949e' },
+        grid: { color: '#21262d' }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: { mode: 'nearest', intersect: false }
+    }
+  };
+
+  if (chartTsIndex) chartTsIndex.destroy();
+  chartTsIndex = new Chart(document.getElementById('chart-ts-index'), {
+    type: 'line',
+    data: { datasets: idxDatasets },
+    options: {
+      ...common,
+      plugins: {
+        ...common.plugins,
+        title: { display: false },
+      },
+    }
+  });
+
+  if (chartTsFunding) chartTsFunding.destroy();
+  chartTsFunding = new Chart(document.getElementById('chart-ts-funding'), {
+    type: 'line',
+    data: { datasets: frDatasets },
+    options: {
+      ...common,
+      scales: {
+        ...common.scales,
+        y: {
+          ...common.scales.y,
+          ticks: {
+            color: '#8b949e',
+            callback: v => `${Number(v).toFixed(4)}%`
+          }
+        }
+      },
+      plugins: {
+        ...common.plugins,
+        title: { display: false },
+        tooltip: {
+          mode: 'nearest',
+          intersect: false,
+          callbacks: {
+            label: (ctx) => {
+              const name = ctx.dataset.label || '';
+              const v = (ctx.parsed && typeof ctx.parsed.y === 'number') ? ctx.parsed.y : null;
+              return `${name}: ${v == null ? '—' : v.toFixed(4) + '%'}`;
+            }
+          }
+        }
+      },
+    }
+  });
+  renderHtmlLegend(chartTsIndex, 'legend-ts-index');
+  renderHtmlLegend(chartTsFunding, 'legend-ts-funding', true);
+}
+
+function renderHtmlLegend(chart, containerId, isFunding = false) {
+  const box = document.getElementById(containerId);
+  if (!box || !chart) return;
+  box.innerHTML = '';
+  chart.data.datasets.forEach((ds, i) => {
+    const item = document.createElement('span');
+    item.className = 'legend-item' + (chart.isDatasetVisible(i) ? '' : ' off');
+    item.title = isFunding ? '点击显示/隐藏 funding 线（%）' : '点击显示/隐藏 index 线';
+    const dot = document.createElement('span');
+    dot.className = 'legend-dot';
+    dot.style.background = ds.borderColor;
+    const txt = document.createElement('span');
+    txt.textContent = ds.label || `line-${i + 1}`;
+    item.appendChild(dot);
+    item.appendChild(txt);
+    item.addEventListener('click', () => {
+      const visible = chart.isDatasetVisible(i);
+      chart.setDatasetVisibility(i, !visible);
+      chart.update();
+      item.className = 'legend-item' + (chart.isDatasetVisible(i) ? '' : ' off');
+    });
+    box.appendChild(item);
+  });
+}
+
+// ─────────────────────────────────────────────
+// Tab 1: Index Components
+// ─────────────────────────────────────────────
+function renderIC(sym) {
+  const rec = icData.data.find(r => r.symbol === sym);
+  const title = document.getElementById('ic-title');
+  const tbody = document.querySelector('#ic-table tbody');
+  const pairBody = document.querySelector('#ic-pair-table tbody');
+
+  if (!rec || Object.keys(rec.exchanges).length === 0) {
+    title.textContent = sym + ' — 无指数成分数据';
+    tbody.innerHTML = '<tr><td colspan="3" class="na">暂无数据</td></tr>';
+    pairBody.innerHTML = '<tr><td colspan="3" class="na">暂无数据</td></tr>';
+    renderICCharts([], sym);
+    return;
+  }
+
+  // 收集有 contracts/components 的交易所
+  const exs = Object.entries(rec.exchanges)
+    .filter(([_, v]) => v && v.contracts && v.contracts.length > 0);
+
+  const contractCount = exs.reduce((n, [, v]) => n + (v.contracts || []).length, 0);
+  title.textContent = `${sym} — ${contractCount} 个交易对（${exs.length} 个交易所）`;
+
+  // 表格行：按交易所分组
+  tbody.innerHTML = '';
+  const pairRows = [];
+  if (overlapData && overlapData.asset_classes) {
+    for (const cls of Object.values(overlapData.asset_classes)) {
+      const list = (cls && Array.isArray(cls.underlying)) ? cls.underlying : [];
+      const hit = list.find(u => u.symbol === sym);
+      if (hit && Array.isArray(hit.pairs)) {
+        hit.pairs.forEach(p => {
+          const ov = (p.overlap_pct || '').toString().replace('%', '');
+          pairRows.push({
+            a_exchange: p.exchange_a,
+            a_symbol: p.symbol_a,
+            b_exchange: p.exchange_b,
+            b_symbol: p.symbol_b,
+            overlap_pct: Number(ov || 0),
+            overlap_pct_text: p.overlap_pct || '0%',
+            both_have_data: p.both_have_data !== false,
+          });
+        });
+      }
+    }
+  }
+
+  exs.forEach(([ex, v]) => {
+    const contracts = (v.contracts || []);
+    contracts.forEach(ca => {
+      // 合约级标题：交易对 -> 交易所
+      const hdr = document.createElement('tr');
+      hdr.innerHTML = `
+        <td colspan="3" style="background:#21262d;padding:6px 10px;">
+          <div style="color:${EX_COLORS[ex]||'#58a6ff'};font-weight:600;">
+            ${ca.symbol || '-'} (${ca.base || '-'}/${ca.quote || '-'})  ·  ${ex}
+          </div>
+        </td>
+      `;
+      tbody.appendChild(hdr);
+
+      // 合约对应成分列表
+      const comps = (ca.components || []);
+      // 新增：每个合约的 Hyperliquid 依赖占比
+      const totalW = comps.reduce((s, c) => s + (parsePctLike(c.weight) || 0), 0);
+      const hlW = comps.reduce((s, c) => {
+        const src = (c.source || '').toString().trim().toLowerCase();
+        if (src === 'hyperliquid') return s + (parsePctLike(c.weight) || 0);
+        return s;
+      }, 0);
+      const hlDep = totalW > 0 ? (hlW / totalW) * 100 : null;
+      const trDep = document.createElement('tr');
+      trDep.innerHTML = `
+        <td style="padding-left:16px;color:var(--muted)">Hyperliquid依赖</td>
+        <td colspan="2">${hlDep == null ? '<span class="na">—</span>' : (fmt(hlDep, 2) + '%')}</td>
+      `;
+      tbody.appendChild(trDep);
+
+      if (comps.length === 0) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="padding-left:16px;color:var(--muted)">resource</td>
+          <td colspan="2" class="na">暂无成分数据</td>
+        `;
+        tbody.appendChild(tr);
+      }
+      comps.forEach(c => {
+        const w = parsePctLike(c.weight);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="padding-left:16px;color:var(--muted)">${c.source || '-'}</td>
+          <td>${c.spot_pair || '<span class="na">—</span>'}</td>
+          <td>${w != null ? (fmt(w, 2) + '%') : '<span class="na">—</span>'}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // 合约间隔
+      const sep = document.createElement('tr');
+      sep.innerHTML = `<td colspan="3" style="height:4px;border-bottom:1px solid #21262d;background:transparent;"></td>`;
+      tbody.appendChild(sep);
+    });
+  });
+
+  renderICPairTable(pairRows);
+
+  renderICCharts(exs, sym, pairRows);
+}
+
+function renderICPairTable(pairRows) {
+  const tbody = document.querySelector('#ic-pair-table tbody');
+  const rows = [];
+  const seen = new Set();
+  (pairRows || []).forEach(p => {
+    const aKey = `${p.a_exchange || ''}|${p.a_symbol || ''}`;
+    const bKey = `${p.b_exchange || ''}|${p.b_symbol || ''}`;
+    const key = aKey < bKey ? `${aKey}__${bKey}` : `${bKey}__${aKey}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    rows.push({
+      pair_a: `${p.a_symbol || '-'} @ ${p.a_exchange || '-'}`,
+      pair_b: `${p.b_symbol || '-'} @ ${p.b_exchange || '-'}`,
+      overlap_pct: Number(p.overlap_pct) || 0,
+    });
+  });
+
+  if (rows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" class="na">暂无数据</td></tr>';
+    updateICPairSortIndicators();
+    return;
+  }
+
+  rows.sort((x, y) => {
+    const k = icPairSort.key;
+    const d = icPairSort.dir === 'asc' ? 1 : -1;
+    if (k === 'overlap_pct') return (x[k] - y[k]) * d;
+    return String(x[k]).localeCompare(String(y[k]), 'zh-CN') * d;
+  });
+
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.pair_a}</td>
+      <td>${r.pair_b}</td>
+      <td>${fmt(r.overlap_pct, 2)}%</td>
+    </tr>
+  `).join('');
+  updateICPairSortIndicators();
+}
+
+function updateICPairSortIndicators() {
+  const headers = document.querySelectorAll('#ic-pair-table thead th.sortable');
+  headers.forEach(th => {
+    const key = th.getAttribute('data-key');
+    const mark = th.querySelector('.sort-indicator');
+    if (!mark) return;
+    mark.textContent = (key === icPairSort.key) ? (icPairSort.dir === 'asc' ? '▲' : '▼') : '';
+  });
+}
+
+function initICPairSorting() {
+  const headers = document.querySelectorAll('#ic-pair-table thead th.sortable');
+  headers.forEach(th => {
+    if (th.dataset.bound === '1') return;
+    th.addEventListener('click', () => {
+      const key = th.getAttribute('data-key');
+      if (!key) return;
+      if (icPairSort.key === key) {
+        icPairSort.dir = icPairSort.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        icPairSort.key = key;
+        icPairSort.dir = (key === 'overlap_pct') ? 'desc' : 'asc';
+      }
+      renderIC(currentSymbol || (document.getElementById('sym-select') || {}).value);
+    });
+    th.dataset.bound = '1';
+  });
+  updateICPairSortIndicators();
+}
+
+function renderICCharts(exs, sym, pairRows) {
+  const chartEnabled = typeof Chart !== 'undefined';
+  if (exs.length === 0) {
+    if (chartICBar) { chartICBar.destroy(); chartICBar = null; }
+    chartICDev = null;
+    return;
+  }
+
+  const allComps = exs.flatMap(([ex, v]) =>
+    (v.contracts || []).flatMap(ct =>
+      (ct.components || []).map(c => ({ source: c.source, ex, w: (parsePctLike(c.weight) || 0) }))
+    )
+  );
+  if (allComps.length === 0) return;
+  const sources = [...new Set(allComps.map(c => c.source))];
+
+  const barDatasets = exs.map(([ex, v]) => ({
+    label: ex,
+    data: sources.map(src => { const m = allComps.find(c => c.source===src && c.ex===ex); return m ? m.w : 0; }),
+    backgroundColor: (EX_COLORS[ex]||'#58a6ff')+'aa',
+    borderColor: EX_COLORS[ex]||'#58a6ff', borderWidth: 1, borderRadius: 3,
+  }));
+
+  const copts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ labels:{ color:'#8b949e', font:{ size:11 }, boxWidth:12 }}, tooltip:{ backgroundColor:'#21262d', titleColor:'#c9d1d9', bodyColor:'#8b949e', borderColor:'#30363d', borderWidth:1 }}, scales:{ x:{ ticks:{ color:'#8b949e', font:{ size:10 }}, grid:{ color:'#21262d' }}, y:{ ticks:{ color:'#8b949e', font:{ size:11 }}, grid:{ color:'#21262d' }}} };
+
+  if (chartEnabled) {
+    if (chartICBar) chartICBar.destroy();
+    chartICBar = new Chart(document.getElementById('chart-ic-bar'), { type:'bar', data:{ labels:sources, datasets:barDatasets }, options:{ ...copts, plugins:{ ...copts.plugins, title:{ display:false }}}});
+  }
+
+  if (chartEnabled && chartICDev && chartICDev.destroy) chartICDev.destroy();
+  if (!Array.isArray(pairRows) || pairRows.length === 0) return;
+
+  // 构建 n*n 交易对矩阵
+  const contracts = [];
+  exs.forEach(([ex, v]) => {
+    (v.contracts || []).forEach(c => contracts.push({ ex, sym: c.symbol, key: `${ex}|${c.symbol}` }));
+  });
+  const uniqMap = new Map();
+  contracts.forEach(c => uniqMap.set(c.key, c));
+  const nodes = [...uniqMap.values()];
+  const labels = nodes.map(n => `${n.ex}:${n.sym}`);
+  const axisLabels = nodes.map((_, i) => String(i + 1));
+  const indexByKey = new Map(nodes.map((n, i) => [n.key, i]));
+
+  const matrix = Array.from({ length: labels.length }, () => Array(labels.length).fill(null));
+  nodes.forEach((n, i) => { matrix[i][i] = 100; });
+  pairRows.forEach(p => {
+    const a = indexByKey.get(`${p.a_exchange}|${p.a_symbol}`);
+    const b = indexByKey.get(`${p.b_exchange}|${p.b_symbol}`);
+    if (a == null || b == null) return;
+    const v = Number(p.overlap_pct) || 0;
+    matrix[a][b] = v;
+    matrix[b][a] = v;
+  });
+
+  const colorOf = (v) => {
+    const t = Math.max(0, Math.min(100, v)) / 100;
+    const r = Math.round(220 - 170 * t);  // high overlap => less red
+    const g = Math.round(80 + 130 * t);   // high overlap => more green
+    const b = Math.round(80 + 40 * t);
+    return `rgba(${r},${g},${b},0.9)`;
+  };
+
+  const canvas = document.getElementById('chart-ic-dev');
+  const legend = document.getElementById('ic-heatmap-legend');
+  const dpr = window.devicePixelRatio || 1;
+  const cw = canvas.clientWidth || 600;
+  const ch = canvas.clientHeight || 360;
+  canvas.width = Math.floor(cw * dpr);
+  canvas.height = Math.floor(ch * dpr);
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cw, ch);
+
+  const topPad = 12;
+  const rightPad = 14;
+  const bottomPad = 30;
+  const leftPad = 34;
+  const usableW = Math.max(20, cw - leftPad - rightPad);
+  const usableH = Math.max(20, ch - topPad - bottomPad);
+  const gridW = Math.min(usableW, usableH);
+  const gx = leftPad + Math.max(0, (usableW - gridW) / 2); // center horizontally in draw area
+  const gy = topPad + Math.max(0, (usableH - gridW) / 2);  // center vertically in draw area
+  const n = Math.max(labels.length, 1);
+  const cell = gridW / n;
+
+  // cells
+  for (let y = 0; y < n; y++) {
+    for (let x = 0; x < n; x++) {
+      const v = matrix[y][x];
+      ctx.fillStyle = (v == null) ? 'rgba(88,166,255,0.08)' : colorOf(v);
+      ctx.fillRect(gx + x * cell, gy + y * cell, cell - 1, cell - 1);
+    }
+  }
+  // grid border
+  ctx.strokeStyle = '#30363d';
+  ctx.strokeRect(gx, gy, gridW, gridW);
+
+  // axis labels: use index number, full mapping shown in legend block
+  ctx.fillStyle = '#8b949e';
+  ctx.font = '11px monospace';
+  for (let i = 0; i < n; i++) {
+    const tag = axisLabels[i];
+    // y labels
+    ctx.fillText(tag, 8, gy + (i + 0.65) * cell);
+    // x labels
+    ctx.fillText(tag, gx + (i + 0.45) * cell, gy + gridW + 16);
+  }
+
+  // tiny color guide
+  const lgx = gx + gridW - 120;
+  const lgy = gy + 4;
+  for (let k = 0; k < 80; k++) {
+    const v = (k / 79) * 100;
+    ctx.fillStyle = colorOf(v);
+    ctx.fillRect(lgx + k, lgy, 1, 8);
+  }
+  ctx.fillStyle = '#8b949e';
+  ctx.font = '10px monospace';
+  ctx.fillText('0', lgx - 10, lgy + 8);
+  ctx.fillText('100', lgx + 83, lgy + 8);
+
+  // full label mapping
+  if (legend) {
+    legend.innerHTML = axisLabels.map((no, i) => `${no} = ${labels[i]}`).join(' | ');
+  }
+  chartICDev = null;
+}
+
+// ─────────────────────────────────────────────
+// Tab 2: Futures Overview
+// ─────────────────────────────────────────────
+function renderOverview() {
+  const tbody = document.querySelector('#overview-table tbody');
+  const title = document.getElementById('overview-title');
+  const qSymbolEl = document.getElementById('ov-q-symbol');
+  const exEl = document.getElementById('ov-exchange');
+  const undEl = document.getElementById('ov-underlying');
+  const clsEl = document.getElementById('ov-asset-class');
+  const resetEl = document.getElementById('ov-reset');
+  if (!overviewData || !Array.isArray(overviewData.data)) {
+    title.textContent = 'Futures 总览（无数据）';
+    tbody.innerHTML = '<tr><td colspan="14" class="na">暂无数据</td></tr>';
+    return;
+  }
+
+  const allRows = overviewData.data.map(r => ({
+    ...r,
+    symbol_display: r.registry_symbol || r.native_symbol || r.symbol || ''
+  }));
+
+  if (!exEl.dataset.ready) {
+    const appendOptions = (el, values) => {
+      values.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        el.appendChild(opt);
+      });
+    };
+    appendOptions(exEl, [...new Set(allRows.map(r => r.exchange).filter(Boolean))].sort());
+    appendOptions(undEl, [...new Set(allRows.map(r => r.underlying).filter(Boolean))].sort());
+    appendOptions(clsEl, [...new Set(allRows.map(r => r.asset_class).filter(Boolean))].sort());
+
+    const onFilterChange = () => renderOverview();
+    qSymbolEl.addEventListener('input', onFilterChange);
+    exEl.addEventListener('change', onFilterChange);
+    undEl.addEventListener('change', onFilterChange);
+    clsEl.addEventListener('change', onFilterChange);
+    resetEl.addEventListener('click', () => {
+      qSymbolEl.value = '';
+      exEl.value = '';
+      undEl.value = '';
+      clsEl.value = '';
+      ovSortKey = '';
+      ovSortDir = 'desc';
+      updateOverviewSortHeader();
+      renderOverview();
+    });
+
+    // 可点击表头排序
+    const keyByIdx = [
+      'exchange', 'symbol_display', 'underlying', 'asset_class',
+      'base', 'quote',
+      'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate',
+      'market_type', 'contract_type', 'timestamp'
+    ];
+    const ths = Array.from(document.querySelectorAll('#overview-table thead th'));
+    ths.forEach((th, idx) => {
+      const k = keyByIdx[idx];
+      if (!k) return;
+      th.style.cursor = 'pointer';
+      th.title = '点击排序';
+      th.addEventListener('click', () => {
+        if (ovSortKey === k) {
+          ovSortDir = ovSortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          ovSortKey = k;
+          ovSortDir = (k === 'timestamp' || k === 'price' || k === 'oi_base' || k === 'oi_value' || k === 'volume_24h' || k === 'funding_rate') ? 'desc' : 'asc';
+        }
+        updateOverviewSortHeader();
+        renderOverview();
+      });
+    });
+    updateOverviewSortHeader();
+    exEl.dataset.ready = '1';
+  }
+
+  const q = (qSymbolEl.value || '').trim().toUpperCase();
+  const exFilter = exEl.value;
+  const undFilter = undEl.value;
+  const clsFilter = clsEl.value;
+
+  const rows = allRows.filter(r => {
+    if (q && !(r.symbol_display || '').toUpperCase().includes(q)) return false;
+    if (exFilter && r.exchange !== exFilter) return false;
+    if (undFilter && r.underlying !== undFilter) return false;
+    if (clsFilter && r.asset_class !== clsFilter) return false;
+    return true;
+  });
+
+  if (ovSortKey) {
+    rows.sort((a, b) => {
+      const ka = a[ovSortKey];
+      const kb = b[ovSortKey];
+      // 时间字段按可解析时间排序
+      if (ovSortKey === 'timestamp') {
+        const ta = ka ? Date.parse(ka) : null;
+        const tb = kb ? Date.parse(kb) : null;
+        return cmpNullable(ta, tb, ovSortDir);
+      }
+      // 数值字段排序
+      if (['price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate'].includes(ovSortKey)) {
+        const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
+        const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
+        return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, ovSortDir);
+      }
+      return cmpNullable(ka, kb, ovSortDir);
+    });
+  }
+
+  title.textContent = `Futures 总览（${rows.length}/${allRows.length} rows）`;
+  tbody.innerHTML = '';
+
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.exchange || '<span class="na">—</span>'}</td>
+      <td>${r.symbol_display || '<span class="na">—</span>'}</td>
+      <td>${r.underlying || '<span class="na">—</span>'}</td>
+      <td>${r.asset_class || '<span class="na">—</span>'}</td>
+      <td>${r.base || '<span class="na">—</span>'}</td>
+      <td>${r.quote || '<span class="na">—</span>'}</td>
+      <td>${r.price != null ? ('$' + fmt(r.price, 6)) : '<span class="na">—</span>'}</td>
+      <td>${r.oi_base != null ? fmtOI(r.oi_base) : '<span class="na">—</span>'}</td>
+      <td>${r.oi_value != null ? fmtOI(r.oi_value) : '<span class="na">—</span>'}</td>
+      <td>${r.volume_24h != null ? fmtOI(r.volume_24h) : '<span class="na">—</span>'}</td>
+      <td>${r.funding_rate != null ? (fmt(Number(r.funding_rate) * 100, 4) + '%') : '<span class="na">—</span>'}</td>
+      <td>${r.market_type || '<span class="na">—</span>'}</td>
+      <td>${r.contract_type || '<span class="na">—</span>'}</td>
+      <td>${r.timestamp || '<span class="na">—</span>'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function updateOverviewSortHeader() {
+  const keyByIdx = [
+    'exchange', 'symbol_display', 'underlying', 'asset_class',
+    'base', 'quote',
+    'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate',
+    'market_type', 'contract_type', 'timestamp'
+  ];
+  const ths = Array.from(document.querySelectorAll('#overview-table thead th'));
+  ths.forEach((th, idx) => {
+    const base = (th.dataset.baseText || th.textContent || '').replace(/\s*[↑↓]$/, '');
+    th.dataset.baseText = base;
+    const k = keyByIdx[idx];
+    if (k && k === ovSortKey) {
+      th.textContent = `${base} ${ovSortDir === 'asc' ? '↑' : '↓'}`;
+    } else {
+      th.textContent = base;
+    }
+  });
+}
+
+// ─────────────────────────────────────────────
+// Tab 3: Spot Overview
+// ─────────────────────────────────────────────
+function renderSpotOverview() {
+  const tbody = document.querySelector('#spot-overview-table tbody');
+  const title = document.getElementById('spot-overview-title');
+  const qSymbolEl = document.getElementById('sov-q-symbol');
+  const exEl = document.getElementById('sov-exchange');
+  const undEl = document.getElementById('sov-underlying');
+  const clsEl = document.getElementById('sov-asset-class');
+  const resetEl = document.getElementById('sov-reset');
+
+  if (!spotOverviewData || !Array.isArray(spotOverviewData.data)) {
+    title.textContent = 'Spot 总览（无数据）';
+    tbody.innerHTML = '<tr><td colspan="12" class="na">暂无数据</td></tr>';
+    return;
+  }
+
+  const allRows = spotOverviewData.data.map(r => ({
+    ...r,
+    symbol_display: r.registry_symbol || r.native_symbol || r.symbol || ''
+  }));
+
+  if (!exEl.dataset.ready) {
+    const appendOptions = (el, values) => {
+      values.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        el.appendChild(opt);
+      });
+    };
+    appendOptions(exEl, [...new Set(allRows.map(r => r.exchange).filter(Boolean))].sort());
+    appendOptions(undEl, [...new Set(allRows.map(r => r.underlying).filter(Boolean))].sort());
+    appendOptions(clsEl, [...new Set(allRows.map(r => r.asset_class).filter(Boolean))].sort());
+
+    const onFilterChange = () => renderSpotOverview();
+    qSymbolEl.addEventListener('input', onFilterChange);
+    exEl.addEventListener('change', onFilterChange);
+    undEl.addEventListener('change', onFilterChange);
+    clsEl.addEventListener('change', onFilterChange);
+    resetEl.addEventListener('click', () => {
+      qSymbolEl.value = '';
+      exEl.value = '';
+      undEl.value = '';
+      clsEl.value = '';
+      sovSortKey = '';
+      sovSortDir = 'desc';
+      updateSpotOverviewSortHeader();
+      renderSpotOverview();
+    });
+
+    const keyByIdx = [
+      'exchange', 'symbol_display', 'underlying', 'asset_class',
+      'base', 'quote', 'price', 'volume_24h', 'depth_bid_2p', 'depth_ask_2p',
+      'market_type', 'timestamp'
+    ];
+    const ths = Array.from(document.querySelectorAll('#spot-overview-table thead th'));
+    ths.forEach((th, idx) => {
+      const k = keyByIdx[idx];
+      if (!k) return;
+      th.style.cursor = 'pointer';
+      th.title = '点击排序';
+      th.addEventListener('click', () => {
+        if (sovSortKey === k) {
+          sovSortDir = sovSortDir === 'asc' ? 'desc' : 'asc';
+        } else {
+          sovSortKey = k;
+          sovSortDir = (k === 'timestamp' || k === 'price' || k === 'volume_24h' || k === 'depth_bid_2p' || k === 'depth_ask_2p') ? 'desc' : 'asc';
+        }
+        updateSpotOverviewSortHeader();
+        renderSpotOverview();
+      });
+    });
+    updateSpotOverviewSortHeader();
+    exEl.dataset.ready = '1';
+  }
+
+  const q = (qSymbolEl.value || '').trim().toUpperCase();
+  const exFilter = exEl.value;
+  const undFilter = undEl.value;
+  const clsFilter = clsEl.value;
+
+  const rows = allRows.filter(r => {
+    if (q && !(r.symbol_display || '').toUpperCase().includes(q)) return false;
+    if (exFilter && r.exchange !== exFilter) return false;
+    if (undFilter && r.underlying !== undFilter) return false;
+    if (clsFilter && r.asset_class !== clsFilter) return false;
+    return true;
+  });
+
+  if (sovSortKey) {
+    rows.sort((a, b) => {
+      const ka = a[sovSortKey];
+      const kb = b[sovSortKey];
+      if (sovSortKey === 'timestamp') {
+        const ta = ka ? Date.parse(ka) : null;
+        const tb = kb ? Date.parse(kb) : null;
+        return cmpNullable(ta, tb, sovSortDir);
+      }
+      if (['price', 'volume_24h', 'depth_bid_2p', 'depth_ask_2p'].includes(sovSortKey)) {
+        const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
+        const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
+        return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, sovSortDir);
+      }
+      return cmpNullable(ka, kb, sovSortDir);
+    });
+  }
+
+  title.textContent = `Spot 总览（${rows.length}/${allRows.length} rows）`;
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.exchange || '<span class="na">—</span>'}</td>
+      <td>${r.symbol_display || '<span class="na">—</span>'}</td>
+      <td>${r.underlying || '<span class="na">—</span>'}</td>
+      <td>${r.asset_class || '<span class="na">—</span>'}</td>
+      <td>${r.base || '<span class="na">—</span>'}</td>
+      <td>${r.quote || '<span class="na">—</span>'}</td>
+      <td>${r.price != null ? ('$' + fmt(r.price, 6)) : '<span class="na">—</span>'}</td>
+      <td>${r.volume_24h != null ? fmtOI(r.volume_24h) : '<span class="na">—</span>'}</td>
+      <td>${r.depth_bid_2p != null ? fmtOI(r.depth_bid_2p) : '<span class="na">—</span>'}</td>
+      <td>${r.depth_ask_2p != null ? fmtOI(r.depth_ask_2p) : '<span class="na">—</span>'}</td>
+      <td>${r.market_type || '<span class="na">—</span>'}</td>
+      <td>${r.timestamp || '<span class="na">—</span>'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function updateSpotOverviewSortHeader() {
+  const keyByIdx = [
+    'exchange', 'symbol_display', 'underlying', 'asset_class',
+    'base', 'quote', 'price', 'volume_24h', 'depth_bid_2p', 'depth_ask_2p',
+    'market_type', 'timestamp'
+  ];
+  const ths = Array.from(document.querySelectorAll('#spot-overview-table thead th'));
+  ths.forEach((th, idx) => {
+    const base = (th.dataset.baseText || th.textContent || '').replace(/\s*[↑↓]$/, '');
+    th.dataset.baseText = base;
+    const k = keyByIdx[idx];
+    if (k && k === sovSortKey) {
+      th.textContent = `${base} ${sovSortDir === 'asc' ? '↑' : '↓'}`;
+    } else {
+      th.textContent = base;
+    }
+  });
+}
+
+// ─────────────────────────────────────────────
+// Tab 4: Session Risk
+// ─────────────────────────────────────────────
+function fmtAge(sec) {
+  if (sec === null || sec === undefined || sec === '') return null;
+  const s = Number(sec);
+  if (!Number.isFinite(s)) return null;
+  if (s < 60) return `${Math.round(s)}s`;
+  if (s < 3600) return `${Math.round(s / 60)}m`;
+  if (s < 86400) return `${(s / 3600).toFixed(1)}h`;
+  return `${(s / 86400).toFixed(1)}d`;
+}
+
+function badge(text, cls) {
+  const safe = text || 'unknown';
+  return `<span class="badge ${cls || safe}">${safe}</span>`;
+}
+
+function initSessionRiskControls() {
+  const qEl = document.getElementById('sr-q-symbol');
+  const clsEl = document.getElementById('sr-asset-class');
+  const riskEl = document.getElementById('sr-risk');
+  const sessionEl = document.getElementById('sr-session');
+  const resetEl = document.getElementById('sr-reset');
+  if (!qEl || !clsEl || !riskEl || !sessionEl || !resetEl || !sessionRiskData) return;
+  if (qEl.dataset.ready) return;
+
+  const rows = sessionRiskData.underlyings || [];
+  const appendOptions = (el, values) => {
+    values.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v;
+      opt.textContent = v;
+      el.appendChild(opt);
+    });
+  };
+  appendOptions(clsEl, [...new Set(rows.map(r => r.asset_class).filter(Boolean))].sort());
+  appendOptions(riskEl, [...new Set(rows.map(r => r.transition_risk).filter(Boolean))].sort());
+  appendOptions(sessionEl, [...new Set(rows.map(r => r.session_state).filter(Boolean))].sort());
+
+  const onChange = () => renderSessionRisk();
+  qEl.addEventListener('input', onChange);
+  clsEl.addEventListener('change', onChange);
+  riskEl.addEventListener('change', onChange);
+  sessionEl.addEventListener('change', onChange);
+  resetEl.addEventListener('click', () => {
+    qEl.value = '';
+    clsEl.value = '';
+    riskEl.value = '';
+    sessionEl.value = '';
+    srSortKey = 'spread_bps';
+    srSortDir = 'desc';
+    srSelectedUnderlying = '';
+    updateSessionRiskSortHeader();
+    renderSessionRisk();
+  });
+
+  const keyByIdx = [
+    'underlying', 'asset_class', 'session_state', 'liquidity_tier', 'venue_count', 'usable_venue_count',
+    'fresh_venue_count', 'stale_count', 'min_price', 'median_price', 'max_price', 'spread_bps', null, 'transition_risk'
+  ];
+  Array.from(document.querySelectorAll('#sr-underlying-table thead th')).forEach((th, idx) => {
+    const k = keyByIdx[idx];
+    if (!k) return;
+    th.style.cursor = 'pointer';
+    th.title = '点击排序';
+    th.addEventListener('click', () => {
+      if (srSortKey === k) {
+        srSortDir = srSortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        srSortKey = k;
+        srSortDir = ['spread_bps', 'venue_count', 'usable_venue_count', 'fresh_venue_count', 'stale_count', 'min_price', 'median_price', 'max_price'].includes(k) ? 'desc' : 'asc';
+      }
+      updateSessionRiskSortHeader();
+      renderSessionRisk();
+    });
+  });
+
+  qEl.dataset.ready = '1';
+  updateSessionRiskSortHeader();
+}
+
+function filteredSessionRiskUnderlyings() {
+  const q = (document.getElementById('sr-q-symbol')?.value || '').trim().toUpperCase();
+  const clsFilter = document.getElementById('sr-asset-class')?.value || '';
+  const riskFilter = document.getElementById('sr-risk')?.value || '';
+  const sessionFilter = document.getElementById('sr-session')?.value || '';
+  const allRows = (sessionRiskData && sessionRiskData.underlyings) ? sessionRiskData.underlyings.slice() : [];
+
+  const rows = allRows.filter(r => {
+    if (q && !(r.underlying || '').toUpperCase().includes(q)) return false;
+    if (clsFilter && r.asset_class !== clsFilter) return false;
+    if (riskFilter && r.transition_risk !== riskFilter) return false;
+    if (sessionFilter && r.session_state !== sessionFilter) return false;
+    return true;
+  });
+
+  rows.sort((a, b) => {
+    const ka = a[srSortKey];
+    const kb = b[srSortKey];
+    if (['spread_bps', 'venue_count', 'usable_venue_count', 'fresh_venue_count', 'stale_count', 'min_price', 'median_price', 'max_price'].includes(srSortKey)) {
+      const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
+      const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
+      return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, srSortDir);
+    }
+    return cmpNullable(ka, kb, srSortDir);
+  });
+
+  return { rows, total: allRows.length };
+}
+
+function renderSessionRisk() {
+  const title = document.getElementById('sr-title');
+  const tbody = document.querySelector('#sr-underlying-table tbody');
+  const detailBody = document.querySelector('#sr-detail-table tbody');
+  if (!title || !tbody || !detailBody) return;
+  if (!sessionRiskData || !Array.isArray(sessionRiskData.underlyings)) {
+    title.textContent = 'Session 风险（无数据）';
+    tbody.innerHTML = '<tr><td colspan="14" class="na">暂无数据</td></tr>';
+    detailBody.innerHTML = '<tr><td colspan="14" class="na">暂无数据</td></tr>';
+    return;
+  }
+
+  const { rows, total } = filteredSessionRiskUnderlyings();
+  title.textContent = `Session 风险（${rows.length}/${total} underlyings，as_of ${sessionRiskData.as_of || '-'})`;
+
+  if (!srSelectedUnderlying || !rows.find(r => r.underlying === srSelectedUnderlying)) {
+    const spcx = rows.find(r => r.underlying === 'SPCX');
+    srSelectedUnderlying = (spcx || rows[0] || {}).underlying || '';
+  }
+
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    if (r.underlying === srSelectedUnderlying) tr.style.background = '#1c2128';
+    tr.style.cursor = 'pointer';
+    tr.title = '点击查看交易所明细';
+    tr.innerHTML = `
+      <td>${r.underlying || '<span class="na">—</span>'}</td>
+      <td>${r.asset_class || '<span class="na">—</span>'}</td>
+      <td>${badge(r.session_state, r.session_state)}</td>
+      <td>${badge(r.liquidity_tier, r.liquidity_tier)}</td>
+      <td>${r.venue_count ?? '<span class="na">—</span>'}</td>
+      <td>${r.usable_venue_count ?? '<span class="na">—</span>'}</td>
+      <td>${r.fresh_venue_count ?? '<span class="na">—</span>'}</td>
+      <td>${r.stale_count ?? '<span class="na">—</span>'}</td>
+      <td>${r.min_price != null ? '$' + fmt(r.min_price, 6) : '<span class="na">—</span>'}</td>
+      <td>${r.median_price != null ? '$' + fmt(r.median_price, 6) : '<span class="na">—</span>'}</td>
+      <td>${r.max_price != null ? '$' + fmt(r.max_price, 6) : '<span class="na">—</span>'}</td>
+      <td class="${(r.spread_bps || 0) >= 50 ? 'dev-high' : (r.spread_bps || 0) >= 15 ? 'dev-warn' : 'dev-ok'}">${r.spread_bps != null ? fmt(r.spread_bps, 2) : '<span class="na">—</span>'}</td>
+      <td>${r.medium_bps_threshold != null ? `${fmt(r.medium_bps_threshold, 0)}/${fmt(r.high_bps_threshold, 0)}` : '<span class="na">—</span>'}</td>
+      <td>${badge(r.transition_risk, r.transition_risk)}</td>
+    `;
+    tr.addEventListener('click', () => {
+      srSelectedUnderlying = r.underlying;
+      renderSessionRisk();
+    });
+    tbody.appendChild(tr);
+  });
+
+  renderSessionRiskDetail();
+  updateSessionRiskSortHeader();
+}
+
+function renderSessionRiskDetail() {
+  const title = document.getElementById('sr-detail-title');
+  const tbody = document.querySelector('#sr-detail-table tbody');
+  if (!title || !tbody || !sessionRiskData) return;
+  const rec = (sessionRiskData.underlyings || []).find(r => r.underlying === srSelectedUnderlying);
+  if (!rec) {
+    title.textContent = '交易所明细';
+    tbody.innerHTML = '<tr><td colspan="14" class="na">请选择 underlying</td></tr>';
+    return;
+  }
+
+  title.textContent = `${rec.underlying} 交易所明细（median ${rec.median_price != null ? '$' + fmt(rec.median_price, 6) : '—'}，spread ${rec.spread_bps != null ? fmt(rec.spread_bps, 2) + ' bps' : '—'}）`;
+  const venues = (rec.venues || []).slice().sort((a, b) => (a.exchange || '').localeCompare(b.exchange || '') || (a.symbol || '').localeCompare(b.symbol || ''));
+  tbody.innerHTML = '';
+  venues.forEach(v => {
+    const link = v.source_rule_url ? `<a class="rule-link" href="${v.source_rule_url}" target="_blank" rel="noopener">source</a>` : '<span class="na">—</span>';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="ex-name">${v.exchange || '<span class="na">—</span>'}</td>
+      <td>${v.symbol || '<span class="na">—</span>'}</td>
+      <td>${v.price != null ? '$' + fmt(v.price, 6) : '<span class="na">—</span>'}</td>
+      <td>${v.index_price != null ? '$' + fmt(v.index_price, 6) : '<span class="na">—</span>'}</td>
+      <td>${v.mark_price != null ? '$' + fmt(v.mark_price, 6) : '<span class="na">—</span>'}</td>
+      <td>${v.last_price != null ? '$' + fmt(v.last_price, 6) : '<span class="na">—</span>'}</td>
+      <td class="${Math.abs(Number(v.basis_to_median_bps || 0)) >= 50 ? 'dev-high' : Math.abs(Number(v.basis_to_median_bps || 0)) >= 15 ? 'dev-warn' : 'dev-ok'}">${v.basis_to_median_bps != null ? fmt(v.basis_to_median_bps, 2) : '<span class="na">—</span>'}</td>
+      <td>${v.mark_index_basis_bps != null ? fmt(v.mark_index_basis_bps, 2) : '<span class="na">—</span>'}</td>
+      <td>${v.pricing_mode || '<span class="na">—</span>'}</td>
+      <td>${v.overnight_quote_mode || '<span class="na">—</span>'}</td>
+      <td>${badge(v.freshness_status, v.freshness_status)}</td>
+      <td>${fmtAge(v.freshness_sec) || '<span class="na">—</span>'}</td>
+      <td>${v.timestamp || '<span class="na">—</span>'}</td>
+      <td>${link}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function updateSessionRiskSortHeader() {
+  const keyByIdx = [
+    'underlying', 'asset_class', 'session_state', 'liquidity_tier', 'venue_count', 'usable_venue_count',
+    'fresh_venue_count', 'stale_count', 'min_price', 'median_price', 'max_price', 'spread_bps', null, 'transition_risk'
+  ];
+  const ths = Array.from(document.querySelectorAll('#sr-underlying-table thead th'));
+  ths.forEach((th, idx) => {
+    const base = (th.dataset.baseText || th.textContent || '').replace(/\s*[↑↓]$/, '');
+    th.dataset.baseText = base;
+    const k = keyByIdx[idx];
+    if (k && k === srSortKey) {
+      th.textContent = `${base} ${srSortDir === 'asc' ? '↑' : '↓'}`;
+    } else {
+      th.textContent = base;
+    }
+  });
+}
+
+// ─────────────────────────────────────────────
+// Init
+// ─────────────────────────────────────────────
+loadData().catch(err => {
+  console.error('Failed to load data:', err);
+  document.querySelectorAll('.panel').forEach(p => {
+    p.innerHTML = '<div class="no-data">数据加载失败，请确保在 HTTP 服务器下访问本页面<br><br>例：python3 -m http.server 8080 --directory .</div>';
+  });
+});
+</script>
+</body>
+</html>
