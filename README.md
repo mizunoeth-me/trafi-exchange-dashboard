@@ -4,3 +4,4 @@ Static dashboard for comparing TraFi trading pairs, 24-hour volume, open interes
 
 The published site is generated from the `dashboard/` artifacts in the TraFi Exchange Analysis workspace.
 
+Data is collected, rebuilt, and published automatically every four hours from the collection server. GitHub Pages redeploys after each data commit.
