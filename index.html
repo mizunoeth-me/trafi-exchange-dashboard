@@ -359,7 +359,23 @@
   .research-meta { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px; }
   .meta-chip { white-space:nowrap; border:1px solid var(--border); border-radius:999px; padding:4px 8px; color:var(--muted); background:#0d1117; font-size:10px; }
   .research-grid { display:grid; grid-template-columns:minmax(360px,.9fr) minmax(560px,1.4fr); gap:16px; min-height:360px; }
+  .research-viz-grid { display:grid; grid-template-columns:repeat(3,minmax(300px,1fr)); gap:16px; min-height:330px; }
+  .research-trend-card { min-height:310px; }
+  #panel-6 { height:auto; min-height:100%; }
+  #panel-6 > * { flex-shrink:0; }
+  .research-table-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; min-height:420px; }
   .research-table-wrap { overflow:auto; max-height:390px; }
+  .research-table-wrap.tall { max-height:470px; }
+  .table-note { color:var(--muted); font-size:10px; line-height:1.45; margin:-2px 0 9px; }
+  .status-pill { display:inline-block; padding:2px 6px; border-radius:999px; font-size:9px; white-space:nowrap; border:1px solid var(--border); }
+  .status-available { color:#7ee787; background:#102318; border-color:#1f6f3b; }
+  .status-partial { color:#e3b341; background:#2b2111; border-color:#6b4e16; }
+  .status-not_public { color:#ff7b72; background:#2d1517; border-color:#7f1d1d; }
+  .status-not_integrated { color:#79c0ff; background:#14253a; border-color:#284f78; }
+  .status-not_applicable { color:#8b949e; background:#161b22; }
+  .status-zero_observed { color:#c9d1d9; background:#21262d; }
+  .coverage-table td:not(:first-child) { text-align:center; }
+  .method-cell { min-width:240px; white-space:normal; line-height:1.35; text-align:left !important; color:var(--muted) !important; }
   .quality-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   .grade { display:inline-block; min-width:32px; padding:2px 6px; border-radius:5px; text-align:center; font-weight:650; }
   .grade-a { color:#7ee787; background:#102318; }
@@ -369,7 +385,7 @@
   #research-quality-table th, #research-quality-table td { text-align:left; }
   #research-quality-table td:last-child { min-width:260px; white-space:normal; line-height:1.35; }
   @media (max-width:1050px) {
-    .research-grid, .quality-grid { grid-template-columns:1fr; }
+    .research-grid, .research-viz-grid, .research-table-grid, .quality-grid { grid-template-columns:1fr; }
     .research-hero { flex-direction:column; }
     .research-meta { justify-content:flex-start; }
   }
@@ -416,7 +432,7 @@
     <div class="research-hero">
       <div>
         <h2>TraFi 研究全景</h2>
-        <p>把研究目录中的产品发行、CEX/DEX 活动、链生态与数据质量映射成可追溯看板。不同指标不相加：成交额、存量、TVL、可执行流动性与 OI 各自独立。</p>
+        <p>发行、CEX 订单簿、DEX 池和链生态按独立口径展示。空值区分未接入、无公开接口和不适用；成交额、存量、TVL、深度与 OI 不混加。</p>
       </div>
       <div class="research-meta">
         <span class="meta-chip" id="research-built-at">构建时间 —</span>
@@ -431,30 +447,48 @@
       <div class="overview-kpi"><div class="label">DEX Stock Spot 24h</div><div class="value" id="research-dex-volume">—</div><div class="note">索引池成交额，覆盖不等同全量链上交易</div></div>
       <div class="overview-kpi"><div class="label">DEX 可见流动性</div><div class="value" id="research-dex-liquidity">—</div><div class="note">索引池 liquidity，非统一深度口径</div></div>
     </div>
-    <div class="research-grid">
+    <div class="research-viz-grid">
+      <div class="chart-card"><h3>产品家族 — CEX / DEX 24h 活动</h3><div class="chart-wrap"><canvas id="chart-research-product"></canvas></div></div>
+      <div class="chart-card"><h3>CEX — 24h 成交与 ±2% 订单簿深度</h3><div class="chart-wrap"><canvas id="chart-research-cex-depth"></canvas></div></div>
+      <div class="chart-card"><h3>DEX — 24h 成交与池流动性</h3><div class="chart-wrap"><canvas id="chart-research-dex-liquidity"></canvas></div></div>
+    </div>
+    <div class="chart-card research-trend-card">
+      <div class="overview-chart-head"><h3>产品 CEX / DEX rolling 24h 日级快照趋势</h3><span class="meta-chip" id="research-history-note">历史采集中 —</span></div>
+      <div class="chart-wrap"><canvas id="chart-research-trend"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>产品发行注册表</h3>
+      <div class="table-note">unique underlying、token deployment、chain 和 CEX market 是不同实体；供应量不可验证时不使用报告常量补值。</div>
+      <div class="research-table-wrap"><table class="data-table" id="research-issuance-table"><thead><tr><th>product</th><th>issuer</th><th>underlyings</th><th>deployments</th><th>chains</th><th>outstanding</th><th>registry</th><th>supply</th><th>grade</th><th>method</th></tr></thead><tbody></tbody></table></div>
+    </div>
+    <div class="research-table-grid">
       <div class="chart-card">
-        <h3>产品家族 — CEX / DEX 24h 活动（不可与存量相加）</h3>
-        <div class="chart-wrap"><canvas id="chart-research-product"></canvas></div>
+        <h3>CEX 产品承接</h3><div class="table-note">成交使用站内 rolling 24h；深度为当前 ±2% 双边可见订单簿。</div>
+        <div class="research-table-wrap tall"><table class="data-table" id="research-cex-table"><thead><tr><th>exchange</th><th>product</th><th>markets</th><th>active</th><th>24h volume</th><th>depth sum</th><th>depth median</th><th>depth coverage</th><th>status</th></tr></thead><tbody></tbody></table></div>
       </div>
       <div class="chart-card">
-        <h3>产品发行与交易分布</h3>
-        <div class="research-table-wrap">
-          <table class="data-table" id="research-product-table"><thead><tr><th>product</th><th>assets</th><th>outstanding</th><th>CEX markets</th><th>CEX volume</th><th>DEX pools</th><th>DEX volume</th><th>DEX liquidity</th></tr></thead><tbody></tbody></table>
-        </div>
+        <h3>DEX 产品 → 链 → 协议</h3><div class="table-note">DexScreener 索引覆盖，不等同 canonical 全链账本。</div>
+        <div class="research-table-wrap tall"><table class="data-table" id="research-dex-table"><thead><tr><th>product</th><th>chain</th><th>DEX</th><th>pools</th><th>active</th><th>24h volume</th><th>liquidity</th><th>tx</th><th>V/L</th><th>status</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+    <div class="research-table-grid">
+      <div class="chart-card">
+        <h3>数据覆盖矩阵</h3><div class="table-note">available=可用；partial=部分覆盖；not_public=无公开接口；not_integrated=待接入；not_applicable=不适用。</div>
+        <div class="research-table-wrap"><table class="data-table coverage-table" id="research-coverage-table"><thead><tr><th>product</th><th>registry</th><th>supply</th><th>CEX</th><th>depth</th><th>DEX</th><th>history</th></tr></thead><tbody></tbody></table></div>
+      </div>
+      <div class="chart-card">
+        <h3>DEX 最新池 Top 100</h3>
+        <div class="research-table-wrap tall"><table class="data-table" id="research-pool-table"><thead><tr><th>product</th><th>chain / DEX</th><th>pair</th><th>24h volume</th><th>liquidity</th><th>tx</th><th>pool</th></tr></thead><tbody></tbody></table></div>
       </div>
     </div>
     <div class="quality-grid">
       <div class="chart-card">
         <h3>链生态背景（全链指标不是 TraFi 专属成交额）</h3>
-        <div class="research-table-wrap">
-          <table class="data-table" id="research-chain-table"><thead><tr><th>chain</th><th>TVL</th><th>DEX 24h</th><th>identified TraFi value</th><th>share</th><th>7d change</th></tr></thead><tbody></tbody></table>
-        </div>
+        <div class="research-table-wrap"><table class="data-table" id="research-chain-table"><thead><tr><th>chain</th><th>TVL</th><th>DEX 24h</th><th>identified TraFi value</th><th>share</th><th>7d change</th></tr></thead><tbody></tbody></table></div>
       </div>
       <div class="chart-card">
         <h3>数据质量与可用性</h3>
-        <div class="research-table-wrap">
-          <table class="data-table" id="research-quality-table"><thead><tr><th>grade</th><th>dataset</th><th>status</th><th>口径说明</th></tr></thead><tbody></tbody></table>
-        </div>
+        <div class="research-table-wrap"><table class="data-table" id="research-quality-table"><thead><tr><th>grade</th><th>dataset</th><th>status</th><th>口径说明</th></tr></thead><tbody></tbody></table></div>
       </div>
     </div>
   </div>
@@ -769,6 +803,7 @@ let marketVolumeData = null; // market_volume_trends.json
 let researchProductData = null; // PostgreSQL /api/research/overview
 let researchEcosystemData = null; // PostgreSQL /api/research/overview
 let researchQualityData = null; // PostgreSQL source status
+let researchOverviewData = null; // expanded issuance/CEX/DEX/history/coverage payload
 let currentSymbol = '';
 
 const EX_COLORS = {
@@ -796,6 +831,9 @@ let chartOverviewSpotRanking = null;
 let chartOverviewFuturesRanking = null;
 let chartProductTypeVolume = null;
 let chartResearchProduct = null;
+let chartResearchCexDepth = null;
+let chartResearchDexLiquidity = null;
+let chartResearchTrend = null;
 let overviewRangeHours = 168;
 let ovSortKey = '';
 let ovSortDir = 'desc';
@@ -817,7 +855,7 @@ function switchTab(idx, el) {
   document.getElementById('symbol-controls').style.display = [5, 6].includes(idx) ? 'none' : 'flex';
   // Resize charts when tab shown
   setTimeout(() => {
-    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding, chartOverviewLatest, chartOverviewSpotRanking, chartOverviewFuturesRanking, chartProductTypeVolume, chartResearchProduct].forEach(c => { if (c) c.resize(); });
+    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding, chartOverviewLatest, chartOverviewSpotRanking, chartOverviewFuturesRanking, chartProductTypeVolume, chartResearchProduct, chartResearchCexDepth, chartResearchDexLiquidity, chartResearchTrend].forEach(c => { if (c) c.resize(); });
   }, 10);
 }
 
@@ -937,6 +975,7 @@ async function loadResearchMap() {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
       const research = await response.json();
+      researchOverviewData = research;
       researchProductData = {built_at:research.built_at, meta:research.meta, data:research.data || []};
       researchEcosystemData = {built_at:research.built_at, chains:research.ecosystem?.chains || {data:[]}, protocols:research.ecosystem?.protocols || {data:[]}};
       researchQualityData = {built_at:research.built_at, meta:research.meta, data:research.quality?.data || []};
@@ -948,6 +987,7 @@ async function loadResearchMap() {
     }
   }
 
+  researchOverviewData = {};
   researchProductData = {data:[],meta:{},built_at:null};
   researchEcosystemData = {chains:{data:[],meta:{}},built_at:null};
   researchQualityData = {data:[],meta:{},built_at:null};
@@ -959,7 +999,36 @@ function renderResearchMap() {
   const products = researchProductData?.data || [];
   const chains = researchEcosystemData?.chains?.data || [];
   const quality = researchQualityData?.data || [];
+  const issuance = researchOverviewData?.issuance?.data || [];
+  const cexRows = researchOverviewData?.cex?.data || [];
+  const dexRows = researchOverviewData?.dex?.protocols || [];
+  const poolRows = researchOverviewData?.dex?.pools || [];
+  const coverageRows = researchOverviewData?.coverage?.data || [];
+  const historyRows = researchOverviewData?.history?.data || [];
+  const historyDays = researchOverviewData?.history?.days || [];
   const sumField = (rows, field) => rows.reduce((sum, row) => sum + Number(row[field] || 0), 0);
+  const statusLabels = {
+    available:'可用', partial:'部分覆盖', not_public:'无公开接口',
+    not_integrated:'待接入', not_applicable:'不适用', zero_observed:'覆盖内为 0'
+  };
+  const statusPill = status => {
+    const span = document.createElement('span');
+    const key = status || 'not_integrated';
+    span.className = `status-pill status-${key}`;
+    span.textContent = statusLabels[key] || key;
+    span.title = key;
+    return span;
+  };
+  const addCell = (tr, value, className='') => {
+    const td = document.createElement('td');
+    if (value instanceof Node) td.appendChild(value);
+    else td.textContent = value === null || value === undefined || value === '' ? '—' : value;
+    if ((value === null || value === undefined || value === '') && !className) td.className = 'na';
+    if (className) td.className = className;
+    tr.appendChild(td);
+    return td;
+  };
+  const valueOrStatus = (value, status, formatter=value=>value) => value === null || value === undefined ? statusPill(status) : formatter(value);
   const builtAt = researchProductData?.built_at;
   const asOf = researchProductData?.meta?.as_of;
   document.getElementById('research-built-at').textContent = builtAt ? `快照 ${asOf || '—'} · 构建 ${builtAt.replace('T',' ').slice(0,19)} UTC` : '研究数据未加载';
@@ -973,18 +1042,66 @@ function renderResearchMap() {
   document.getElementById('research-dex-volume').textContent = fmtOI(sumField(products, 'dex_dex_volume_24h_usd')) || '0';
   document.getElementById('research-dex-liquidity').textContent = fmtOI(sumField(products, 'dex_dex_liquidity_usd')) || '0';
 
-  const productBody = document.querySelector('#research-product-table tbody');
-  productBody.innerHTML = '';
-  products.forEach(row => {
+  const issuanceBody = document.querySelector('#research-issuance-table tbody');
+  issuanceBody.innerHTML = '';
+  issuance.forEach(row => {
     const tr = document.createElement('tr');
-    [row.product, row.indexed_asset_count, fmtOI(row.outstanding_usd), row.cex_markets, fmtOI(row.cex_volume_24h_usd), row.dex_pool_count, fmtOI(row.dex_dex_volume_24h_usd), fmtOI(row.dex_dex_liquidity_usd)].forEach((value, idx) => {
-      const td = document.createElement('td');
-      td.textContent = value === null || value === undefined ? '—' : value;
-      if (value === null || value === undefined) td.className = 'na';
-      if (idx === 0) td.title = `${(row.source_product_names || []).join(' / ')}${row.value_source ? ' · ' + row.value_source : ''}`;
-      tr.appendChild(td);
-    });
-    productBody.appendChild(tr);
+    addCell(tr, row.product);
+    addCell(tr, valueOrStatus(row.issuers, row.registry_status));
+    addCell(tr, valueOrStatus(row.unique_underlyings, row.registry_status));
+    addCell(tr, valueOrStatus(row.token_deployments, row.registry_status));
+    addCell(tr, valueOrStatus(row.chain_count, row.registry_status));
+    addCell(tr, valueOrStatus(row.outstanding_usd, row.supply_status, fmtOI));
+    addCell(tr, statusPill(row.registry_status));
+    addCell(tr, statusPill(row.supply_status));
+    const grade = document.createElement('span'); grade.className=`grade grade-${String(row.quality_grade||'d').charAt(0).toLowerCase()}`; grade.textContent=row.quality_grade||'—';
+    addCell(tr, grade);
+    addCell(tr, row.supply_method, 'method-cell');
+    issuanceBody.appendChild(tr);
+  });
+
+  const cexBody = document.querySelector('#research-cex-table tbody');
+  cexBody.innerHTML = '';
+  cexRows.forEach(row => {
+    const tr = document.createElement('tr');
+    addCell(tr, row.exchange);
+    addCell(tr, row.product);
+    addCell(tr, row.market_count);
+    addCell(tr, row.active_market_count);
+    addCell(tr, fmtOI(row.volume_24h_exchange_usd) || '0');
+    addCell(tr, valueOrStatus(row.depth_2pct_sum_usd, row.depth_status, fmtOI));
+    addCell(tr, valueOrStatus(row.depth_2pct_median_usd, row.depth_status, fmtOI));
+    addCell(tr, row.depth_market_count ? `${(Number(row.depth_coverage_pct)*100).toFixed(1)}% (${row.depth_market_count}/${row.market_count})` : statusPill(row.depth_status));
+    addCell(tr, statusPill(row.coverage_status));
+    cexBody.appendChild(tr);
+  });
+
+  const dexBody = document.querySelector('#research-dex-table tbody');
+  dexBody.innerHTML = '';
+  dexRows.forEach(row => {
+    const tr = document.createElement('tr');
+    [row.product,row.chain,row.dex,row.pool_count,row.active_pool_count,fmtOI(row.volume_24h_usd)||'0',fmtOI(row.liquidity_usd)||'0',Number(row.tx_count_24h||0).toLocaleString(),row.volume_liquidity_ratio==null?'—':Number(row.volume_liquidity_ratio).toFixed(2)+'x'].forEach(value=>addCell(tr,value));
+    addCell(tr,statusPill(row.coverage_status));
+    dexBody.appendChild(tr);
+  });
+
+  const coverageBody = document.querySelector('#research-coverage-table tbody');
+  coverageBody.innerHTML = '';
+  coverageRows.forEach(row => {
+    const tr = document.createElement('tr'); addCell(tr,row.product);
+    ['registry','supply','cex','depth','dex','history'].forEach(field=>addCell(tr,statusPill(row[field])));
+    coverageBody.appendChild(tr);
+  });
+
+  const poolBody = document.querySelector('#research-pool-table tbody');
+  poolBody.innerHTML = '';
+  poolRows.forEach(row => {
+    const tr = document.createElement('tr');
+    addCell(tr,row.product); addCell(tr,`${row.chain} / ${row.dex}`); addCell(tr,`${row.base_symbol||'?'} / ${row.quote_symbol||'?'}`);
+    addCell(tr,fmtOI(row.volume_24h_usd)||'0'); addCell(tr,fmtOI(row.liquidity_usd)||'0'); addCell(tr,Number(row.tx_count_24h||0).toLocaleString());
+    if (String(row.url||'').startsWith('http')) { const link=document.createElement('a'); link.className='rule-link'; link.href=row.url; link.target='_blank'; link.rel='noopener'; link.textContent='open'; addCell(tr,link); }
+    else addCell(tr,'—');
+    poolBody.appendChild(tr);
   });
 
   const activeProducts = products.filter(row => Number(row.cex_volume_24h_usd || 0) + Number(row.dex_dex_volume_24h_usd || 0) > 0);
@@ -998,7 +1115,38 @@ function renderResearchMap() {
       ]},
       options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#c9d1d9',boxWidth:10}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${fmtOI(ctx.parsed.x)||0}`}}},scales:{x:{beginAtZero:true,ticks:{color:'#8b949e',callback:value=>fmtOI(value)},grid:{color:'#21262d'}},y:{ticks:{color:'#c9d1d9',font:{size:10}},grid:{display:false}}}}
     });
+
+    const cexScatter = cexRows.filter(row=>Number(row.volume_24h_exchange_usd)>0&&Number(row.depth_2pct_sum_usd)>0).map(row=>({
+      x:Number(row.depth_2pct_sum_usd),y:Number(row.volume_24h_exchange_usd),r:Math.max(5,Math.min(18,Math.sqrt(Number(row.market_count||1))*1.7)),
+      label:`${row.exchange} · ${row.product}`,markets:row.market_count,coverage:row.depth_coverage_pct
+    }));
+    if (chartResearchCexDepth) chartResearchCexDepth.destroy();
+    chartResearchCexDepth = new Chart(document.getElementById('chart-research-cex-depth'),{
+      type:'bubble',data:{datasets:[{data:cexScatter,backgroundColor:cexScatter.map(row=>EX_COLORS[row.label.split(' · ')[0]]||'#58a6ff'),borderColor:'#c9d1d9',borderWidth:.6}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>items[0]?.raw?.label||'',label:ctx=>[`24h: ${fmtOI(ctx.raw.y)}`,`±2% depth: ${fmtOI(ctx.raw.x)}`,`markets: ${ctx.raw.markets}`,`depth coverage: ${(Number(ctx.raw.coverage||0)*100).toFixed(1)}%`]}}},scales:{x:{type:'logarithmic',title:{display:true,text:'±2% depth',color:'#8b949e'},ticks:{color:'#8b949e',maxTicksLimit:6,callback:v=>fmtOI(v)},grid:{color:'#21262d'}},y:{type:'logarithmic',title:{display:true,text:'24h volume',color:'#8b949e'},ticks:{color:'#8b949e',maxTicksLimit:6,callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}
+    });
+
+    const dexMap = new Map();
+    dexRows.forEach(row=>{const item=dexMap.get(row.product)||{product:row.product,volume:0,liquidity:0,pools:0};item.volume+=Number(row.volume_24h_usd||0);item.liquidity+=Number(row.liquidity_usd||0);item.pools+=Number(row.pool_count||0);dexMap.set(row.product,item);});
+    const dexScatter=[...dexMap.values()].filter(row=>row.volume>0&&row.liquidity>0).map(row=>({x:row.liquidity,y:row.volume,r:Math.max(6,Math.min(20,Math.sqrt(row.pools))),label:row.product,pools:row.pools}));
+    if (chartResearchDexLiquidity) chartResearchDexLiquidity.destroy();
+    chartResearchDexLiquidity = new Chart(document.getElementById('chart-research-dex-liquidity'),{
+      type:'bubble',data:{datasets:[{data:dexScatter,backgroundColor:dexScatter.map(row=>PRODUCT_COLORS[row.label]||'#3fb950'),borderColor:'#c9d1d9',borderWidth:.6}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>items[0]?.raw?.label||'',label:ctx=>[`24h: ${fmtOI(ctx.raw.y)}`,`liquidity: ${fmtOI(ctx.raw.x)}`,`indexed pools: ${ctx.raw.pools}`]}}},scales:{x:{beginAtZero:true,title:{display:true,text:'pool liquidity',color:'#8b949e'},ticks:{color:'#8b949e',maxTicksLimit:6,callback:v=>fmtOI(v)},grid:{color:'#21262d'}},y:{beginAtZero:true,title:{display:true,text:'24h volume',color:'#8b949e'},ticks:{color:'#8b949e',maxTicksLimit:6,callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}
+    });
+
+    const dates=[...new Set(historyDays)].sort();
+    const historyValue=(date,field,product=null)=>historyRows.filter(row=>row.day===date&&(!product||row.product===product)).reduce((sum,row)=>sum+Number(row[field]||0),0);
+    const leaders=[...activeProducts].sort((a,b)=>(Number(b.cex_volume_24h_usd||0)+Number(b.dex_dex_volume_24h_usd||0))-(Number(a.cex_volume_24h_usd||0)+Number(a.dex_dex_volume_24h_usd||0))).slice(0,4).map(row=>row.product);
+    const trendDatasets=[
+      {label:'CEX total',data:dates.map(date=>historyValue(date,'cex_volume_24h_usd')),borderColor:'#58a6ff',backgroundColor:'#58a6ff',borderWidth:2},
+      {label:'DEX total',data:dates.map(date=>historyValue(date,'dex_volume_24h_usd')),borderColor:'#3fb950',backgroundColor:'#3fb950',borderWidth:2},
+      ...leaders.map((product,index)=>({label:product,data:dates.map(date=>historyValue(date,'cex_volume_24h_usd',product)+historyValue(date,'dex_volume_24h_usd',product)),borderColor:PRODUCT_COLORS[product]||['#e3b341','#a371f7','#f778ba','#79c0ff'][index],backgroundColor:PRODUCT_COLORS[product]||'#8b949e',borderDash:[5,4],borderWidth:1.2}))
+    ];
+    if (chartResearchTrend) chartResearchTrend.destroy();
+    chartResearchTrend = new Chart(document.getElementById('chart-research-trend'),{type:'line',data:{labels:dates,datasets:trendDatasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',boxWidth:10}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${fmtOI(ctx.parsed.y)||0}`}}},elements:{line:{tension:.18},point:{radius:dates.length===1?5:2}},scales:{x:{ticks:{color:'#8b949e'},grid:{color:'#21262d'}},y:{beginAtZero:true,ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}});
   }
+  document.getElementById('research-history-note').textContent = historyDays.length ? `${historyDays[0]} → ${historyDays[historyDays.length-1]} · ${historyDays.length} 个 UTC 日${historyDays.length<2?' · 正在积累':''}` : '暂无动态历史';
 
   const chainBody = document.querySelector('#research-chain-table tbody');
   chainBody.innerHTML = '';
