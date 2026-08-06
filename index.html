@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trafi 交易所分析 Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="assets/chart.umd.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -208,6 +208,26 @@
     opacity: 0.35;
     text-decoration: line-through;
   }
+  .overview-kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+  .overview-kpi { background:linear-gradient(145deg,#161b22,#121820); border:1px solid var(--border); border-radius:10px; padding:16px; }
+  .overview-kpi .label { color:var(--muted); font-size:11px; margin-bottom:8px; }
+  .overview-kpi .value { color:#fff; font-size:22px; font-weight:650; }
+  .overview-kpi .note { color:var(--muted); font-size:10px; margin-top:7px; }
+  .overview-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; min-height:360px; }
+  .overview-bottom { min-height:280px; }
+  .overview-ranking { min-height:300px; }
+  .product-type-grid { display:grid; grid-template-columns:minmax(320px,.8fr) minmax(420px,1.2fr); gap:16px; min-height:330px; }
+  .product-table-wrap { overflow:auto; max-height:330px; }
+  .overview-chart-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
+  .overview-chart-head h3 { margin-bottom:0; }
+  .range-buttons { display:flex; gap:6px; }
+  .range-button { border:1px solid var(--border); background:#0d1117; color:var(--muted); border-radius:5px; padding:4px 9px; font:inherit; font-size:11px; cursor:pointer; }
+  .range-button.active { color:#fff; border-color:var(--accent); background:#1f3a5f; }
+  @media (max-width:900px) {
+    .overview-kpis { grid-template-columns:1fr 1fr; }
+    .overview-grid { grid-template-columns:1fr; }
+    .product-type-grid { grid-template-columns:1fr; }
+  }
 
   /* ── Index Components ── */
   .ic-section { flex-shrink: 0; }
@@ -284,6 +304,7 @@
     text-align: center;
     padding: 40px;
   }
+  .load-error { display:none; margin:10px 24px 0; padding:9px 12px; border:1px solid #7f1d1d; border-radius:7px; background:#2d1517; color:#ffb4ad; font-size:11px; }
 
   .overview-filters {
     display: flex;
@@ -323,6 +344,35 @@
   .badge.low, .badge.fresh { color: var(--green); border-color: #1f6f3b; background: #102318; }
   .rule-link { color: var(--accent); text-decoration: none; }
   .rule-link:hover { text-decoration: underline; }
+  .research-hero {
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:18px;
+    padding:16px 18px;
+    border:1px solid #28445f;
+    border-radius:10px;
+    background:linear-gradient(135deg,rgba(31,111,235,.14),rgba(22,27,34,.88));
+  }
+  .research-hero h2 { margin:0 0 7px; font-size:18px; font-weight:650; }
+  .research-hero p { margin:0; max-width:850px; color:var(--muted); font-size:11px; line-height:1.6; }
+  .research-meta { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px; }
+  .meta-chip { white-space:nowrap; border:1px solid var(--border); border-radius:999px; padding:4px 8px; color:var(--muted); background:#0d1117; font-size:10px; }
+  .research-grid { display:grid; grid-template-columns:minmax(360px,.9fr) minmax(560px,1.4fr); gap:16px; min-height:360px; }
+  .research-table-wrap { overflow:auto; max-height:390px; }
+  .quality-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .grade { display:inline-block; min-width:32px; padding:2px 6px; border-radius:5px; text-align:center; font-weight:650; }
+  .grade-a { color:#7ee787; background:#102318; }
+  .grade-b { color:#79c0ff; background:#14253a; }
+  .grade-c { color:#e3b341; background:#2b2111; }
+  .grade-d { color:#ff7b72; background:#2d1517; }
+  #research-quality-table th, #research-quality-table td { text-align:left; }
+  #research-quality-table td:last-child { min-width:260px; white-space:normal; line-height:1.35; }
+  @media (max-width:1050px) {
+    .research-grid, .quality-grid { grid-template-columns:1fr; }
+    .research-hero { flex-direction:column; }
+    .research-meta { justify-content:flex-start; }
+  }
 </style>
 </head>
 <body>
@@ -331,7 +381,7 @@
 <header>
   <h1>📊 Trafi 交易所分析</h1>
   <div class="header-meta">
-    <span><span class="status-dot"></span>实时</span>
+    <span><span class="status-dot"></span>本地动态 + 研究快照</span>
     <span id="fs-ts"></span>
     <span id="ic-ts"></span>
   </div>
@@ -339,15 +389,19 @@
 
 <!-- Tabs -->
 <div class="tabs">
-  <div class="tab active" onclick="switchTab(0, this)">合约横向对比</div>
+  <div class="tab active" onclick="switchTab(6, this)">Research Map</div>
+  <div class="tab" onclick="switchTab(5, this)">Market Monitor</div>
+  <div class="tab" onclick="switchTab(0, this)">合约横向对比</div>
   <div class="tab" onclick="switchTab(1, this)">指数成分权重偏离度</div>
   <div class="tab" onclick="switchTab(2, this)">Futures 总览</div>
   <div class="tab" onclick="switchTab(3, this)">Spot 总览</div>
   <div class="tab" onclick="switchTab(4, this)">Session 风险</div>
 </div>
 
+<div class="load-error" id="load-error"></div>
+
 <!-- Controls -->
-<div class="controls">
+<div class="controls" id="symbol-controls" style="display:none">
   <label for="sym-select">选择标的：</label>
   <select id="sym-select" onchange="onSymbolChange()">
     <option value="">-- 加载中 --</option>
@@ -358,8 +412,88 @@
 <!-- Main -->
 <main>
 
+  <div class="panel active" id="panel-6">
+    <div class="research-hero">
+      <div>
+        <h2>TraFi 研究全景</h2>
+        <p>把研究目录中的产品发行、CEX/DEX 活动、链生态与数据质量映射成可追溯看板。不同指标不相加：成交额、存量、TVL、可执行流动性与 OI 各自独立。</p>
+      </div>
+      <div class="research-meta">
+        <span class="meta-chip" id="research-built-at">构建时间 —</span>
+        <span class="meta-chip" id="research-data-type">类型 —</span>
+        <span class="meta-chip" id="research-quality">质量 —</span>
+        <span class="meta-chip" id="research-source">来源 —</span>
+      </div>
+    </div>
+    <div class="overview-kpis">
+      <div class="overview-kpi"><div class="label">识别产品存量代理</div><div class="value" id="research-outstanding">—</div><div class="note">发行/供应量价值代理，不等同自由流通市值</div></div>
+      <div class="overview-kpi"><div class="label">CEX Stock Spot 24h</div><div class="value" id="research-cex-volume">—</div><div class="note">动态采集的站内 rolling 24h 成交额</div></div>
+      <div class="overview-kpi"><div class="label">DEX Stock Spot 24h</div><div class="value" id="research-dex-volume">—</div><div class="note">索引池成交额，覆盖不等同全量链上交易</div></div>
+      <div class="overview-kpi"><div class="label">DEX 可见流动性</div><div class="value" id="research-dex-liquidity">—</div><div class="note">索引池 liquidity，非统一深度口径</div></div>
+    </div>
+    <div class="research-grid">
+      <div class="chart-card">
+        <h3>产品家族 — CEX / DEX 24h 活动（不可与存量相加）</h3>
+        <div class="chart-wrap"><canvas id="chart-research-product"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>产品发行与交易分布</h3>
+        <div class="research-table-wrap">
+          <table class="data-table" id="research-product-table"><thead><tr><th>product</th><th>assets</th><th>outstanding</th><th>CEX markets</th><th>CEX volume</th><th>DEX pools</th><th>DEX volume</th><th>DEX liquidity</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+    <div class="quality-grid">
+      <div class="chart-card">
+        <h3>链生态背景（全链指标不是 TraFi 专属成交额）</h3>
+        <div class="research-table-wrap">
+          <table class="data-table" id="research-chain-table"><thead><tr><th>chain</th><th>TVL</th><th>DEX 24h</th><th>identified TraFi value</th><th>share</th><th>7d change</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>数据质量与可用性</h3>
+        <div class="research-table-wrap">
+          <table class="data-table" id="research-quality-table"><thead><tr><th>grade</th><th>dataset</th><th>status</th><th>口径说明</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-5">
+    <div class="overview-kpis">
+      <div class="overview-kpi"><div class="label">Spot 24h 站内成交额</div><div class="value" id="kpi-spot-volume">—</div><div class="note" id="kpi-spot-note">最新滚动快照</div></div>
+      <div class="overview-kpi"><div class="label">Futures 24h 成交额</div><div class="value" id="kpi-futures-volume">—</div><div class="note" id="kpi-futures-note">最新滚动快照</div></div>
+      <div class="overview-kpi"><div class="label">Spot 活跃交易对</div><div class="value" id="kpi-spot-pairs">—</div><div class="note">跨交易所合计</div></div>
+      <div class="overview-kpi"><div class="label">Futures 活跃合约</div><div class="value" id="kpi-futures-pairs">—</div><div class="note">跨交易所合计</div></div>
+    </div>
+    <div class="overview-grid overview-ranking">
+      <div class="chart-card"><h3>Spot — 各交易所最新 24h 成交额排名</h3><div class="chart-wrap"><canvas id="chart-overview-spot-ranking"></canvas></div></div>
+      <div class="chart-card"><h3>Futures — 各交易所最新 24h 成交额排名</h3><div class="chart-wrap"><canvas id="chart-overview-futures-ranking"></canvas></div></div>
+    </div>
+    <div class="product-type-grid">
+      <div class="chart-card"><h3>Stock Spot — 产品类型成交额占比</h3><div class="chart-wrap"><canvas id="chart-product-type-volume"></canvas></div></div>
+      <div class="chart-card">
+        <h3>Stock Spot — 产品类型明细</h3>
+        <div class="product-table-wrap">
+          <table class="data-table" id="product-type-table"><thead><tr><th>product_type</th><th>exchanges</th><th>pairs</th><th>volume_24h</th><th>share</th><th>bid_depth_2p</th><th>ask_depth_2p</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+    <div class="chart-card overview-bottom">
+      <div class="overview-chart-head">
+        <h3>Spot vs Futures — 全交易所滚动 24h 成交额趋势</h3>
+        <div class="range-buttons" id="overview-range-buttons">
+          <button class="range-button" data-hours="24">24h</button>
+          <button class="range-button active" data-hours="168">7天</button>
+          <button class="range-button" data-hours="336">14天</button>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="chart-overview-latest"></canvas></div>
+    </div>
+  </div>
+
   <!-- ── Tab0: Futures Comparison ── -->
-  <div class="panel active" id="panel-0">
+  <div class="panel" id="panel-0">
     <div class="ic-section">
       <h3 id="futures-title">—</h3>
     </div>
@@ -631,6 +765,10 @@ let spotOverviewData = null; // spot_overview.json
 let tsData = null; // futures_timeseries.json
 let overlapData   = null;  // overlap_matrix_latest.json
 let sessionRiskData = null; // session_risk_summary.json
+let marketVolumeData = null; // market_volume_trends.json
+let researchProductData = null; // PostgreSQL /api/research/overview
+let researchEcosystemData = null; // PostgreSQL /api/research/overview
+let researchQualityData = null; // PostgreSQL source status
 let currentSymbol = '';
 
 const EX_COLORS = {
@@ -645,6 +783,7 @@ const EX_COLORS = {
 };
 
 const EX_ORDER = ['binance', 'bybit', 'okx', 'gateio', 'bitget', 'hyperliquid', 'aster', 'lighter'];
+const PRODUCT_COLORS = {'rStock':'#00C9A7','bStock':'#F3BA2F','xStock':'#4C82FB','gStock':'#17D49B','Ondo Stock':'#6B7CFF','OKX Unified Stock':'#45B8B0','Leveraged Stock Token':'#F85149','Other Stock Token':'#8b949e'};
 
 let chartOI  = null;
 let chartVol = null;
@@ -652,6 +791,12 @@ let chartICBar = null;
 let chartICDev = null;
 let chartTsIndex = null;
 let chartTsFunding = null;
+let chartOverviewLatest = null;
+let chartOverviewSpotRanking = null;
+let chartOverviewFuturesRanking = null;
+let chartProductTypeVolume = null;
+let chartResearchProduct = null;
+let overviewRangeHours = 168;
 let ovSortKey = '';
 let ovSortDir = 'desc';
 let sovSortKey = '';
@@ -669,9 +814,10 @@ function switchTab(idx, el) {
   el.classList.add('active');
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + idx).classList.add('active');
+  document.getElementById('symbol-controls').style.display = [5, 6].includes(idx) ? 'none' : 'flex';
   // Resize charts when tab shown
   setTimeout(() => {
-    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding].forEach(c => { if (c) c.resize(); });
+    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding, chartOverviewLatest, chartOverviewSpotRanking, chartOverviewFuturesRanking, chartProductTypeVolume, chartResearchProduct].forEach(c => { if (c) c.resize(); });
   }, 10);
 }
 
@@ -718,13 +864,14 @@ function cmpNullable(a, b, dir = 'asc') {
 // Load data
 // ─────────────────────────────────────────────
 async function loadData() {
-  const [fsRes, icRes, ovRes, sovRes, overlapRes, srRes] = await Promise.all([
+  const [fsRes, icRes, ovRes, sovRes, overlapRes, srRes, marketVolumeRes] = await Promise.all([
     fetch('futures_summary.json?_t=' + Date.now()),
     fetch('index_components_summary.json?_t=' + Date.now()),
     fetch('futures_overview.json?_t=' + Date.now()),
     fetch('spot_overview.json?_t=' + Date.now()),
     fetch('overlap_matrix_latest.json?_t=' + Date.now()),
     fetch('session_risk_summary.json?_t=' + Date.now()),
+    fetch('market_volume_trends.json?_t=' + Date.now()),
   ]);
   futuresData = await fsRes.json();
   icData      = await icRes.json();
@@ -732,6 +879,7 @@ async function loadData() {
   spotOverviewData = await sovRes.json();
   overlapData = await overlapRes.json();
   sessionRiskData = srRes.ok ? await srRes.json() : { underlyings: [], rows: [], ts: null };
+  marketVolumeData = marketVolumeRes.ok ? await marketVolumeRes.json() : { series:{spot:{},futures:{}}, latest:{spot:[],futures:[]} };
 
   // 时序文件容错：失败时不影响原有看板渲染
   try {
@@ -773,6 +921,211 @@ async function loadData() {
   renderOverview();
   renderSpotOverview();
   renderSessionRisk();
+  renderMarketOverview();
+}
+
+async function loadResearchMap() {
+  const cacheBust = Date.now();
+  const isGitHubPages = location.hostname.endsWith('.github.io');
+  const candidates = isGitHubPages
+    ? [`research_overview.json?_t=${cacheBust}`]
+    : [`/api/research/overview?_t=${cacheBust}`, `research_overview.json?_t=${cacheBust}`];
+  let lastError = null;
+
+  for (const url of candidates) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
+      const research = await response.json();
+      researchProductData = {built_at:research.built_at, meta:research.meta, data:research.data || []};
+      researchEcosystemData = {built_at:research.built_at, chains:research.ecosystem?.chains || {data:[]}, protocols:research.ecosystem?.protocols || {data:[]}};
+      researchQualityData = {built_at:research.built_at, meta:research.meta, data:research.quality?.data || []};
+      renderResearchMap();
+      return;
+    } catch (error) {
+      lastError = error;
+      console.warn('Research data candidate failed:', error);
+    }
+  }
+
+  researchProductData = {data:[],meta:{},built_at:null};
+  researchEcosystemData = {chains:{data:[],meta:{}},built_at:null};
+  researchQualityData = {data:[],meta:{},built_at:null};
+  renderResearchMap();
+  throw lastError || new Error('Research data unavailable');
+}
+
+function renderResearchMap() {
+  const products = researchProductData?.data || [];
+  const chains = researchEcosystemData?.chains?.data || [];
+  const quality = researchQualityData?.data || [];
+  const sumField = (rows, field) => rows.reduce((sum, row) => sum + Number(row[field] || 0), 0);
+  const builtAt = researchProductData?.built_at;
+  const asOf = researchProductData?.meta?.as_of;
+  document.getElementById('research-built-at').textContent = builtAt ? `快照 ${asOf || '—'} · 构建 ${builtAt.replace('T',' ').slice(0,19)} UTC` : '研究数据未加载';
+  document.getElementById('research-data-type').textContent = `类型 ${researchProductData?.meta?.data_type || '—'}`;
+  document.getElementById('research-quality').textContent = `质量 ${researchProductData?.meta?.quality_grade || '—'}`;
+  const sourceChip = document.getElementById('research-source');
+  sourceChip.textContent = location.hostname.endsWith('.github.io') ? '来源 PostgreSQL 动态采集快照' : '来源 PostgreSQL 动态采集';
+  sourceChip.title = researchProductData?.meta?.source || '';
+  document.getElementById('research-outstanding').textContent = fmtOI(sumField(products, 'outstanding_usd')) || '0';
+  document.getElementById('research-cex-volume').textContent = fmtOI(sumField(products, 'cex_volume_24h_usd')) || '0';
+  document.getElementById('research-dex-volume').textContent = fmtOI(sumField(products, 'dex_dex_volume_24h_usd')) || '0';
+  document.getElementById('research-dex-liquidity').textContent = fmtOI(sumField(products, 'dex_dex_liquidity_usd')) || '0';
+
+  const productBody = document.querySelector('#research-product-table tbody');
+  productBody.innerHTML = '';
+  products.forEach(row => {
+    const tr = document.createElement('tr');
+    [row.product, row.indexed_asset_count, fmtOI(row.outstanding_usd), row.cex_markets, fmtOI(row.cex_volume_24h_usd), row.dex_pool_count, fmtOI(row.dex_dex_volume_24h_usd), fmtOI(row.dex_dex_liquidity_usd)].forEach((value, idx) => {
+      const td = document.createElement('td');
+      td.textContent = value === null || value === undefined ? '—' : value;
+      if (value === null || value === undefined) td.className = 'na';
+      if (idx === 0) td.title = `${(row.source_product_names || []).join(' / ')}${row.value_source ? ' · ' + row.value_source : ''}`;
+      tr.appendChild(td);
+    });
+    productBody.appendChild(tr);
+  });
+
+  const activeProducts = products.filter(row => Number(row.cex_volume_24h_usd || 0) + Number(row.dex_dex_volume_24h_usd || 0) > 0);
+  if (typeof Chart !== 'undefined') {
+    if (chartResearchProduct) chartResearchProduct.destroy();
+    chartResearchProduct = new Chart(document.getElementById('chart-research-product'), {
+      type:'bar',
+      data:{labels:activeProducts.map(row => row.product),datasets:[
+        {label:'CEX 24h',data:activeProducts.map(row => Number(row.cex_volume_24h_usd || 0)),backgroundColor:'#58a6ff',borderRadius:3},
+        {label:'DEX 24h',data:activeProducts.map(row => Number(row.dex_dex_volume_24h_usd || 0)),backgroundColor:'#3fb950',borderRadius:3},
+      ]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#c9d1d9',boxWidth:10}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${fmtOI(ctx.parsed.x)||0}`}}},scales:{x:{beginAtZero:true,ticks:{color:'#8b949e',callback:value=>fmtOI(value)},grid:{color:'#21262d'}},y:{ticks:{color:'#c9d1d9',font:{size:10}},grid:{display:false}}}}
+    });
+  }
+
+  const chainBody = document.querySelector('#research-chain-table tbody');
+  chainBody.innerHTML = '';
+  chains.forEach(row => {
+    const tr = document.createElement('tr');
+    const share = row.identified_share_of_chain_tvl == null ? '—' : `${(Number(row.identified_share_of_chain_tvl) * 100).toFixed(2)}%`;
+    const values = [row.chain, fmtOI(row.chain_tvl_usd), fmtOI(row.dex_volume_24h_usd), fmtOI(row.identified_trafi_product_value_usd), share, `${Number(row.dex_change_7d_pct || 0).toFixed(2)}%`];
+    values.forEach((value, idx) => { const td=document.createElement('td'); td.textContent=value; if (idx===5) td.style.color=Number(row.dex_change_7d_pct)>=0?'#3fb950':'#f85149'; tr.appendChild(td); });
+    chainBody.appendChild(tr);
+  });
+
+  const qualityBody = document.querySelector('#research-quality-table tbody');
+  qualityBody.innerHTML = '';
+  quality.forEach(row => {
+    const tr = document.createElement('tr');
+    const grade = document.createElement('td');
+    const badge = document.createElement('span');
+    badge.className = `grade grade-${String(row.grade || 'd').charAt(0).toLowerCase()}`;
+    badge.textContent = row.grade || '—';
+    grade.appendChild(badge);
+    tr.appendChild(grade);
+    const datasetCell = document.createElement('td');
+    if (String(row.source_url || '').startsWith('http')) {
+      const link = document.createElement('a'); link.className='rule-link'; link.href=row.source_url; link.target='_blank'; link.rel='noopener'; link.textContent=row.dataset || '—'; datasetCell.appendChild(link);
+    } else datasetCell.textContent = row.dataset || '—';
+    tr.appendChild(datasetCell);
+    [row.status, row.note].forEach(value => { const td=document.createElement('td'); td.textContent=value || '—'; tr.appendChild(td); });
+    qualityBody.appendChild(tr);
+  });
+}
+
+function renderMarketOverview() {
+  const aggregateLatest = (rows, marketType) => {
+    const grouped = new Map();
+    rows.forEach(row => {
+      const ex = row.exchange;
+      if (!ex) return;
+      const volume = marketType === 'spot' ? (row.volume_24h_exchange ?? row.volume_24h) : row.volume_24h;
+      const item = grouped.get(ex) || {exchange:ex,volume_24h:0,pair_count:0,timestamp:row.timestamp||''};
+      item.volume_24h += Number(volume || 0); item.pair_count += 1;
+      if ((row.timestamp||'') > item.timestamp) item.timestamp=row.timestamp;
+      grouped.set(ex,item);
+    });
+    return [...grouped.values()].sort((a,b)=>b.volume_24h-a.volume_24h);
+  };
+  const latest = {
+    spot: aggregateLatest(spotOverviewData?.data || [], 'spot'),
+    futures: aggregateLatest(overviewData?.data || [], 'futures')
+  };
+  const sum = rows => rows.reduce((acc,row) => acc + Number(row.volume_24h || 0), 0);
+  const pairs = rows => rows.reduce((acc,row) => acc + Number(row.pair_count || 0), 0);
+  document.getElementById('kpi-spot-volume').textContent = fmtOI(sum(latest.spot || [])) || '0';
+  document.getElementById('kpi-futures-volume').textContent = fmtOI(sum(latest.futures || [])) || '0';
+  document.getElementById('kpi-spot-pairs').textContent = pairs(latest.spot || []).toLocaleString();
+  document.getElementById('kpi-futures-pairs').textContent = pairs(latest.futures || []).toLocaleString();
+  const newest = rows => rows.reduce((v,row) => !v || row.timestamp > v ? row.timestamp : v, '');
+  document.getElementById('kpi-spot-note').textContent = `最新快照 ${newest(latest.spot || []).replace('T',' ').slice(0,16)} UTC`;
+  document.getElementById('kpi-futures-note').textContent = `最新快照 ${newest(latest.futures || []).replace('T',' ').slice(0,16)} UTC`;
+
+  const common = {
+    responsive:true, maintainAspectRatio:false, interaction:{mode:'index',intersect:false},
+    plugins:{legend:{labels:{color:'#8b949e',boxWidth:10}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${fmtOI(c.parsed.y) || 0}`}}},
+    scales:{x:{ticks:{color:'#8b949e',maxTicksLimit:8},grid:{color:'#21262d'}},y:{ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}
+  };
+  const makeRanking = (canvasId, rows, existing, color) => {
+    if (existing) existing.destroy();
+    const sorted=[...rows].sort((a,b)=>b.volume_24h-a.volume_24h);
+    return new Chart(document.getElementById(canvasId),{
+      type:'bar',
+      data:{labels:sorted.map(r=>r.exchange),datasets:[{label:'24h 成交额',data:sorted.map(r=>r.volume_24h),backgroundColor:sorted.map(r=>EX_COLORS[r.exchange]||color),borderRadius:4,barPercentage:.72}]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`24h 成交额: ${fmtOI(c.parsed.x)||0}`}}},scales:{x:{beginAtZero:true,ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}},y:{ticks:{color:'#c9d1d9'},grid:{display:false}}}}
+    });
+  };
+  if (typeof Chart !== 'undefined') {
+    chartOverviewSpotRanking=makeRanking('chart-overview-spot-ranking',latest.spot,chartOverviewSpotRanking,'#3fb950');
+    chartOverviewFuturesRanking=makeRanking('chart-overview-futures-ranking',latest.futures,chartOverviewFuturesRanking,'#58a6ff');
+  }
+  const productMap=new Map();
+  (spotOverviewData?.data||[]).filter(row=>['stock','stocks'].includes((row.asset_class||'').toLowerCase())).forEach(row=>{
+    const type=row.product_type||'Other Stock Token';
+    const item=productMap.get(type)||{product_type:type,exchanges:new Set(),pairs:0,volume_24h:0,depth_bid_2p:0,depth_ask_2p:0};
+    item.exchanges.add(row.exchange); item.pairs+=1;
+    item.volume_24h+=Number(row.volume_24h_exchange??row.volume_24h??0);
+    item.depth_bid_2p+=Number(row.depth_bid_2p||0); item.depth_ask_2p+=Number(row.depth_ask_2p||0);
+    productMap.set(type,item);
+  });
+  const productRows=[...productMap.values()].sort((a,b)=>b.volume_24h-a.volume_24h);
+  const productTotal=productRows.reduce((s,r)=>s+r.volume_24h,0);
+  if (typeof Chart !== 'undefined') {
+    if(chartProductTypeVolume) chartProductTypeVolume.destroy();
+    chartProductTypeVolume=new Chart(document.getElementById('chart-product-type-volume'),{type:'doughnut',data:{labels:productRows.map(r=>r.product_type),datasets:[{data:productRows.map(r=>r.volume_24h),backgroundColor:productRows.map(r=>PRODUCT_COLORS[r.product_type]||'#8b949e'),borderColor:'#161b22',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',boxWidth:10,padding:12}},tooltip:{callbacks:{label:c=>`${c.label}: ${fmtOI(c.parsed)||0} (${productTotal?((c.parsed/productTotal)*100).toFixed(1):0}%)`}}}}});
+  }
+  const productBody=document.querySelector('#product-type-table tbody'); productBody.innerHTML='';
+  productRows.forEach(row=>{const tr=document.createElement('tr');tr.innerHTML=`<td><span style="color:${PRODUCT_COLORS[row.product_type]||'#8b949e'}">●</span> ${row.product_type}</td><td>${[...row.exchanges].sort().join(', ')}</td><td>${row.pairs}</td><td>${fmtOI(row.volume_24h)||'0'}</td><td>${productTotal?((row.volume_24h/productTotal)*100).toFixed(1):'0.0'}%</td><td>${fmtOI(row.depth_bid_2p)||'0'}</td><td>${fmtOI(row.depth_ask_2p)||'0'}</td>`;productBody.appendChild(tr);});
+  const rangeWrap = document.getElementById('overview-range-buttons');
+  if (!rangeWrap.dataset.ready) {
+    rangeWrap.querySelectorAll('.range-button').forEach(button => button.addEventListener('click', () => {
+      overviewRangeHours = Number(button.dataset.hours);
+      rangeWrap.querySelectorAll('.range-button').forEach(x => x.classList.toggle('active', x === button));
+      renderMarketOverview();
+    }));
+    rangeWrap.dataset.ready = '1';
+  }
+  if (typeof Chart === 'undefined') return;
+  if (chartOverviewLatest) chartOverviewLatest.destroy();
+  const aggregateSeries = marketType => {
+    const totals = new Map();
+    Object.values(marketVolumeData.series?.[marketType] || {}).flat().forEach(point => {
+      totals.set(point.timestamp, (totals.get(point.timestamp) || 0) + Number(point.volume_24h || 0));
+    });
+    return totals;
+  };
+  const spotTotals=aggregateSeries('spot'), futuresTotals=aggregateSeries('futures');
+  const allTimestamps=[...new Set([...spotTotals.keys(),...futuresTotals.keys()])].sort();
+  const latestMs=Math.max(...allTimestamps.map(ts=>Date.parse(ts)));
+  const cutoff=latestMs-overviewRangeHours*60*60*1000;
+  const visibleTs=allTimestamps.filter(ts=>Date.parse(ts)>=cutoff);
+  chartOverviewLatest = new Chart(document.getElementById('chart-overview-latest'),{
+    type:'line', data:{labels:visibleTs.map(ts=>ts.replace('T',' ').slice(5,16)),datasets:[
+      {label:'Spot',data:visibleTs.map(ts=>spotTotals.get(ts)??null),borderColor:'#3fb950',backgroundColor:'rgba(63,185,80,.12)',yAxisID:'ySpot',fill:true,borderWidth:2,pointRadius:1.5,tension:.22,spanGaps:true},
+      {label:'Futures',data:visibleTs.map(ts=>futuresTotals.get(ts)??null),borderColor:'#58a6ff',backgroundColor:'rgba(88,166,255,.08)',yAxisID:'yFutures',fill:true,borderWidth:2,pointRadius:1.5,tension:.22,spanGaps:true}
+    ]}, options:{...common,plugins:{...common.plugins,tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${fmtOI(c.parsed.y)||0}`}}},scales:{
+      x:common.scales.x,
+      ySpot:{type:'linear',position:'left',beginAtZero:true,ticks:{color:'#3fb950',callback:v=>fmtOI(v)},grid:{color:'#21262d'},title:{display:true,text:'Spot',color:'#3fb950'}},
+      yFutures:{type:'linear',position:'right',beginAtZero:true,ticks:{color:'#58a6ff',callback:v=>fmtOI(v)},grid:{drawOnChartArea:false},title:{display:true,text:'Futures',color:'#58a6ff'}}
+    }}
+  });
 }
 
 function onSymbolChange() {
@@ -1957,11 +2310,17 @@ function updateSessionRiskSortHeader() {
 // ─────────────────────────────────────────────
 // Init
 // ─────────────────────────────────────────────
+loadResearchMap().catch(err => {
+  console.error('Failed to load Research Map:', err);
+  const errorBox = document.getElementById('load-error');
+  errorBox.style.display = 'block';
+  errorBox.textContent = `Research Map 加载失败：${err.message || err}。`;
+});
 loadData().catch(err => {
   console.error('Failed to load data:', err);
-  document.querySelectorAll('.panel').forEach(p => {
-    p.innerHTML = '<div class="no-data">数据加载失败，请确保在 HTTP 服务器下访问本页面<br><br>例：python3 -m http.server 8080 --directory .</div>';
-  });
+  const errorBox = document.getElementById('load-error');
+  errorBox.style.display = 'block';
+  errorBox.textContent = `数据加载失败：${err.message || err}。请刷新页面；若持续出现，请检查 /api/research/overview。`;
 });
 </script>
 </body>
