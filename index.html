@@ -359,8 +359,16 @@
   .research-meta { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:6px; }
   .meta-chip { white-space:nowrap; border:1px solid var(--border); border-radius:999px; padding:4px 8px; color:var(--muted); background:#0d1117; font-size:10px; }
   .research-grid { display:grid; grid-template-columns:minmax(360px,.9fr) minmax(560px,1.4fr); gap:16px; min-height:360px; }
-  .research-viz-grid { display:grid; grid-template-columns:repeat(3,minmax(300px,1fr)); gap:16px; min-height:330px; }
-  .research-trend-card { min-height:310px; }
+  .research-viz-grid { display:grid; grid-template-columns:repeat(3,minmax(300px,1fr)); gap:16px; height:350px; }
+  .research-toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--surface); }
+  .research-toolbar-left { display:flex; align-items:center; gap:10px; color:var(--muted); font-size:11px; }
+  .research-trend-card { height:430px; min-height:430px; }
+  .research-secondary-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; height:350px; }
+  .research-gap-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .research-gap { border:1px solid #6b4e16; background:#211b10; border-radius:8px; padding:11px 13px; }
+  .research-gap strong { display:block; color:#e3b341; font-size:11px; margin-bottom:5px; }
+  .research-gap span { color:var(--muted); font-size:10px; line-height:1.45; }
+  .research-empty-note { color:var(--yellow); font-size:10px; }
   #panel-6 { height:auto; min-height:100%; }
   #panel-6 > * { flex-shrink:0; }
   .research-table-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; min-height:420px; }
@@ -441,11 +449,15 @@
         <span class="meta-chip" id="research-source">来源 —</span>
       </div>
     </div>
+    <div class="research-toolbar">
+      <div class="research-toolbar-left"><span>历史时间范围</span><div class="range-buttons" id="research-range-buttons"><button class="range-button active" data-days="30">30天</button><button class="range-button" data-days="90">90天</button><button class="range-button" data-days="180">180天</button></div></div>
+      <span class="meta-chip" id="research-range-status">完整 UTC 日历史 —</span>
+    </div>
     <div class="overview-kpis">
       <div class="overview-kpi"><div class="label">识别产品存量代理</div><div class="value" id="research-outstanding">—</div><div class="note">发行/供应量价值代理，不等同自由流通市值</div></div>
       <div class="overview-kpi"><div class="label">CEX Stock Spot 24h</div><div class="value" id="research-cex-volume">—</div><div class="note">动态采集的站内 rolling 24h 成交额</div></div>
-      <div class="overview-kpi"><div class="label">DEX Stock Spot 24h</div><div class="value" id="research-dex-volume">—</div><div class="note">索引池成交额，覆盖不等同全量链上交易</div></div>
-      <div class="overview-kpi"><div class="label">DEX 可见流动性</div><div class="value" id="research-dex-liquidity">—</div><div class="note">索引池 liquidity，非统一深度口径</div></div>
+      <div class="overview-kpi"><div class="label">DEX Stock Spot 24h</div><div class="value" id="research-dex-volume">—</div><div class="note" id="research-dex-volume-note">索引池成交额，覆盖不等同全量链上交易</div></div>
+      <div class="overview-kpi"><div class="label">DEX 可见流动性</div><div class="value" id="research-dex-liquidity">—</div><div class="note" id="research-dex-liquidity-note">索引池 liquidity，非统一深度口径</div></div>
     </div>
     <div class="research-viz-grid">
       <div class="chart-card"><h3>产品家族 — CEX / DEX 24h 活动</h3><div class="chart-wrap"><canvas id="chart-research-product"></canvas></div></div>
@@ -453,13 +465,22 @@
       <div class="chart-card"><h3>DEX — 24h 成交与池流动性</h3><div class="chart-wrap"><canvas id="chart-research-dex-liquidity"></canvas></div></div>
     </div>
     <div class="chart-card research-trend-card">
-      <div class="overview-chart-head"><h3>产品 CEX / DEX rolling 24h 日级快照趋势</h3><span class="meta-chip" id="research-history-note">历史采集中 —</span></div>
+      <div class="overview-chart-head"><h3>Stock 现货成交额 — 已覆盖完整 UTC 日趋势</h3><span class="meta-chip" id="research-history-note">历史采集中 —</span></div>
       <div class="chart-wrap"><canvas id="chart-research-trend"></canvas></div>
     </div>
+    <div class="research-secondary-grid">
+      <div class="chart-card"><div class="overview-chart-head"><h3>相关协议 TVL — 完整 UTC 日趋势</h3><span class="meta-chip">DefiLlama 动态</span></div><div class="chart-wrap"><canvas id="chart-research-protocol-tvl"></canvas></div></div>
+      <div class="chart-card"><div class="overview-chart-head"><h3>TraFi Perp 平台 — rolling 24h 成交额趋势</h3><select id="research-perp-universe" style="min-width:130px;padding:3px 8px"><option value="full">Full universe</option><option value="comparable">Comparable</option></select></div><div class="chart-wrap"><canvas id="chart-research-perp-history"></canvas></div></div>
+    </div>
+    <div class="research-gap-grid">
+      <div class="research-gap"><strong>Backpack Securities 历史 · 待接入</strong><span>Dune canonical mint DEX 日频需要可用查询凭证；不使用旧 CSV 冒充动态数据，也不外推内部撮合/RFQ。</span></div>
+      <div class="research-gap"><strong>Ondo GM 主发行结算 · 待接入</strong><span>Ethereum GMTokenManager 去重结算序列需要动态链上查询；与 Ondo Alpha、DEX 二级成交保持独立。</span></div>
+      <div class="research-gap"><strong>bStocks BNB canonical DEX · 待接入</strong><span>需要官方/可验证动态合约注册表 + BEP-8056 校验；当前不使用报告静态 token 列表补值。</span></div>
+    </div>
     <div class="chart-card">
-      <h3>产品发行注册表</h3>
-      <div class="table-note">unique underlying、token deployment、chain 和 CEX market 是不同实体；供应量不可验证时不使用报告常量补值。</div>
-      <div class="research-table-wrap"><table class="data-table" id="research-issuance-table"><thead><tr><th>product</th><th>issuer</th><th>underlyings</th><th>deployments</th><th>chains</th><th>outstanding</th><th>registry</th><th>supply</th><th>grade</th><th>method</th></tr></thead><tbody></tbody></table></div>
+      <h3>产品发行 / 价值</h3>
+      <div class="table-note">value 明确区分 exact 与 proxy；不可验证时显示状态，不使用报告常量补值。</div>
+      <div class="research-table-wrap"><table class="data-table" id="research-issuance-table"><thead><tr><th>product</th><th>issuer</th><th>underlyings</th><th>deployments</th><th>chains</th><th>value</th><th>metric type</th><th>registry</th><th>supply</th><th>grade</th><th>as of</th></tr></thead><tbody></tbody></table></div>
     </div>
     <div class="research-table-grid">
       <div class="chart-card">
@@ -471,16 +492,15 @@
         <div class="research-table-wrap tall"><table class="data-table" id="research-dex-table"><thead><tr><th>product</th><th>chain</th><th>DEX</th><th>pools</th><th>active</th><th>24h volume</th><th>liquidity</th><th>tx</th><th>V/L</th><th>status</th></tr></thead><tbody></tbody></table></div>
       </div>
     </div>
-    <div class="research-table-grid">
-      <div class="chart-card">
-        <h3>数据覆盖矩阵</h3><div class="table-note">available=可用；partial=部分覆盖；not_public=无公开接口；not_integrated=待接入；not_applicable=不适用。</div>
-        <div class="research-table-wrap"><table class="data-table coverage-table" id="research-coverage-table"><thead><tr><th>product</th><th>registry</th><th>supply</th><th>CEX</th><th>depth</th><th>DEX</th><th>history</th></tr></thead><tbody></tbody></table></div>
-      </div>
-      <div class="chart-card">
-        <h3>DEX 最新池 Top 100</h3>
-        <div class="research-table-wrap tall"><table class="data-table" id="research-pool-table"><thead><tr><th>product</th><th>chain / DEX</th><th>pair</th><th>24h volume</th><th>liquidity</th><th>tx</th><th>pool</th></tr></thead><tbody></tbody></table></div>
-      </div>
+    <div class="chart-card">
+      <h3>跨层热点矩阵</h3><div class="table-note">发行、CEX、DEX、流动性和数据质量分列展示；7d/30d 完整日历史接通前不计算增长。</div>
+      <div class="research-table-wrap"><table class="data-table" id="research-hotspot-table"><thead><tr><th>product / hotspot</th><th>issuance / value</th><th>CEX 24h</th><th>DEX 24h</th><th>DEX liquidity</th><th>7d / 30d</th><th>concentration</th><th>grade</th><th>status</th><th>conclusion</th></tr></thead><tbody></tbody></table></div>
     </div>
+    <details class="chart-card">
+      <summary>DEX 池明细（详情）</summary>
+      <div class="table-note">每条链分别按成交额保留最新 Top 25；Overview 默认收起。 <label for="research-pool-chain">链：</label> <select id="research-pool-chain" style="min-width:140px;padding:3px 8px"><option value="all">全部</option></select></div>
+      <div class="research-table-wrap tall"><table class="data-table" id="research-pool-table"><thead><tr><th>product</th><th>chain / DEX</th><th>pair</th><th>24h volume</th><th>liquidity</th><th>tx</th><th>pool</th></tr></thead><tbody></tbody></table></div>
+    </details>
     <div class="quality-grid">
       <div class="chart-card">
         <h3>链生态背景（全链指标不是 TraFi 专属成交额）</h3>
@@ -834,6 +854,9 @@ let chartResearchProduct = null;
 let chartResearchCexDepth = null;
 let chartResearchDexLiquidity = null;
 let chartResearchTrend = null;
+let chartResearchProtocolTvl = null;
+let chartResearchPerpHistory = null;
+let researchRangeDays = 30;
 let overviewRangeHours = 168;
 let ovSortKey = '';
 let ovSortDir = 'desc';
@@ -855,7 +878,7 @@ function switchTab(idx, el) {
   document.getElementById('symbol-controls').style.display = [5, 6].includes(idx) ? 'none' : 'flex';
   // Resize charts when tab shown
   setTimeout(() => {
-    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding, chartOverviewLatest, chartOverviewSpotRanking, chartOverviewFuturesRanking, chartProductTypeVolume, chartResearchProduct, chartResearchCexDepth, chartResearchDexLiquidity, chartResearchTrend].forEach(c => { if (c) c.resize(); });
+    [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding, chartOverviewLatest, chartOverviewSpotRanking, chartOverviewFuturesRanking, chartProductTypeVolume, chartResearchProduct, chartResearchCexDepth, chartResearchDexLiquidity, chartResearchTrend, chartResearchProtocolTvl, chartResearchPerpHistory].forEach(c => { if (c) c.resize(); });
   }, 10);
 }
 
@@ -962,12 +985,13 @@ async function loadData() {
   renderMarketOverview();
 }
 
-async function loadResearchMap() {
+async function loadResearchMap(days=researchRangeDays) {
+  researchRangeDays = [30,90,180].includes(Number(days)) ? Number(days) : 30;
   const cacheBust = Date.now();
   const isGitHubPages = location.hostname.endsWith('.github.io');
   const candidates = isGitHubPages
     ? [`research_overview.json?_t=${cacheBust}`]
-    : [`/api/research/overview?_t=${cacheBust}`, `research_overview.json?_t=${cacheBust}`];
+    : [`/api/research/overview?range=${researchRangeDays}&_t=${cacheBust}`, `research_overview.json?_t=${cacheBust}`];
   let lastError = null;
 
   for (const url of candidates) {
@@ -980,6 +1004,7 @@ async function loadResearchMap() {
       researchEcosystemData = {built_at:research.built_at, chains:research.ecosystem?.chains || {data:[]}, protocols:research.ecosystem?.protocols || {data:[]}};
       researchQualityData = {built_at:research.built_at, meta:research.meta, data:research.quality?.data || []};
       renderResearchMap();
+      initResearchRangeControls();
       return;
     } catch (error) {
       lastError = error;
@@ -995,6 +1020,20 @@ async function loadResearchMap() {
   throw lastError || new Error('Research data unavailable');
 }
 
+
+function initResearchRangeControls() {
+  const wrap = document.getElementById('research-range-buttons');
+  if (!wrap || wrap.dataset.ready) return;
+  wrap.dataset.ready = '1';
+  wrap.querySelectorAll('.range-button').forEach(button => button.addEventListener('click', async () => {
+    const days = Number(button.dataset.days);
+    wrap.querySelectorAll('.range-button').forEach(item => item.classList.toggle('active', item === button));
+    document.getElementById('research-range-status').textContent = `加载 ${days} 天动态历史…`;
+    try { await loadResearchMap(days); }
+    catch (error) { document.getElementById('research-range-status').textContent = `加载失败：${error.message || error}`; }
+  }));
+}
+
 function renderResearchMap() {
   const products = researchProductData?.data || [];
   const chains = researchEcosystemData?.chains?.data || [];
@@ -1004,11 +1043,17 @@ function renderResearchMap() {
   const dexRows = researchOverviewData?.dex?.protocols || [];
   const poolRows = researchOverviewData?.dex?.pools || [];
   const coverageRows = researchOverviewData?.coverage?.data || [];
-  const historyRows = researchOverviewData?.history?.data || [];
-  const historyDays = researchOverviewData?.history?.days || [];
+  const hotspotRows = researchOverviewData?.hotspot_matrix?.data || [];
+  const allHistoryRows = researchOverviewData?.history?.data || [];
+  const allHistoryDays = researchOverviewData?.history?.days || [];
+  const cutoff = allHistoryDays.length ? allHistoryDays.slice(-researchRangeDays)[0] : null;
+  const historyRows = cutoff ? allHistoryRows.filter(row => row.day >= cutoff) : allHistoryRows;
+  const historyDays = [...new Set(historyRows.map(row => row.day))].sort();
+  const protocolHistoryRows = (researchOverviewData?.protocol_history?.data || []).filter(row => !cutoff || row.day >= cutoff);
+  const perpHistoryRows = (researchOverviewData?.perp_history?.data || []).filter(row => !cutoff || row.day >= cutoff);
   const sumField = (rows, field) => rows.reduce((sum, row) => sum + Number(row[field] || 0), 0);
   const statusLabels = {
-    available:'可用', partial:'部分覆盖', not_public:'无公开接口',
+    available:'可用', partial:'部分覆盖', stale:'已过期', not_public:'无公开接口',
     not_integrated:'待接入', not_applicable:'不适用', zero_observed:'覆盖内为 0'
   };
   const statusPill = status => {
@@ -1041,6 +1086,10 @@ function renderResearchMap() {
   document.getElementById('research-cex-volume').textContent = fmtOI(sumField(products, 'cex_volume_24h_usd')) || '0';
   document.getElementById('research-dex-volume').textContent = fmtOI(sumField(products, 'dex_dex_volume_24h_usd')) || '0';
   document.getElementById('research-dex-liquidity').textContent = fmtOI(sumField(products, 'dex_dex_liquidity_usd')) || '0';
+  const dexQuality = quality.find(row=>row.source_key==='dexscreener');
+  const dexFreshness = dexQuality?.status === 'ok' ? '最新动态索引快照' : dexQuality?.last_success_at ? `${dexQuality.status} · 最近成功 ${String(dexQuality.last_success_at).replace('T',' ').slice(0,16)} UTC` : '动态来源未成功';
+  document.getElementById('research-dex-volume-note').textContent = `${dexFreshness}；非全量链上交易`;
+  document.getElementById('research-dex-liquidity-note').textContent = `${dexFreshness}；非统一深度口径`;
 
   const issuanceBody = document.querySelector('#research-issuance-table tbody');
   issuanceBody.innerHTML = '';
@@ -1052,11 +1101,12 @@ function renderResearchMap() {
     addCell(tr, valueOrStatus(row.token_deployments, row.registry_status));
     addCell(tr, valueOrStatus(row.chain_count, row.registry_status));
     addCell(tr, valueOrStatus(row.outstanding_usd, row.supply_status, fmtOI));
+    addCell(tr, row.value_metric_type || statusPill(row.supply_status));
     addCell(tr, statusPill(row.registry_status));
     addCell(tr, statusPill(row.supply_status));
     const grade = document.createElement('span'); grade.className=`grade grade-${String(row.quality_grade||'d').charAt(0).toLowerCase()}`; grade.textContent=row.quality_grade||'—';
     addCell(tr, grade);
-    addCell(tr, row.supply_method, 'method-cell');
+    addCell(tr, row.as_of ? String(row.as_of).replace('T',' ').slice(0,16) : '—');
     issuanceBody.appendChild(tr);
   });
 
@@ -1085,17 +1135,39 @@ function renderResearchMap() {
     dexBody.appendChild(tr);
   });
 
-  const coverageBody = document.querySelector('#research-coverage-table tbody');
-  coverageBody.innerHTML = '';
-  coverageRows.forEach(row => {
-    const tr = document.createElement('tr'); addCell(tr,row.product);
-    ['registry','supply','cex','depth','dex','history'].forEach(field=>addCell(tr,statusPill(row[field])));
-    coverageBody.appendChild(tr);
+  const hotspotBody = document.querySelector('#research-hotspot-table tbody');
+  hotspotBody.innerHTML = '';
+  hotspotRows.forEach(row => {
+    const tr = document.createElement('tr');
+    addCell(tr, row.hotspot);
+    addCell(tr, valueOrStatus(row.issuance_value_usd, row.issuance_status, fmtOI));
+    addCell(tr, valueOrStatus(row.cex_volume_24h_usd, row.cex_status, value=>fmtOI(value)||'0'));
+    addCell(tr, valueOrStatus(row.dex_volume_24h_usd, row.dex_status, value=>fmtOI(value)||'0'));
+    addCell(tr, valueOrStatus(row.dex_liquidity_usd, row.liquidity_status, value=>fmtOI(value)||'0'));
+    const growth = row.growth_7d_pct == null || row.growth_30d_pct == null
+      ? statusPill(row.growth_status)
+      : `${Number(row.growth_7d_pct).toFixed(1)}% / ${Number(row.growth_30d_pct).toFixed(1)}%`;
+    addCell(tr, growth);
+    addCell(tr, row.top_venue_share == null ? '—' : `${row.top_venue || 'top'} ${(Number(row.top_venue_share)*100).toFixed(1)}%`);
+    const grade = document.createElement('span'); grade.className=`grade grade-${String(row.quality_grade||'d').charAt(0).toLowerCase()}`; grade.textContent=row.quality_grade||'—';
+    addCell(tr, grade);
+    addCell(tr, statusPill(row.status));
+    addCell(tr, row.conclusion);
+    hotspotBody.appendChild(tr);
   });
 
   const poolBody = document.querySelector('#research-pool-table tbody');
+  const poolChainSelect = document.getElementById('research-pool-chain');
+  const selectedPoolChain = poolChainSelect?.value || 'all';
+  const poolChains = [...new Set(poolRows.map(row => row.chain).filter(Boolean))].sort();
+  if (poolChainSelect) {
+    poolChainSelect.innerHTML = '<option value="all">全部</option>' + poolChains.map(chain => `<option value="${chain}">${chain}</option>`).join('');
+    poolChainSelect.value = poolChains.includes(selectedPoolChain) ? selectedPoolChain : 'all';
+    if (!poolChainSelect.dataset.ready) { poolChainSelect.dataset.ready='1'; poolChainSelect.addEventListener('change', renderResearchMap); }
+  }
+  const visiblePools = poolRows.filter(row => !poolChainSelect || poolChainSelect.value === 'all' || row.chain === poolChainSelect.value);
   poolBody.innerHTML = '';
-  poolRows.forEach(row => {
+  visiblePools.forEach(row => {
     const tr = document.createElement('tr');
     addCell(tr,row.product); addCell(tr,`${row.chain} / ${row.dex}`); addCell(tr,`${row.base_symbol||'?'} / ${row.quote_symbol||'?'}`);
     addCell(tr,fmtOI(row.volume_24h_usd)||'0'); addCell(tr,fmtOI(row.liquidity_usd)||'0'); addCell(tr,Number(row.tx_count_24h||0).toLocaleString());
@@ -1136,17 +1208,37 @@ function renderResearchMap() {
     });
 
     const dates=[...new Set(historyDays)].sort();
-    const historyValue=(date,field,product=null)=>historyRows.filter(row=>row.day===date&&(!product||row.product===product)).reduce((sum,row)=>sum+Number(row[field]||0),0);
-    const leaders=[...activeProducts].sort((a,b)=>(Number(b.cex_volume_24h_usd||0)+Number(b.dex_dex_volume_24h_usd||0))-(Number(a.cex_volume_24h_usd||0)+Number(a.dex_dex_volume_24h_usd||0))).slice(0,4).map(row=>row.product);
+    const historyValue=(date,layer,product=null)=>{const matching=historyRows.filter(row=>row.day===date&&row.layer===layer&&(!product||row.product===product));return matching.length?matching.reduce((sum,row)=>sum+Number(row.volume_usd||0),0):null;};
+    const productTotals = new Map();
+    historyRows.filter(row=>row.layer==='cex').forEach(row=>productTotals.set(row.product,(productTotals.get(row.product)||0)+Number(row.volume_usd||0)));
+    const leaders=[...productTotals.entries()].sort((a,b)=>b[1]-a[1]).slice(0,4).map(row=>row[0]);
     const trendDatasets=[
-      {label:'CEX total',data:dates.map(date=>historyValue(date,'cex_volume_24h_usd')),borderColor:'#58a6ff',backgroundColor:'#58a6ff',borderWidth:2},
-      {label:'DEX total',data:dates.map(date=>historyValue(date,'dex_volume_24h_usd')),borderColor:'#3fb950',backgroundColor:'#3fb950',borderWidth:2},
-      ...leaders.map((product,index)=>({label:product,data:dates.map(date=>historyValue(date,'cex_volume_24h_usd',product)+historyValue(date,'dex_volume_24h_usd',product)),borderColor:PRODUCT_COLORS[product]||['#e3b341','#a371f7','#f778ba','#79c0ff'][index],backgroundColor:PRODUCT_COLORS[product]||'#8b949e',borderDash:[5,4],borderWidth:1.2}))
+      {label:'CEX complete-day total',data:dates.map(date=>historyValue(date,'cex')),borderColor:'#58a6ff',backgroundColor:'#58a6ff',borderWidth:2,spanGaps:false},
+      ...leaders.map((product,index)=>({label:product,data:dates.map(date=>historyValue(date,'cex',product)),borderColor:PRODUCT_COLORS[product]||['#e3b341','#a371f7','#f778ba','#79c0ff'][index],backgroundColor:PRODUCT_COLORS[product]||'#8b949e',borderDash:[5,4],borderWidth:1.2,spanGaps:false}))
     ];
+    if (historyRows.some(row=>row.layer==='dex')) trendDatasets.splice(1,0,{label:'DEX fixed-pool observed',data:dates.map(date=>historyValue(date,'dex')),borderColor:'#3fb950',backgroundColor:'#3fb950',borderWidth:2,spanGaps:false});
+    if (historyRows.some(row=>row.layer==='ondo_alpha')) trendDatasets.push({label:'Ondo Alpha launch assets (independent layer)',data:dates.map(date=>historyValue(date,'ondo_alpha')),borderColor:'#e3b341',backgroundColor:'#e3b341',borderWidth:2,borderDash:[3,3],spanGaps:false});
     if (chartResearchTrend) chartResearchTrend.destroy();
-    chartResearchTrend = new Chart(document.getElementById('chart-research-trend'),{type:'line',data:{labels:dates,datasets:trendDatasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',boxWidth:10}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${fmtOI(ctx.parsed.y)||0}`}}},elements:{line:{tension:.18},point:{radius:dates.length===1?5:2}},scales:{x:{ticks:{color:'#8b949e'},grid:{color:'#21262d'}},y:{beginAtZero:true,ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}});
+    chartResearchTrend = new Chart(document.getElementById('chart-research-trend'),{type:'line',data:{labels:dates,datasets:trendDatasets},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',boxWidth:10}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y==null?'缺失':fmtOI(ctx.parsed.y)}`}}},elements:{line:{tension:.18},point:{radius:dates.length===1?5:1.5}},scales:{x:{ticks:{color:'#8b949e',maxTicksLimit:12},grid:{color:'#21262d'}},y:{beginAtZero:true,ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}});
+
+    const protocolDates=[...new Set(protocolHistoryRows.map(row=>row.day))].sort();
+    const protocolNames=[...new Set(protocolHistoryRows.map(row=>row.protocol))];
+    if (chartResearchProtocolTvl) chartResearchProtocolTvl.destroy();
+    chartResearchProtocolTvl = new Chart(document.getElementById('chart-research-protocol-tvl'),{type:'line',data:{labels:protocolDates,datasets:protocolNames.map((name,index)=>({label:name,data:protocolDates.map(day=>protocolHistoryRows.find(row=>row.day===day&&row.protocol===name)?.tvl_usd??null),borderColor:['#58a6ff','#3fb950','#a371f7','#e3b341','#f778ba'][index%5],borderWidth:1.8,pointRadius:0,spanGaps:false}))},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',boxWidth:9,font:{size:9}}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y==null?'缺失':fmtOI(ctx.parsed.y)}`}}},scales:{x:{ticks:{color:'#8b949e',maxTicksLimit:8},grid:{color:'#21262d'}},y:{ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}});
+
+    const perpUniverseSelect=document.getElementById('research-perp-universe');
+    if (perpUniverseSelect && !perpUniverseSelect.dataset.ready) { perpUniverseSelect.dataset.ready='1'; perpUniverseSelect.addEventListener('change',renderResearchMap); }
+    const perpUniverse=perpUniverseSelect?.value || 'full';
+    const visiblePerpRows=perpHistoryRows.filter(row=>row.universe===perpUniverse);
+    const perpDates=[...new Set(visiblePerpRows.map(row=>row.day))].sort();
+    const perpExchanges=[...new Set(visiblePerpRows.map(row=>row.exchange))];
+    if (chartResearchPerpHistory) chartResearchPerpHistory.destroy();
+    chartResearchPerpHistory = new Chart(document.getElementById('chart-research-perp-history'),{type:'line',data:{labels:perpDates,datasets:perpExchanges.map(exchange=>({label:exchange,data:perpDates.map(day=>visiblePerpRows.find(row=>row.day===day&&row.exchange===exchange)?.volume_24h_usd??null),borderColor:EX_COLORS[exchange]||'#8b949e',borderWidth:1.6,pointRadius:0,spanGaps:false}))},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',boxWidth:9,font:{size:9}}},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y==null?'缺失':fmtOI(ctx.parsed.y)}`}}},scales:{x:{ticks:{color:'#8b949e',maxTicksLimit:8},grid:{color:'#21262d'}},y:{ticks:{color:'#8b949e',callback:v=>fmtOI(v)},grid:{color:'#21262d'}}}}});
   }
-  document.getElementById('research-history-note').textContent = historyDays.length ? `${historyDays[0]} → ${historyDays[historyDays.length-1]} · ${historyDays.length} 个 UTC 日${historyDays.length<2?' · 正在积累':''}` : '暂无动态历史';
+  const hasDexHistory = historyRows.some(row=>row.layer==='dex');
+  const historyLabel = historyDays.length ? `${historyDays[0]} → ${historyDays[historyDays.length-1]} · ${historyDays.length} 个 UTC 日` : '暂无动态历史';
+  document.getElementById('research-history-note').textContent = `${historyLabel}${hasDexHistory?'':' · DEX 完整日层待接入'}`;
+  document.getElementById('research-range-status').textContent = `${researchRangeDays} 天 · ${researchOverviewData?.history?.data_type || '—'} · ${researchOverviewData?.history?.coverage_status || '—'}`;
 
   const chainBody = document.querySelector('#research-chain-table tbody');
   chainBody.innerHTML = '';
@@ -1173,7 +1265,8 @@ function renderResearchMap() {
       const link = document.createElement('a'); link.className='rule-link'; link.href=row.source_url; link.target='_blank'; link.rel='noopener'; link.textContent=row.dataset || '—'; datasetCell.appendChild(link);
     } else datasetCell.textContent = row.dataset || '—';
     tr.appendChild(datasetCell);
-    [row.status, row.note].forEach(value => { const td=document.createElement('td'); td.textContent=value || '—'; tr.appendChild(td); });
+    const evidenceNote = `${row.note || '—'}${row.last_success_at ? ` · last success ${String(row.last_success_at).replace('T',' ').slice(0,16)} UTC` : ''}`;
+    [row.status, evidenceNote].forEach(value => { const td=document.createElement('td'); td.textContent=value || '—'; tr.appendChild(td); });
     qualityBody.appendChild(tr);
   });
 }
