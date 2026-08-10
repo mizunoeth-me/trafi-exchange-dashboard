@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trafi 交易所分析 Dashboard</title>
 <script src="assets/chart.umd.min.js"></script>
+<link rel="stylesheet" href="assets/event_calendar.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -420,6 +421,7 @@
   <div class="tab" onclick="switchTab(2, this)">Futures 总览</div>
   <div class="tab" onclick="switchTab(3, this)">Spot 总览</div>
   <div class="tab" onclick="switchTab(4, this)">Session 风险</div>
+  <div class="tab" onclick="switchTab(7, this)">美股事件日历</div>
 </div>
 
 <div class="load-error" id="load-error"></div>
@@ -804,6 +806,64 @@
         <tbody></tbody>
       </table>
     </div>
+  </div>
+
+  <div class="panel event-calendar-panel" id="panel-7">
+    <div class="event-calendar-hero">
+      <div>
+        <h2>美股事件日历</h2>
+        <p>每日更新 Nasdaq 美股财报、分红与拆股日程；日期可能调整，临近事件请以公司公告为准。</p>
+      </div>
+      <div class="event-calendar-meta">
+        <span class="meta-chip" id="event-calendar-status">加载中 —</span>
+        <span class="meta-chip" id="event-calendar-updated">更新时间 —</span>
+      </div>
+    </div>
+    <div class="overview-kpis event-calendar-kpis">
+      <div class="overview-kpi"><div class="label">未来财报</div><div class="value" id="event-kpi-earnings">—</div><div class="note">当前采集窗口</div></div>
+      <div class="overview-kpi"><div class="label">未来分红</div><div class="value" id="event-kpi-dividends">—</div><div class="note">按除息日统计</div></div>
+      <div class="overview-kpi"><div class="label">未来拆股</div><div class="value" id="event-kpi-splits">—</div><div class="note">含正向与反向拆股</div></div>
+      <div class="overview-kpi"><div class="label">数据窗口</div><div class="value event-window-value" id="event-kpi-window">—</div><div class="note">过去 7 天 + 未来 30 天</div></div>
+    </div>
+    <div class="event-calendar-toolbar">
+      <input id="event-calendar-search" placeholder="搜索代码或公司名称" autocomplete="off" />
+      <select id="event-calendar-type">
+        <option value="">全部类型</option>
+        <option value="earnings">财报</option>
+        <option value="dividends">分红</option>
+        <option value="splits">拆股</option>
+      </select>
+      <select id="event-calendar-range">
+        <option value="7" selected>未来 7 天</option>
+        <option value="30">未来 30 天</option>
+        <option value="all">全部窗口</option>
+      </select>
+      <label class="event-market-filter spot" for="event-calendar-spot">
+        <span>现货市场</span>
+        <select id="event-calendar-spot">
+          <option value="">全部</option><option value="has">有现货</option><option value="none">无现货</option>
+        </select>
+      </label>
+      <label class="event-market-filter futures" for="event-calendar-futures">
+        <span>合约市场</span>
+        <select id="event-calendar-futures">
+          <option value="">全部</option><option value="has">有合约</option><option value="none">无合约</option>
+        </select>
+      </label>
+      <button id="event-calendar-refresh">刷新数据</button>
+      <span class="event-calendar-result" id="event-calendar-result">—</span>
+    </div>
+    <div class="event-calendar-error" id="event-calendar-error"></div>
+    <div class="event-calendar-table-wrap">
+      <table class="data-table event-calendar-table" id="event-calendar-table">
+        <thead><tr><th>日期</th><th>类型</th><th>代码</th><th>公司</th><th>现货市场</th><th>合约市场</th><th>时间 / 比例</th><th>关键数值</th><th>补充信息</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="event-calendar-pagination">
+      <button id="event-calendar-prev">上一页</button><span id="event-calendar-page">—</span><button id="event-calendar-next">下一页</button>
+    </div>
+    <div class="table-note">来源：Nasdaq 网站结构化日历接口（无 SLA 的低成本内部研究源）。财报时间均为来源提供的盘前/盘后标签。</div>
   </div>
 
 </main>
@@ -2564,5 +2624,6 @@ loadData().catch(err => {
   errorBox.textContent = `数据加载失败：${err.message || err}。请刷新页面；若持续出现，请检查 /api/research/overview。`;
 });
 </script>
+<script src="assets/event_calendar.js"></script>
 </body>
 </html>
