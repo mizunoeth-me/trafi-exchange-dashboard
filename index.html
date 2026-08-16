@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trafi 交易所分析 Dashboard</title>
+<link rel="icon" href="data:,">
 <script src="assets/chart.umd.min.js"></script>
 <link rel="stylesheet" href="assets/event_calendar.css">
 <style>
@@ -285,6 +286,50 @@
     max-height: 420px;
     overflow: auto;
   }
+  .ic-contract-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .ic-weight-ok { color: var(--green); }
+  .ic-weight-invalid { color: var(--red); font-weight: 600; }
+  .ic-history-section {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    padding: 12px;
+  }
+  .ic-history-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .ic-history-head h3 { margin: 0; }
+  .ic-history-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 8px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .ic-history-controls select { min-width: 150px; padding: 4px 8px; font-size: 11px; }
+  .ic-history-summary-wrap { overflow: auto; max-height: 260px; }
+  .ic-history-events-wrap { overflow: auto; max-height: 520px; }
+  .ic-history-summary-table tr { cursor: pointer; }
+  .ic-history-summary-table tr.selected td { background: #1f3a5f; }
+  .ic-change-list { min-width: 230px; white-space: normal; line-height: 1.45; }
+  .ic-change-item { display: block; margin-bottom: 3px; }
+  .ic-change-added { color: var(--green); }
+  .ic-change-removed { color: var(--red); }
+  .ic-change-weight { color: var(--yellow); }
   .sortable {
     cursor: pointer;
     user-select: none;
@@ -297,6 +342,8 @@
   @media (max-width: 1200px) {
     .ic-lists-grid { grid-template-columns: 1fr; }
   }
+  #panel-1 { height: auto; min-height: 100%; }
+  #panel-1 > * { flex-shrink: 0; }
 
   /* ── No data ── */
   .no-data {
@@ -636,17 +683,19 @@
         <div id="ic-heatmap-legend" class="heatmap-legend"></div>
       </div>
     </div>
-    <div class="ic-section" style="flex:1 1 auto; min-height:0;">
+    <div class="ic-section">
       <div class="ic-lists-grid">
         <div class="ic-list-card">
-          <h3>成分明细（source / spot_pair / weight）</h3>
+          <h3>最新成分明细（标准来源 / 原始来源 / spot_pair / weight）</h3>
           <div class="ic-scroll-wrap">
             <table class="ic-table" id="ic-table">
               <thead>
                 <tr>
-                  <th>source</th>
+                  <th>标准来源</th>
+                  <th>原始来源</th>
                   <th>spot_pair</th>
                   <th>weight</th>
+                  <th>快照时间</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -668,6 +717,45 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="ic-section ic-history-section">
+      <div class="ic-history-head">
+        <h3>指数成分变更历史</h3>
+        <span class="meta-chip" id="ic-history-status">按需加载</span>
+      </div>
+      <div class="table-note">
+        按交易所 + 交易对统计全部快照与真实变更；价格更新不计为成分修改。原始快照完整保留在 PostgreSQL。
+      </div>
+      <div class="ic-history-summary-wrap">
+        <table class="ic-table ic-history-summary-table" id="ic-history-summary-table">
+          <thead><tr><th>交易所</th><th>交易对</th><th>快照数</th><th>变更数</th><th>成分集变更</th><th>权重变更</th><th>首次快照</th><th>最新快照</th><th>最新变更</th></tr></thead>
+          <tbody><tr><td colspan="9" class="na">选择标的后加载</td></tr></tbody>
+        </table>
+      </div>
+      <div class="ic-history-controls">
+        <label for="ic-history-contract">交易所 / 交易对</label>
+        <select id="ic-history-contract"></select>
+        <label for="ic-history-type">变更类型</label>
+        <select id="ic-history-type">
+          <option value="all">全部</option>
+          <option value="component_set">成分新增/删除</option>
+          <option value="weight">权重变化</option>
+          <option value="initial">初始成分</option>
+        </select>
+        <label for="ic-history-limit">显示</label>
+        <select id="ic-history-limit">
+          <option value="100">最新 100 条</option>
+          <option value="500">最新 500 条</option>
+          <option value="all">全部</option>
+        </select>
+        <span id="ic-history-result">—</span>
+      </div>
+      <div class="ic-history-events-wrap">
+        <table class="ic-table" id="ic-history-events-table">
+          <thead><tr><th>变更时间</th><th>上一快照</th><th>类型</th><th>权重合计</th><th>新增</th><th>删除</th><th>权重修改</th></tr></thead>
+          <tbody><tr><td colspan="7" class="na">暂无数据</td></tr></tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -874,6 +962,10 @@
 // ─────────────────────────────────────────────
 let futuresData   = null;  // futures_summary.json
 let icData        = null;  // index_components_summary.json
+let icHistoryManifest = null; // index_component_history_manifest.json
+let icHistoryData = null; // selected underlying history payload
+let icHistorySymbol = '';
+let icHistoryRequestId = 0;
 let overviewData  = null;  // futures_overview.json
 let spotOverviewData = null; // spot_overview.json
 let tsData = null; // futures_timeseries.json
@@ -961,6 +1053,18 @@ function parsePctLike(v) {
   const x = Number(v);
   return Number.isFinite(x) ? x : null;
 }
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+function fmtUtc(value) {
+  if (!value) return '—';
+  return String(value).replace('T', ' ').replace(/\+00:00$/, '').slice(0, 19) + ' UTC';
+}
 function fmtOI(v) {
   if (!v) return null;
   v = Number(v);
@@ -985,7 +1089,7 @@ function cmpNullable(a, b, dir = 'asc') {
 // Load data
 // ─────────────────────────────────────────────
 async function loadData() {
-  const [fsRes, icRes, ovRes, sovRes, overlapRes, srRes, marketVolumeRes] = await Promise.all([
+  const [fsRes, icRes, ovRes, sovRes, overlapRes, srRes, marketVolumeRes, historyManifestRes] = await Promise.all([
     fetch('futures_summary.json?_t=' + Date.now()),
     fetch('index_components_summary.json?_t=' + Date.now()),
     fetch('futures_overview.json?_t=' + Date.now()),
@@ -993,6 +1097,7 @@ async function loadData() {
     fetch('overlap_matrix_latest.json?_t=' + Date.now()),
     fetch('session_risk_summary.json?_t=' + Date.now()),
     fetch('market_volume_trends.json?_t=' + Date.now()),
+    fetch('index_component_history_manifest.json?_t=' + Date.now()),
   ]);
   futuresData = await fsRes.json();
   icData      = await icRes.json();
@@ -1001,6 +1106,7 @@ async function loadData() {
   overlapData = await overlapRes.json();
   sessionRiskData = srRes.ok ? await srRes.json() : { underlyings: [], rows: [], ts: null };
   marketVolumeData = marketVolumeRes.ok ? await marketVolumeRes.json() : { series:{spot:{},futures:{}}, latest:{spot:[],futures:[]} };
+  icHistoryManifest = historyManifestRes.ok ? await historyManifestRes.json() : { symbols:{} };
 
   // 时序文件容错：失败时不影响原有看板渲染
   try {
@@ -1036,6 +1142,7 @@ async function loadData() {
     sel.value = futuresData.symbols[0];
   }
   initICPairSorting();
+  initICHistoryControls();
   initTsControls();
   initSessionRiskControls();
   onSymbolChange();
@@ -1782,9 +1889,10 @@ function renderIC(sym) {
 
   if (!rec || Object.keys(rec.exchanges).length === 0) {
     title.textContent = sym + ' — 无指数成分数据';
-    tbody.innerHTML = '<tr><td colspan="3" class="na">暂无数据</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="5" class="na">暂无数据</td></tr>';
     pairBody.innerHTML = '<tr><td colspan="3" class="na">暂无数据</td></tr>';
     renderICCharts([], sym);
+    loadICHistory(sym);
     return;
   }
 
@@ -1825,9 +1933,16 @@ function renderIC(sym) {
       // 合约级标题：交易对 -> 交易所
       const hdr = document.createElement('tr');
       hdr.innerHTML = `
-        <td colspan="3" style="background:#21262d;padding:6px 10px;">
+        <td colspan="5" style="background:#21262d;padding:6px 10px;">
           <div style="color:${EX_COLORS[ex]||'#58a6ff'};font-weight:600;">
-            ${ca.symbol || '-'} (${ca.base || '-'}/${ca.quote || '-'})  ·  ${ex}
+            ${escapeHtml(ca.symbol || '-')} (${escapeHtml(ca.base || '-')}/${escapeHtml(ca.quote || '-')})  ·  ${escapeHtml(ex)}
+            <div class="ic-contract-meta">
+              <span>最新快照 ${escapeHtml(fmtUtc(ca.snapshot_ts))}</span>
+              <span>成分 ${Number(ca.component_count || 0)} 项</span>
+              <span class="${ca.weight_status === 'ok' ? 'ic-weight-ok' : 'ic-weight-invalid'}">
+                权重合计 ${fmt(Number(ca.weight_sum || 0) * 100, 2)}% · ${escapeHtml(ca.weight_status || 'missing')}
+              </span>
+            </div>
           </div>
         </td>
       `;
@@ -1836,17 +1951,17 @@ function renderIC(sym) {
       // 合约对应成分列表
       const comps = (ca.components || []);
       // 新增：每个合约的 Hyperliquid 依赖占比
-      const totalW = comps.reduce((s, c) => s + (parsePctLike(c.weight) || 0), 0);
+      const totalW = Number(ca.weight_sum || 0) * 100;
       const hlW = comps.reduce((s, c) => {
         const src = (c.source || '').toString().trim().toLowerCase();
-        if (src === 'hyperliquid') return s + (parsePctLike(c.weight) || 0);
+        if (src === 'hyperliquid') return s + (Number(c.weight_raw || 0) * 100);
         return s;
       }, 0);
-      const hlDep = totalW > 0 ? (hlW / totalW) * 100 : null;
+      const hlDep = ca.weight_status === 'ok' && totalW > 0 ? (hlW / totalW) * 100 : null;
       const trDep = document.createElement('tr');
       trDep.innerHTML = `
         <td style="padding-left:16px;color:var(--muted)">Hyperliquid依赖</td>
-        <td colspan="2">${hlDep == null ? '<span class="na">—</span>' : (fmt(hlDep, 2) + '%')}</td>
+        <td colspan="4">${hlDep == null ? '<span class="na">—（快照权重未通过校验）</span>' : (fmt(hlDep, 2) + '%')}</td>
       `;
       tbody.appendChild(trDep);
 
@@ -1854,7 +1969,7 @@ function renderIC(sym) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td style="padding-left:16px;color:var(--muted)">resource</td>
-          <td colspan="2" class="na">暂无成分数据</td>
+          <td colspan="4" class="na">暂无成分数据</td>
         `;
         tbody.appendChild(tr);
       }
@@ -1862,16 +1977,18 @@ function renderIC(sym) {
         const w = parsePctLike(c.weight);
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td style="padding-left:16px;color:var(--muted)">${c.source || '-'}</td>
-          <td>${c.spot_pair || '<span class="na">—</span>'}</td>
+          <td style="padding-left:16px;color:var(--muted)">${escapeHtml(c.source || '-')}</td>
+          <td>${escapeHtml(c.raw_source || c.source || '-')}</td>
+          <td>${c.spot_pair ? escapeHtml(c.spot_pair) : '<span class="na">—</span>'}</td>
           <td>${w != null ? (fmt(w, 2) + '%') : '<span class="na">—</span>'}</td>
+          <td>${escapeHtml(fmtUtc(ca.snapshot_ts))}</td>
         `;
         tbody.appendChild(tr);
       });
 
       // 合约间隔
       const sep = document.createElement('tr');
-      sep.innerHTML = `<td colspan="3" style="height:4px;border-bottom:1px solid #21262d;background:transparent;"></td>`;
+      sep.innerHTML = `<td colspan="5" style="height:4px;border-bottom:1px solid #21262d;background:transparent;"></td>`;
       tbody.appendChild(sep);
     });
   });
@@ -1879,6 +1996,178 @@ function renderIC(sym) {
   renderICPairTable(pairRows);
 
   renderICCharts(exs, sym, pairRows);
+  loadICHistory(sym);
+}
+
+function historyContractKey(contract) {
+  return `${contract.exchange || ''}|${contract.symbol || ''}`;
+}
+
+async function loadICHistory(sym) {
+  const status = document.getElementById('ic-history-status');
+  const summaryBody = document.querySelector('#ic-history-summary-table tbody');
+  const eventsBody = document.querySelector('#ic-history-events-table tbody');
+  const manifestItem = icHistoryManifest?.symbols?.[sym];
+
+  if (!manifestItem) {
+    icHistorySymbol = sym;
+    icHistoryData = null;
+    status.textContent = '无历史文件';
+    summaryBody.innerHTML = '<tr><td colspan="9" class="na">该标的暂无指数成分历史</td></tr>';
+    eventsBody.innerHTML = '<tr><td colspan="7" class="na">暂无数据</td></tr>';
+    return;
+  }
+  if (icHistorySymbol === sym && icHistoryData) {
+    renderICHistory();
+    return;
+  }
+
+  const requestId = ++icHistoryRequestId;
+  icHistorySymbol = sym;
+  icHistoryData = null;
+  status.textContent = '加载中…';
+  summaryBody.innerHTML = '<tr><td colspan="9" class="na">正在加载变更历史…</td></tr>';
+  eventsBody.innerHTML = '<tr><td colspan="7" class="na">正在加载…</td></tr>';
+
+  try {
+    const response = await fetch(`${manifestItem.file}?_t=${Date.now()}`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const payload = await response.json();
+    if (requestId !== icHistoryRequestId || sym !== currentSymbol) return;
+    icHistoryData = payload;
+    renderICHistory();
+  } catch (error) {
+    if (requestId !== icHistoryRequestId) return;
+    status.textContent = '加载失败';
+    summaryBody.innerHTML = `<tr><td colspan="9" class="na">历史加载失败：${escapeHtml(error.message || error)}</td></tr>`;
+    eventsBody.innerHTML = '<tr><td colspan="7" class="na">暂无数据</td></tr>';
+  }
+}
+
+function initICHistoryControls() {
+  ['ic-history-contract', 'ic-history-type', 'ic-history-limit'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el || el.dataset.bound === '1') return;
+    el.addEventListener('change', renderICHistoryEvents);
+    el.dataset.bound = '1';
+  });
+}
+
+function renderICHistory() {
+  const status = document.getElementById('ic-history-status');
+  const summaryBody = document.querySelector('#ic-history-summary-table tbody');
+  const contractSelect = document.getElementById('ic-history-contract');
+  const contracts = icHistoryData?.contracts || [];
+  if (!contracts.length) {
+    status.textContent = '无变更历史';
+    summaryBody.innerHTML = '<tr><td colspan="9" class="na">暂无数据</td></tr>';
+    contractSelect.innerHTML = '';
+    renderICHistoryEvents();
+    return;
+  }
+
+  status.textContent = `${contracts.length} 个交易对 · ${Number(icHistoryData.change_count || 0).toLocaleString()} 次变更`;
+  const previousValue = contractSelect.value;
+  contractSelect.innerHTML = contracts.map(contract => {
+    const key = historyContractKey(contract);
+    return `<option value="${escapeHtml(key)}">${escapeHtml(contract.exchange)} · ${escapeHtml(contract.symbol)}</option>`;
+  }).join('');
+  if (contracts.some(contract => historyContractKey(contract) === previousValue)) {
+    contractSelect.value = previousValue;
+  }
+
+  summaryBody.innerHTML = contracts.map(contract => {
+    const key = historyContractKey(contract);
+    const selected = key === contractSelect.value ? ' selected' : '';
+    return `<tr class="${selected}" data-contract-key="${escapeHtml(key)}">
+      <td>${escapeHtml(contract.exchange)}</td>
+      <td>${escapeHtml(contract.symbol)}</td>
+      <td>${Number(contract.snapshot_count || 0).toLocaleString()}</td>
+      <td>${Number(contract.change_count || 0).toLocaleString()}</td>
+      <td>${Number(contract.component_set_change_count || 0).toLocaleString()}</td>
+      <td>${Number(contract.weight_change_count || 0).toLocaleString()}</td>
+      <td>${escapeHtml(fmtUtc(contract.first_snapshot_at))}</td>
+      <td>${escapeHtml(fmtUtc(contract.latest_snapshot_at))}</td>
+      <td>${escapeHtml(fmtUtc(contract.latest_change_at))}</td>
+    </tr>`;
+  }).join('');
+  summaryBody.querySelectorAll('tr[data-contract-key]').forEach(row => {
+    row.addEventListener('click', () => {
+      contractSelect.value = row.dataset.contractKey;
+      renderICHistoryEvents();
+    });
+  });
+  renderICHistoryEvents();
+}
+
+function formatHistoryComponents(items, kind) {
+  if (!Array.isArray(items) || items.length === 0) return '<span class="na">—</span>';
+  const cls = kind === 'added' ? 'ic-change-added' : 'ic-change-removed';
+  const prefix = kind === 'added' ? '+' : '−';
+  return items.map(item => {
+    const pair = item.spot_pair || '—';
+    const source = item.raw_source || item.source || '—';
+    return `<span class="ic-change-item ${cls}">${prefix} ${escapeHtml(source)} · ${escapeHtml(pair)} · ${fmt(Number(item.weight || 0) * 100, 4)}%</span>`;
+  }).join('');
+}
+
+function formatHistoryWeightChanges(items) {
+  if (!Array.isArray(items) || items.length === 0) return '<span class="na">—</span>';
+  return items.map(item => {
+    const pair = item.spot_pair || '—';
+    const source = item.raw_source || item.source || '—';
+    const before = fmt(Number(item.from || 0) * 100, 4);
+    const after = fmt(Number(item.to || 0) * 100, 4);
+    const delta = fmt(Number(item.delta || 0) * 100, 4);
+    return `<span class="ic-change-item ic-change-weight">${escapeHtml(source)} · ${escapeHtml(pair)}: ${before}% → ${after}% (${Number(item.delta || 0) >= 0 ? '+' : ''}${delta}pp)</span>`;
+  }).join('');
+}
+
+function renderICHistoryEvents() {
+  const summaryRows = document.querySelectorAll('#ic-history-summary-table tbody tr[data-contract-key]');
+  const eventsBody = document.querySelector('#ic-history-events-table tbody');
+  const contractSelect = document.getElementById('ic-history-contract');
+  const typeFilter = document.getElementById('ic-history-type').value;
+  const limitValue = document.getElementById('ic-history-limit').value;
+  const result = document.getElementById('ic-history-result');
+  const contracts = icHistoryData?.contracts || [];
+  const selected = contracts.find(contract => historyContractKey(contract) === contractSelect.value);
+  summaryRows.forEach(row => row.classList.toggle('selected', row.dataset.contractKey === contractSelect.value));
+  if (!selected) {
+    eventsBody.innerHTML = '<tr><td colspan="7" class="na">暂无数据</td></tr>';
+    result.textContent = '—';
+    return;
+  }
+
+  let events = [...(selected.events || [])].filter(event => {
+    if (typeFilter === 'all') return true;
+    return String(event.change_type || '').split('+').includes(typeFilter);
+  });
+  events.sort((a, b) => String(b.changed_at || '').localeCompare(String(a.changed_at || '')));
+  const total = events.length;
+  if (limitValue !== 'all') events = events.slice(0, Number(limitValue));
+  result.textContent = `显示 ${events.length} / ${total} 条事件`;
+  if (!events.length) {
+    eventsBody.innerHTML = '<tr><td colspan="7" class="na">当前筛选下无变更</td></tr>';
+    return;
+  }
+
+  eventsBody.innerHTML = events.map(event => {
+    const before = event.weight_sum_before == null ? '—' : `${fmt(Number(event.weight_sum_before) * 100, 2)}%`;
+    const after = event.weight_sum_after == null ? '—' : `${fmt(Number(event.weight_sum_after) * 100, 2)}%`;
+    const typeLabel = event.change_type === 'initial'
+      ? '初始成分'
+      : String(event.change_type || '').replace('component_set', '成分集').replace('weight', '权重');
+    return `<tr>
+      <td>${escapeHtml(fmtUtc(event.changed_at))}</td>
+      <td>${escapeHtml(fmtUtc(event.previous_snapshot_at))}</td>
+      <td>${escapeHtml(typeLabel)}</td>
+      <td>${before} → ${after}</td>
+      <td class="ic-change-list">${formatHistoryComponents(event.added, 'added')}</td>
+      <td class="ic-change-list">${formatHistoryComponents(event.removed, 'removed')}</td>
+      <td class="ic-change-list">${formatHistoryWeightChanges(event.weight_changed)}</td>
+    </tr>`;
+  }).join('');
 }
 
 function renderICPairTable(pairRows) {
@@ -1895,6 +2184,7 @@ function renderICPairTable(pairRows) {
       pair_a: `${p.a_symbol || '-'} @ ${p.a_exchange || '-'}`,
       pair_b: `${p.b_symbol || '-'} @ ${p.b_exchange || '-'}`,
       overlap_pct: Number(p.overlap_pct) || 0,
+      both_have_data: p.both_have_data !== false,
     });
   });
 
@@ -1907,7 +2197,10 @@ function renderICPairTable(pairRows) {
   rows.sort((x, y) => {
     const k = icPairSort.key;
     const d = icPairSort.dir === 'asc' ? 1 : -1;
-    if (k === 'overlap_pct') return (x[k] - y[k]) * d;
+    if (k === 'overlap_pct') {
+      if (x.both_have_data !== y.both_have_data) return x.both_have_data ? -1 : 1;
+      return (x[k] - y[k]) * d;
+    }
     return String(x[k]).localeCompare(String(y[k]), 'zh-CN') * d;
   });
 
@@ -1915,7 +2208,7 @@ function renderICPairTable(pairRows) {
     <tr>
       <td>${r.pair_a}</td>
       <td>${r.pair_b}</td>
-      <td>${fmt(r.overlap_pct, 2)}%</td>
+      <td class="${r.both_have_data ? '' : 'na'}">${r.both_have_data ? `${fmt(r.overlap_pct, 2)}%` : 'N/A'}</td>
     </tr>
   `).join('');
   updateICPairSortIndicators();
@@ -1959,19 +2252,26 @@ function renderICCharts(exs, sym, pairRows) {
     return;
   }
 
-  const allComps = exs.flatMap(([ex, v]) =>
-    (v.contracts || []).flatMap(ct =>
-      (ct.components || []).map(c => ({ source: c.source, ex, w: (parsePctLike(c.weight) || 0) }))
-    )
+  const contractNodes = exs.flatMap(([ex, v]) =>
+    (v.contracts || []).map(ct => ({ ex, symbol: ct.symbol, components: ct.components || [] }))
+  );
+  const allComps = contractNodes.flatMap(node =>
+    node.components.map(c => ({
+      source: c.source,
+      node: `${node.ex}:${node.symbol}`,
+      w: Number(c.weight_raw || 0) * 100,
+    }))
   );
   if (allComps.length === 0) return;
   const sources = [...new Set(allComps.map(c => c.source))];
 
-  const barDatasets = exs.map(([ex, v]) => ({
-    label: ex,
-    data: sources.map(src => { const m = allComps.find(c => c.source===src && c.ex===ex); return m ? m.w : 0; }),
-    backgroundColor: (EX_COLORS[ex]||'#58a6ff')+'aa',
-    borderColor: EX_COLORS[ex]||'#58a6ff', borderWidth: 1, borderRadius: 3,
+  const barDatasets = contractNodes.map(node => ({
+    label: `${node.ex}:${node.symbol}`,
+    data: sources.map(src => allComps
+      .filter(c => c.source === src && c.node === `${node.ex}:${node.symbol}`)
+      .reduce((sum, c) => sum + c.w, 0)),
+    backgroundColor: (EX_COLORS[node.ex]||'#58a6ff')+'aa',
+    borderColor: EX_COLORS[node.ex]||'#58a6ff', borderWidth: 1, borderRadius: 3,
   }));
 
   const copts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ labels:{ color:'#8b949e', font:{ size:11 }, boxWidth:12 }}, tooltip:{ backgroundColor:'#21262d', titleColor:'#c9d1d9', bodyColor:'#8b949e', borderColor:'#30363d', borderWidth:1 }}, scales:{ x:{ ticks:{ color:'#8b949e', font:{ size:10 }}, grid:{ color:'#21262d' }}, y:{ ticks:{ color:'#8b949e', font:{ size:11 }}, grid:{ color:'#21262d' }}} };
@@ -1987,7 +2287,12 @@ function renderICCharts(exs, sym, pairRows) {
   // 构建 n*n 交易对矩阵
   const contracts = [];
   exs.forEach(([ex, v]) => {
-    (v.contracts || []).forEach(c => contracts.push({ ex, sym: c.symbol, key: `${ex}|${c.symbol}` }));
+    (v.contracts || []).forEach(c => contracts.push({
+      ex,
+      sym: c.symbol,
+      key: `${ex}|${c.symbol}`,
+      valid: c.weight_status === 'ok',
+    }));
   });
   const uniqMap = new Map();
   contracts.forEach(c => uniqMap.set(c.key, c));
@@ -1997,8 +2302,9 @@ function renderICCharts(exs, sym, pairRows) {
   const indexByKey = new Map(nodes.map((n, i) => [n.key, i]));
 
   const matrix = Array.from({ length: labels.length }, () => Array(labels.length).fill(null));
-  nodes.forEach((n, i) => { matrix[i][i] = 100; });
+  nodes.forEach((node, i) => { matrix[i][i] = node.valid ? 100 : null; });
   pairRows.forEach(p => {
+    if (p.both_have_data === false) return;
     const a = indexByKey.get(`${p.a_exchange}|${p.a_symbol}`);
     const b = indexByKey.get(`${p.b_exchange}|${p.b_symbol}`);
     if (a == null || b == null) return;
