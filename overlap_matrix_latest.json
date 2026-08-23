@@ -337,10 +337,10 @@
             },
             {
               "exchange_a": "bitget",
-              "symbol_a": "XAUTUSDT",
-              "exchange_b": "gateio",
-              "symbol_b": "XAUT_USDT",
-              "overlap_pct": "67.56%",
+              "symbol_a": "PAXGUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "XAU-USDT-SWAP",
+              "overlap_pct": "65.39%",
               "both_have_data": true
             },
             {
@@ -349,14 +349,6 @@
               "exchange_b": "bybit",
               "symbol_b": "XAUUSDT",
               "overlap_pct": "65.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "PAXGUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "XAU-USDT-SWAP",
-              "overlap_pct": "64.27%",
               "both_have_data": true
             },
             {
@@ -387,8 +379,8 @@
               "exchange_a": "bitget",
               "symbol_a": "XAUTUSDT",
               "exchange_b": "gateio",
-              "symbol_b": "PAXG_USDT",
-              "overlap_pct": "50.24%",
+              "symbol_b": "XAUT_USDT",
+              "overlap_pct": "58.81%",
               "both_have_data": true
             },
             {
@@ -397,6 +389,14 @@
               "exchange_b": "bybit",
               "symbol_b": "XAUUSDT",
               "overlap_pct": "48.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "XAUTUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "PAXG_USDT",
+              "overlap_pct": "40.67%",
               "both_have_data": true
             },
             {
@@ -432,19 +432,19 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "XAUTUSDT",
-              "exchange_b": "gateio",
-              "symbol_b": "XAU_USDT",
-              "overlap_pct": "39.03%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "PAXG_USDT",
               "exchange_b": "okx",
               "symbol_b": "XAU-USDT-SWAP",
               "overlap_pct": "35.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "XAUTUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "XAU_USDT",
+              "overlap_pct": "34.59%",
               "both_have_data": true
             },
             {
@@ -460,7 +460,7 @@
               "symbol_a": "PAXGUSDT",
               "exchange_b": "gateio",
               "symbol_b": "PAXG_USDT",
-              "overlap_pct": "32.08%",
+              "overlap_pct": "33.02%",
               "both_have_data": true
             },
             {
@@ -484,7 +484,7 @@
               "symbol_a": "PAXGUSDT",
               "exchange_b": "gateio",
               "symbol_b": "XAUT_USDT",
-              "overlap_pct": "27.08%",
+              "overlap_pct": "28.02%",
               "both_have_data": true
             },
             {
@@ -540,7 +540,7 @@
               "symbol_a": "PAXGUSDT",
               "exchange_b": "bitget",
               "symbol_b": "XAUTUSDT",
-              "overlap_pct": "7.08%",
+              "overlap_pct": "8.02%",
               "both_have_data": true
             },
             {
@@ -1053,7 +1053,7 @@
               "symbol_a": "NG_USDT",
               "exchange_b": "okx",
               "symbol_b": "NG-USDT-SWAP",
-              "overlap_pct": "33.96%",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             },
             {
@@ -1166,11 +1166,11 @@
           "symbol": "PALLADIUM",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "XPD_USDT",
+              "exchange_a": "bitget",
+              "symbol_a": "XPDUSDT",
               "exchange_b": "okx",
               "symbol_b": "XPD-USDT-SWAP",
-              "overlap_pct": "50.9%",
+              "overlap_pct": "60.0%",
               "both_have_data": true
             },
             {
@@ -1182,19 +1182,19 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "gateio",
+              "symbol_a": "XPD_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "XPD-USDT-SWAP",
+              "overlap_pct": "50.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "XPDUSDT",
               "exchange_b": "bitget",
               "symbol_b": "XPDUSDT",
               "overlap_pct": "40.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "XPDUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "XPD-USDT-SWAP",
-              "overlap_pct": "30.9%",
               "both_have_data": true
             },
             {
@@ -1299,10 +1299,26 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "gateio",
+              "symbol_a": "XPT_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "XPT-USDT-SWAP",
+              "overlap_pct": "50.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "XPTUSDT",
               "exchange_b": "bitget",
               "symbol_b": "XPTUSDT",
+              "overlap_pct": "33.33%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "XPTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "XPT-USDT-SWAP",
               "overlap_pct": "33.33%",
               "both_have_data": true
             },
@@ -1343,8 +1359,8 @@
               "symbol_a": "XPTUSDT",
               "exchange_b": "okx",
               "symbol_b": "XPT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
@@ -1367,8 +1383,8 @@
               "symbol_a": "XPTUSDT",
               "exchange_b": "okx",
               "symbol_b": "XPT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bitget",
@@ -1379,26 +1395,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "XPTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "XPT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "XPT_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:PLATINUM",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "XPT_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "XPT-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -1420,7 +1420,7 @@
               "symbol_a": "XAGUSDT",
               "exchange_b": "okx",
               "symbol_b": "XAG-USDT-SWAP",
-              "overlap_pct": "78.01%",
+              "overlap_pct": "78.0%",
               "both_have_data": true
             },
             {
@@ -2005,19 +2005,19 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "MINIMAXUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MINIMAX-USDT-SWAP",
+              "overlap_pct": "49.84%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "MINIMAXUSDT",
               "exchange_b": "bitget",
               "symbol_b": "MINIMAXUSDT",
               "overlap_pct": "49.5%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "MINIMAXUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MINIMAX-USDT-SWAP",
-              "overlap_pct": "21.92%",
               "both_have_data": true
             },
             {
@@ -2441,7 +2441,7 @@
               "symbol_a": "EWJUSDT",
               "exchange_b": "okx",
               "symbol_b": "EWJ-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "85.28%",
               "both_have_data": true
             },
             {
@@ -2473,7 +2473,7 @@
               "symbol_a": "EWJ_USDT",
               "exchange_b": "okx",
               "symbol_b": "EWJ-USDT-SWAP",
-              "overlap_pct": "56.67%",
+              "overlap_pct": "58.31%",
               "both_have_data": true
             },
             {
@@ -2614,15 +2614,7 @@
               "symbol_a": "EWTUSDT",
               "exchange_b": "okx",
               "symbol_b": "EWT-USDT-SWAP",
-              "overlap_pct": "88.18%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "EWT_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "EWT-USDT-SWAP",
-              "overlap_pct": "46.89%",
+              "overlap_pct": "45.0%",
               "both_have_data": true
             },
             {
@@ -2642,6 +2634,14 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "gateio",
+              "symbol_a": "EWT_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "EWT-USDT-SWAP",
+              "overlap_pct": "28.58%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "EWTUSDT",
               "exchange_b": "gateio",
@@ -2654,14 +2654,6 @@
               "symbol_a": "EWTUSDT",
               "exchange_b": "bybit",
               "symbol_b": "EWTUSDT",
-              "overlap_pct": "18.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "EWTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "EWT-USDT-SWAP",
               "overlap_pct": "18.33%",
               "both_have_data": true
             },
@@ -2754,6 +2746,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "EWTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "EWT-USDT-SWAP",
+              "overlap_pct": "0.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "EWTUSDT",
               "exchange_b": "hyperliquid",
@@ -2787,7 +2787,7 @@
               "symbol_a": "EWYUSDT",
               "exchange_b": "okx",
               "symbol_b": "EWY-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "78.72%",
               "both_have_data": true
             },
             {
@@ -2803,7 +2803,7 @@
               "symbol_a": "EWYUSDT",
               "exchange_b": "okx",
               "symbol_b": "EWY-USDT-SWAP",
-              "overlap_pct": "60.0%",
+              "overlap_pct": "63.72%",
               "both_have_data": true
             },
             {
@@ -2811,7 +2811,7 @@
               "symbol_a": "EWY_USDT",
               "exchange_b": "okx",
               "symbol_b": "EWY-USDT-SWAP",
-              "overlap_pct": "57.5%",
+              "overlap_pct": "51.8%",
               "both_have_data": true
             },
             {
@@ -2964,18 +2964,18 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "EWZ_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "EWZ-USDT-SWAP",
-              "overlap_pct": "40.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "EWZUSDT",
               "exchange_b": "gateio",
               "symbol_b": "EWZ_USDT",
+              "overlap_pct": "20.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "EWZ_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "EWZ-USDT-SWAP",
               "overlap_pct": "20.0%",
               "both_have_data": true
             },
@@ -3105,7 +3105,7 @@
               "symbol_a": "IWMUSDT",
               "exchange_b": "okx",
               "symbol_b": "IWM-USDT-SWAP",
-              "overlap_pct": "90.0%",
+              "overlap_pct": "100.0%",
               "both_have_data": true
             },
             {
@@ -3765,7 +3765,7 @@
               "symbol_a": "SQQQUSDT",
               "exchange_b": "okx",
               "symbol_b": "SQQQ-USDT-SWAP",
-              "overlap_pct": "82.56%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -3846,22 +3846,6 @@
           "symbol": "TQQQ",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "TQQQUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TQQQ-USDT-SWAP",
-              "overlap_pct": "50.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "TQQQX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "TQQQ-USDT-SWAP",
-              "overlap_pct": "37.5%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "TQQQUSDT",
               "exchange_b": "bitget",
@@ -3902,14 +3886,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "binance",
-              "symbol_a": "TQQQUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TQQQ-USDT-SWAP",
-              "overlap_pct": "0.74%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "aster",
               "symbol_a": "TQQQUSDT",
               "exchange_b": "binance",
@@ -3946,8 +3922,16 @@
               "symbol_a": "TQQQUSDT",
               "exchange_b": "okx",
               "symbol_b": "TQQQ-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "TQQQUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TQQQ-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -3962,8 +3946,24 @@
               "symbol_a": "TQQQUSDT",
               "exchange_b": "okx",
               "symbol_b": "TQQQ-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "TQQQUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TQQQ-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "TQQQX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "TQQQ-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -3999,15 +3999,7 @@
               "symbol_a": "XLEUSDT",
               "exchange_b": "okx",
               "symbol_b": "XLE-USDT-SWAP",
-              "overlap_pct": "77.34%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "XLE_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "XLE-USDT-SWAP",
-              "overlap_pct": "42.66%",
+              "overlap_pct": "83.57%",
               "both_have_data": true
             },
             {
@@ -4016,6 +4008,14 @@
               "exchange_b": "bitget",
               "symbol_b": "XLEUSDT",
               "overlap_pct": "41.32%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "XLE_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "XLE-USDT-SWAP",
+              "overlap_pct": "30.96%",
               "both_have_data": true
             },
             {
@@ -4361,7 +4361,7 @@
               "symbol_a": "SAMSUNGUSDT",
               "exchange_b": "okx",
               "symbol_b": "SAMSUNG-USDT-SWAP",
-              "overlap_pct": "80.0%",
+              "overlap_pct": "84.26%",
               "both_have_data": true
             },
             {
@@ -4369,7 +4369,7 @@
               "symbol_a": "SAMSUNGUSDT",
               "exchange_b": "okx",
               "symbol_b": "SAMSUNG-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "84.26%",
               "both_have_data": true
             },
             {
@@ -4393,7 +4393,7 @@
               "symbol_a": "SAMSUNG_USDT",
               "exchange_b": "okx",
               "symbol_b": "SAMSUNG-USDT-SWAP",
-              "overlap_pct": "30.0%",
+              "overlap_pct": "41.47%",
               "both_have_data": true
             },
             {
@@ -4808,22 +4808,6 @@
             {
               "exchange_a": "bybit",
               "symbol_a": "AAOIUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AAOI-USDT-SWAP",
-              "overlap_pct": "75.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "AAOI_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "AAOI-USDT-SWAP",
-              "overlap_pct": "48.55%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "AAOIUSDT",
               "exchange_b": "gateio",
               "symbol_b": "AAOI_USDT",
               "overlap_pct": "38.55%",
@@ -4850,14 +4834,6 @@
               "symbol_a": "AAOIUSDT",
               "exchange_b": "gateio",
               "symbol_b": "AAOI_USDT",
-              "overlap_pct": "0.74%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "AAOIUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AAOI-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -4898,8 +4874,16 @@
               "symbol_a": "AAOIUSDT",
               "exchange_b": "okx",
               "symbol_b": "AAOI-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "AAOIUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AAOI-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -4922,8 +4906,24 @@
               "symbol_a": "AAOIUSDT",
               "exchange_b": "okx",
               "symbol_b": "AAOI-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "AAOIUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AAOI-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "AAOI_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "AAOI-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -4935,7 +4935,7 @@
               "symbol_a": "AAPLUSDT",
               "exchange_b": "okx",
               "symbol_b": "AAPL-USDT-SWAP",
-              "overlap_pct": "75.27%",
+              "overlap_pct": "76.8%",
               "both_have_data": true
             },
             {
@@ -4951,7 +4951,7 @@
               "symbol_a": "AAPLUSDT",
               "exchange_b": "okx",
               "symbol_b": "AAPL-USDT-SWAP",
-              "overlap_pct": "63.61%",
+              "overlap_pct": "65.13%",
               "both_have_data": true
             },
             {
@@ -5146,19 +5146,27 @@
           "symbol": "ADBE",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "ADBEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ADBE-USDT-SWAP",
-              "overlap_pct": "90.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "ADBEUSDT",
               "exchange_b": "bitget",
               "symbol_b": "ADBEUSDT",
               "overlap_pct": "67.99%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "ADBEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ADBE-USDT-SWAP",
+              "overlap_pct": "50.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ADBE_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ADBE-USDT-SWAP",
+              "overlap_pct": "40.0%",
               "both_have_data": true
             },
             {
@@ -5256,14 +5264,6 @@
               "symbol_b": "ADBE_USDT",
               "overlap_pct": "0.0%",
               "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "ADBE_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "ADBE-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
             }
           ]
         },
@@ -5337,7 +5337,15 @@
               "symbol_a": "ALABUSDT",
               "exchange_b": "okx",
               "symbol_b": "ALAB-USDT-SWAP",
-              "overlap_pct": "66.72%",
+              "overlap_pct": "50.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ALAB_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ALAB-USDT-SWAP",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             },
             {
@@ -5346,14 +5354,6 @@
               "exchange_b": "bitget",
               "symbol_b": "ALABUSDT",
               "overlap_pct": "41.32%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "ALAB_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "ALAB-USDT-SWAP",
-              "overlap_pct": "33.28%",
               "both_have_data": true
             },
             {
@@ -5422,11 +5422,27 @@
           "symbol": "AMAT",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "AMATUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AMAT-USDT-SWAP",
+              "overlap_pct": "45.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "AMATUSDT",
               "exchange_b": "bitget",
               "symbol_b": "AMATUSDT",
               "overlap_pct": "41.32%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "AMAT_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "AMAT-USDT-SWAP",
+              "overlap_pct": "25.0%",
               "both_have_data": true
             },
             {
@@ -5442,6 +5458,14 @@
               "symbol_a": "AMATUSDT",
               "exchange_b": "bybit",
               "symbol_b": "AMATUSDT",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "AMATUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AMAT-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -5482,8 +5506,8 @@
               "symbol_a": "AMATUSDT",
               "exchange_b": "okx",
               "symbol_b": "AMAT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
@@ -5492,14 +5516,6 @@
               "symbol_b": "AMAT_USDT",
               "overlap_pct": "0.0%",
               "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "AMATUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AMAT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -5522,24 +5538,8 @@
               "symbol_a": "AMATUSDT",
               "exchange_b": "okx",
               "symbol_b": "AMAT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "AMATUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AMAT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "AMAT_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "AMAT-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -5739,7 +5739,7 @@
               "symbol_a": "AMZNUSDT",
               "exchange_b": "okx",
               "symbol_b": "AMZN-USDT-SWAP",
-              "overlap_pct": "76.64%",
+              "overlap_pct": "78.33%",
               "both_have_data": true
             },
             {
@@ -5755,7 +5755,7 @@
               "symbol_a": "AMZNUSDT",
               "exchange_b": "okx",
               "symbol_b": "AMZN-USDT-SWAP",
-              "overlap_pct": "64.97%",
+              "overlap_pct": "66.67%",
               "both_have_data": true
             },
             {
@@ -5763,7 +5763,7 @@
               "symbol_a": "AMZNX_USDT",
               "exchange_b": "okx",
               "symbol_b": "AMZN-USDT-SWAP",
-              "overlap_pct": "59.15%",
+              "overlap_pct": "48.61%",
               "both_have_data": true
             },
             {
@@ -6048,22 +6048,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "ARM_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "ARM-USDT-SWAP",
-              "overlap_pct": "57.13%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "ARMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ARM-USDT-SWAP",
-              "overlap_pct": "45.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "ARMUSDT",
               "exchange_b": "gateio",
@@ -6077,14 +6061,6 @@
               "exchange_b": "gateio",
               "symbol_b": "ARM_USDT",
               "overlap_pct": "42.84%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "ARMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ARM-USDT-SWAP",
-              "overlap_pct": "40.0%",
               "both_have_data": true
             },
             {
@@ -6108,14 +6084,6 @@
               "symbol_a": "ARMUSDT",
               "exchange_b": "gateio",
               "symbol_b": "ARM_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "ARMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ARM-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -6164,14 +6132,22 @@
               "symbol_a": "ARMUSDT",
               "exchange_b": "okx",
               "symbol_b": "ARM-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "ARMUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:ARM",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "ARMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ARM-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -6184,6 +6160,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "ARMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ARM-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "ARMUSDT",
               "exchange_b": "hyperliquid",
@@ -6192,10 +6176,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "ARMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ARM-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "ARM_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:ARM",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ARM_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ARM-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -6342,19 +6342,19 @@
           "symbol": "ASTS",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "ASTSUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ASTS-USDT-SWAP",
-              "overlap_pct": "79.18%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "ASTS_USDT",
               "exchange_b": "okx",
               "symbol_b": "ASTS-USDT-SWAP",
-              "overlap_pct": "54.14%",
+              "overlap_pct": "66.66%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "ASTSUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ASTS-USDT-SWAP",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             },
             {
@@ -6484,22 +6484,6 @@
           "symbol": "AVGO",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "AVGOUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AVGO-USDT-SWAP",
-              "overlap_pct": "80.56%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "AVGO_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "AVGO-USDT-SWAP",
-              "overlap_pct": "47.99%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "AVGOUSDT",
               "exchange_b": "bitget",
@@ -6532,14 +6516,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "AVGOUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AVGO-USDT-SWAP",
-              "overlap_pct": "26.67%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "AVGOUSDT",
               "exchange_b": "bybit",
@@ -6552,14 +6528,6 @@
               "symbol_a": "AVGOUSDT",
               "exchange_b": "gateio",
               "symbol_b": "AVGO_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "AVGOUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "AVGO-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -6600,8 +6568,40 @@
               "symbol_a": "AVGOUSDT",
               "exchange_b": "okx",
               "symbol_b": "AVGO-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "AVGOUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AVGO-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "AVGOUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AVGO-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "AVGOUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "AVGO-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "AVGO_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "AVGO-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -6926,6 +6926,22 @@
           "symbol": "BE",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "BEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "BE-USDT-SWAP",
+              "overlap_pct": "82.55%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "BE_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "BE-USDT-SWAP",
+              "overlap_pct": "50.77%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "BEUSDT",
               "exchange_b": "bitget",
@@ -6966,6 +6982,14 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "binance",
+              "symbol_a": "BEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "BE-USDT-SWAP",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "aster",
               "symbol_a": "BEUSDT",
               "exchange_b": "binance",
@@ -7002,16 +7026,8 @@
               "symbol_a": "BEUSDT",
               "exchange_b": "okx",
               "symbol_b": "BE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "BEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "BE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bitget",
@@ -7026,24 +7042,8 @@
               "symbol_a": "BEUSDT",
               "exchange_b": "okx",
               "symbol_b": "BE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "BEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "BE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "BE_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "BE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -7067,7 +7067,7 @@
               "symbol_a": "BITOUSDT",
               "exchange_b": "gateio",
               "symbol_b": "BITO_USDT",
-              "overlap_pct": "50.0%",
+              "overlap_pct": "43.34%",
               "both_have_data": true
             },
             {
@@ -7083,7 +7083,7 @@
               "symbol_a": "BITOUSDT",
               "exchange_b": "gateio",
               "symbol_b": "BITO_USDT",
-              "overlap_pct": "20.0%",
+              "overlap_pct": "16.69%",
               "both_have_data": true
             },
             {
@@ -7141,7 +7141,7 @@
               "symbol_a": "BMNRUSDT",
               "exchange_b": "okx",
               "symbol_b": "BMNR-USDT-SWAP",
-              "overlap_pct": "70.42%",
+              "overlap_pct": "64.1%",
               "both_have_data": true
             },
             {
@@ -7295,19 +7295,19 @@
           "symbol": "BOT",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "BOTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "BOT-USDT-SWAP",
+              "overlap_pct": "86.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "BOTUSDT",
               "exchange_b": "bitget",
               "symbol_b": "BOTUSDT",
               "overlap_pct": "67.99%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "BOTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "BOT-USDT-SWAP",
-              "overlap_pct": "52.56%",
               "both_have_data": true
             },
             {
@@ -7478,22 +7478,6 @@
           "symbol": "BSP",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "BSP_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "BSP-USDT-SWAP",
-              "overlap_pct": "75.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "BSPUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "BSP-USDT-SWAP",
-              "overlap_pct": "52.8%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "BSPUSDT",
               "exchange_b": "gateio",
@@ -7530,8 +7514,8 @@
               "symbol_a": "BSPUSDT",
               "exchange_b": "okx",
               "symbol_b": "BSP-USDT-SWAP",
-              "overlap_pct": "1.41%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -7554,8 +7538,24 @@
               "symbol_a": "BSPUSDT",
               "exchange_b": "okx",
               "symbol_b": "BSP-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "BSPUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "BSP-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "BSP_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "BSP-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -7592,7 +7592,7 @@
               "symbol_a": "BXUSDT",
               "exchange_b": "okx",
               "symbol_b": "BX-USDT-SWAP",
-              "overlap_pct": "45.0%",
+              "overlap_pct": "45.22%",
               "both_have_data": true
             },
             {
@@ -7616,7 +7616,7 @@
               "symbol_a": "BX_USDT",
               "exchange_b": "okx",
               "symbol_b": "BX-USDT-SWAP",
-              "overlap_pct": "28.55%",
+              "overlap_pct": "28.77%",
               "both_have_data": true
             },
             {
@@ -7810,35 +7810,11 @@
           "symbol": "CBRS",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "CBRSUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "CBRS-USDT-SWAP",
-              "overlap_pct": "78.93%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "CBRSUSDT",
               "exchange_b": "bybit",
               "symbol_b": "CBRSUSDT",
               "overlap_pct": "73.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "CBRSUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "CBRS-USDT-SWAP",
-              "overlap_pct": "70.6%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "CBRS_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "CBRS-USDT-SWAP",
-              "overlap_pct": "66.69%",
               "both_have_data": true
             },
             {
@@ -7878,14 +7854,6 @@
               "symbol_a": "CBRSUSDT",
               "exchange_b": "gateio",
               "symbol_b": "CBRS_USDT",
-              "overlap_pct": "0.74%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "CBRSUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "CBRS-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -7934,14 +7902,22 @@
               "symbol_a": "CBRSUSDT",
               "exchange_b": "okx",
               "symbol_b": "CBRS-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "CBRSUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:CBRS",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "CBRSUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "CBRS-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -7954,6 +7930,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "CBRSUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "CBRS-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "CBRSUSDT",
               "exchange_b": "hyperliquid",
@@ -7962,10 +7946,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "CBRSUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "CBRS-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "CBRS_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:CBRS",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "CBRS_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "CBRS-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -8016,16 +8016,16 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "CGNX_USDT",
+              "exchange_a": "bitget",
+              "symbol_a": "CGNXUSDT",
               "exchange_b": "okx",
               "symbol_b": "CGNX-USDT-SWAP",
-              "overlap_pct": "20.0%",
+              "overlap_pct": "0.0%",
               "both_have_data": true
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "CGNXUSDT",
+              "exchange_a": "gateio",
+              "symbol_a": "CGNX_USDT",
               "exchange_b": "okx",
               "symbol_b": "CGNX-USDT-SWAP",
               "overlap_pct": "0.0%",
@@ -8045,19 +8045,19 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "gateio",
+              "symbol_a": "CIEN_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "CIEN-USDT-SWAP",
+              "overlap_pct": "49.99%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "CIENUSDT",
               "exchange_b": "okx",
               "symbol_b": "CIEN-USDT-SWAP",
               "overlap_pct": "45.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "CIEN_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "CIEN-USDT-SWAP",
-              "overlap_pct": "33.15%",
               "both_have_data": true
             },
             {
@@ -8191,7 +8191,7 @@
               "symbol_a": "COHR_USDT",
               "exchange_b": "okx",
               "symbol_b": "COHR-USDT-SWAP",
-              "overlap_pct": "21.0%",
+              "overlap_pct": "35.0%",
               "both_have_data": true
             },
             {
@@ -8490,7 +8490,7 @@
               "symbol_a": "COSTUSDT",
               "exchange_b": "okx",
               "symbol_b": "COST-USDT-SWAP",
-              "overlap_pct": "61.28%",
+              "overlap_pct": "79.36%",
               "both_have_data": true
             },
             {
@@ -8506,7 +8506,7 @@
               "symbol_a": "COST_USDT",
               "exchange_b": "okx",
               "symbol_b": "COST-USDT-SWAP",
-              "overlap_pct": "28.58%",
+              "overlap_pct": "20.64%",
               "both_have_data": true
             },
             {
@@ -8974,7 +8974,7 @@
               "symbol_a": "CRMUSDT",
               "exchange_b": "okx",
               "symbol_b": "CRM-USDT-SWAP",
-              "overlap_pct": "84.0%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -9184,7 +9184,7 @@
               "symbol_a": "CRWVUSDT",
               "exchange_b": "okx",
               "symbol_b": "CRWV-USDT-SWAP",
-              "overlap_pct": "78.33%",
+              "overlap_pct": "79.32%",
               "both_have_data": true
             },
             {
@@ -9200,7 +9200,7 @@
               "symbol_a": "CRWVUSDT",
               "exchange_b": "okx",
               "symbol_b": "CRWV-USDT-SWAP",
-              "overlap_pct": "70.0%",
+              "overlap_pct": "70.99%",
               "both_have_data": true
             },
             {
@@ -9208,7 +9208,7 @@
               "symbol_a": "CRWV_USDT",
               "exchange_b": "okx",
               "symbol_b": "CRWV-USDT-SWAP",
-              "overlap_pct": "53.95%",
+              "overlap_pct": "55.65%",
               "both_have_data": true
             },
             {
@@ -9357,7 +9357,7 @@
               "symbol_a": "CSCOUSDT",
               "exchange_b": "okx",
               "symbol_b": "CSCO-USDT-SWAP",
-              "overlap_pct": "84.4%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -9385,14 +9385,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "CSCO_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "CSCO-USDT-SWAP",
-              "overlap_pct": "40.6%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "CSCOUSDT",
               "exchange_b": "gateio",
@@ -9405,6 +9397,14 @@
               "symbol_a": "CSCOUSDT",
               "exchange_b": "gateio",
               "symbol_b": "CSCO_USDT",
+              "overlap_pct": "25.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "CSCO_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "CSCO-USDT-SWAP",
               "overlap_pct": "25.0%",
               "both_have_data": true
             },
@@ -9521,22 +9521,6 @@
             {
               "exchange_a": "bybit",
               "symbol_a": "DELLUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "DELL-USDT-SWAP",
-              "overlap_pct": "78.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "DELL_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "DELL-USDT-SWAP",
-              "overlap_pct": "53.95%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "DELLUSDT",
               "exchange_b": "gateio",
               "symbol_b": "DELL_USDT",
               "overlap_pct": "42.84%",
@@ -9571,14 +9555,6 @@
               "symbol_a": "DELLUSDT",
               "exchange_b": "bybit",
               "symbol_b": "DELLUSDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "DELLUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "DELL-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -9619,8 +9595,16 @@
               "symbol_a": "DELLUSDT",
               "exchange_b": "okx",
               "symbol_b": "DELL-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "DELLUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "DELL-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -9635,8 +9619,24 @@
               "symbol_a": "DELLUSDT",
               "exchange_b": "okx",
               "symbol_b": "DELL-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "DELLUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "DELL-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "DELL_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "DELL-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -9693,6 +9693,22 @@
           "symbol": "DKNG",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "DKNGUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "DKNG-USDT-SWAP",
+              "overlap_pct": "77.68%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "DKNG_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "DKNG-USDT-SWAP",
+              "overlap_pct": "50.9%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "DKNGUSDT",
               "exchange_b": "bitget",
@@ -9721,6 +9737,14 @@
               "symbol_a": "DKNGUSDT",
               "exchange_b": "gateio",
               "symbol_b": "DKNG_USDT",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "DKNGUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "DKNG-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -9769,22 +9793,14 @@
               "symbol_a": "DKNGUSDT",
               "exchange_b": "okx",
               "symbol_b": "DKNG-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "DKNGUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:DKNG",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "DKNGUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "DKNG-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -9817,8 +9833,8 @@
               "symbol_a": "DKNGUSDT",
               "exchange_b": "okx",
               "symbol_b": "DKNG-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bybit",
@@ -9829,26 +9845,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "DKNGUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "DKNG-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "DKNG_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:DKNG",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "DKNG_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "DKNG-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -10205,15 +10205,7 @@
               "symbol_a": "FLNCUSDT",
               "exchange_b": "okx",
               "symbol_b": "FLNC-USDT-SWAP",
-              "overlap_pct": "56.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "FLNC_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "FLNC-USDT-SWAP",
-              "overlap_pct": "42.84%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -10229,6 +10221,14 @@
               "symbol_a": "FLNCUSDT",
               "exchange_b": "gateio",
               "symbol_b": "FLNC_USDT",
+              "overlap_pct": "28.55%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "FLNC_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "FLNC-USDT-SWAP",
               "overlap_pct": "28.55%",
               "both_have_data": true
             },
@@ -10397,7 +10397,7 @@
               "symbol_a": "FWDIUSDT",
               "exchange_b": "okx",
               "symbol_b": "FWDI-USDT-SWAP",
-              "overlap_pct": "65.3%",
+              "overlap_pct": "90.56%",
               "both_have_data": true
             },
             {
@@ -10520,6 +10520,14 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "gateio",
+              "symbol_a": "GEV_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "GEV-USDT-SWAP",
+              "overlap_pct": "25.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "GEVUSDT",
               "exchange_b": "gateio",
@@ -10564,14 +10572,6 @@
               "symbol_a": "GEVUSDT",
               "exchange_b": "gateio",
               "symbol_b": "GEV_USDT",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "GEV_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "GEV-USDT-SWAP",
               "overlap_pct": "0.0%",
               "both_have_data": true
             }
@@ -10661,22 +10661,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "GLWUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "GLW-USDT-SWAP",
-              "overlap_pct": "45.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "GLW_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "GLW-USDT-SWAP",
-              "overlap_pct": "22.3%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "GLWUSDT",
               "exchange_b": "gateio",
@@ -10689,14 +10673,6 @@
               "symbol_a": "GLWUSDT",
               "exchange_b": "bybit",
               "symbol_b": "GLWUSDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "GLWUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "GLW-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -10737,8 +10713,16 @@
               "symbol_a": "GLWUSDT",
               "exchange_b": "okx",
               "symbol_b": "GLW-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "GLWUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "GLW-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -10761,8 +10745,8 @@
               "symbol_a": "GLWUSDT",
               "exchange_b": "okx",
               "symbol_b": "GLW-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bybit",
@@ -10771,6 +10755,22 @@
               "symbol_b": "GLW_USDT",
               "overlap_pct": "0.0%",
               "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "GLWUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "GLW-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "GLW_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "GLW-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -10778,11 +10778,27 @@
           "symbol": "GME",
           "pairs": [
             {
+              "exchange_a": "gateio",
+              "symbol_a": "GME_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "GME-USDT-SWAP",
+              "overlap_pct": "64.06%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "GMEUSDT",
               "exchange_b": "gateio",
               "symbol_b": "GME_USDT",
               "overlap_pct": "28.58%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "GMEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "GME-USDT-SWAP",
+              "overlap_pct": "26.67%",
               "both_have_data": true
             },
             {
@@ -10802,6 +10818,14 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "binance",
+              "symbol_a": "GMEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "GME-USDT-SWAP",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "aster",
               "symbol_a": "GMEUSDT",
               "exchange_b": "binance",
@@ -10838,22 +10862,14 @@
               "symbol_a": "GMEUSDT",
               "exchange_b": "okx",
               "symbol_b": "GME-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "GMEUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:GME",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "GMEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "GME-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -10866,26 +10882,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "GMEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "GME-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "GME_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:GME",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "GME_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "GME-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -10907,6 +10907,14 @@
           "symbol": "GOOGL",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "GOOGLUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "GOOGL-USDT-SWAP",
+              "overlap_pct": "75.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "GOOGLUSDT",
               "exchange_b": "bybit",
@@ -10915,19 +10923,19 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "GOOGLUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "GOOGL-USDT-SWAP",
-              "overlap_pct": "49.65%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "GOOGLUSDT",
               "exchange_b": "okx",
               "symbol_b": "GOOGL-USDT-SWAP",
-              "overlap_pct": "37.98%",
+              "overlap_pct": "63.33%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "GOOGLX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "GOOGL-USDT-SWAP",
+              "overlap_pct": "37.5%",
               "both_have_data": true
             },
             {
@@ -10936,14 +10944,6 @@
               "exchange_b": "gateio",
               "symbol_b": "GOOGLX_USDT",
               "overlap_pct": "35.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "GOOGLX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "GOOGL-USDT-SWAP",
-              "overlap_pct": "29.65%",
               "both_have_data": true
             },
             {
@@ -11299,6 +11299,14 @@
           "symbol": "HOOD",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "HOODUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "HOOD-USDT-SWAP",
+              "overlap_pct": "76.13%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "HOODUSDT",
               "exchange_b": "bybit",
@@ -11307,11 +11315,27 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "HOODUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "HOOD-USDT-SWAP",
+              "overlap_pct": "64.46%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "HOODUSDT",
               "exchange_b": "gateio",
               "symbol_b": "HOODX_USDT",
               "overlap_pct": "37.27%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "HOODX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "HOOD-USDT-SWAP",
+              "overlap_pct": "36.36%",
               "both_have_data": true
             },
             {
@@ -11343,6 +11367,14 @@
               "symbol_a": "HOODUSDT",
               "exchange_b": "gateio",
               "symbol_b": "HOODX_USDT",
+              "overlap_pct": "0.74%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "HOODUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "HOOD-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -11391,22 +11423,14 @@
               "symbol_a": "HOODUSDT",
               "exchange_b": "okx",
               "symbol_b": "HOOD-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "HOODUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:HOOD",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "HOODUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "HOOD-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -11419,14 +11443,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "HOODUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "HOOD-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "HOODUSDT",
               "exchange_b": "hyperliquid",
@@ -11435,26 +11451,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "HOODUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "HOOD-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "HOODX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:HOOD",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "HOODX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "HOOD-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -11472,14 +11472,6 @@
           "symbol": "HPE",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "HPEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "HPE-USDT-SWAP",
-              "overlap_pct": "100.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "HPEUSDT",
               "exchange_b": "bitget",
@@ -11488,18 +11480,26 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "HPEUSDT",
-              "exchange_b": "gateio",
-              "symbol_b": "HPE_USDT",
-              "overlap_pct": "33.34%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "HPE_USDT",
               "exchange_b": "okx",
               "symbol_b": "HPE-USDT-SWAP",
+              "overlap_pct": "66.66%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "HPEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "HPE-USDT-SWAP",
+              "overlap_pct": "52.31%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "HPEUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "HPE_USDT",
               "overlap_pct": "33.34%",
               "both_have_data": true
             },
@@ -11638,7 +11638,7 @@
               "symbol_a": "IBMUSDT",
               "exchange_b": "okx",
               "symbol_b": "IBM-USDT-SWAP",
-              "overlap_pct": "45.0%",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             },
             {
@@ -11654,7 +11654,7 @@
               "symbol_a": "IBM_USDT",
               "exchange_b": "okx",
               "symbol_b": "IBM-USDT-SWAP",
-              "overlap_pct": "28.32%",
+              "overlap_pct": "13.2%",
               "both_have_data": true
             },
             {
@@ -11767,6 +11767,14 @@
           "symbol": "INFQ",
           "pairs": [
             {
+              "exchange_a": "gateio",
+              "symbol_a": "INFQ_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "INFQ-USDT-SWAP",
+              "overlap_pct": "33.32%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "INFQUSDT",
               "exchange_b": "gateio",
@@ -11779,16 +11787,8 @@
               "symbol_a": "INFQUSDT",
               "exchange_b": "okx",
               "symbol_b": "INFQ-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "INFQ_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "INFQ-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -11977,7 +11977,7 @@
               "symbol_a": "INTWUSDT",
               "exchange_b": "okx",
               "symbol_b": "INTW-USDT-SWAP",
-              "overlap_pct": "50.0%",
+              "overlap_pct": "87.33%",
               "both_have_data": true
             },
             {
@@ -11985,7 +11985,7 @@
               "symbol_a": "INTW_USDT",
               "exchange_b": "okx",
               "symbol_b": "INTW-USDT-SWAP",
-              "overlap_pct": "50.0%",
+              "overlap_pct": "37.67%",
               "both_have_data": true
             },
             {
@@ -12087,22 +12087,6 @@
           "symbol": "IREN",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "IREN_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "IREN-USDT-SWAP",
-              "overlap_pct": "53.34%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "IRENUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "IREN-USDT-SWAP",
-              "overlap_pct": "45.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "IRENUSDT",
               "exchange_b": "bitget",
@@ -12143,14 +12127,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "binance",
-              "symbol_a": "IRENUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "IREN-USDT-SWAP",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "aster",
               "symbol_a": "IRENUSDT",
               "exchange_b": "binance",
@@ -12187,8 +12163,16 @@
               "symbol_a": "IRENUSDT",
               "exchange_b": "okx",
               "symbol_b": "IREN-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "IRENUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "IREN-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -12203,8 +12187,24 @@
               "symbol_a": "IRENUSDT",
               "exchange_b": "okx",
               "symbol_b": "IREN-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "IRENUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "IREN-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "IREN_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "IREN-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -12212,18 +12212,18 @@
           "symbol": "ISRG",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "ISRG_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "ISRG-USDT-SWAP",
-              "overlap_pct": "28.24%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "ISRGUSDT",
               "exchange_b": "gateio",
               "symbol_b": "ISRG_USDT",
+              "overlap_pct": "20.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ISRG_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ISRG-USDT-SWAP",
               "overlap_pct": "20.0%",
               "both_have_data": true
             },
@@ -12274,7 +12274,7 @@
               "symbol_a": "JNJ_USDT",
               "exchange_b": "okx",
               "symbol_b": "JNJ-USDT-SWAP",
-              "overlap_pct": "40.0%",
+              "overlap_pct": "60.0%",
               "both_have_data": true
             }
           ]
@@ -12400,7 +12400,7 @@
               "symbol_a": "KIOXIA_USDT",
               "exchange_b": "okx",
               "symbol_b": "KIOXIA-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             },
             {
@@ -12449,6 +12449,22 @@
           "symbol": "KLAC",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "KLACUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "KLAC-USDT-SWAP",
+              "overlap_pct": "82.08%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "KLAC_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "KLAC-USDT-SWAP",
+              "overlap_pct": "51.26%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "KLACUSDT",
               "exchange_b": "bitget",
@@ -12485,8 +12501,8 @@
               "symbol_a": "KLACUSDT",
               "exchange_b": "okx",
               "symbol_b": "KLAC-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.83%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bitget",
@@ -12509,24 +12525,8 @@
               "symbol_a": "KLACUSDT",
               "exchange_b": "okx",
               "symbol_b": "KLAC-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "KLACUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "KLAC-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "KLAC_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "KLAC-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -12838,11 +12838,35 @@
           "symbol": "LITE",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "LITEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "LITE-USDT-SWAP",
+              "overlap_pct": "77.67%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "LITEUSDT",
               "exchange_b": "bybit",
               "symbol_b": "LITEUSDT",
               "overlap_pct": "73.33%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "LITE_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "LITE-USDT-SWAP",
+              "overlap_pct": "71.52%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "LITEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "LITE-USDT-SWAP",
+              "overlap_pct": "69.34%",
               "both_have_data": true
             },
             {
@@ -12886,6 +12910,14 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "binance",
+              "symbol_a": "LITEUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "LITE-USDT-SWAP",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "aster",
               "symbol_a": "LITEUSDT",
               "exchange_b": "binance",
@@ -12930,22 +12962,14 @@
               "symbol_a": "LITEUSDT",
               "exchange_b": "okx",
               "symbol_b": "LITE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "LITEUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:LITE",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "LITEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "LITE-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -12958,14 +12982,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "LITEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "LITE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "LITEUSDT",
               "exchange_b": "hyperliquid",
@@ -12974,26 +12990,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "LITEUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "LITE-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "LITE_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:LITE",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "LITE_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "LITE-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -13011,6 +13011,14 @@
           "symbol": "LLY",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "LLYUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "LLY-USDT-SWAP",
+              "overlap_pct": "90.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "LLYUSDT",
               "exchange_b": "bitget",
@@ -13023,6 +13031,14 @@
               "symbol_a": "LLYUSDT",
               "exchange_b": "bybit",
               "symbol_b": "LLYUSDT",
+              "overlap_pct": "26.67%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "LLYUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "LLY-USDT-SWAP",
               "overlap_pct": "26.67%",
               "both_have_data": true
             },
@@ -13043,10 +13059,26 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "gateio",
+              "symbol_a": "LLY_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "LLY-USDT-SWAP",
+              "overlap_pct": "16.67%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "LLYUSDT",
               "exchange_b": "bybit",
               "symbol_b": "LLYUSDT",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "LLYUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "LLY-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -13095,8 +13127,8 @@
               "symbol_a": "LLYUSDT",
               "exchange_b": "okx",
               "symbol_b": "LLY-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
@@ -13115,26 +13147,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "binance",
-              "symbol_a": "LLYUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "LLY-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "LLYUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:LLY",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "LLYUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "LLY-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -13147,26 +13163,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "LLYUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "LLY-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "LLY_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:LLY",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "LLY_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "LLY-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -13205,14 +13205,6 @@
           "symbol": "LRCX",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "LRCX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "LRCX-USDT-SWAP",
-              "overlap_pct": "53.67%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "LRCXUSDT",
               "exchange_b": "okx",
@@ -13234,6 +13226,14 @@
               "exchange_b": "gateio",
               "symbol_b": "LRCX_USDT",
               "overlap_pct": "38.55%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "LRCX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "LRCX-USDT-SWAP",
+              "overlap_pct": "28.55%",
               "both_have_data": true
             },
             {
@@ -13294,7 +13294,7 @@
               "symbol_a": "LUNR_USDT",
               "exchange_b": "okx",
               "symbol_b": "LUNR-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             }
           ]
@@ -13366,11 +13366,27 @@
           "symbol": "META",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "METAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "META-USDT-SWAP",
+              "overlap_pct": "75.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "METAUSDT",
               "exchange_b": "bybit",
               "symbol_b": "METAUSDT",
               "overlap_pct": "66.67%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "METAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "META-USDT-SWAP",
+              "overlap_pct": "63.33%",
               "both_have_data": true
             },
             {
@@ -13387,6 +13403,14 @@
               "exchange_b": "gateio",
               "symbol_b": "METAX_USDT",
               "overlap_pct": "35.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "METAX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "META-USDT-SWAP",
+              "overlap_pct": "25.0%",
               "both_have_data": true
             },
             {
@@ -13410,6 +13434,14 @@
               "symbol_a": "METAUSDT",
               "exchange_b": "bybit",
               "symbol_b": "METAUSDT",
+              "overlap_pct": "0.74%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "METAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "META-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -13458,22 +13490,14 @@
               "symbol_a": "METAUSDT",
               "exchange_b": "okx",
               "symbol_b": "META-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "METAUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:META",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "METAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "META-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -13486,14 +13510,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "METAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "META-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "METAUSDT",
               "exchange_b": "hyperliquid",
@@ -13502,26 +13518,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "METAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "META-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "METAX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:META",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "METAX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "META-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -13613,7 +13613,7 @@
               "symbol_a": "MRVLUSDT",
               "exchange_b": "okx",
               "symbol_b": "MRVL-USDT-SWAP",
-              "overlap_pct": "45.0%",
+              "overlap_pct": "75.0%",
               "both_have_data": true
             },
             {
@@ -13621,7 +13621,15 @@
               "symbol_a": "MRVLUSDT",
               "exchange_b": "okx",
               "symbol_b": "MRVL-USDT-SWAP",
-              "overlap_pct": "40.0%",
+              "overlap_pct": "70.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "MRVL_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "MRVL-USDT-SWAP",
+              "overlap_pct": "42.84%",
               "both_have_data": true
             },
             {
@@ -13630,14 +13638,6 @@
               "exchange_b": "gateio",
               "symbol_b": "MRVL_USDT",
               "overlap_pct": "38.55%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "MRVL_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "MRVL-USDT-SWAP",
-              "overlap_pct": "28.58%",
               "both_have_data": true
             },
             {
@@ -13774,27 +13774,11 @@
           "symbol": "MSFT",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "MSFTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MSFT-USDT-SWAP",
-              "overlap_pct": "75.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "MSFTUSDT",
               "exchange_b": "bybit",
               "symbol_b": "MSFTUSDT",
               "overlap_pct": "66.67%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "MSFTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MSFT-USDT-SWAP",
-              "overlap_pct": "63.33%",
               "both_have_data": true
             },
             {
@@ -13810,14 +13794,6 @@
               "symbol_a": "MSFTUSDT",
               "exchange_b": "gateio",
               "symbol_b": "MSFT_USDT",
-              "overlap_pct": "33.34%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "MSFT_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "MSFT-USDT-SWAP",
               "overlap_pct": "33.34%",
               "both_have_data": true
             },
@@ -13842,14 +13818,6 @@
               "symbol_a": "MSFTUSDT",
               "exchange_b": "gateio",
               "symbol_b": "MSFT_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "MSFTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MSFT-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -13898,14 +13866,22 @@
               "symbol_a": "MSFTUSDT",
               "exchange_b": "okx",
               "symbol_b": "MSFT-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "MSFTUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:MSFT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "MSFTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MSFT-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -13918,6 +13894,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "MSFTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MSFT-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "MSFTUSDT",
               "exchange_b": "hyperliquid",
@@ -13926,10 +13910,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "MSFTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MSFT-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "MSFT_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:MSFT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "MSFT_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "MSFT-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -14137,35 +14137,11 @@
           "symbol": "MU",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "MUUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MU-USDT-SWAP",
-              "overlap_pct": "75.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "MUUSDT",
               "exchange_b": "bybit",
               "symbol_b": "MUUSDT",
               "overlap_pct": "66.67%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "MUUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MU-USDT-SWAP",
-              "overlap_pct": "63.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "MU_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "MU-USDT-SWAP",
-              "overlap_pct": "62.87%",
               "both_have_data": true
             },
             {
@@ -14205,14 +14181,6 @@
               "symbol_a": "MUUSDT",
               "exchange_b": "gateio",
               "symbol_b": "MU_USDT",
-              "overlap_pct": "0.74%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "MUUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MU-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -14261,14 +14229,22 @@
               "symbol_a": "MUUSDT",
               "exchange_b": "okx",
               "symbol_b": "MU-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "MUUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:MU",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "MUUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MU-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -14281,6 +14257,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "MUUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MU-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "MUUSDT",
               "exchange_b": "hyperliquid",
@@ -14289,10 +14273,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "MUUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MU-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "MU_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:MU",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "MU_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "MU-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -14646,22 +14646,6 @@
           "symbol": "NFLX",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "NFLX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "NFLX-USDT-SWAP",
-              "overlap_pct": "58.54%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "NFLXUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NFLX-USDT-SWAP",
-              "overlap_pct": "46.41%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "NFLXUSDT",
               "exchange_b": "gateio",
@@ -14694,14 +14678,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "NFLXUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NFLX-USDT-SWAP",
-              "overlap_pct": "1.41%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "NFLXUSDT",
               "exchange_b": "bybit",
@@ -14714,14 +14690,6 @@
               "symbol_a": "NFLXUSDT",
               "exchange_b": "gateio",
               "symbol_b": "NFLX_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "NFLXUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NFLX-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -14770,14 +14738,22 @@
               "symbol_a": "NFLXUSDT",
               "exchange_b": "okx",
               "symbol_b": "NFLX-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "NFLXUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:NFLX",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "NFLXUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NFLX-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -14790,6 +14766,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "NFLXUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NFLX-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "NFLXUSDT",
               "exchange_b": "hyperliquid",
@@ -14798,10 +14782,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "NFLXUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NFLX-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "NFLX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:NFLX",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "NFLX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "NFLX-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -14849,26 +14849,10 @@
           "symbol": "NOK",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "NOK_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "NOK-USDT-SWAP",
-              "overlap_pct": "80.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "NOKUSDT",
               "exchange_b": "gateio",
               "symbol_b": "NOK_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "NOKUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NOK-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -14893,8 +14877,24 @@
               "symbol_a": "NOKUSDT",
               "exchange_b": "okx",
               "symbol_b": "NOK-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "NOKUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NOK-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "NOK_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "NOK-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -14910,19 +14910,19 @@
           "symbol": "NOW",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "NOW_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "NOW-USDT-SWAP",
-              "overlap_pct": "57.13%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "NOWUSDT",
               "exchange_b": "okx",
               "symbol_b": "NOW-USDT-SWAP",
-              "overlap_pct": "45.0%",
+              "overlap_pct": "86.39%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "NOW_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "NOW-USDT-SWAP",
+              "overlap_pct": "56.18%",
               "both_have_data": true
             },
             {
@@ -15039,6 +15039,14 @@
           "symbol": "NVDA",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "NVDAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NVDA-USDT-SWAP",
+              "overlap_pct": "75.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "NVDAUSDT",
               "exchange_b": "bybit",
@@ -15049,8 +15057,24 @@
             {
               "exchange_a": "bitget",
               "symbol_a": "NVDAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NVDA-USDT-SWAP",
+              "overlap_pct": "63.33%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "NVDAUSDT",
               "exchange_b": "gateio",
               "symbol_b": "NVDAX_USDT",
+              "overlap_pct": "57.13%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "NVDAX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "NVDA-USDT-SWAP",
               "overlap_pct": "57.13%",
               "both_have_data": true
             },
@@ -15083,6 +15107,14 @@
               "symbol_a": "NVDAUSDT",
               "exchange_b": "bybit",
               "symbol_b": "NVDAUSDT",
+              "overlap_pct": "0.74%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "NVDAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "NVDA-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -15131,22 +15163,14 @@
               "symbol_a": "NVDAUSDT",
               "exchange_b": "okx",
               "symbol_b": "NVDA-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "NVDAUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:NVDA",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "NVDAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NVDA-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -15159,14 +15183,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "NVDAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NVDA-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "NVDAUSDT",
               "exchange_b": "hyperliquid",
@@ -15175,26 +15191,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "NVDAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "NVDA-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "NVDAX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:NVDA",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "NVDAX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "NVDA-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -15282,7 +15282,7 @@
               "symbol_a": "OKTA_USDT",
               "exchange_b": "okx",
               "symbol_b": "OKTA-USDT-SWAP",
-              "overlap_pct": "16.67%",
+              "overlap_pct": "33.34%",
               "both_have_data": true
             }
           ]
@@ -15308,7 +15308,7 @@
               "symbol_a": "ONDSUSDT",
               "exchange_b": "okx",
               "symbol_b": "ONDS-USDT-SWAP",
-              "overlap_pct": "89.51%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -15320,19 +15320,19 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "ONDS_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "ONDS-USDT-SWAP",
-              "overlap_pct": "39.07%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "ONDSUSDT",
               "exchange_b": "gateio",
               "symbol_b": "ONDS_USDT",
               "overlap_pct": "38.58%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ONDS_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ONDS-USDT-SWAP",
+              "overlap_pct": "28.58%",
               "both_have_data": true
             },
             {
@@ -15429,35 +15429,11 @@
           "symbol": "ORCL",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "ORCLUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ORCL-USDT-SWAP",
-              "overlap_pct": "75.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "ORCLUSDT",
               "exchange_b": "bybit",
               "symbol_b": "ORCLUSDT",
               "overlap_pct": "73.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "ORCLUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ORCL-USDT-SWAP",
-              "overlap_pct": "66.67%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "ORCLX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "ORCL-USDT-SWAP",
-              "overlap_pct": "53.34%",
               "both_have_data": true
             },
             {
@@ -15497,14 +15473,6 @@
               "symbol_a": "ORCLUSDT",
               "exchange_b": "gateio",
               "symbol_b": "ORCLX_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "ORCLUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ORCL-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -15553,14 +15521,22 @@
               "symbol_a": "ORCLUSDT",
               "exchange_b": "okx",
               "symbol_b": "ORCL-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "ORCLUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:ORCL",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "ORCLUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ORCL-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -15573,6 +15549,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "ORCLUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ORCL-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "ORCLUSDT",
               "exchange_b": "hyperliquid",
@@ -15581,10 +15565,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "ORCLUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "ORCL-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "ORCLX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:ORCL",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ORCLX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ORCL-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -15830,6 +15830,22 @@
             {
               "exchange_a": "bybit",
               "symbol_a": "PLTRUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "PLTR-USDT-SWAP",
+              "overlap_pct": "81.82%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "PLTRX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "PLTR-USDT-SWAP",
+              "overlap_pct": "54.2%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "PLTRUSDT",
               "exchange_b": "gateio",
               "symbol_b": "PLTRX_USDT",
               "overlap_pct": "47.5%",
@@ -15840,6 +15856,14 @@
               "symbol_a": "PLTRUSDT",
               "exchange_b": "bybit",
               "symbol_b": "PLTRUSDT",
+              "overlap_pct": "30.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "PLTRUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "PLTR-USDT-SWAP",
               "overlap_pct": "30.0%",
               "both_have_data": true
             },
@@ -15872,6 +15896,14 @@
               "symbol_a": "PLTRUSDT",
               "exchange_b": "gateio",
               "symbol_b": "PLTRX_USDT",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "PLTRUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "PLTR-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -15920,22 +15952,14 @@
               "symbol_a": "PLTRUSDT",
               "exchange_b": "okx",
               "symbol_b": "PLTR-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "PLTRUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:PLTR",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "PLTRUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "PLTR-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -15948,14 +15972,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "PLTRUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "PLTR-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "PLTRUSDT",
               "exchange_b": "hyperliquid",
@@ -15964,26 +15980,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "PLTRUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "PLTR-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "PLTRX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:PLTR",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "PLTRX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "PLTR-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -16046,19 +16046,19 @@
           "symbol": "PYPL",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "PYPLUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "PYPL_USDT",
+              "overlap_pct": "43.34%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "PYPLUSDT",
               "exchange_b": "bitget",
               "symbol_b": "PYPLUSDT",
               "overlap_pct": "41.32%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "PYPLUSDT",
-              "exchange_b": "gateio",
-              "symbol_b": "PYPL_USDT",
-              "overlap_pct": "33.34%",
               "both_have_data": true
             },
             {
@@ -16103,6 +16103,14 @@
           "symbol": "QCOM",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "QCOMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "QCOM-USDT-SWAP",
+              "overlap_pct": "100.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "QCOMUSDT",
               "exchange_b": "bybit",
@@ -16119,10 +16127,26 @@
               "both_have_data": true
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "QCOMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "QCOM-USDT-SWAP",
+              "overlap_pct": "40.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "QCOMUSDT",
               "exchange_b": "gateio",
               "symbol_b": "QCOM_USDT",
+              "overlap_pct": "40.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "QCOM_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "QCOM-USDT-SWAP",
               "overlap_pct": "40.0%",
               "both_have_data": true
             },
@@ -16147,6 +16171,14 @@
               "symbol_a": "QCOMUSDT",
               "exchange_b": "gateio",
               "symbol_b": "QCOM_USDT",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "QCOMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "QCOM-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -16187,40 +16219,8 @@
               "symbol_a": "QCOMUSDT",
               "exchange_b": "okx",
               "symbol_b": "QCOM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "QCOMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "QCOM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "QCOMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "QCOM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "QCOMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "QCOM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "QCOM_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "QCOM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -16363,8 +16363,8 @@
               "symbol_a": "RDWUSDT",
               "exchange_b": "okx",
               "symbol_b": "RDW-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bybit",
@@ -16379,16 +16379,16 @@
               "symbol_a": "RDWUSDT",
               "exchange_b": "okx",
               "symbol_b": "RDW-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "gateio",
               "symbol_a": "RDW_USDT",
               "exchange_b": "okx",
               "symbol_b": "RDW-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -16421,18 +16421,18 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "RIVN_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "RIVN-USDT-SWAP",
-              "overlap_pct": "34.3%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "RIVNUSDT",
               "exchange_b": "gateio",
               "symbol_b": "RIVN_USDT",
+              "overlap_pct": "33.34%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "RIVN_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "RIVN-USDT-SWAP",
               "overlap_pct": "33.34%",
               "both_have_data": true
             },
@@ -16542,7 +16542,7 @@
               "symbol_a": "RKLBUSDT",
               "exchange_b": "okx",
               "symbol_b": "RKLB-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "78.33%",
               "both_have_data": true
             },
             {
@@ -16558,7 +16558,7 @@
               "symbol_a": "RKLBUSDT",
               "exchange_b": "okx",
               "symbol_b": "RKLB-USDT-SWAP",
-              "overlap_pct": "66.67%",
+              "overlap_pct": "70.0%",
               "both_have_data": true
             },
             {
@@ -16566,7 +16566,7 @@
               "symbol_a": "RKLB_USDT",
               "exchange_b": "okx",
               "symbol_b": "RKLB-USDT-SWAP",
-              "overlap_pct": "60.0%",
+              "overlap_pct": "51.11%",
               "both_have_data": true
             },
             {
@@ -16715,7 +16715,7 @@
               "symbol_a": "ROK_USDT",
               "exchange_b": "okx",
               "symbol_b": "ROK-USDT-SWAP",
-              "overlap_pct": "25.92%",
+              "overlap_pct": "28.58%",
               "both_have_data": true
             },
             {
@@ -16865,7 +16865,7 @@
               "symbol_a": "SHLD_USDT",
               "exchange_b": "okx",
               "symbol_b": "SHLD-USDT-SWAP",
-              "overlap_pct": "53.24%",
+              "overlap_pct": "50.0%",
               "both_have_data": true
             }
           ]
@@ -16933,7 +16933,7 @@
               "symbol_a": "SKHYUSDT",
               "exchange_b": "okx",
               "symbol_b": "SKHY-USDT-SWAP",
-              "overlap_pct": "75.0%",
+              "overlap_pct": "75.68%",
               "both_have_data": true
             },
             {
@@ -16941,7 +16941,7 @@
               "symbol_a": "SKHY_USDT",
               "exchange_b": "okx",
               "symbol_b": "SKHY-USDT-SWAP",
-              "overlap_pct": "62.84%",
+              "overlap_pct": "61.38%",
               "both_have_data": true
             },
             {
@@ -17160,7 +17160,7 @@
               "symbol_a": "SMHUSDT",
               "exchange_b": "okx",
               "symbol_b": "SMH-USDT-SWAP",
-              "overlap_pct": "82.95%",
+              "overlap_pct": "66.66%",
               "both_have_data": true
             },
             {
@@ -17176,14 +17176,6 @@
               "symbol_a": "SMHUSDT",
               "exchange_b": "gateio",
               "symbol_b": "SMH_USDT",
-              "overlap_pct": "16.67%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "SMH_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "SMH-USDT-SWAP",
               "overlap_pct": "16.67%",
               "both_have_data": true
             },
@@ -17234,6 +17226,14 @@
               "symbol_b": "SMH-USDT-SWAP",
               "overlap_pct": "0.0%",
               "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "SMH_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "SMH-USDT-SWAP",
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -17262,11 +17262,35 @@
           "symbol": "SNDK",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "SNDKUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "SNDK-USDT-SWAP",
+              "overlap_pct": "75.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "SNDKUSDT",
               "exchange_b": "bybit",
               "symbol_b": "SNDKUSDT",
               "overlap_pct": "66.67%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "SNDKUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "SNDK-USDT-SWAP",
+              "overlap_pct": "63.33%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "SNDK_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "SNDK-USDT-SWAP",
+              "overlap_pct": "62.87%",
               "both_have_data": true
             },
             {
@@ -17306,6 +17330,14 @@
               "symbol_a": "SNDKUSDT",
               "exchange_b": "gateio",
               "symbol_b": "SNDK_USDT",
+              "overlap_pct": "0.74%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "SNDKUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "SNDK-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -17354,22 +17386,14 @@
               "symbol_a": "SNDKUSDT",
               "exchange_b": "okx",
               "symbol_b": "SNDK-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "SNDKUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:SNDK",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "SNDKUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "SNDK-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -17382,14 +17406,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "SNDKUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "SNDK-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "SNDKUSDT",
               "exchange_b": "hyperliquid",
@@ -17398,26 +17414,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "SNDKUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "SNDK-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "SNDK_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:SNDK",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "SNDK_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "SNDK-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -17439,7 +17439,7 @@
               "symbol_a": "SNOWUSDT",
               "exchange_b": "okx",
               "symbol_b": "SNOW-USDT-SWAP",
-              "overlap_pct": "50.32%",
+              "overlap_pct": "65.6%",
               "both_have_data": true
             },
             {
@@ -17679,15 +17679,7 @@
               "symbol_a": "SONYUSDT",
               "exchange_b": "okx",
               "symbol_b": "SONY-USDT-SWAP",
-              "overlap_pct": "84.56%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "SONY_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "SONY-USDT-SWAP",
-              "overlap_pct": "44.02%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -17703,6 +17695,14 @@
               "symbol_a": "SONYUSDT",
               "exchange_b": "gateio",
               "symbol_b": "SONY_USDT",
+              "overlap_pct": "28.58%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "SONY_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "SONY-USDT-SWAP",
               "overlap_pct": "28.58%",
               "both_have_data": true
             },
@@ -17812,6 +17812,22 @@
             {
               "exchange_a": "bybit",
               "symbol_a": "SPCXUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "SPCX-USDT-SWAP",
+              "overlap_pct": "75.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "SPCX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "SPCX-USDT-SWAP",
+              "overlap_pct": "57.5%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bybit",
+              "symbol_a": "SPCXUSDT",
               "exchange_b": "gateio",
               "symbol_b": "SPCX_USDT",
               "overlap_pct": "47.5%",
@@ -17851,6 +17867,14 @@
             },
             {
               "exchange_a": "binance",
+              "symbol_a": "SPCXUSD1",
+              "exchange_b": "okx",
+              "symbol_b": "SPCX-USDT-SWAP",
+              "overlap_pct": "0.74%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
               "symbol_a": "SPCXUSDT",
               "exchange_b": "bybit",
               "symbol_b": "SPCXUSDT",
@@ -17862,6 +17886,14 @@
               "symbol_a": "SPCXUSDT",
               "exchange_b": "gateio",
               "symbol_b": "SPCX_USDT",
+              "overlap_pct": "0.74%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "SPCXUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "SPCX-USDT-SWAP",
               "overlap_pct": "0.74%",
               "both_have_data": true
             },
@@ -17926,8 +17958,8 @@
               "symbol_a": "SPCXUSDT",
               "exchange_b": "okx",
               "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
@@ -17947,14 +17979,6 @@
             },
             {
               "exchange_a": "binance",
-              "symbol_a": "SPCXUSD1",
-              "exchange_b": "okx",
-              "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
               "symbol_a": "SPCXUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:SPCX",
@@ -17968,14 +17992,6 @@
               "symbol_b": "SPCX",
               "overlap_pct": "0.0%",
               "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "SPCXUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
@@ -18014,8 +18030,8 @@
               "symbol_a": "SPCXUSDT",
               "exchange_b": "okx",
               "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bybit",
@@ -18034,14 +18050,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "SPCXUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "SPCX_USDT",
               "exchange_b": "hyperliquid",
@@ -18056,14 +18064,6 @@
               "symbol_b": "SPCX",
               "overlap_pct": "0.0%",
               "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "SPCX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
             },
             {
               "exchange_a": "hyperliquid",
@@ -18086,8 +18086,8 @@
               "symbol_a": "SPCX",
               "exchange_b": "okx",
               "symbol_b": "SPCX-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -18156,27 +18156,11 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "STRC_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "STRC-USDT-SWAP",
-              "overlap_pct": "20.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "STRCUSDT",
               "exchange_b": "gateio",
               "symbol_b": "STRC_USDT",
               "overlap_pct": "12.4%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "STRCUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "STRC-USDT-SWAP",
-              "overlap_pct": "0.83%",
               "both_have_data": true
             },
             {
@@ -18208,16 +18192,32 @@
               "symbol_a": "STRCUSDT",
               "exchange_b": "okx",
               "symbol_b": "STRC-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "STRCUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "STRC-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "bitget",
               "symbol_a": "STRCUSDT",
               "exchange_b": "okx",
               "symbol_b": "STRC-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "STRC_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "STRC-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -18364,14 +18364,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "TER_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "TER-USDT-SWAP",
-              "overlap_pct": "37.02%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "TERUSDT",
               "exchange_b": "bybit",
@@ -18424,6 +18416,14 @@
               "symbol_a": "TERUSDT",
               "exchange_b": "gateio",
               "symbol_b": "TER_USDT",
+              "overlap_pct": "0.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "TER_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "TER-USDT-SWAP",
               "overlap_pct": "0.0%",
               "both_have_data": true
             }
@@ -18466,7 +18466,7 @@
               "symbol_a": "TMFUSDT",
               "exchange_b": "gateio",
               "symbol_b": "TMF_USDT",
-              "overlap_pct": "100.0%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -18474,7 +18474,7 @@
               "symbol_a": "TMFUSDT",
               "exchange_b": "okx",
               "symbol_b": "TMF-USDT-SWAP",
-              "overlap_pct": "97.12%",
+              "overlap_pct": "71.04%",
               "both_have_data": true
             },
             {
@@ -18482,7 +18482,7 @@
               "symbol_a": "TMF_USDT",
               "exchange_b": "okx",
               "symbol_b": "TMF-USDT-SWAP",
-              "overlap_pct": "97.12%",
+              "overlap_pct": "71.04%",
               "both_have_data": true
             },
             {
@@ -18567,18 +18567,18 @@
           "symbol": "TSEM",
           "pairs": [
             {
-              "exchange_a": "gateio",
-              "symbol_a": "TSEM_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSEM-USDT-SWAP",
-              "overlap_pct": "50.44%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "TSEMUSDT",
               "exchange_b": "gateio",
               "symbol_b": "TSEM_USDT",
+              "overlap_pct": "20.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "TSEM_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSEM-USDT-SWAP",
               "overlap_pct": "20.0%",
               "both_have_data": true
             },
@@ -18620,35 +18620,11 @@
           "symbol": "TSLA",
           "pairs": [
             {
-              "exchange_a": "bybit",
-              "symbol_a": "TSLAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSLA-USDT-SWAP",
-              "overlap_pct": "75.0%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "TSLAUSDT",
               "exchange_b": "bybit",
               "symbol_b": "TSLAUSDT",
               "overlap_pct": "66.67%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "TSLAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSLA-USDT-SWAP",
-              "overlap_pct": "63.33%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "TSLAX_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSLA-USDT-SWAP",
-              "overlap_pct": "42.87%",
               "both_have_data": true
             },
             {
@@ -18688,14 +18664,6 @@
               "symbol_a": "TSLAUSDT",
               "exchange_b": "gateio",
               "symbol_b": "TSLAX_USDT",
-              "overlap_pct": "0.83%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "TSLAUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSLA-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -18744,14 +18712,22 @@
               "symbol_a": "TSLAUSDT",
               "exchange_b": "okx",
               "symbol_b": "TSLA-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
+              "overlap_pct": "0%",
+              "both_have_data": false
             },
             {
               "exchange_a": "binance",
               "symbol_a": "TSLAUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:TSLA",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "TSLAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSLA-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -18764,6 +18740,14 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bitget",
+              "symbol_a": "TSLAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSLA-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "bybit",
               "symbol_a": "TSLAUSDT",
               "exchange_b": "hyperliquid",
@@ -18772,10 +18756,26 @@
               "both_have_data": false
             },
             {
+              "exchange_a": "bybit",
+              "symbol_a": "TSLAUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSLA-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
               "exchange_a": "gateio",
               "symbol_a": "TSLAX_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:TSLA",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "TSLAX_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSLA-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -18822,11 +18822,35 @@
           "symbol": "TSM",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "TSMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSM-USDT-SWAP",
+              "overlap_pct": "76.34%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "TSMUSDT",
               "exchange_b": "bybit",
               "symbol_b": "TSMUSDT",
               "overlap_pct": "66.67%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "TSMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSM-USDT-SWAP",
+              "overlap_pct": "66.67%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "TSM_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSM-USDT-SWAP",
+              "overlap_pct": "66.53%",
               "both_have_data": true
             },
             {
@@ -18866,6 +18890,14 @@
               "symbol_a": "TSMUSDT",
               "exchange_b": "gateio",
               "symbol_b": "TSM_USDT",
+              "overlap_pct": "0.83%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "TSMUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "TSM-USDT-SWAP",
               "overlap_pct": "0.83%",
               "both_have_data": true
             },
@@ -18914,22 +18946,14 @@
               "symbol_a": "TSMUSDT",
               "exchange_b": "okx",
               "symbol_b": "TSM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "binance",
               "symbol_a": "TSMUSDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:TSM",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "binance",
-              "symbol_a": "TSMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSM-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -18942,14 +18966,6 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bitget",
-              "symbol_a": "TSMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "TSMUSDT",
               "exchange_b": "hyperliquid",
@@ -18958,26 +18974,10 @@
               "both_have_data": false
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "TSMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSM-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
               "exchange_a": "gateio",
               "symbol_a": "TSM_USDT",
               "exchange_b": "hyperliquid",
               "symbol_b": "xyz:TSM",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "TSM_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "TSM-USDT-SWAP",
               "overlap_pct": "0%",
               "both_have_data": false
             },
@@ -19003,7 +19003,7 @@
               "symbol_a": "TTWOUSDT",
               "exchange_b": "okx",
               "symbol_b": "TTWO-USDT-SWAP",
-              "overlap_pct": "90.0%",
+              "overlap_pct": "100.0%",
               "both_have_data": true
             },
             {
@@ -19252,6 +19252,14 @@
           "symbol": "UNH",
           "pairs": [
             {
+              "exchange_a": "gateio",
+              "symbol_a": "UNH_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "UNH-USDT-SWAP",
+              "overlap_pct": "33.32%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "UNHUSDT",
               "exchange_b": "bybit",
@@ -19272,8 +19280,8 @@
               "symbol_a": "UNHUSDT",
               "exchange_b": "okx",
               "symbol_b": "UNH-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             },
             {
               "exchange_a": "bybit",
@@ -19288,16 +19296,8 @@
               "symbol_a": "UNHUSDT",
               "exchange_b": "okx",
               "symbol_b": "UNH-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "UNH_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "UNH-USDT-SWAP",
-              "overlap_pct": "0%",
-              "both_have_data": false
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -19398,6 +19398,14 @@
           "symbol": "USAR",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "USARUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "USAR-USDT-SWAP",
+              "overlap_pct": "83.91%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "bitget",
               "symbol_a": "USARUSDT",
               "exchange_b": "bybit",
@@ -19406,27 +19414,11 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "bybit",
-              "symbol_a": "USARUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "USAR-USDT-SWAP",
-              "overlap_pct": "68.52%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bitget",
               "symbol_a": "USARUSDT",
               "exchange_b": "okx",
               "symbol_b": "USAR-USDT-SWAP",
-              "overlap_pct": "60.19%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "USAR_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "USAR-USDT-SWAP",
-              "overlap_pct": "55.56%",
+              "overlap_pct": "73.33%",
               "both_have_data": true
             },
             {
@@ -19443,6 +19435,14 @@
               "exchange_b": "gateio",
               "symbol_b": "USAR_USDT",
               "overlap_pct": "43.34%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "USAR_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "USAR-USDT-SWAP",
+              "overlap_pct": "40.88%",
               "both_have_data": true
             },
             {
@@ -19571,27 +19571,19 @@
           "symbol": "UVXY",
           "pairs": [
             {
+              "exchange_a": "bybit",
+              "symbol_a": "UVXYUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "UVXY-USDT-SWAP",
+              "overlap_pct": "100.0%",
+              "both_have_data": true
+            },
+            {
               "exchange_a": "binance",
               "symbol_a": "UVXYUSDT",
               "exchange_b": "bitget",
               "symbol_b": "UVXYUSDT",
               "overlap_pct": "84.16%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "UVXYUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "UVXY-USDT-SWAP",
-              "overlap_pct": "64.16%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "UVXY_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "UVXY-USDT-SWAP",
-              "overlap_pct": "40.0%",
               "both_have_data": true
             },
             {
@@ -19607,6 +19599,14 @@
               "symbol_a": "UVXYUSDT",
               "exchange_b": "gateio",
               "symbol_b": "UVXY_USDT",
+              "overlap_pct": "20.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "UVXY_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "UVXY-USDT-SWAP",
               "overlap_pct": "20.0%",
               "both_have_data": true
             },
@@ -19802,7 +19802,7 @@
               "symbol_a": "VRTUSDT",
               "exchange_b": "okx",
               "symbol_b": "VRT-USDT-SWAP",
-              "overlap_pct": "50.0%",
+              "overlap_pct": "90.0%",
               "both_have_data": true
             },
             {
@@ -19811,14 +19811,6 @@
               "exchange_b": "bitget",
               "symbol_b": "VRTUSDT",
               "overlap_pct": "41.32%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "gateio",
-              "symbol_a": "VRT_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "VRT-USDT-SWAP",
-              "overlap_pct": "28.55%",
               "both_have_data": true
             },
             {
@@ -19876,6 +19868,14 @@
               "symbol_b": "VRT_USDT",
               "overlap_pct": "0.0%",
               "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "VRT_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "VRT-USDT-SWAP",
+              "overlap_pct": "0.0%",
+              "both_have_data": true
             }
           ]
         },
@@ -19912,7 +19912,7 @@
               "symbol_a": "WDCUSDT",
               "exchange_b": "okx",
               "symbol_b": "WDC-USDT-SWAP",
-              "overlap_pct": "78.33%",
+              "overlap_pct": "79.86%",
               "both_have_data": true
             },
             {
@@ -19920,7 +19920,7 @@
               "symbol_a": "WDC_USDT",
               "exchange_b": "okx",
               "symbol_b": "WDC-USDT-SWAP",
-              "overlap_pct": "48.61%",
+              "overlap_pct": "57.64%",
               "both_have_data": true
             },
             {
@@ -20049,14 +20049,6 @@
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "WEN_USDT",
-              "exchange_b": "okx",
-              "symbol_b": "WEN-USDT-SWAP",
-              "overlap_pct": "14.29%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "binance",
               "symbol_a": "WENUSDT",
               "exchange_b": "okx",
@@ -20075,6 +20067,14 @@
             {
               "exchange_a": "bitget",
               "symbol_a": "WENUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "WEN-USDT-SWAP",
+              "overlap_pct": "0.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "WEN_USDT",
               "exchange_b": "okx",
               "symbol_b": "WEN-USDT-SWAP",
               "overlap_pct": "0.0%",
@@ -20187,7 +20187,7 @@
               "symbol_a": "XBIUSDT",
               "exchange_b": "okx",
               "symbol_b": "XBI-USDT-SWAP",
-              "overlap_pct": "58.88%",
+              "overlap_pct": "54.07%",
               "both_have_data": true
             },
             {
@@ -20369,19 +20369,19 @@
           "symbol": "XLV",
           "pairs": [
             {
-              "exchange_a": "bitget",
-              "symbol_a": "XLVUSDT",
-              "exchange_b": "gateio",
-              "symbol_b": "XLV_USDT",
-              "overlap_pct": "33.33%",
-              "both_have_data": true
-            },
-            {
               "exchange_a": "bybit",
               "symbol_a": "XLVUSDT",
               "exchange_b": "gateio",
               "symbol_b": "XLV_USDT",
-              "overlap_pct": "33.33%",
+              "overlap_pct": "50.0%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "XLVUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "XLV_USDT",
+              "overlap_pct": "25.0%",
               "both_have_data": true
             },
             {
@@ -20458,25 +20458,17 @@
             {
               "exchange_a": "bybit",
               "symbol_a": "ZMUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "ZM-USDT-SWAP",
-              "overlap_pct": "90.0%",
-              "both_have_data": true
-            },
-            {
-              "exchange_a": "bybit",
-              "symbol_a": "ZMUSDT",
               "exchange_b": "gateio",
               "symbol_b": "ZM_USDT",
               "overlap_pct": "50.01%",
               "both_have_data": true
             },
             {
-              "exchange_a": "gateio",
-              "symbol_a": "ZM_USDT",
+              "exchange_a": "bybit",
+              "symbol_a": "ZMUSDT",
               "exchange_b": "okx",
               "symbol_b": "ZM-USDT-SWAP",
-              "overlap_pct": "50.01%",
+              "overlap_pct": "45.0%",
               "both_have_data": true
             },
             {
@@ -20485,6 +20477,14 @@
               "exchange_b": "bitget",
               "symbol_b": "ZMUSDT",
               "overlap_pct": "41.32%",
+              "both_have_data": true
+            },
+            {
+              "exchange_a": "gateio",
+              "symbol_a": "ZM_USDT",
+              "exchange_b": "okx",
+              "symbol_b": "ZM-USDT-SWAP",
+              "overlap_pct": "33.34%",
               "both_have_data": true
             },
             {
@@ -20632,5 +20632,5 @@
       ]
     }
   },
-  "ts": "2026-08-23T10:34:48.116905+00:00"
+  "ts": "2026-08-23T17:00:12.621242+00:00"
 }
