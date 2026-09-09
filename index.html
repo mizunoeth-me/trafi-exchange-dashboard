@@ -612,11 +612,14 @@
             <th>OI Value (USD)</th>
             <th>OI 数量</th>
             <th>24h 成交量</th>
-            <th>资金费率</th>
+            <th title="交易所当前/下一结算期公布的原始费率">资金费率（单次）</th>
+            <th title="该合约的资金费率结算/更新间隔">结算周期</th>
+            <th title="单利年化 = 单次费率 × 24 ÷ 周期小时 × 365">资金费率（年化）</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
+      <div class="table-note">资金费率为交易所公布的单次结算费率；年化采用单利：单次费率 × 24 ÷ 结算周期小时 × 365，不代表实际持有收益。</div>
     </div>
 
     <!-- Charts -->
@@ -660,7 +663,7 @@
         <div class="legend-wrap" id="legend-ts-index"></div>
       </div>
       <div class="chart-card">
-        <h3>Funding Rate（%）</h3>
+        <h3>Funding Rate（单次原始值，%）</h3>
         <div class="chart-wrap"><canvas id="chart-ts-funding"></canvas></div>
         <div class="legend-wrap" id="legend-ts-funding"></div>
       </div>
@@ -786,7 +789,9 @@
             <th>oi_base</th>
             <th>oi_value</th>
             <th>volume_24h</th>
-            <th>funding_rate</th>
+            <th title="交易所当前/下一结算期公布的原始费率">funding_rate（单次）</th>
+            <th title="资金费率结算/更新间隔">funding_interval</th>
+            <th title="单利年化 = 单次费率 × 24 ÷ 周期小时 × 365">funding_annualized</th>
             <th>market_type</th>
             <th>contract_type</th>
             <th>timestamp</th>
@@ -794,6 +799,7 @@
         </thead>
         <tbody></tbody>
       </table>
+      <div class="table-note">funding_rate 为单次结算原始值；funding_annualized 为按对应 funding_interval 计算的单利年化，仅用于统一比较。</div>
     </div>
   </div>
 
@@ -1040,6 +1046,31 @@ function switchTab(idx, el) {
 function fmt(n, dec=2) {
   if (n === null || n === undefined || n === '') return null;
   return Number(n).toFixed(dec);
+}
+
+function fmtFundingRate(rate, decimals=4) {
+  if (rate === null || rate === undefined || rate === '') return '<span class="na">—</span>';
+  const value = Number(rate);
+  return Number.isFinite(value) ? `${fmt(value * 100, decimals)}%` : '<span class="na">—</span>';
+}
+
+function fmtFundingInterval(hours) {
+  if (hours === null || hours === undefined || hours === '') return '<span class="na">—</span>';
+  const value = Number(hours);
+  if (!Number.isFinite(value) || value <= 0) return '<span class="na">—</span>';
+  return `${Number.isInteger(value) ? value : fmt(value, 2)}h`;
+}
+
+function fundingAnnualizedRate(row) {
+  const suppliedRaw = row && row.funding_annualized_rate;
+  const supplied = Number(suppliedRaw);
+  if (suppliedRaw !== null && suppliedRaw !== undefined && suppliedRaw !== '' && Number.isFinite(supplied)) return supplied;
+  if (!row || row.funding_rate === null || row.funding_rate === undefined || row.funding_rate === '') return null;
+  const rate = Number(row && row.funding_rate);
+  const hours = Number(row && row.funding_interval_hours);
+  return Number.isFinite(rate) && Number.isFinite(hours) && hours > 0
+    ? rate * (24 / hours) * 365
+    : null;
 }
 function parsePctLike(v) {
   if (v === null || v === undefined || v === '') return null;
@@ -1555,7 +1586,7 @@ function renderFutures(sym) {
 
   if (!rec) {
     title.textContent = sym + ' — 无期货数据';
-    table.innerHTML = '<tr><td colspan="7" class="na">暂无数据</td></tr>';
+    table.innerHTML = '<tr><td colspan="9" class="na">暂无数据</td></tr>';
     renderFuturesCharts([], sym);
     return;
   }
@@ -1588,7 +1619,9 @@ function renderFutures(sym) {
       <td>${v.oi_value  != null ? fmtOI(v.oi_value)  : '<span class="na">—</span>'}</td>
       <td>${v.oi_base   != null ? fmtOI(v.oi_base)   : '<span class="na">—</span>'}</td>
       <td>${v.volume_24h != null ? fmtOI(v.volume_24h) : '<span class="na">—</span>'}</td>
-      <td>${v.funding_rate != null ? (fmt(Number(v.funding_rate) * 100, 4) + '%') : '<span class="na">—</span>'}</td>
+      <td>${fmtFundingRate(v.funding_rate)}</td>
+      <td>${fmtFundingInterval(v.funding_interval_hours)}</td>
+      <td>${fmtFundingRate(fundingAnnualizedRate(v), 2)}</td>
     `;
     table.appendChild(tr);
   });
@@ -2443,6 +2476,7 @@ function renderOverview() {
       'exchange', 'symbol_display', 'underlying', 'asset_class',
       'base', 'quote',
       'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate',
+      'funding_interval_hours', 'funding_annualized_rate',
       'market_type', 'contract_type', 'timestamp'
     ];
     const ths = Array.from(document.querySelectorAll('#overview-table thead th'));
@@ -2456,7 +2490,7 @@ function renderOverview() {
           ovSortDir = ovSortDir === 'asc' ? 'desc' : 'asc';
         } else {
           ovSortKey = k;
-          ovSortDir = (k === 'timestamp' || k === 'price' || k === 'oi_base' || k === 'oi_value' || k === 'volume_24h' || k === 'funding_rate') ? 'desc' : 'asc';
+          ovSortDir = (k === 'timestamp' || k === 'price' || k === 'oi_base' || k === 'oi_value' || k === 'volume_24h' || k === 'funding_rate' || k === 'funding_interval_hours' || k === 'funding_annualized_rate') ? 'desc' : 'asc';
         }
         updateOverviewSortHeader();
         renderOverview();
@@ -2490,7 +2524,7 @@ function renderOverview() {
         return cmpNullable(ta, tb, ovSortDir);
       }
       // 数值字段排序
-      if (['price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate'].includes(ovSortKey)) {
+      if (['price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate', 'funding_interval_hours', 'funding_annualized_rate'].includes(ovSortKey)) {
         const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
         const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
         return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, ovSortDir);
@@ -2515,7 +2549,9 @@ function renderOverview() {
       <td>${r.oi_base != null ? fmtOI(r.oi_base) : '<span class="na">—</span>'}</td>
       <td>${r.oi_value != null ? fmtOI(r.oi_value) : '<span class="na">—</span>'}</td>
       <td>${r.volume_24h != null ? fmtOI(r.volume_24h) : '<span class="na">—</span>'}</td>
-      <td>${r.funding_rate != null ? (fmt(Number(r.funding_rate) * 100, 4) + '%') : '<span class="na">—</span>'}</td>
+      <td>${fmtFundingRate(r.funding_rate)}</td>
+      <td>${fmtFundingInterval(r.funding_interval_hours)}</td>
+      <td>${fmtFundingRate(fundingAnnualizedRate(r), 2)}</td>
       <td>${r.market_type || '<span class="na">—</span>'}</td>
       <td>${r.contract_type || '<span class="na">—</span>'}</td>
       <td>${r.timestamp || '<span class="na">—</span>'}</td>
@@ -2529,6 +2565,7 @@ function updateOverviewSortHeader() {
     'exchange', 'symbol_display', 'underlying', 'asset_class',
     'base', 'quote',
     'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate',
+    'funding_interval_hours', 'funding_annualized_rate',
     'market_type', 'contract_type', 'timestamp'
   ];
   const ths = Array.from(document.querySelectorAll('#overview-table thead th'));
