@@ -1808,16 +1808,20 @@ function renderTsCharts() {
       .filter(p => p[1] !== null && p[1] !== undefined)
       .map(p => ({ x: p[0], y: p[1] }));
     const mode = document.getElementById('funding-mode')?.value || 'settled';
+    for (let j = idx.length-1; j > 0; j--) {
+      if (idx[j].x-idx[j-1].x > 6*3600000) idx.splice(j, 0, {x:idx[j-1].x+1,y:null});
+    }
     const fr = filterSeriesByRange((mode === 'settled' ? ln.funding_series : ln.funding_snapshot_series) || [], rangeFunding)
       .filter(p => p[1] !== null && p[1] !== undefined)
       .map(p => ({ x: p[0], y: p[1] * 100, eventType: mode === 'settled' ? ((ln.funding_events || []).find(e => e.timestamp === p[0])?.type || 'Regular') : 'Snapshot' }));
     idxDatasets.push({
-      label: ln.line_label || `${ln.exchange}:${ln.symbol}`,
+      label: (ln.line_label || `${ln.exchange}:${ln.symbol}`) + (ln.index_source === "observed_index_snapshots_only" ? "（仅采样）" : ""),
+      spanGaps: false,
       data: idx,
       borderColor: c,
       backgroundColor: c,
       parsing: false,
-      pointRadius: 0,
+      pointRadius: ln.index_source === "observed_index_snapshots_only" ? 1.8 : 0,
       borderWidth: 1.6,
       tension: 0.15,
     });
