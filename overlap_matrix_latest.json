@@ -8968,6 +8968,30 @@
               "symbol_b": "ANET_USDT",
               "overlap_pct": "20.0%",
               "both_have_data": true
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "ANETUSDT",
+              "exchange_b": "bitget",
+              "symbol_b": "ANETUSDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "ANETUSDT",
+              "exchange_b": "bybit",
+              "symbol_b": "ANETUSDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "ANETUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "ANET_USDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
             }
           ]
         },
@@ -28568,5 +28592,5 @@
       ]
     }
   },
-  "ts": "2026-09-18T09:11:19.370033+00:00"
+  "ts": "2026-09-18T09:21:17.885533+00:00"
 }

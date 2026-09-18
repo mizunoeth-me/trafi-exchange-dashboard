@@ -5083,6 +5083,21 @@
     {
       "symbol": "ANET",
       "exchanges": {
+        "binance": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "ANETUSDT",
+              "base": "ANET",
+              "quote": "USDT",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "bybit": {
           "asset_class": "stock",
           "contracts": [
@@ -33584,8 +33599,8 @@
           "contracts": [
             {
               "symbol": "HUTUSDT",
-              "base": "",
-              "quote": "",
+              "base": "HUT",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -86531,5 +86546,5 @@
       }
     }
   ],
-  "ts": "2026-09-18T09:10:56.886490+00:00"
+  "ts": "2026-09-18T09:20:54.989284+00:00"
 }
