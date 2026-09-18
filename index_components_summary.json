@@ -55545,8 +55545,8 @@
           "contracts": [
             {
               "symbol": "PATHUSDT",
-              "base": "",
-              "quote": "",
+              "base": "PATH",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -86531,5 +86531,5 @@
       }
     }
   ],
-  "ts": "2026-09-18T08:50:33.276579+00:00"
+  "ts": "2026-09-18T09:00:32.838137+00:00"
 }
