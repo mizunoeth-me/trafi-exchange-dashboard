@@ -2816,8 +2816,8 @@
           "contracts": [
             {
               "symbol": "AGPUUSDT",
-              "base": "",
-              "quote": "",
+              "base": "AGPU",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -5614,8 +5614,8 @@
           "contracts": [
             {
               "symbol": "APLDUSDT",
-              "base": "",
-              "quote": "",
+              "base": "APLD",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -86546,5 +86546,5 @@
       }
     }
   ],
-  "ts": "2026-09-18T09:20:54.989284+00:00"
+  "ts": "2026-09-18T09:30:52.089099+00:00"
 }
