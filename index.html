@@ -1130,7 +1130,7 @@ async function loadData() {
     const stale = quality.contracts.filter(r => !r.latest || now-Date.parse(r.latest)>quality.stale_after_minutes*60000);
     const badSources = quality.sources.filter(r => r.status !== 'ok' || !r.last_success || now-Date.parse(r.last_success)>30*3600000);
     document.getElementById('data-quality').innerHTML = `<strong>数据覆盖</strong>：行情 ${quality.contracts.length-stale.length}/${quality.contracts.length} 项在 ${quality.stale_after_minutes} 分钟内更新；目标每 ${quality.quote_target_minutes} 分钟采集。核验 ${escapeHtml(new Date(quality.checked_at).toLocaleString())}。
-      <details><summary>查看 ${stale.length} 项行情缺失／滞后、${badSources.length} 项研究来源异常及历史覆盖</summary>
+      <details><summary>查看 ${stale.length} 项行情缺失／滞后、${badSources.length} 项研究来源覆盖限制／异常及历史覆盖</summary>
       <p>已结算费率与预测快照分开展示；无记录不填零。指数图使用真实指数价格；部分平台仅有采样历史。</p>
       ${stale.map(r => `<div>${escapeHtml(r.exchange+':'+r.symbol)}：${escapeHtml(r.latest || '无记录')}</div>`).join('')}
       ${badSources.map(r => `<div>${escapeHtml(r.source)}：${escapeHtml(r.status)}；最近成功 ${escapeHtml(r.last_success || '无记录')}</div>`).join('')}
