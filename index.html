@@ -448,6 +448,8 @@
 </style>
 </head>
 <body>
+<div id="data-quality" style="margin:12px;padding:12px;border:1px solid #596273;border-radius:8px">正在核验数据覆盖与更新时间…</div>
+
 
 <!-- Header -->
 <header>
@@ -664,6 +666,8 @@
       </div>
       <div class="chart-card">
         <h3>Funding Rate（单次原始值，%）</h3>
+        <label>数据口径 <select id="funding-mode" onchange="renderTsCharts()"><option value="settled">已结算费率</option><option value="snapshot">当前／预测费率快照</option></select></label>
+        <div id="funding-coverage-note" class="table-note"></div>
         <div class="chart-wrap"><canvas id="chart-ts-funding"></canvas></div>
         <div class="legend-wrap" id="legend-ts-funding"></div>
       </div>
@@ -1120,6 +1124,19 @@ function cmpNullable(a, b, dir = 'asc') {
 // Load data
 // ─────────────────────────────────────────────
 async function loadData() {
+  try {
+    const quality = await (await fetch('data_quality.json?_t=' + Date.now())).json();
+    const now = Date.now();
+    const stale = quality.contracts.filter(r => !r.latest || now-Date.parse(r.latest)>quality.stale_after_minutes*60000);
+    const badSources = quality.sources.filter(r => r.status !== 'ok' || !r.last_success || now-Date.parse(r.last_success)>30*3600000);
+    document.getElementById('data-quality').innerHTML = `<strong>数据覆盖</strong>：行情 ${quality.contracts.length-stale.length}/${quality.contracts.length} 项在 ${quality.stale_after_minutes} 分钟内更新；目标每 ${quality.quote_target_minutes} 分钟采集。核验 ${escapeHtml(new Date(quality.checked_at).toLocaleString())}。
+      <details><summary>查看 ${stale.length} 项行情缺失／滞后、${badSources.length} 项研究来源异常及历史覆盖</summary>
+      <p>已结算费率与预测快照分开展示；无记录不填零。指数图使用真实指数价格；部分平台仅有采样历史。</p>
+      ${stale.map(r => `<div>${escapeHtml(r.exchange+':'+r.symbol)}：${escapeHtml(r.latest || '无记录')}</div>`).join('')}
+      ${badSources.map(r => `<div>${escapeHtml(r.source)}：${escapeHtml(r.status)}；最近成功 ${escapeHtml(r.last_success || '无记录')}</div>`).join('')}
+      <a href="data_quality.json" target="_blank">下载完整覆盖明细（含历史接口限制）</a></details>`;
+  } catch (_) { document.getElementById('data-quality').textContent = '数据覆盖状态读取失败，无法确认完整性和时效。'; }
+
   const [fsRes, icRes, ovRes, sovRes, overlapRes, srRes, marketVolumeRes, historyManifestRes] = await Promise.all([
     fetch('futures_summary.json?_t=' + Date.now()),
     fetch('index_components_summary.json?_t=' + Date.now()),
@@ -1777,6 +1794,12 @@ function renderTsCharts() {
   const chosen = lines;
   titleEl.textContent = `历史时序对比（${u}，${chosen.length}/${lines.length} 条线）`;
 
+  const coverageNote = document.getElementById('funding-coverage-note');
+  if (coverageNote) {
+    const settled = (document.getElementById('funding-mode')?.value || 'settled') === 'settled';
+    coverageNote.textContent = (settled ? '交易所已结算事件（含特殊结算），与当前预测费率分开展示。' : '采集时刻的当前／预测费率，不能替代已结算历史；采样之间不代表连续观测。') +
+      lines.map(ln => { const pts = (settled ? ln.funding_series : ln.funding_snapshot_series) || []; return `${ln.exchange}: ${pts.length ? new Date(pts[pts.length-1][0]).toLocaleString() : '无记录'}`; }).join('；');
+  }
   const idxDatasets = [];
   const frDatasets = [];
   chosen.forEach((ln, i) => {
@@ -1784,9 +1807,10 @@ function renderTsCharts() {
     const idx = filterSeriesByRange(ln.index_series || [], rangeIndex)
       .filter(p => p[1] !== null && p[1] !== undefined)
       .map(p => ({ x: p[0], y: p[1] }));
-    const fr = filterSeriesByRange(ln.funding_series || [], rangeFunding)
+    const mode = document.getElementById('funding-mode')?.value || 'settled';
+    const fr = filterSeriesByRange((mode === 'settled' ? ln.funding_series : ln.funding_snapshot_series) || [], rangeFunding)
       .filter(p => p[1] !== null && p[1] !== undefined)
-      .map(p => ({ x: p[0], y: p[1] * 100 }));
+      .map(p => ({ x: p[0], y: p[1] * 100, eventType: mode === 'settled' ? ((ln.funding_events || []).find(e => e.timestamp === p[0])?.type || 'Regular') : 'Snapshot' }));
     idxDatasets.push({
       label: ln.line_label || `${ln.exchange}:${ln.symbol}`,
       data: idx,
@@ -1798,6 +1822,8 @@ function renderTsCharts() {
       tension: 0.15,
     });
     frDatasets.push({
+      showLine: false,
+      spanGaps: false,
       label: ln.line_label || `${ln.exchange}:${ln.symbol}`,
       data: fr,
       borderColor: c,
@@ -1875,7 +1901,7 @@ function renderTsCharts() {
             label: (ctx) => {
               const name = ctx.dataset.label || '';
               const v = (ctx.parsed && typeof ctx.parsed.y === 'number') ? ctx.parsed.y : null;
-              return `${name}: ${v == null ? '—' : v.toFixed(4) + '%'}`;
+              return `${name}: ${v == null ? '—' : v.toFixed(6) + '%'} (${ctx.raw.eventType || ''})`;
             }
           }
         }
