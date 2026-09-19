@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-09-19T04:38:24.560368+00:00
+生成时间：2026-09-19T08:21:23.679728+00:00
 研究窗口：2026-08-20T04:00:00+00:00 至 2026-09-19T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -31,7 +31,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SNDK | 合约跨平台 | aster / futures / SNDKUSDT ↔ gateio / futures / SNDK_USDT | 0.94 | 1.20 | 16.55 / 11.57 | 96.2% / 79.3% |
 | SNDK | 合约跨平台 | hyperliquid / futures / xyz:SNDK ↔ lighter / futures / SNDK | -6.71 | -7.45 | 12.69 / 12.41 | 73.6% / 74.9% |
 | SNDK | 本所现货—合约 | okx / futures / SNDK-USDT-SWAP ↔ okx / spot / XSNDK-USDT | 4.78 | 4.38 | 11.21 / 11.01 | 99.9% / 93.5% |
-| SPCX | 合约跨平台 | aster / futures / SPCXUSD1 ↔ binance / futures / SPCXUSD1 | 0.00 | 1.31 | 88.97 / 11.16 | 87.8% / 51.3% |
+| SPCX | 合约跨平台 | aster / futures / SPCXUSD1 ↔ binance / futures / SPCXUSD1 | 0.00 | 0.74 | 86.15 / 11.12 | 92.5% / 53.1% |
 | SPCX | 合约跨平台 | aster / futures / SPCXUSDT ↔ gateio / futures / SPCX_USDT | 4.68 | 4.71 | 18.24 / 12.00 | 90.7% / 45.6% |
 | SPCX | 本所现货—合约 | okx / futures / SPCX-USDT-SWAP ↔ okx / spot / XSPCX-USDT | 4.17 | 3.99 | 12.65 / 10.77 | 99.5% / 81.4% |
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | 4.96 | 4.49 | 28.26 / 20.68 | 66.5% / 31.1% |
@@ -134,8 +134,8 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SNDK | okx / futures / SNDK-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | aster / futures / SPCXUSD1 | 0.00000 | 0.00000 | 95.2% / 97.7% |
 | SPCX | aster / futures / SPCXUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 95.2% / 96.3% |
-| SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 95.2% / 96.3% |
+| SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | bitget / futures / SPCXUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -143,7 +143,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | lighter / futures / SPCX | 0.00320 | 0.00320 | 100.0% / 98.8% |
 | SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | aster / futures / TSLAUSDT | 0.00142 | 0.00000 | 100.0% / 99.3% |
-| TSLA | binance / futures / TSLAUSDT | 0.00133 | 0.00000 | 95.2% / 96.3% |
+| TSLA | binance / futures / TSLAUSDT | 0.00133 | 0.00000 | 100.0% / 99.3% |
 | TSLA | bitget / futures / TSLAUSDT | 0.00090 | 0.00000 | 100.0% / 99.3% |
 | TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 55.3% / 54.2% |
