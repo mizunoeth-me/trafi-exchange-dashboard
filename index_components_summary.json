@@ -53586,8 +53586,8 @@
           "contracts": [
             {
               "symbol": "POLYMARKETUSD1",
-              "base": "",
-              "quote": "",
+              "base": "POLYMARKET",
+              "quote": "USD1",
               "components": [
                 {
                   "source": "{}",
@@ -79996,5 +79996,5 @@
       }
     }
   ],
-  "ts": "2026-09-21T05:30:36.480841+00:00"
+  "ts": "2026-09-21T05:40:34.998024+00:00"
 }
