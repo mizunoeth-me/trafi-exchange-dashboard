@@ -81237,8 +81237,8 @@
           "contracts": [
             {
               "symbol": "USDBRLUSDT",
-              "base": "",
-              "quote": "",
+              "base": "USDBRL",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "kaiko",
@@ -88388,5 +88388,5 @@
       }
     }
   ],
-  "ts": "2026-09-21T13:50:39.409175+00:00"
+  "ts": "2026-09-21T14:01:06.971790+00:00"
 }
