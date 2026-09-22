@@ -7455,6 +7455,35 @@
           ]
         },
         {
+          "symbol": "MOONSHOT",
+          "pairs": [
+            {
+              "exchange_a": "binance",
+              "symbol_a": "MOONSHOTUSDT",
+              "exchange_b": "bitget",
+              "symbol_b": "MOONSHOTUSDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "MOONSHOTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MOONSHOT-USDT-SWAP",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "MOONSHOTUSDT",
+              "exchange_b": "okx",
+              "symbol_b": "MOONSHOT-USDT-SWAP",
+              "overlap_pct": "0.0%",
+              "both_have_data": true
+            }
+          ]
+        },
+        {
           "symbol": "OPENAI",
           "pairs": [
             {
@@ -19091,19 +19120,6 @@
           "pairs": []
         },
         {
-          "symbol": "MOONSHOT",
-          "pairs": [
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "MOONSHOTUSDT",
-              "exchange_b": "okx",
-              "symbol_b": "MOONSHOT-USDT-SWAP",
-              "overlap_pct": "0.0%",
-              "both_have_data": true
-            }
-          ]
-        },
-        {
           "symbol": "MOUTAI",
           "pairs": []
         },
@@ -29122,5 +29138,5 @@
       ]
     }
   },
-  "ts": "2026-09-22T08:11:11.860267+00:00"
+  "ts": "2026-09-22T08:31:13.683997+00:00"
 }

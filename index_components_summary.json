@@ -46591,6 +46591,21 @@
     {
       "symbol": "MOONSHOT",
       "exchanges": {
+        "binance": {
+          "asset_class": "premarket",
+          "contracts": [
+            {
+              "symbol": "MOONSHOTUSDT",
+              "base": "MOONSHOT",
+              "quote": "USDT",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "okx": {
           "asset_class": "stock",
           "contracts": [
@@ -88217,5 +88232,5 @@
       }
     }
   ],
-  "ts": "2026-09-22T08:10:38.016317+00:00"
+  "ts": "2026-09-22T08:30:39.382224+00:00"
 }
