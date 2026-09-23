@@ -55285,6 +55285,21 @@
     {
       "symbol": "OURA",
       "exchanges": {
+        "binance": {
+          "asset_class": "premarket",
+          "contracts": [
+            {
+              "symbol": "OURAUSDT",
+              "base": "OURA",
+              "quote": "USDT",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "gateio": {
           "asset_class": "stock",
           "contracts": [
@@ -87155,5 +87170,5 @@
       }
     }
   ],
-  "ts": "2026-09-23T08:40:38.737862+00:00"
+  "ts": "2026-09-23T08:50:38.402956+00:00"
 }

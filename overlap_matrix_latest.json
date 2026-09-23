@@ -7663,6 +7663,35 @@
               "both_have_data": true
             }
           ]
+        },
+        {
+          "symbol": "OURA",
+          "pairs": [
+            {
+              "exchange_a": "binance",
+              "symbol_a": "OURAUSDT",
+              "exchange_b": "bitget",
+              "symbol_b": "OURAUSDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "binance",
+              "symbol_a": "OURAUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "OURA_USDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            },
+            {
+              "exchange_a": "bitget",
+              "symbol_a": "OURAUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "OURA_USDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            }
+          ]
         }
       ]
     },
@@ -22232,19 +22261,6 @@
           "pairs": []
         },
         {
-          "symbol": "OURA",
-          "pairs": [
-            {
-              "exchange_a": "bitget",
-              "symbol_a": "OURAUSDT",
-              "exchange_b": "gateio",
-              "symbol_b": "OURA_USDT",
-              "overlap_pct": "0%",
-              "both_have_data": false
-            }
-          ]
-        },
-        {
           "symbol": "OUST",
           "pairs": [
             {
@@ -29268,5 +29284,5 @@
       ]
     }
   },
-  "ts": "2026-09-23T08:41:31.237042+00:00"
+  "ts": "2026-09-23T08:51:19.546875+00:00"
 }
