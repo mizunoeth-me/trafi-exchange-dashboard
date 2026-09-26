@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-09-26T04:37:52.087994+00:00
+生成时间：2026-09-26T08:19:53.222557+00:00
 研究窗口：2026-08-27T04:00:00+00:00 至 2026-09-26T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -37,13 +37,13 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | 3.70 | 3.56 | 26.76 / 19.01 | 68.4% / 26.6% |
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ okx / futures / MU-USDT-SWAP | 1.22 | 1.55 | 25.60 / 17.19 | 68.4% / 26.6% |
 | MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 7.07 | 6.87 | 14.54 / 13.02 | 99.3% / 86.9% |
-| CRCL | 合约跨平台 | hyperliquid / futures / xyz:CRCL ↔ lighter / futures / CRCL | -6.58 | -6.59 | 34.77 / 24.44 | 77.8% / 58.7% |
+| CRCL | 合约跨平台 | hyperliquid / futures / xyz:CRCL ↔ lighter / futures / CRCL | -6.15 | -6.44 | 34.20 / 24.19 | 82.4% / 61.4% |
 | CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -4.28 | -1.20 | 30.69 / 23.31 | 64.8% / 33.4% |
 | CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 4.21 | 3.45 | 15.05 / 13.33 | 100.0% / 93.4% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ gateio / futures / MSTR_USDT | -4.27 | -3.04 | 31.01 / 24.47 | 64.2% / 39.3% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ bybit / futures / MSTRUSDT | -1.19 | 0.60 | 25.97 / 20.93 | 86.0% / 51.1% |
 | MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 5.88 | 3.50 | 15.49 / 13.71 | 100.0% / 99.6% |
-| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | 3.39 | 4.17 | 22.08 / 18.40 | 36.6% / 15.9% |
+| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | 3.19 | 4.17 | 21.71 / 18.23 | 39.2% / 16.4% |
 | NVDA | 合约跨平台 | binance / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | 1.82 | 2.27 | 16.28 / 17.83 | 74.5% / 74.2% |
 | NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 5.93 | 5.52 | 13.68 / 11.22 | 92.7% / 71.2% |
 | INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ okx / futures / INTC-USDT-SWAP | 1.88 | 4.71 | 44.98 / 32.33 | 41.1% / 11.1% |
