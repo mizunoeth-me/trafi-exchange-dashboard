@@ -1015,10 +1015,10 @@
                   "spot_pair": "AAOI",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 102.02
+                  "price": 101.57
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.372927",
+              "snapshot_ts": "2026-09-27T16:12:00.499277",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -1403,10 +1403,10 @@
                   "spot_pair": "AAPL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 340.666
+                  "price": 340.073
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.474513",
+              "snapshot_ts": "2026-09-27T16:12:00.601785",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -3835,10 +3835,10 @@
                   "spot_pair": "AMD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 636.26
+                  "price": 634.12
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.578648",
+              "snapshot_ts": "2026-09-27T16:12:00.705800",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -4518,10 +4518,10 @@
                   "spot_pair": "AMZN",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 250.275
+                  "price": 249.617
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.680729",
+              "snapshot_ts": "2026-09-27T16:12:00.809967",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -5068,10 +5068,10 @@
                   "spot_pair": "ANTHROPIC",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 2116.5
+                  "price": 2132.9
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.782463",
+              "snapshot_ts": "2026-09-27T16:12:00.915399",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -6168,7 +6168,7 @@
                   "price": 310.45
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.884660",
+              "snapshot_ts": "2026-09-27T16:12:01.019399",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -6568,10 +6568,10 @@
                   "spot_pair": "ASML",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1765.0
+                  "price": 1750.4
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.986498",
+              "snapshot_ts": "2026-09-27T16:12:01.123480",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -6994,7 +6994,7 @@
                   "price": 0.70924
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.535305",
+              "snapshot_ts": "2026-09-27T16:11:58.364474",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -7420,7 +7420,7 @@
                   "price": 353.64
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.087682",
+              "snapshot_ts": "2026-09-27T16:12:01.227357",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -7807,7 +7807,7 @@
                   "price": 78.74
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.190025",
+              "snapshot_ts": "2026-09-27T16:12:01.331404",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -8275,10 +8275,10 @@
                   "spot_pair": "BABA",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 110.4
+                  "price": 110.19
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.292021",
+              "snapshot_ts": "2026-09-27T16:12:01.435447",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -8475,10 +8475,10 @@
                   "spot_pair": "BB",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 8.1437
+                  "price": 8.1504
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.398262",
+              "snapshot_ts": "2026-09-27T16:12:01.537765",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -8997,7 +8997,7 @@
                   "price": 289.05
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.500164",
+              "snapshot_ts": "2026-09-27T16:12:01.641500",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -10066,10 +10066,10 @@
                   "spot_pair": "BMNR",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 27.835
+                  "price": 27.747
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.605661",
+              "snapshot_ts": "2026-09-27T16:12:01.744902",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -12364,7 +12364,7 @@
                   "price": 2.8928
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.707874",
+              "snapshot_ts": "2026-09-27T16:12:01.848204",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -14972,10 +14972,10 @@
                   "spot_pair": "COIN",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 197.797
+                  "price": 196.653
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.810431",
+              "snapshot_ts": "2026-09-27T16:12:01.951395",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -16475,10 +16475,10 @@
                   "spot_pair": "CRCL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 90.023
+                  "price": 89.222
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:32.912249",
+              "snapshot_ts": "2026-09-27T16:12:02.062453",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -17728,10 +17728,10 @@
                   "spot_pair": "CRWV",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 87.51
+                  "price": 87.46
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.016818",
+              "snapshot_ts": "2026-09-27T16:12:02.167426",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -18963,10 +18963,10 @@
                   "spot_pair": "CXMT",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 8.6946
+                  "price": 8.7196
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.118328",
+              "snapshot_ts": "2026-09-27T16:12:02.269598",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -19946,10 +19946,10 @@
                   "spot_pair": "DELL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 565.62
+                  "price": 567.1
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.220115",
+              "snapshot_ts": "2026-09-27T16:12:02.372783",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -21899,10 +21899,10 @@
                   "spot_pair": "EURUSD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1.14116
+                  "price": 1.14151
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.637316",
+              "snapshot_ts": "2026-09-27T16:11:58.477991",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -23116,10 +23116,10 @@
                   "spot_pair": "EWY",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 187.49
+                  "price": 187.58
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.455351",
+              "snapshot_ts": "2026-09-27T16:11:59.561744",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -24984,10 +24984,10 @@
                   "spot_pair": "GBPUSD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1.32923
+                  "price": 1.32922
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.739738",
+              "snapshot_ts": "2026-09-27T16:11:58.672304",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -25737,10 +25737,10 @@
                   "spot_pair": "GEV",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 961.4
+                  "price": 956.4
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.321454",
+              "snapshot_ts": "2026-09-27T16:12:02.476707",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -26924,7 +26924,7 @@
                   "price": 23.41
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.423808",
+              "snapshot_ts": "2026-09-27T16:12:02.579087",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -28244,10 +28244,10 @@
                   "spot_pair": "GOOGL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 344.15
+                  "price": 343.65
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.525604",
+              "snapshot_ts": "2026-09-27T16:12:02.682426",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -30437,10 +30437,10 @@
                   "spot_pair": "HOOD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 119.865
+                  "price": 119.357
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.627349",
+              "snapshot_ts": "2026-09-27T16:12:02.786525",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -31653,10 +31653,10 @@
                   "spot_pair": "HYUNDAIUSD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 262.065
+                  "price": 262.085
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.729005",
+              "snapshot_ts": "2026-09-27T16:12:02.888348",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -32225,10 +32225,10 @@
                   "spot_pair": "IBM",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 226.46
+                  "price": 226.38
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.832581",
+              "snapshot_ts": "2026-09-27T16:12:02.992665",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -32920,10 +32920,10 @@
                   "spot_pair": "INTC",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 125.919
+                  "price": 125.089
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:33.934485",
+              "snapshot_ts": "2026-09-27T16:12:03.094726",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -34425,10 +34425,10 @@
                   "spot_pair": "IWM",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 282.24
+                  "price": 282.03
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.557217",
+              "snapshot_ts": "2026-09-27T16:11:59.665414",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -35802,7 +35802,7 @@
                   "price": 352.73
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.035654",
+              "snapshot_ts": "2026-09-27T16:12:03.198347",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -36873,7 +36873,7 @@
                   "price": 21.54
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.659212",
+              "snapshot_ts": "2026-09-27T16:11:59.769361",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -38591,10 +38591,10 @@
                   "spot_pair": "LITE",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 944.21
+                  "price": 942.18
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.137613",
+              "snapshot_ts": "2026-09-27T16:12:03.302299",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -41361,10 +41361,10 @@
                   "spot_pair": "META",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 752.21
+                  "price": 748.24
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.238856",
+              "snapshot_ts": "2026-09-27T16:12:03.404607",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -41808,10 +41808,10 @@
                   "spot_pair": "MINIMAX",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 35.062
+                  "price": 35.354
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.341982",
+              "snapshot_ts": "2026-09-27T16:12:03.507337",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -42859,10 +42859,10 @@
                   "spot_pair": "MRNA",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 200.08
+                  "price": 197.75
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.444832",
+              "snapshot_ts": "2026-09-27T16:12:03.611288",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -43227,10 +43227,10 @@
                   "spot_pair": "MRVL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 264.32
+                  "price": 263.5
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.547180",
+              "snapshot_ts": "2026-09-27T16:12:03.713391",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -43590,10 +43590,10 @@
                   "spot_pair": "MSFT",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 518.81
+                  "price": 517.26
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.648615",
+              "snapshot_ts": "2026-09-27T16:12:03.814982",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -44107,10 +44107,10 @@
                   "spot_pair": "MSTR",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 161.81
+                  "price": 161.28
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.752503",
+              "snapshot_ts": "2026-09-27T16:12:03.918745",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -44714,10 +44714,10 @@
                   "spot_pair": "MU",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1093.16
+                  "price": 1092.53
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.855090",
+              "snapshot_ts": "2026-09-27T16:12:04.021598",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -45749,10 +45749,10 @@
                   "spot_pair": "NATGAS",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 3.2276
+                  "price": 3.2267
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.023485",
+              "snapshot_ts": "2026-09-27T16:11:57.845300",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -46378,10 +46378,10 @@
                   "spot_pair": "NBIS",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 240.26
+                  "price": 239.48
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:34.957269",
+              "snapshot_ts": "2026-09-27T16:12:04.131047",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -47648,7 +47648,7 @@
                   "price": 10.285
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.058726",
+              "snapshot_ts": "2026-09-27T16:12:04.264871",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -48092,10 +48092,10 @@
                   "spot_pair": "NOW",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 135.94
+                  "price": 135.89
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.161276",
+              "snapshot_ts": "2026-09-27T16:12:04.414078",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -48514,10 +48514,10 @@
                   "spot_pair": "NVDA",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 225.004
+                  "price": 225.001
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.263221",
+              "snapshot_ts": "2026-09-27T16:12:04.520530",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -49089,7 +49089,7 @@
                   "price": 0.5717
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.841321",
+              "snapshot_ts": "2026-09-27T16:11:58.936073",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -49994,10 +49994,10 @@
                   "spot_pair": "OPENAI",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1677.6
+                  "price": 1686.02
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.365175",
+              "snapshot_ts": "2026-09-27T16:12:04.622256",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -50371,10 +50371,10 @@
                   "spot_pair": "ORCL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 138.38
+                  "price": 137.97
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.467670",
+              "snapshot_ts": "2026-09-27T16:12:04.726323",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -51085,10 +51085,10 @@
                   "spot_pair": "XPD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1274.0
+                  "price": 1273.0
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.125270",
+              "snapshot_ts": "2026-09-27T16:11:57.949257",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -52695,10 +52695,10 @@
                   "spot_pair": "XPT",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1784.8
+                  "price": 1783.8
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.228917",
+              "snapshot_ts": "2026-09-27T16:11:58.054688",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -53070,10 +53070,10 @@
                   "spot_pair": "PLTR",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 192.19
+                  "price": 190.575
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.570027",
+              "snapshot_ts": "2026-09-27T16:12:04.828072",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -53571,7 +53571,7 @@
                   "price": 19.385
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.672243",
+              "snapshot_ts": "2026-09-27T16:12:04.930725",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -54468,7 +54468,7 @@
                   "price": 202.8
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.774929",
+              "snapshot_ts": "2026-09-27T16:12:05.032579",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -55157,10 +55157,10 @@
                   "spot_pair": "QQQ",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 745.56
+                  "price": 744.89
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.761037",
+              "snapshot_ts": "2026-09-27T16:11:59.871285",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -56838,10 +56838,10 @@
                   "spot_pair": "RKLB",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 74.41
+                  "price": 73.87
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.878546",
+              "snapshot_ts": "2026-09-27T16:12:05.135954",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -57662,10 +57662,10 @@
                   "spot_pair": "SAMSUNGUSD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 208.955
+                  "price": 209.184
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:35.980553",
+              "snapshot_ts": "2026-09-27T16:12:05.238015",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -58631,10 +58631,10 @@
                   "spot_pair": "SHEIN",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 4.5514
+                  "price": 4.5571
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.082441",
+              "snapshot_ts": "2026-09-27T16:12:05.341188",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -59420,10 +59420,10 @@
                   "spot_pair": "XAG",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 64.1664
+                  "price": 64.1125
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.330758",
+              "snapshot_ts": "2026-09-27T16:11:58.157758",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -60206,10 +60206,10 @@
                   "spot_pair": "SKHY",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 192.19
+                  "price": 192.27
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.184749",
+              "snapshot_ts": "2026-09-27T16:12:05.444552",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -60574,10 +60574,10 @@
                   "spot_pair": "SKHYNIXUSD",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1367.552
+                  "price": 1366.146
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.288745",
+              "snapshot_ts": "2026-09-27T16:12:05.547958",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -61647,10 +61647,10 @@
                   "spot_pair": "SMIC",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 8.2528
+                  "price": 8.2446
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.390957",
+              "snapshot_ts": "2026-09-27T16:12:05.655595",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -62102,10 +62102,10 @@
                   "spot_pair": "SNDK",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1777.63
+                  "price": 1779.86
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.492440",
+              "snapshot_ts": "2026-09-27T16:12:05.759051",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -63735,10 +63735,10 @@
                   "spot_pair": "SOXL",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 154.02
+                  "price": 153.04
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.862970",
+              "snapshot_ts": "2026-09-27T16:11:59.975687",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -64050,7 +64050,7 @@
                   "price": 32.335
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.965698",
+              "snapshot_ts": "2026-09-27T16:12:00.077947",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -64911,10 +64911,10 @@
                   "spot_pair": "SPCX",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 148.78
+                  "price": 148.88
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.594963",
+              "snapshot_ts": "2026-09-27T16:12:05.860943",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -65459,10 +65459,10 @@
                   "spot_pair": "SPY",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 771.91
+                  "price": 771.39
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.067283",
+              "snapshot_ts": "2026-09-27T16:12:00.181741",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -66257,10 +66257,10 @@
                   "spot_pair": "STRC",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 98.636
+                  "price": 98.641
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.698621",
+              "snapshot_ts": "2026-09-27T16:12:05.964590",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -67593,10 +67593,10 @@
                   "spot_pair": "TENCENT",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 56.163
+                  "price": 56.241
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.800387",
+              "snapshot_ts": "2026-09-27T16:12:06.066504",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -69582,10 +69582,10 @@
                   "spot_pair": "TSLA",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 373.48
+                  "price": 372.86
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:36.912419",
+              "snapshot_ts": "2026-09-27T16:12:06.168529",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -70196,10 +70196,10 @@
                   "spot_pair": "TSM",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 452.73
+                  "price": 453.04
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.013907",
+              "snapshot_ts": "2026-09-27T16:12:06.272471",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -70517,7 +70517,7 @@
                   "price": 201.73
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.115388",
+              "snapshot_ts": "2026-09-27T16:12:06.376712",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -71965,10 +71965,10 @@
                   "spot_pair": "UNITREE",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 73.41
+                  "price": 73.412
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.216910",
+              "snapshot_ts": "2026-09-27T16:12:06.481059",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -72350,10 +72350,10 @@
                   "spot_pair": "US100",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 30642.0
+                  "price": 30609.0
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.168954",
+              "snapshot_ts": "2026-09-27T16:12:00.288396",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -72521,10 +72521,10 @@
                   "spot_pair": "US500",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 7737.8
+                  "price": 7734.1
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:31.270874",
+              "snapshot_ts": "2026-09-27T16:12:00.396395",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -73127,7 +73127,7 @@
                   "price": 1.39908
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.943436",
+              "snapshot_ts": "2026-09-27T16:11:59.046086",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -73157,7 +73157,7 @@
                   "price": 0.82037
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.047632",
+              "snapshot_ts": "2026-09-27T16:11:59.150005",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -73187,7 +73187,7 @@
                   "price": 7.8441
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.150056",
+              "snapshot_ts": "2026-09-27T16:11:59.253414",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -73278,10 +73278,10 @@
                   "spot_pair": "USDJPY",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 157.106
+                  "price": 157.131
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.251444",
+              "snapshot_ts": "2026-09-27T16:11:59.357796",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -73311,10 +73311,10 @@
                   "spot_pair": "USDKRW",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 1378.55
+                  "price": 1378.63
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:30.354068",
+              "snapshot_ts": "2026-09-27T16:11:59.459707",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -75222,7 +75222,7 @@
                   "price": 455.62
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.321395",
+              "snapshot_ts": "2026-09-27T16:12:06.585377",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -75471,10 +75471,10 @@
                   "spot_pair": "WEN",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 6.6776
+                  "price": 6.6897
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.423030",
+              "snapshot_ts": "2026-09-27T16:12:06.688883",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -76238,10 +76238,10 @@
                   "spot_pair": "WTI",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 94.421
+                  "price": 93.569
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:29.432994",
+              "snapshot_ts": "2026-09-27T16:11:58.260262",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -76798,10 +76798,10 @@
                   "spot_pair": "XIAOMI",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 3.3372
+                  "price": 3.3371
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.526625",
+              "snapshot_ts": "2026-09-27T16:12:06.792864",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -78567,10 +78567,10 @@
                   "spot_pair": "ZHIPU",
                   "weight_raw": 1.0,
                   "weight": "100.0%",
-                  "price": 80.85
+                  "price": 81.12
                 }
               ],
-              "snapshot_ts": "2026-09-27T12:07:37.628263",
+              "snapshot_ts": "2026-09-27T16:12:06.895263",
               "component_count": 1,
               "weight_sum": 1.0,
               "weight_status": "ok",
@@ -79477,5 +79477,5 @@
       }
     }
   ],
-  "ts": "2026-09-27T16:11:22.127886+00:00"
+  "ts": "2026-09-27T16:21:02.664270+00:00"
 }
