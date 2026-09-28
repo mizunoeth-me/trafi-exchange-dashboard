@@ -20852,8 +20852,8 @@
           "contracts": [
             {
               "symbol": "CVNAUSDT",
-              "base": "",
-              "quote": "",
+              "base": "CVNA",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -55173,8 +55173,8 @@
           "contracts": [
             {
               "symbol": "OKLOUSDT",
-              "base": "",
-              "quote": "",
+              "base": "OKLO",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -80187,8 +80187,8 @@
           "contracts": [
             {
               "symbol": "TWSTUSDT",
-              "base": "",
-              "quote": "",
+              "base": "TWST",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -90025,5 +90025,5 @@
       }
     }
   ],
-  "ts": "2026-09-28T09:00:43.716326+00:00"
+  "ts": "2026-09-28T09:10:42.575648+00:00"
 }
