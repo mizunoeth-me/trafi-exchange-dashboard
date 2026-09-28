@@ -64636,8 +64636,8 @@
           "contracts": [
             {
               "symbol": "RUMUSDT",
-              "base": "",
-              "quote": "",
+              "base": "RUM",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -88133,8 +88133,8 @@
           "contracts": [
             {
               "symbol": "XOMUSDT",
-              "base": "",
-              "quote": "",
+              "base": "XOM",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -90025,5 +90025,5 @@
       }
     }
   ],
-  "ts": "2026-09-28T09:10:42.575648+00:00"
+  "ts": "2026-09-28T09:20:42.362570+00:00"
 }
