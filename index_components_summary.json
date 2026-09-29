@@ -1941,6 +1941,21 @@
     {
       "symbol": "ACN",
       "exchanges": {
+        "binance": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "ACNUSDT",
+              "base": "ACN",
+              "quote": "USDT",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "gateio": {
           "asset_class": "stock",
           "contracts": [
@@ -47154,8 +47169,8 @@
           "contracts": [
             {
               "symbol": "MPUSDT",
-              "base": "",
-              "quote": "",
+              "base": "MP",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -80714,8 +80729,8 @@
           "contracts": [
             {
               "symbol": "UNHUSDT",
-              "base": "",
-              "quote": "",
+              "base": "UNH",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -89713,5 +89728,5 @@
       }
     }
   ],
-  "ts": "2026-09-29T09:21:05.990233+00:00"
+  "ts": "2026-09-29T09:30:59.674742+00:00"
 }

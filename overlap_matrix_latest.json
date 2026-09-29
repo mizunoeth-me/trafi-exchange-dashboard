@@ -8280,7 +8280,16 @@
         },
         {
           "symbol": "ACN",
-          "pairs": []
+          "pairs": [
+            {
+              "exchange_a": "binance",
+              "symbol_a": "ACNUSDT",
+              "exchange_b": "gateio",
+              "symbol_b": "ACN_USDT",
+              "overlap_pct": "0%",
+              "both_have_data": false
+            }
+          ]
         },
         {
           "symbol": "ADBE",
@@ -29896,5 +29905,5 @@
       ]
     }
   },
-  "ts": "2026-09-29T09:22:09.374924+00:00"
+  "ts": "2026-09-29T09:32:01.336668+00:00"
 }
