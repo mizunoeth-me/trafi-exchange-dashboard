@@ -13276,8 +13276,8 @@
           "contracts": [
             {
               "symbol": "BWETUSDT",
-              "base": "",
-              "quote": "",
+              "base": "BWET",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "kaiko",
@@ -89713,5 +89713,5 @@
       }
     }
   ],
-  "ts": "2026-09-29T09:01:28.419663+00:00"
+  "ts": "2026-09-29T09:10:42.923612+00:00"
 }
