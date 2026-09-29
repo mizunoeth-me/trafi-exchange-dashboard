@@ -65247,8 +65247,8 @@
           "contracts": [
             {
               "symbol": "SECZUSDT",
-              "base": "",
-              "quote": "",
+              "base": "SECZ",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -89713,5 +89713,5 @@
       }
     }
   ],
-  "ts": "2026-09-29T09:10:42.923612+00:00"
+  "ts": "2026-09-29T09:21:05.990233+00:00"
 }
