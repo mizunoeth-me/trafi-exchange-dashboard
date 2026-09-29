@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-09-29T05:05:17.042936+00:00
+生成时间：2026-09-29T08:23:43.804077+00:00
 研究窗口：2026-08-30T04:00:00+00:00 至 2026-09-29T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -37,7 +37,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | 3.82 | 3.94 | 27.25 / 19.51 | 66.1% / 23.1% |
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ okx / futures / MU-USDT-SWAP | 1.48 | 1.72 | 26.27 / 17.80 | 66.1% / 23.1% |
 | MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 7.23 | 6.79 | 15.01 / 12.90 | 98.8% / 87.5% |
-| CRCL | 合约跨平台 | hyperliquid / futures / xyz:CRCL ↔ lighter / futures / CRCL | -6.34 | -6.56 | 34.17 / 23.88 | 80.5% / 63.3% |
+| CRCL | 合约跨平台 | hyperliquid / futures / xyz:CRCL ↔ lighter / futures / CRCL | -5.77 | -6.38 | 33.71 / 23.53 | 85.5% / 66.1% |
 | CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -4.30 | -1.12 | 30.74 / 22.26 | 72.1% / 39.4% |
 | CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 4.21 | 3.29 | 15.16 / 13.74 | 99.9% / 94.9% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ gateio / futures / MSTR_USDT | -4.19 | -2.50 | 30.48 / 24.04 | 71.9% / 44.5% |
