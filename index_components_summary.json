@@ -19217,8 +19217,8 @@
           "contracts": [
             {
               "symbol": "CRMLUSDT",
-              "base": "",
-              "quote": "",
+              "base": "CRML",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -89713,5 +89713,5 @@
       }
     }
   ],
-  "ts": "2026-09-29T08:50:46.801576+00:00"
+  "ts": "2026-09-29T09:01:28.419663+00:00"
 }
