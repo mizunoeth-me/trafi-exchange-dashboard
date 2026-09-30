@@ -72,7 +72,7 @@ SKHY,bybit|futures|SKHYUSDT,8640,8625,8640,0.9982638888888888,1788148800000,1790
 MSTR,gateio|spot|MSTRG_USDT,8640,7387,8640,0.8549768518518519,1788148800000,1790740500000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 MSTR,gateio|spot|MSTRX_USDT,8640,7427,8640,0.8596064814814814,1788148800000,1790740500000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 MSTR,gateio|spot|MSTRON_USDT,8640,6513,8640,0.7538194444444445,1788148800000,1790740500000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
-MSTR,okx|spot|XMSTR-USDT,8352,8320,8640,0.9629629629629629,1788148800000,1790654100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
+MSTR,okx|spot|XMSTR-USDT,8640,8607,8640,0.9961805555555555,1788148800000,1790740500000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
 MSTR,binance|spot|MSTRBUSDT,8640,8626,8640,0.9983796296296297,1788148800000,1790740500000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 MSTR,bitget|spot|RMSTRUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitget rToken K线可能为参考市场；不纳入交易价历史,5m_trade_close_proxy
 MSTR,okx|futures|MSTR-USDT-SWAP,8640,8637,8640,0.9996527777777777,1788148800000,1790740500000,90,0.0092813378332655,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
