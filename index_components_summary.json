@@ -2133,8 +2133,8 @@
           "contracts": [
             {
               "symbol": "ACNUSD1",
-              "base": "",
-              "quote": "",
+              "base": "ACN",
+              "quote": "USD1",
               "components": [
                 {
                   "source": "nasdaq",
@@ -94344,5 +94344,5 @@
       }
     }
   ],
-  "ts": "2026-10-01T20:13:02.563175+00:00"
+  "ts": "2026-10-01T20:20:46.420227+00:00"
 }
