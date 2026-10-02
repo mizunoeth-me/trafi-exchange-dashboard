@@ -3,7 +3,7 @@
 范围：Binance、Bybit、OKX、Bitget、Gate.io。排名、市场配对、基差、资金费率及覆盖率均只计 CEX。
 选样快照：2026-09-18T06:19:32.597373+00:00；与原版使用同一批快照，仅改变平台范围。CEX 第十名为 MRVL，原版 GOOGL 不在本版 Top10。
 
-生成时间：2026-10-02T05:13:28.448488+00:00
+生成时间：2026-10-02T08:46:05.456751+00:00
 研究窗口：2026-09-02T04:00:00+00:00 至 2026-10-02T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -56,12 +56,12 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | TSLA | 合约跨平台 | bitget / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | -2.60 | -1.63 | 13.29 / 10.88 | 93.0% / 89.3% |
 | TSLA | 本所现货—合约 | okx / futures / TSLA-USDT-SWAP ↔ okx / spot / XTSLA-USDT | 7.91 | 7.64 | 15.25 / 12.92 | 98.0% / 69.2% |
 | AAPL | 合约跨平台 | binance / futures / AAPLUSDT ↔ gateio / futures / AAPL_USDT | 2.94 | 2.38 | 12.63 / 11.99 | 86.6% / 89.0% |
-| AAPL | 合约跨平台 | bybit / futures / AAPLUSDT ↔ gateio / futures / AAPL_USDT | 0.30 | 0.60 | 11.55 / 12.10 | 86.6% / 88.6% |
-| AAPL | 本所现货—合约 | okx / futures / AAPL-USDT-SWAP ↔ okx / spot / XAAPL-USDT | 4.45 | 3.60 | 12.17 / 9.16 | 83.6% / 58.5% |
+| AAPL | 合约跨平台 | bybit / futures / AAPLUSDT ↔ gateio / futures / AAPL_USDT | 0.59 | 0.60 | 11.17 / 11.83 | 91.3% / 91.5% |
+| AAPL | 本所现货—合约 | okx / futures / AAPL-USDT-SWAP ↔ okx / spot / XAAPL-USDT | 4.69 | 3.78 | 12.38 / 9.23 | 87.7% / 60.6% |
 
 ## 可比配对的整体特征
 
-- 跨平台合约：90 组配对同时达到两类时段的描述性门槛，其中 53 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 1.99 bps 变为非常规盘 2.10 bps；这是本窗口的描述性观察，不是显著性或因果结论。
+- 跨平台合约：90 组配对同时达到两类时段的描述性门槛，其中 54 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 1.99 bps 变为非常规盘 2.10 bps；这是本窗口的描述性观察，不是显著性或因果结论。
 - 同平台现货—合约：7 组配对同时达到两类时段的描述性门槛，其中 1 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 6.49 bps 变为非常规盘 5.04 bps；这是本窗口的描述性观察，不是显著性或因果结论。
 
 ## 资金费率的交易时段对比
@@ -71,10 +71,10 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | 标的 | 平台/合约 | 常规盘8h等效中位数 % | 非常规盘8h等效中位数 % | 覆盖率 常规/非常规 |
 | --- | --- | ---: | ---: | --- |
 | AAPL | binance / futures / AAPLUSDT | 0.00000 | 0.00000 | 95.2% / 96.3% |
-| AAPL | bitget / futures / AAPLUSDT | 0.00000 | 0.00000 | 95.2% / 96.3% |
-| AAPL | bybit / futures / AAPLUSDT | 0.00000 | 0.00000 | 95.2% / 96.3% |
-| AAPL | gateio / futures / AAPL_USDT | 0.00000 | 0.00000 | 93.4% / 94.7% |
-| AAPL | okx / futures / AAPL-USDT-SWAP | 0.00000 | 0.00000 | 95.2% / 96.3% |
+| AAPL | bitget / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| AAPL | bybit / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| AAPL | gateio / futures / AAPL_USDT | 0.00000 | 0.00000 | 98.2% / 97.7% |
+| AAPL | okx / futures / AAPL-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | CRCL | binance / futures / CRCLUSDT | 0.01877 | 0.00860 | 95.2% / 96.3% |
 | CRCL | bitget / futures / CRCLUSDT | 0.02850 | 0.00000 | 100.0% / 99.3% |
 | CRCL | bybit / futures / CRCLUSDT | 0.00997 | 0.00533 | 100.0% / 99.3% |
