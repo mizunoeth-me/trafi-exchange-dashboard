@@ -1621,7 +1621,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 64932980.33,
+          "volume_24h": 65246467.05,
           "pair_count": 108
         }
       ],
@@ -3308,7 +3308,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 3121251.87,
+          "volume_24h": 3049456.26,
           "pair_count": 2792
         }
       ],
@@ -4995,7 +4995,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 4402005.72,
+          "volume_24h": 4400758.58,
           "pair_count": 15
         }
       ],
@@ -6682,7 +6682,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 14880972.36,
+          "volume_24h": 14518858.96,
           "pair_count": 268
         }
       ],
@@ -8369,7 +8369,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 11114492.4,
+          "volume_24h": 11097902.62,
           "pair_count": 105
         }
       ]
@@ -10048,15 +10048,15 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 377679911.27,
+          "volume_24h": 377556160.69,
           "pair_count": 134
         }
       ],
       "binance": [
         {
           "timestamp": "2026-09-19T23:00:00+00:00",
-          "volume_24h": 649024903.37,
-          "pair_count": 197
+          "volume_24h": 0.0,
+          "pair_count": 101
         },
         {
           "timestamp": "2026-09-20T00:00:00+00:00",
@@ -11665,8 +11665,8 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 134301390.87,
-          "pair_count": 163
+          "volume_24h": 594921540.01,
+          "pair_count": 185
         }
       ],
       "bitget": [
@@ -13352,7 +13352,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 193188009.18,
+          "volume_24h": 192467686.54,
           "pair_count": 347
         }
       ],
@@ -15039,7 +15039,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 158203208.73,
+          "volume_24h": 157275837.95,
           "pair_count": 260
         }
       ],
@@ -16726,7 +16726,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 164630600.0,
+          "volume_24h": 165098612.0,
           "pair_count": 440
         }
       ],
@@ -18413,7 +18413,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 233205584.78,
+          "volume_24h": 231548113.0,
           "pair_count": 65
         }
       ],
@@ -20100,7 +20100,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 60772314.04,
+          "volume_24h": 61221199.06,
           "pair_count": 90
         }
       ],
@@ -21787,7 +21787,7 @@
         },
         {
           "timestamp": "2026-10-03T23:00:00+00:00",
-          "volume_24h": 245724798.75,
+          "volume_24h": 244347140.07,
           "pair_count": 199
         }
       ]
@@ -21798,84 +21798,84 @@
       {
         "exchange": "binance",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 64932980.33,
+        "volume_24h": 65246467.05,
         "pair_count": 108
       },
       {
         "exchange": "gateio",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 14880972.36,
+        "volume_24h": 14518858.96,
         "pair_count": 268
       },
       {
         "exchange": "okx",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 11114492.4,
+        "volume_24h": 11097902.62,
         "pair_count": 105
       },
       {
         "exchange": "bybit",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 4402005.72,
+        "volume_24h": 4400758.58,
         "pair_count": 15
       },
       {
         "exchange": "bitget",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 3121251.87,
+        "volume_24h": 3049456.26,
         "pair_count": 2792
       }
     ],
     "futures": [
       {
+        "exchange": "binance",
+        "timestamp": "2026-10-03T23:00:00+00:00",
+        "volume_24h": 594921540.01,
+        "pair_count": 185
+      },
+      {
         "exchange": "aster",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 377679911.27,
+        "volume_24h": 377556160.69,
         "pair_count": 134
       },
       {
         "exchange": "okx",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 245724798.75,
+        "volume_24h": 244347140.07,
         "pair_count": 199
       },
       {
         "exchange": "hyperliquid",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 233205584.78,
+        "volume_24h": 231548113.0,
         "pair_count": 65
       },
       {
         "exchange": "bitget",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 193188009.18,
+        "volume_24h": 192467686.54,
         "pair_count": 347
       },
       {
         "exchange": "gateio",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 164630600.0,
+        "volume_24h": 165098612.0,
         "pair_count": 440
       },
       {
         "exchange": "bybit",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 158203208.73,
+        "volume_24h": 157275837.95,
         "pair_count": 260
-      },
-      {
-        "exchange": "binance",
-        "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 134301390.87,
-        "pair_count": 163
       },
       {
         "exchange": "lighter",
         "timestamp": "2026-10-03T23:00:00+00:00",
-        "volume_24h": 60772314.04,
+        "volume_24h": 61221199.06,
         "pair_count": 90
       }
     ]
   },
-  "ts": "2026-10-03T23:31:26.431358+00:00"
+  "ts": "2026-10-03T23:41:26.201002+00:00"
 }
