@@ -46001,8 +46001,8 @@
           "contracts": [
             {
               "symbol": "MCDUSDT",
-              "base": "",
-              "quote": "",
+              "base": "MCD",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -85465,8 +85465,8 @@
           "contracts": [
             {
               "symbol": "VKTXUSDT",
-              "base": "",
-              "quote": "",
+              "base": "VKTX",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -91639,5 +91639,5 @@
       }
     }
   ],
-  "ts": "2026-10-06T09:01:04.494964+00:00"
+  "ts": "2026-10-06T09:11:03.829674+00:00"
 }
