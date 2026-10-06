@@ -84431,8 +84431,8 @@
           "contracts": [
             {
               "symbol": "USDEXUSDT",
-              "base": "",
-              "quote": "",
+              "base": "USDEX",
+              "quote": "USDT",
               "components": [
                 {
                   "source": "dxfeed",
@@ -91639,5 +91639,5 @@
       }
     }
   ],
-  "ts": "2026-10-06T08:51:04.777277+00:00"
+  "ts": "2026-10-06T09:01:04.494964+00:00"
 }
