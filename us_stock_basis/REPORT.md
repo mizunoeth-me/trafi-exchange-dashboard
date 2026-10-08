@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-08T04:39:27.110261+00:00
+生成时间：2026-10-08T08:28:30.990962+00:00
 研究窗口：2026-09-08T04:00:00+00:00 至 2026-10-08T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -37,7 +37,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | 1.86 | 2.38 | 26.62 / 19.03 | 68.2% / 22.9% |
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ bitget / futures / MUUSDT | 0.29 | 1.13 | 24.78 / 17.32 | 68.2% / 22.9% |
 | MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 6.84 | 6.40 | 14.67 / 12.65 | 98.0% / 87.3% |
-| CRCL | 合约跨平台 | hyperliquid / futures / xyz:CRCL ↔ lighter / futures / CRCL | -7.48 | -7.97 | 29.34 / 21.64 | 86.3% / 76.1% |
+| CRCL | 合约跨平台 | hyperliquid / futures / xyz:CRCL ↔ lighter / futures / CRCL | -6.77 | -7.60 | 29.00 / 21.44 | 90.8% / 79.0% |
 | CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -4.30 | -1.24 | 27.22 / 19.61 | 88.6% / 49.2% |
 | CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 3.25 | 2.36 | 14.33 / 13.02 | 99.8% / 96.6% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ bitget / futures / MSTRUSDT | -1.89 | -1.94 | 23.82 / 19.79 | 85.9% / 57.2% |
@@ -72,7 +72,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | bitget / futures / CRCLUSDT | 0.03070 | 0.00000 | 100.0% / 99.3% |
 | CRCL | bybit / futures / CRCLUSDT | 0.01204 | 0.00981 | 100.0% / 99.3% |
 | CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00830 | 100.0% / 99.3% |
-| CRCL | hyperliquid / futures / xyz:CRCL | 0.01172 | 0.01114 | 95.5% / 96.8% |
+| CRCL | hyperliquid / futures / xyz:CRCL | 0.01227 | 0.01113 | 100.0% / 99.8% |
 | CRCL | lighter / futures / CRCL | 0.01680 | 0.01360 | 100.0% / 99.5% |
 | CRCL | okx / futures / CRCL-USDT-SWAP | 0.01603 | 0.01113 | 100.0% / 99.3% |
 | HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -113,7 +113,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | NVDA | bitget / futures / NVDAUSDT | 0.01730 | 0.00000 | 100.0% / 99.3% |
 | NVDA | bybit / futures / NVDAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | NVDA | gateio / futures / NVDA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| NVDA | hyperliquid / futures / xyz:NVDA | 0.00500 | 0.00500 | 95.5% / 96.8% |
+| NVDA | hyperliquid / futures / xyz:NVDA | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | NVDA | lighter / futures / NVDA | 0.00320 | 0.00320 | 100.0% / 99.5% |
 | NVDA | okx / futures / NVDA-USDT-SWAP | 0.00555 | 0.00000 | 100.0% / 99.3% |
 | SKHY | aster / futures / SKHYUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
