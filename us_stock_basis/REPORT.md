@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-12T16:29:27.673295+00:00
+生成时间：2026-10-12T22:22:31.579287+00:00
 研究窗口：2026-09-12T04:00:00+00:00 至 2026-10-12T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -71,7 +71,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | binance / futures / CRCLUSDT | 0.02383 | 0.00732 | 95.0% / 88.2% |
 | CRCL | bitget / futures / CRCLUSDT | 0.03320 | 0.00000 | 95.0% / 88.2% |
 | CRCL | bybit / futures / CRCLUSDT | 0.01542 | 0.01067 | 95.0% / 88.2% |
-| CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00800 | 95.0% / 88.2% |
+| CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | CRCL | hyperliquid / futures / xyz:CRCL | 0.01124 | 0.01027 | 100.0% / 99.8% |
 | CRCL | lighter / futures / CRCL | 0.01920 | 0.01200 | 100.0% / 99.8% |
 | CRCL | okx / futures / CRCL-USDT-SWAP | 0.01720 | 0.00968 | 95.0% / 88.2% |
@@ -79,7 +79,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | HOOD | binance / futures / HOODUSDT | 0.00147 | 0.00000 | 95.0% / 88.2% |
 | HOOD | bitget / futures / HOODUSDT | 0.01380 | 0.00000 | 95.0% / 88.2% |
 | HOOD | bybit / futures / HOODUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
-| HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | HOOD | hyperliquid / futures / xyz:HOOD | 0.00572 | 0.00500 | 100.0% / 99.8% |
 | HOOD | lighter / futures / HOOD | 0.01600 | 0.00320 | 100.0% / 99.8% |
 | HOOD | okx / futures / HOOD-USDT-SWAP | 0.00000 | 0.00000 | 95.0% / 88.2% |
@@ -87,7 +87,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | INTC | binance / futures / INTCUSDT | 0.01028 | 0.00375 | 95.0% / 88.2% |
 | INTC | bitget / futures / INTCUSDT | 0.02520 | 0.00000 | 95.0% / 88.2% |
 | INTC | bybit / futures / INTCUSDT | 0.01057 | 0.00472 | 95.0% / 88.2% |
-| INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | INTC | hyperliquid / futures / xyz:INTC | 0.01117 | 0.00717 | 100.0% / 99.8% |
 | INTC | lighter / futures / INTC | 0.01400 | 0.00760 | 100.0% / 99.8% |
 | INTC | okx / futures / INTC-USDT-SWAP | 0.00304 | 0.00000 | 95.0% / 88.2% |
@@ -95,7 +95,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MSTR | binance / futures / MSTRUSDT | 0.00859 | 0.00167 | 95.0% / 88.2% |
 | MSTR | bitget / futures / MSTRUSDT | 0.02700 | 0.00000 | 95.0% / 88.2% |
 | MSTR | bybit / futures / MSTRUSDT | 0.01731 | 0.00994 | 95.0% / 88.2% |
-| MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MSTR | hyperliquid / futures / xyz:MSTR | 0.01242 | 0.00945 | 100.0% / 99.8% |
 | MSTR | lighter / futures / MSTR | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | MSTR | okx / futures / MSTR-USDT-SWAP | 0.00773 | 0.00000 | 95.0% / 88.2% |
@@ -104,7 +104,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MU | binance / futures / MUUSDT | 0.00785 | 0.00000 | 95.0% / 88.2% |
 | MU | bitget / futures / MUUSDT | 0.01190 | 0.00000 | 95.0% / 88.2% |
 | MU | bybit / futures / MUUSDT | 0.00082 | 0.00000 | 95.0% / 88.2% |
-| MU | gateio / futures / MU_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| MU | gateio / futures / MU_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MU | hyperliquid / futures / xyz:MU | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | MU | lighter / futures / MU | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | MU | okx / futures / MU-USDT-SWAP | 0.00525 | 0.00000 | 95.0% / 88.2% |
@@ -112,7 +112,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | NVDA | binance / futures / NVDAUSDT | 0.01482 | 0.00767 | 95.0% / 88.2% |
 | NVDA | bitget / futures / NVDAUSDT | 0.01860 | 0.00000 | 95.0% / 88.2% |
 | NVDA | bybit / futures / NVDAUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
-| NVDA | gateio / futures / NVDA_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| NVDA | gateio / futures / NVDA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | NVDA | hyperliquid / futures / xyz:NVDA | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | NVDA | lighter / futures / NVDA | 0.00400 | 0.00320 | 100.0% / 99.8% |
 | NVDA | okx / futures / NVDA-USDT-SWAP | 0.00520 | 0.00000 | 95.0% / 88.2% |
@@ -120,7 +120,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SKHY | binance / futures / SKHYUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
 | SKHY | bitget / futures / SKHYUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
 | SKHY | bybit / futures / SKHYUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
-| SKHY | gateio / futures / SKHY_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| SKHY | gateio / futures / SKHY_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SKHY | lighter / futures / SKHY | -0.00400 | 0.00320 | 100.0% / 99.8% |
 | SKHY | okx / futures / SKHY-USDT-SWAP | 0.00000 | 0.00000 | 95.0% / 88.2% |
 | SNDK | aster / futures / SNDKUSD1 | 0.00000 | 0.00000 | 95.0% / 88.2% |
@@ -128,7 +128,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SNDK | binance / futures / SNDKUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
 | SNDK | bitget / futures / SNDKUSDT | 0.00220 | 0.00000 | 95.0% / 88.2% |
 | SNDK | bybit / futures / SNDKUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
-| SNDK | gateio / futures / SNDK_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| SNDK | gateio / futures / SNDK_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SNDK | hyperliquid / futures / xyz:SNDK | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | SNDK | lighter / futures / SNDK | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | SNDK | okx / futures / SNDK-USDT-SWAP | 0.00000 | 0.00000 | 95.0% / 88.2% |
@@ -138,7 +138,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
 | SPCX | bitget / futures / SPCXUSDT | 0.00700 | 0.00000 | 95.0% / 88.2% |
 | SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
-| SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | hyperliquid / futures / xyz:SPCX | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | SPCX | lighter / futures / SPCX | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 95.0% / 88.2% |
@@ -146,7 +146,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | TSLA | binance / futures / TSLAUSDT | 0.00075 | 0.00000 | 95.0% / 88.2% |
 | TSLA | bitget / futures / TSLAUSDT | 0.00090 | 0.00000 | 95.0% / 88.2% |
 | TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
-| TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 95.0% / 88.2% |
+| TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | hyperliquid / futures / xyz:TSLA | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | TSLA | lighter / futures / TSLA | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | TSLA | okx / futures / TSLA-USDT-SWAP | 0.00000 | 0.00000 | 95.0% / 88.2% |
