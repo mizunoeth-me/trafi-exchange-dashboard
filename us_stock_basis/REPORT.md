@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-13T06:15:20.663433+00:00
+生成时间：2026-10-13T10:16:32.117371+00:00
 研究窗口：2026-09-13T04:00:00+00:00 至 2026-10-13T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -135,7 +135,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | aster / futures / SPCXUSD1 | 0.00000 | 0.00000 | 95.2% / 96.3% |
 | SPCX | aster / futures / SPCXUSDT | 0.00000 | 0.00000 | 90.5% / 85.1% |
 | SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 90.5% / 85.1% |
-| SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 90.5% / 85.1% |
+| SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | bitget / futures / SPCXUSDT | 0.00700 | 0.00000 | 90.5% / 85.1% |
 | SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 90.5% / 85.1% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
