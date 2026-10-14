@@ -3,7 +3,7 @@
 范围：Binance、Bybit、OKX、Bitget、Gate.io。排名、市场配对、基差、资金费率及覆盖率均只计 CEX。
 选样快照：2026-09-18T06:19:32.597373+00:00；与原版使用同一批快照，仅改变平台范围。CEX 第十名为 MRVL，原版 GOOGL 不在本版 Top10。
 
-生成时间：2026-10-14T10:31:03.104080+00:00
+生成时间：2026-10-14T14:18:37.075426+00:00
 研究窗口：2026-09-14T04:00:00+00:00 至 2026-10-14T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -77,22 +77,22 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | AAPL | okx / futures / AAPL-USDT-SWAP | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | CRCL | binance / futures / CRCLUSDT | 0.02383 | 0.00818 | 86.4% / 81.9% |
 | CRCL | bitget / futures / CRCLUSDT | 0.03210 | 0.00000 | 95.5% / 96.3% |
-| CRCL | bybit / futures / CRCLUSDT | 0.01470 | 0.01114 | 90.9% / 84.9% |
+| CRCL | bybit / futures / CRCLUSDT | 0.01470 | 0.01069 | 90.9% / 89.1% |
 | CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | CRCL | okx / futures / CRCL-USDT-SWAP | 0.01720 | 0.01344 | 86.4% / 81.9% |
-| INTC | binance / futures / INTCUSDT | 0.01184 | 0.00529 | 95.5% / 96.3% |
+| INTC | binance / futures / INTCUSDT | 0.01231 | 0.00576 | 100.0% / 99.3% |
 | INTC | bitget / futures / INTCUSDT | 0.02520 | 0.00000 | 86.4% / 81.9% |
 | INTC | bybit / futures / INTCUSDT | 0.01095 | 0.00667 | 90.9% / 84.9% |
 | INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | INTC | okx / futures / INTC-USDT-SWAP | 0.00304 | 0.00073 | 86.4% / 81.9% |
 | MSTR | binance / futures / MSTRUSDT | 0.00859 | 0.00552 | 86.4% / 81.9% |
 | MSTR | bitget / futures / MSTRUSDT | 0.02700 | 0.00000 | 86.4% / 81.9% |
-| MSTR | bybit / futures / MSTRUSDT | 0.01731 | 0.01257 | 86.4% / 81.9% |
+| MSTR | bybit / futures / MSTRUSDT | 0.00993 | 0.01126 | 90.9% / 84.9% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MSTR | okx / futures / MSTR-USDT-SWAP | 0.00773 | 0.00095 | 86.4% / 81.9% |
 | MU | binance / futures / MUUSDT | 0.00785 | 0.00000 | 86.4% / 81.9% |
 | MU | bitget / futures / MUUSDT | 0.01190 | 0.00000 | 86.4% / 81.9% |
-| MU | bybit / futures / MUUSDT | 0.00082 | 0.00000 | 86.4% / 81.9% |
+| MU | bybit / futures / MUUSDT | 0.00000 | 0.00000 | 90.9% / 84.9% |
 | MU | gateio / futures / MU_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MU | okx / futures / MU-USDT-SWAP | 0.00525 | 0.00000 | 86.4% / 81.9% |
 | NVDA | binance / futures / NVDAUSDT | 0.01482 | 0.00894 | 86.4% / 81.9% |
@@ -112,7 +112,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SNDK | okx / futures / SNDK-USDT-SWAP | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
-| SPCX | bitget / futures / SPCXUSDT | 0.00700 | 0.00000 | 86.4% / 81.9% |
+| SPCX | bitget / futures / SPCXUSDT | 0.00990 | 0.00000 | 100.0% / 99.3% |
 | SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 86.4% / 81.9% |

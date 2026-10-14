@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-14T10:15:06.088615+00:00
+生成时间：2026-10-14T14:04:28.939536+00:00
 研究窗口：2026-09-14T04:00:00+00:00 至 2026-10-14T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -70,7 +70,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | aster / futures / CRCLUSDT | 0.02483 | 0.01199 | 86.4% / 81.9% |
 | CRCL | binance / futures / CRCLUSDT | 0.02383 | 0.00818 | 86.4% / 81.9% |
 | CRCL | bitget / futures / CRCLUSDT | 0.03210 | 0.00000 | 95.5% / 96.3% |
-| CRCL | bybit / futures / CRCLUSDT | 0.01470 | 0.01114 | 90.9% / 84.9% |
+| CRCL | bybit / futures / CRCLUSDT | 0.01470 | 0.01069 | 90.9% / 89.1% |
 | CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | CRCL | hyperliquid / futures / xyz:CRCL | 0.01124 | 0.01041 | 100.0% / 99.8% |
 | CRCL | lighter / futures / CRCL | 0.01680 | 0.01200 | 100.0% / 99.8% |
@@ -78,23 +78,23 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | HOOD | binance / futures / HOODUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
 | HOOD | bitget / futures / HOODUSDT | 0.01380 | 0.00000 | 86.4% / 81.9% |
-| HOOD | bybit / futures / HOODUSDT | 0.00000 | 0.00000 | 86.4% / 81.9% |
+| HOOD | bybit / futures / HOODUSDT | 0.00000 | 0.00000 | 90.9% / 84.9% |
 | HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | HOOD | hyperliquid / futures / xyz:HOOD | 0.00572 | 0.00500 | 100.0% / 99.8% |
 | HOOD | lighter / futures / HOOD | 0.01440 | 0.00320 | 100.0% / 99.8% |
 | HOOD | okx / futures / HOOD-USDT-SWAP | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | INTC | aster / futures / INTCUSDT | 0.00081 | 0.00000 | 100.0% / 99.3% |
-| INTC | binance / futures / INTCUSDT | 0.01184 | 0.00529 | 95.5% / 96.3% |
+| INTC | binance / futures / INTCUSDT | 0.01231 | 0.00576 | 100.0% / 99.3% |
 | INTC | bitget / futures / INTCUSDT | 0.02520 | 0.00000 | 86.4% / 81.9% |
 | INTC | bybit / futures / INTCUSDT | 0.01095 | 0.00667 | 90.9% / 84.9% |
 | INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | INTC | hyperliquid / futures / xyz:INTC | 0.01054 | 0.00794 | 100.0% / 99.8% |
 | INTC | lighter / futures / INTC | 0.01280 | 0.01040 | 100.0% / 99.8% |
 | INTC | okx / futures / INTC-USDT-SWAP | 0.00304 | 0.00073 | 86.4% / 81.9% |
-| MSTR | aster / futures / MSTRUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
+| MSTR | aster / futures / MSTRUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MSTR | binance / futures / MSTRUSDT | 0.00859 | 0.00552 | 86.4% / 81.9% |
 | MSTR | bitget / futures / MSTRUSDT | 0.02700 | 0.00000 | 86.4% / 81.9% |
-| MSTR | bybit / futures / MSTRUSDT | 0.01731 | 0.01257 | 86.4% / 81.9% |
+| MSTR | bybit / futures / MSTRUSDT | 0.00993 | 0.01126 | 90.9% / 84.9% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MSTR | hyperliquid / futures / xyz:MSTR | 0.01215 | 0.01157 | 100.0% / 99.8% |
 | MSTR | lighter / futures / MSTR | 0.00320 | 0.00320 | 100.0% / 99.8% |
@@ -136,7 +136,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | aster / futures / SPCXUSDT | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
-| SPCX | bitget / futures / SPCXUSDT | 0.00700 | 0.00000 | 86.4% / 81.9% |
+| SPCX | bitget / futures / SPCXUSDT | 0.00990 | 0.00000 | 100.0% / 99.3% |
 | SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 86.4% / 81.9% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | hyperliquid / futures / xyz:SPCX | 0.00500 | 0.00500 | 100.0% / 99.8% |
