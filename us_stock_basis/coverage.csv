@@ -65,7 +65,7 @@ SKHY,bitget|spot|RSKHYUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 SKHY,okx|futures|SKHY-USDT-SWAP,6912,6891,8640,0.7975694444444444,1789444800000,1791518100000,72,-0.0007202615255227,72,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,gateio|futures|SKHY_USDT,8640,8638,8640,0.9997685185185186,1789444800000,1792036500000,90,0.0,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,bitget|futures|SKHYUSDT,6912,6808,8640,0.787962962962963,1789444800000,1791518100000,72,-0.004326,72,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
-SKHY,lighter|futures|SKHY,8064,6269,8640,0.7255787037037037,1789444800000,1791863700000,720,-0.003523,720,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
+SKHY,lighter|futures|SKHY,8640,6834,8640,0.7909722222222222,1789444800000,1792036500000,720,-0.003523,720,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,aster|futures|SKHYUSDT,6912,2205,8640,0.2552083333333333,1789444800000,1791518100000,72,-0.00217442,72,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,binance|futures|SKHYUSDT,6912,6912,8640,0.8,1789444800000,1791518100000,84,-0.00339732,84,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,bybit|futures|SKHYUSDT,6912,6891,8640,0.7975694444444444,1789444800000,1791518100000,72,-0.00063356,72,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
