@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-16T06:20:51.479336+00:00
+生成时间：2026-10-16T10:14:17.963084+00:00
 研究窗口：2026-09-16T04:00:00+00:00 至 2026-10-16T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -68,7 +68,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | 标的 | 平台/合约 | 常规盘8h等效中位数 % | 非常规盘8h等效中位数 % | 覆盖率 常规/非常规 |
 | --- | --- | ---: | ---: | --- |
 | CRCL | aster / futures / CRCLUSDT | 0.02207 | 0.00663 | 90.9% / 93.2% |
-| CRCL | binance / futures / CRCLUSDT | 0.02383 | 0.00818 | 77.3% / 75.8% |
+| CRCL | binance / futures / CRCLUSDT | 0.02035 | 0.00618 | 100.0% / 99.3% |
 | CRCL | bitget / futures / CRCLUSDT | 0.03210 | 0.00000 | 86.4% / 90.2% |
 | CRCL | bybit / futures / CRCLUSDT | 0.01506 | 0.01095 | 81.8% / 83.0% |
 | CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00360 | 100.0% / 99.3% |
@@ -101,7 +101,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MSTR | okx / futures / MSTR-USDT-SWAP | 0.00773 | 0.00095 | 77.3% / 75.8% |
 | MU | aster / futures / MUUSD1 | 0.00000 | 0.00000 | 77.3% / 75.8% |
 | MU | aster / futures / MUUSDT | 0.00366 | 0.00000 | 77.3% / 75.8% |
-| MU | binance / futures / MUUSDT | 0.00440 | 0.00000 | 77.3% / 75.8% |
+| MU | binance / futures / MUUSDT | 0.00416 | 0.00000 | 97.2% / 99.3% |
 | MU | bitget / futures / MUUSDT | 0.00980 | 0.00000 | 77.3% / 75.8% |
 | MU | bybit / futures / MUUSDT | 0.00000 | 0.00000 | 81.8% / 78.9% |
 | MU | gateio / futures / MU_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -109,7 +109,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MU | lighter / futures / MU | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | MU | okx / futures / MU-USDT-SWAP | 0.00214 | 0.00000 | 77.3% / 75.8% |
 | NVDA | aster / futures / NVDAUSDT | 0.00634 | 0.00037 | 95.5% / 96.3% |
-| NVDA | binance / futures / NVDAUSDT | 0.01482 | 0.00767 | 77.3% / 75.8% |
+| NVDA | binance / futures / NVDAUSDT | 0.01308 | 0.00766 | 100.0% / 99.3% |
 | NVDA | bitget / futures / NVDAUSDT | 0.01740 | 0.00000 | 77.3% / 75.8% |
 | NVDA | bybit / futures / NVDAUSDT | 0.00000 | 0.00000 | 77.3% / 75.8% |
 | NVDA | gateio / futures / NVDA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |

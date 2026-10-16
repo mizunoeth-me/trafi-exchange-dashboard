@@ -3,7 +3,7 @@
 范围：Binance、Bybit、OKX、Bitget、Gate.io。排名、市场配对、基差、资金费率及覆盖率均只计 CEX。
 选样快照：2026-09-18T06:19:32.597373+00:00；与原版使用同一批快照，仅改变平台范围。CEX 第十名为 MRVL，原版 GOOGL 不在本版 Top10。
 
-生成时间：2026-10-16T06:34:38.334075+00:00
+生成时间：2026-10-16T10:28:26.186091+00:00
 研究窗口：2026-09-16T04:00:00+00:00 至 2026-10-16T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -116,7 +116,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 77.3% / 75.8% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 77.3% / 75.8% |
-| TSLA | binance / futures / TSLAUSDT | 0.00133 | 0.00000 | 77.3% / 75.8% |
+| TSLA | binance / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | bitget / futures / TSLAUSDT | 0.00180 | 0.00000 | 77.3% / 75.8% |
 | TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 81.8% / 78.9% |
 | TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |

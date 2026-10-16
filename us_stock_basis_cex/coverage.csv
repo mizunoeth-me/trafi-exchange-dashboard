@@ -94,7 +94,7 @@ TSLA,bitget|spot|RTSLAUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 TSLA,okx|futures|TSLA-USDT-SWAP,6624,6564,8640,0.7597222222222222,1789531200000,1791518100000,69,0.0028589603284153,69,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,gateio|futures|TSLA_USDT,8640,8622,8640,0.9979166666666667,1789531200000,1792122900000,90,0.003994,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,bitget|futures|TSLAUSDT,6624,6387,8640,0.7392361111111111,1789531200000,1791518100000,69,0.006979,69,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-TSLA,binance|futures|TSLAUSDT,6624,6624,8640,0.7666666666666667,1789531200000,1791518100000,69,0.00308937,69,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+TSLA,binance|futures|TSLAUSDT,6624,6624,8640,0.7666666666666667,1789531200000,1791518100000,90,0.00328602,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,bybit|futures|TSLAUSDT,6624,6563,8640,0.7596064814814815,1789531200000,1791518100000,72,0.00330414,72,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 AAPL,gateio|spot|AAPLX_USDT,8640,6124,8640,0.7087962962962963,1789531200000,1792122900000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 AAPL,binance|spot|AAPLBUSDT,6336,6126,8640,0.7090277777777778,1789531200000,1791431700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
