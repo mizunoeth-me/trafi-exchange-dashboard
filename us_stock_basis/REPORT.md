@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-16T10:14:17.963084+00:00
+生成时间：2026-10-16T14:06:55.252895+00:00
 研究窗口：2026-09-16T04:00:00+00:00 至 2026-10-16T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -76,7 +76,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | lighter / futures / CRCL | 0.01520 | 0.00880 | 100.0% / 99.8% |
 | CRCL | okx / futures / CRCL-USDT-SWAP | 0.01863 | 0.01424 | 77.3% / 75.8% |
 | HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 77.3% / 75.8% |
-| HOOD | binance / futures / HOODUSDT | 0.00185 | 0.00000 | 86.4% / 90.2% |
+| HOOD | binance / futures / HOODUSDT | 0.00074 | 0.00000 | 100.0% / 99.3% |
 | HOOD | bitget / futures / HOODUSDT | 0.02110 | 0.00000 | 77.3% / 75.8% |
 | HOOD | bybit / futures / HOODUSDT | 0.00182 | 0.00000 | 81.8% / 78.9% |
 | HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -143,7 +143,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | lighter / futures / SPCX | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 77.3% / 75.8% |
 | TSLA | aster / futures / TSLAUSDT | 0.00000 | 0.00000 | 77.3% / 75.8% |
-| TSLA | binance / futures / TSLAUSDT | 0.00133 | 0.00000 | 77.3% / 75.8% |
+| TSLA | binance / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | bitget / futures / TSLAUSDT | 0.00180 | 0.00000 | 77.3% / 75.8% |
 | TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 81.8% / 78.9% |
 | TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
