@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-17T10:15:00.693786+00:00
+生成时间：2026-10-17T14:07:15.673062+00:00
 研究窗口：2026-09-17T04:00:00+00:00 至 2026-10-17T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -76,7 +76,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | lighter / futures / CRCL | 0.01400 | 0.00640 | 100.0% / 99.8% |
 | CRCL | okx / futures / CRCL-USDT-SWAP | 0.01720 | 0.01312 | 72.7% / 72.8% |
 | HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
-| HOOD | binance / futures / HOODUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
+| HOOD | binance / futures / HOODUSDT | 0.00074 | 0.00000 | 100.0% / 99.3% |
 | HOOD | bitget / futures / HOODUSDT | 0.02480 | 0.00000 | 72.7% / 72.8% |
 | HOOD | bybit / futures / HOODUSDT | 0.00937 | 0.00000 | 77.3% / 75.8% |
 | HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -92,7 +92,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | INTC | lighter / futures / INTC | 0.00960 | 0.00640 | 100.0% / 99.8% |
 | INTC | okx / futures / INTC-USDT-SWAP | 0.00441 | 0.00107 | 72.7% / 72.8% |
 | MSTR | aster / futures / MSTRUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
-| MSTR | binance / futures / MSTRUSDT | 0.00859 | 0.00495 | 72.7% / 72.8% |
+| MSTR | binance / futures / MSTRUSDT | 0.00280 | 0.00000 | 100.0% / 99.3% |
 | MSTR | bitget / futures / MSTRUSDT | 0.02870 | 0.00000 | 72.7% / 72.8% |
 | MSTR | bybit / futures / MSTRUSDT | 0.01731 | 0.01126 | 77.3% / 80.0% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -124,7 +124,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SKHY | lighter / futures / SKHY | -0.00640 | 0.00320 | 100.0% / 99.8% |
 | SKHY | okx / futures / SKHY-USDT-SWAP | 0.00000 | 0.00000 | 72.7% / 72.8% |
 | SNDK | aster / futures / SNDKUSD1 | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| SNDK | aster / futures / SNDKUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
+| SNDK | aster / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SNDK | binance / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SNDK | bitget / futures / SNDKUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
 | SNDK | bybit / futures / SNDKUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
@@ -137,7 +137,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 72.7% / 72.8% |
 | SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 81.8% / 87.2% |
 | SPCX | bitget / futures / SPCXUSDT | 0.01500 | 0.00000 | 86.4% / 90.2% |
-| SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
+| SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 77.3% / 75.8% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | hyperliquid / futures / xyz:SPCX | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | SPCX | lighter / futures / SPCX | 0.00320 | 0.00320 | 100.0% / 99.8% |
