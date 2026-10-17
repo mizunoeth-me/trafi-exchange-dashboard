@@ -65,7 +65,7 @@ MSTR,binance|futures|MSTRUSDT,6624,6624,8640,0.7666666666666667,1789531200000,17
 MSTR,bybit|futures|MSTRUSDT,6624,6624,8640,0.7666666666666667,1789531200000,1791518100000,72,0.01324413,72,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 INTC,gateio|spot|INTCG_USDT,8640,7065,8640,0.8177083333333334,1789531200000,1792122900000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 INTC,okx|spot|XINTC-USDT,6624,5597,8640,0.647800925925926,1789531200000,1791518100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
-INTC,binance|spot|INTCBUSDT,6336,5951,8640,0.6887731481481482,1789531200000,1791431700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+INTC,binance|spot|INTCBUSDT,7200,6713,8640,0.7769675925925926,1789531200000,1791690900000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 INTC,bitget|spot|RINTCUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitget rToken K线可能为参考市场；不纳入交易价历史,5m_trade_close_proxy
 INTC,okx|futures|INTC-USDT-SWAP,6624,6622,8640,0.7664351851851852,1789531200000,1791518100000,69,0.0037132121767632,69,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 INTC,gateio|futures|INTC_USDT,8640,8640,8640,1.0,1789531200000,1792122900000,90,0.00679,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
@@ -76,7 +76,7 @@ NVDA,gateio|spot|NVDAON_USDT,8640,4686,8640,0.5423611111111111,1789531200000,179
 NVDA,gateio|spot|NVDAG_USDT,8640,7249,8640,0.8390046296296296,1789531200000,1792122900000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 NVDA,gateio|spot|NVDAX_USDT,8640,6538,8640,0.756712962962963,1789531200000,1792122900000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 NVDA,okx|spot|XNVDA-USDT,6624,5289,8640,0.6121527777777778,1789531200000,1791518100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
-NVDA,binance|spot|NVDABUSDT,7776,7768,8640,0.899074074074074,1789531200000,1791863700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+NVDA,binance|spot|NVDABUSDT,8100,8092,8640,0.9365740740740741,1789531200000,1791960900000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 NVDA,bybit|spot|NVDAXUSDT,6624,5274,8640,0.6104166666666667,1789531200000,1791518100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 NVDA,bitget|spot|RNVDAUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitget rToken K线可能为参考市场；不纳入交易价历史,5m_trade_close_proxy
 NVDA,okx|futures|NVDA-USDT-SWAP,6624,6575,8640,0.7609953703703703,1789531200000,1791518100000,69,0.0027536842478061,69,registry_per_share,已取得实际结算,,5m_trade_close_proxy
