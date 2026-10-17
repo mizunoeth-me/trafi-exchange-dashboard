@@ -20,7 +20,7 @@ SPCX,gateio|futures|SPCX_USDT,8640,8637,8640,0.9996527777777777,1789617600000,17
 SPCX,bitget|futures|SPCXUSDT,6336,6250,8640,0.7233796296296297,1789617600000,1791518100000,81,0.007279,81,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,binance|futures|SPCXUSD1,6336,4239,8640,0.490625,1789617600000,1791518100000,66,0.00174752,66,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,binance|futures|SPCXUSDT,6336,6336,8640,0.7333333333333333,1789617600000,1791518100000,78,0.00379854,78,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-SPCX,bybit|futures|SPCXUSDT,6336,6292,8640,0.7282407407407407,1789617600000,1791518100000,66,0.00330521,66,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+SPCX,bybit|futures|SPCXUSDT,6336,6292,8640,0.7282407407407407,1789617600000,1791518100000,69,0.00337711,69,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,gateio|spot|MUG_USDT,8640,7146,8640,0.8270833333333333,1789617600000,1792209300000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 MU,okx|spot|XMU-USDT,6336,5660,8640,0.6550925925925926,1789617600000,1791518100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
 MU,binance|spot|MUBUSDT,6048,5956,8640,0.6893518518518519,1789617600000,1791431700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
@@ -61,7 +61,7 @@ MSTR,bitget|spot|RMSTRUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 MSTR,okx|futures|MSTR-USDT-SWAP,6336,6336,8640,0.7333333333333333,1789617600000,1791518100000,66,0.0061087311198608,66,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,gateio|futures|MSTR_USDT,8640,8640,8640,1.0,1789617600000,1792209300000,90,0.012766,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,bitget|futures|MSTRUSDT,6336,6336,8640,0.7333333333333333,1789617600000,1791518100000,66,0.011105,66,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-MSTR,binance|futures|MSTRUSDT,6336,6336,8640,0.7333333333333333,1789617600000,1791518100000,66,0.00738504,66,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+MSTR,binance|futures|MSTRUSDT,6336,6336,8640,0.7333333333333333,1789617600000,1791518100000,90,0.00783416,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,bybit|futures|MSTRUSDT,6336,6336,8640,0.7333333333333333,1789617600000,1791518100000,72,0.01269416,72,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 INTC,gateio|spot|INTCG_USDT,8640,7064,8640,0.8175925925925925,1789617600000,1792209300000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 INTC,okx|spot|XINTC-USDT,6336,5335,8640,0.6174768518518519,1789617600000,1791518100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy

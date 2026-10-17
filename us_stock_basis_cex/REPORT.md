@@ -3,7 +3,7 @@
 范围：Binance、Bybit、OKX、Bitget、Gate.io。排名、市场配对、基差、资金费率及覆盖率均只计 CEX。
 选样快照：2026-09-18T06:19:32.597373+00:00；与原版使用同一批快照，仅改变平台范围。CEX 第十名为 MRVL，原版 GOOGL 不在本版 Top10。
 
-生成时间：2026-10-17T06:32:44.329958+00:00
+生成时间：2026-10-17T10:31:15.832033+00:00
 研究窗口：2026-09-17T04:00:00+00:00 至 2026-10-17T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -85,7 +85,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | INTC | bybit / futures / INTCUSDT | 0.01099 | 0.00486 | 77.3% / 75.8% |
 | INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | INTC | okx / futures / INTC-USDT-SWAP | 0.00441 | 0.00107 | 72.7% / 72.8% |
-| MSTR | binance / futures / MSTRUSDT | 0.00859 | 0.00495 | 72.7% / 72.8% |
+| MSTR | binance / futures / MSTRUSDT | 0.00280 | 0.00000 | 100.0% / 99.3% |
 | MSTR | bitget / futures / MSTRUSDT | 0.02870 | 0.00000 | 72.7% / 72.8% |
 | MSTR | bybit / futures / MSTRUSDT | 0.01731 | 0.01126 | 77.3% / 80.0% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
@@ -113,7 +113,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 72.7% / 72.8% |
 | SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 81.8% / 87.2% |
 | SPCX | bitget / futures / SPCXUSDT | 0.01500 | 0.00000 | 86.4% / 90.2% |
-| SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
+| SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 77.3% / 75.8% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 72.7% / 72.8% |
 | TSLA | binance / futures / TSLAUSDT | 0.00000 | 0.00000 | 95.5% / 96.3% |
