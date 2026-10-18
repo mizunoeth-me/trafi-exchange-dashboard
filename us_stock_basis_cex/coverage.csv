@@ -70,7 +70,7 @@ INTC,bitget|spot|RINTCUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 INTC,okx|futures|INTC-USDT-SWAP,6048,6046,8640,0.6997685185185185,1789704000000,1791518100000,63,0.0036326696135597,63,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 INTC,gateio|futures|INTC_USDT,8640,8640,8640,1.0,1789704000000,1792295700000,90,0.007675,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 INTC,bitget|futures|INTCUSDT,6048,5992,8640,0.6935185185185185,1789704000000,1791518100000,63,0.010813,63,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-INTC,binance|futures|INTCUSDT,6048,6048,8640,0.7,1789704000000,1791518100000,78,0.0067461,78,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+INTC,binance|futures|INTCUSDT,6048,6048,8640,0.7,1789704000000,1791518100000,90,0.00752794,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 INTC,bybit|futures|INTCUSDT,6048,6037,8640,0.6987268518518519,1789704000000,1791518100000,66,0.00520717,66,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 NVDA,gateio|spot|NVDAON_USDT,8640,4628,8640,0.5356481481481481,1789704000000,1792295700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 NVDA,gateio|spot|NVDAG_USDT,8640,7122,8640,0.8243055555555555,1789704000000,1792295700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
