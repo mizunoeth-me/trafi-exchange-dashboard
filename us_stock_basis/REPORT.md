@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-18T14:10:15.344422+00:00
+生成时间：2026-10-18T18:17:36.834158+00:00
 研究窗口：2026-09-18T04:00:00+00:00 至 2026-10-18T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -84,7 +84,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | HOOD | lighter / futures / HOOD | 0.00640 | 0.00320 | 100.0% / 99.8% |
 | HOOD | okx / futures / HOOD-USDT-SWAP | 0.00000 | 0.00000 | 71.4% / 69.0% |
 | INTC | aster / futures / INTCUSDT | 0.00276 | 0.00000 | 90.5% / 89.2% |
-| INTC | binance / futures / INTCUSDT | 0.01327 | 0.00455 | 85.7% / 86.2% |
+| INTC | binance / futures / INTCUSDT | 0.01309 | 0.00455 | 100.0% / 99.3% |
 | INTC | bitget / futures / INTCUSDT | 0.02840 | 0.00000 | 71.4% / 69.0% |
 | INTC | bybit / futures / INTCUSDT | 0.01059 | 0.00472 | 76.2% / 72.0% |
 | INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
