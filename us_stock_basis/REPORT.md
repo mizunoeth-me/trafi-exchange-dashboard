@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-17T22:19:04.617179+00:00
+生成时间：2026-10-18T02:13:55.244350+00:00
 研究窗口：2026-09-17T04:00:00+00:00 至 2026-10-17T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -75,7 +75,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | hyperliquid / futures / xyz:CRCL | 0.01157 | 0.00846 | 100.0% / 99.8% |
 | CRCL | lighter / futures / CRCL | 0.01400 | 0.00640 | 100.0% / 99.8% |
 | CRCL | okx / futures / CRCL-USDT-SWAP | 0.01720 | 0.01312 | 72.7% / 72.8% |
-| HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 72.7% / 72.8% |
+| HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | HOOD | binance / futures / HOODUSDT | 0.00074 | 0.00000 | 100.0% / 99.3% |
 | HOOD | bitget / futures / HOODUSDT | 0.02480 | 0.00000 | 72.7% / 72.8% |
 | HOOD | bybit / futures / HOODUSDT | 0.00937 | 0.00000 | 77.3% / 75.8% |
