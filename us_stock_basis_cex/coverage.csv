@@ -34,7 +34,7 @@ CRCL,gateio|spot|CRCLG_USDT,8640,6601,8640,0.7640046296296297,1789704000000,1792
 CRCL,gateio|spot|CRCLX_USDT,8640,7601,8640,0.8797453703703704,1789704000000,1792295700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 CRCL,gateio|spot|CRCLON_USDT,8640,5444,8640,0.6300925925925925,1789704000000,1792295700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 CRCL,okx|spot|XCRCL-USDT,6048,5935,8640,0.6869212962962963,1789704000000,1791518100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
-CRCL,binance|spot|CRCLBUSDT,5760,5755,8640,0.6660879629629629,1789704000000,1791431700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+CRCL,binance|spot|CRCLBUSDT,6300,6295,8640,0.7285879629629629,1789704000000,1791593700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 CRCL,bybit|spot|CRCLXUSDT,6048,4404,8640,0.5097222222222222,1789704000000,1791518100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 CRCL,bitget|spot|RCRCLUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitget rToken K线可能为参考市场；不纳入交易价历史,5m_trade_close_proxy
 CRCL,gateio|futures|CRCL_USDT,8640,8640,8640,1.0,1789704000000,1792295700000,90,0.014797,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
