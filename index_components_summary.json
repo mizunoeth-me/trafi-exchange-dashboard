@@ -133,6 +133,7 @@
     "CSOPSS2LHKD",
     "CVNA",
     "CVS",
+    "CVX",
     "CVXSTOCK",
     "CXMT",
     "CYPH",
@@ -183,6 +184,7 @@
     "FUTU",
     "FUTUON",
     "FWDI",
+    "GBP",
     "GBPUSD",
     "GD",
     "GDX",
@@ -218,6 +220,7 @@
     "HK0992",
     "HK1810",
     "HK50",
+    "HO",
     "HOOD",
     "HORIZON",
     "HPE",
@@ -539,6 +542,7 @@
     "UNITREE",
     "URNM",
     "US100",
+    "US10Y",
     "US2000",
     "US30",
     "US500",
@@ -1163,6 +1167,16 @@
           "contracts": [
             {
               "symbol": "para:AAOI",
+              "base": "AAOI",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:AAOI",
               "base": "AAOI",
               "quote": "USDC",
               "components": [],
@@ -4010,6 +4024,21 @@
                 "gateio:AMAT_USDT": "0.0%",
                 "okx:AMAT-USDT-SWAP": "15.11%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:AMAT",
+              "base": "AMAT",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -7389,6 +7418,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:ASML",
+              "base": "ASML",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -8310,6 +8354,16 @@
           "contracts": [
             {
               "symbol": "para:AVGO",
+              "base": "AVGO",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:AVGO",
               "base": "AVGO",
               "quote": "USDC",
               "components": [],
@@ -9458,6 +9512,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:BB",
+              "base": "BB",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "lighter": {
           "asset_class": "stock",
           "contracts": [
@@ -9998,6 +10067,21 @@
                 "lighter:BE": "0.0%",
                 "okx:BE-USDT-SWAP": "21.74%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:BE",
+              "base": "BE",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -11073,6 +11157,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:BMNR",
+              "base": "BMNR",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -11622,6 +11721,21 @@
                 "gateio:BOT_USDT": "14.29%",
                 "okx:BOT-USDT-SWAP": "0.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:BOT",
+              "base": "BOT",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -13863,6 +13977,21 @@
               "overlap_pct": null
             }
           ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:CAMBRICON",
+              "base": "CAMBRICON",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
         }
       }
     },
@@ -14499,6 +14628,21 @@
                 "bybit:CBRSUSDT": "0.0%",
                 "gateio:CBRS_USDT": "0.0%"
               }
+            }
+          ]
+        },
+        "lighter": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "CBRS",
+              "base": "CBRS",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -19298,6 +19442,16 @@
               "weight_sum": 0,
               "weight_status": "missing",
               "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:CRWD",
+              "base": "CRWD",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -20747,6 +20901,26 @@
       }
     },
     {
+      "symbol": "CVX",
+      "exchanges": {
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:CVX",
+              "base": "CVX",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        }
+      }
+    },
+    {
       "symbol": "CVXSTOCK",
       "exchanges": {
         "bybit": {
@@ -21101,6 +21275,21 @@
                 "lighter:CXMT": "0.0%",
                 "okx:CXMT-USDT-SWAP": "60.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:CXMT",
+              "base": "CXMT",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -22105,6 +22294,21 @@
                 "gateio:DELL_USDT": "0.0%",
                 "lighter:DELL": "0.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:DELL",
+              "base": "DELL",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -23526,6 +23730,21 @@
                 "bybit:DRAMUSDT": "0.0%",
                 "gateio:DRAM_USDT": "0.0%"
               }
+            }
+          ]
+        },
+        "lighter": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "DRAM",
+              "base": "DRAM",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -27263,6 +27482,26 @@
       }
     },
     {
+      "symbol": "GBP",
+      "exchanges": {
+        "hyperliquid": {
+          "asset_class": "forex",
+          "contracts": [
+            {
+              "symbol": "xyz:GBP",
+              "base": "GBP",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        }
+      }
+    },
+    {
       "symbol": "GBPUSD",
       "exchanges": {
         "bybit": {
@@ -28232,6 +28471,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:GEV",
+              "base": "GEV",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "lighter": {
           "asset_class": "stock",
           "contracts": [
@@ -28557,6 +28811,21 @@
               "overlap_pct": {
                 "binance:GIGADEVUSDT": "0.99%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:GIGADEV",
+              "base": "GIGADEV",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -29117,6 +29386,16 @@
           "contracts": [
             {
               "symbol": "para:GLW",
+              "base": "GLW",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:GLW",
               "base": "GLW",
               "quote": "USDC",
               "components": [],
@@ -32932,6 +33211,26 @@
       }
     },
     {
+      "symbol": "HO",
+      "exchanges": {
+        "hyperliquid": {
+          "asset_class": "commodity",
+          "contracts": [
+            {
+              "symbol": "xyz:HO",
+              "base": "HO",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        }
+      }
+    },
+    {
       "symbol": "HOOD",
       "exchanges": {
         "binance": {
@@ -35179,6 +35478,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:IBM",
+              "base": "IBM",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -36976,6 +37290,16 @@
           "contracts": [
             {
               "symbol": "para:IREN",
+              "base": "IREN",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:IREN",
               "base": "IREN",
               "quote": "USDC",
               "components": [],
@@ -40422,6 +40746,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "xyz:KORU",
+              "base": "KORU",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -40918,6 +41257,21 @@
                 "gateio:KSTR_USDT": "0.0%",
                 "okx:KSTR-USDT-SWAP": "0.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:KSTR",
+              "base": "KSTR",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -43274,6 +43628,16 @@
               "weight_sum": 0,
               "weight_status": "missing",
               "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:LRCX",
+              "base": "LRCX",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -43732,6 +44096,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:LYTE",
+              "base": "LYTE",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -43826,6 +44205,21 @@
               "component_count": 2,
               "weight_sum": 1.0,
               "weight_status": "ok",
+              "overlap_pct": null
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "xyz:MAGS",
+              "base": "MAGS",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
               "overlap_pct": null
             }
           ]
@@ -45963,6 +46357,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:MINIMAX",
+              "base": "MINIMAX",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -47200,6 +47609,21 @@
                 "lighter:MRNA": "0.0%",
                 "okx:MRNA-USDT-SWAP": "0.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:MRNA",
+              "base": "MRNA",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -51024,6 +51448,16 @@
               "weight_sum": 0,
               "weight_status": "missing",
               "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:NBIS",
+              "base": "NBIS",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -51125,6 +51559,21 @@
               "component_count": 2,
               "weight_sum": 1.0,
               "weight_status": "ok",
+              "overlap_pct": null
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:NCLD",
+              "base": "NCLD",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
               "overlap_pct": null
             }
           ]
@@ -51476,6 +51925,16 @@
           "contracts": [
             {
               "symbol": "para:NET",
+              "base": "NET",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:NET",
               "base": "NET",
               "quote": "USDC",
               "components": [],
@@ -52542,6 +53001,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:NOK",
+              "base": "NOK",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -53029,6 +53503,21 @@
                 "gateio:NOW_USDT": "14.29%",
                 "lighter:NOW": "0.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:NOW",
+              "base": "NOW",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -55818,6 +56307,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:OURA",
+              "base": "OURA",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -55843,6 +56347,21 @@
                 "bitget:OURAUSDT": "0.0%",
                 "okx:OURA-USDT-SWAP": "0.0%"
               }
+            }
+          ]
+        },
+        "lighter": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "OURA",
+              "base": "OURA",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -59992,6 +60511,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:QCOM",
+              "base": "QCOM",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -60197,6 +60731,21 @@
               "component_count": 3,
               "weight_sum": 0.9999,
               "weight_status": "ok",
+              "overlap_pct": null
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:QNT",
+              "base": "QNT",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
               "overlap_pct": null
             }
           ]
@@ -61392,6 +61941,16 @@
           "contracts": [
             {
               "symbol": "para:RDDT",
+              "base": "RDDT",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:RDDT",
               "base": "RDDT",
               "quote": "USDC",
               "components": [],
@@ -64776,6 +65335,21 @@
               }
             }
           ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:SHAZ",
+              "base": "SHAZ",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
         }
       }
     },
@@ -64955,6 +65529,21 @@
                 "lighter:SHEIN": "0.0%",
                 "okx:SHEIN-USDT-SWAP": "0.0%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:SHEIN",
+              "base": "SHEIN",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -66702,6 +67291,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:SKHY",
+              "base": "SKHY",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -68224,6 +68828,16 @@
               "weight_sum": 0,
               "weight_status": "missing",
               "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:SMH",
+              "base": "SMH",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -69667,6 +70281,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:SNXX",
+              "base": "SNXX",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -70835,6 +71464,21 @@
                 "lighter:SOXL": "0.0%",
                 "okx:SOXL-USDT-SWAP": "36.67%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "xyz:SOXL",
+              "base": "SOXL",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -73531,6 +74175,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:STRC",
+              "base": "STRC",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -75668,6 +76327,21 @@
                 "gateio:TLT_USDT": "0.0%",
                 "okx:TLT-USDT-SWAP": "11.11%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "xyz:TLT",
+              "base": "TLT",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -78682,6 +79356,21 @@
               }
             }
           ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:TWST",
+              "base": "TWST",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
         }
       }
     },
@@ -79598,6 +80287,21 @@
               }
             }
           ]
+        },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:UMC",
+              "base": "UMC",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
         }
       }
     },
@@ -80136,6 +80840,16 @@
               "weight_sum": 0,
               "weight_status": "missing",
               "overlap_pct": null
+            },
+            {
+              "symbol": "xyz:UNITREE",
+              "base": "UNITREE",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         },
@@ -80593,6 +81307,26 @@
               "overlap_pct": {
                 "okx:US100-USDT-SWAP": "0.0%"
               }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "symbol": "US10Y",
+      "exchanges": {
+        "lighter": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "US10Y",
+              "base": "US10Y",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -84118,6 +84852,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:WDC",
+              "base": "WDC",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -85569,6 +86318,21 @@
                 "gateio:XBI_USDT": "0.0%",
                 "okx:XBI-USDT-SWAP": "33.33%"
               }
+            }
+          ]
+        },
+        "hyperliquid": {
+          "asset_class": "index",
+          "contracts": [
+            {
+              "symbol": "xyz:XBI",
+              "base": "XBI",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
             }
           ]
         }
@@ -87960,6 +88724,21 @@
             }
           ]
         },
+        "hyperliquid": {
+          "asset_class": "stock",
+          "contracts": [
+            {
+              "symbol": "xyz:ZHIPU",
+              "base": "ZHIPU",
+              "quote": "USDC",
+              "components": [],
+              "component_count": 0,
+              "weight_sum": 0,
+              "weight_status": "missing",
+              "overlap_pct": null
+            }
+          ]
+        },
         "aster": {
           "asset_class": "stock",
           "contracts": [
@@ -88916,5 +89695,5 @@
       }
     }
   ],
-  "ts": "2026-10-19T04:11:21.636679+00:00"
+  "ts": "2026-10-19T04:20:58.998561+00:00"
 }

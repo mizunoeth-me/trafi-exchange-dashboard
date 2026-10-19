@@ -150,6 +150,12 @@
   .data-table td.highlight { color: var(--yellow); font-weight: 600; }
   .data-table td.low { color: var(--muted); }
   .data-table td.top { color: var(--green); font-weight: 600; }
+  .dex-kpis { display:flex; flex-wrap:wrap; gap:12px; margin:8px 0 12px; }
+  .dex-kpis .kpi { background: var(--surface); border:1px solid var(--border); border-radius:8px; padding:10px 14px; min-width:160px; }
+  .dex-kpis .kpi b { display:block; font-size:18px; margin-top:4px; }
+  .dex-kpis .kpi span { color: var(--muted); font-size:11px; }
+  #dex-token-table tr.dex-pools td { background:#0d1117; font-size:11px; text-align:left; }
+  #dex-token-table tbody tr.dex-row { cursor:pointer; }
 
   /* ── Charts area ── */
   .charts-row {
@@ -469,6 +475,7 @@
   <div class="tab" onclick="switchTab(1, this)">指数成分权重偏离度</div>
   <div class="tab" onclick="switchTab(2, this)">Futures 总览</div>
   <div class="tab" onclick="switchTab(3, this)">Spot 总览</div>
+  <div class="tab" onclick="switchTab(8, this)">DEX 现货</div>
   <div class="tab" onclick="switchTab(4, this)">Session 风险</div>
   <div class="tab" onclick="switchTab(7, this)">美股事件日历</div>
 </div>
@@ -834,10 +841,50 @@
             <th title="Bitget rStock 对应底层传统市场的 24h 参考成交额">underlying_volume_24h_reference</th>
             <th>depth_bid_2p</th>
             <th>depth_ask_2p</th>
+            <th title="同一 underlying 所有链上代币化股票在 DEX 的 rolling 24h 成交额合计（DexScreener 索引）">dex_volume_24h（同 underlying）</th>
+            <th title="同一 underlying 在 DEX 已验证池子的美元总价值（池两侧资产合计）">dex_liquidity（同 underlying）</th>
             <th>market_type</th>
             <th>timestamp</th>
           </tr>
         </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Tab8: DEX Spot ── -->
+  <div class="panel" id="panel-8">
+    <div class="ic-section">
+      <h3 id="dex-spot-title">DEX 现货（代币化股票链上池）</h3>
+      <div class="table-note" id="dex-spot-meta">加载中…</div>
+    </div>
+    <div class="dex-kpis" id="dex-spot-kpis"></div>
+    <div class="ic-section">
+      <h3>按发行方</h3>
+      <div style="overflow:auto"><table class="data-table" id="dex-product-table"><thead><tr><th>product</th><th>tokens</th><th>pools</th><th>24h volume</th><th>liquidity (verified)</th><th>liquidity (unverified)</th><th>V/L</th></tr></thead><tbody></tbody></table></div>
+    </div>
+    <div class="overview-filters">
+      <input id="dex-q" placeholder="筛选 symbol / underlying" />
+      <select id="dex-product"><option value="">全部发行方</option></select>
+      <select id="dex-chain"><option value="">全部链</option></select>
+      <select id="dex-min-liq">
+        <option value="0">全部流动性</option><option value="10000">≥ $10K</option>
+        <option value="100000">≥ $100K</option><option value="1000000">≥ $1M</option>
+      </select>
+      <button id="dex-reset">重置筛选</button>
+    </div>
+    <div style="overflow:auto; flex:1;">
+      <table class="data-table" id="dex-token-table">
+        <thead><tr>
+          <th data-k="symbol">symbol</th><th data-k="underlying">underlying</th><th data-k="product">product</th><th data-k="chain">chain</th>
+          <th data-k="pool_count" title="已索引池数量；30+ 表示 DexScreener 截断，长尾池可能更多">pools</th>
+          <th data-k="volume_24h_usd">24h volume</th>
+          <th data-k="liquidity_usd" title="对手资产为主流报价资产或 canonical 代币化股票的池，两侧资产美元总价值">liquidity (verified)</th>
+          <th data-k="liquidity_unverified_usd" title="对手资产无法验证的池，可能为伪造报价资产，不计入主口径">liquidity (unverified)</th>
+          <th data-k="vl">V/L</th><th data-k="price_usd">price</th>
+          <th data-k="cex_volume" title="同一 underlying 在已采集 CEX 现货的站内 24h 成交额合计">CEX spot 24h（同 underlying）</th>
+          <th>top pool</th>
+        </tr></thead>
         <tbody></tbody>
       </table>
     </div>
@@ -978,6 +1025,9 @@ let icHistorySymbol = '';
 let icHistoryRequestId = 0;
 let overviewData  = null;  // futures_overview.json
 let spotOverviewData = null; // spot_overview.json
+let dexSpotData = null; // dex_spot_overview.json
+let dexByUnderlying = {};
+let dexSortKey = 'volume_24h_usd', dexSortDir = 'desc';
 let tsData = null; // futures_timeseries.json
 let overlapData   = null;  // overlap_matrix_latest.json
 let sessionRiskData = null; // session_risk_summary.json
@@ -1037,7 +1087,7 @@ function switchTab(idx, el) {
   el.classList.add('active');
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + idx).classList.add('active');
-  document.getElementById('symbol-controls').style.display = [5, 6].includes(idx) ? 'none' : 'flex';
+  document.getElementById('symbol-controls').style.display = [5, 6, 8].includes(idx) ? 'none' : 'flex';
   // Resize charts when tab shown
   setTimeout(() => {
     [chartOI, chartVol, chartICBar, chartICDev, chartTsIndex, chartTsFunding, chartOverviewLatest, chartOverviewSpotRanking, chartOverviewFuturesRanking, chartProductTypeVolume, chartResearchProduct, chartResearchCexDepth, chartResearchDexLiquidity, chartResearchTrend, chartResearchProtocolTvl, chartResearchPerpHistory].forEach(c => { if (c) c.resize(); });
@@ -1200,6 +1250,7 @@ async function loadData() {
   renderSpotOverview();
   renderSessionRisk();
   renderMarketOverview();
+  loadDexSpot();
 }
 
 async function loadResearchMap(days=researchRangeDays) {
@@ -2627,14 +2678,19 @@ function renderSpotOverview() {
 
   if (!spotOverviewData || !Array.isArray(spotOverviewData.data)) {
     title.textContent = 'Spot 总览（无数据）';
-    tbody.innerHTML = '<tr><td colspan="13" class="na">暂无数据</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="15" class="na">暂无数据</td></tr>';
     return;
   }
 
-  const allRows = spotOverviewData.data.map(r => ({
-    ...r,
-    symbol_display: r.registry_symbol || r.native_symbol || r.symbol || ''
-  }));
+  const allRows = spotOverviewData.data.map(r => {
+    const dex = dexByUnderlying[(r.underlying || '').toUpperCase()];
+    return {
+      ...r,
+      symbol_display: r.registry_symbol || r.native_symbol || r.symbol || '',
+      dex_volume_24h: dex ? dex.volume : null,
+      dex_liquidity: dex ? dex.liquidity : null,
+    };
+  });
 
   if (!exEl.dataset.ready) {
     const appendOptions = (el, values) => {
@@ -2668,7 +2724,7 @@ function renderSpotOverview() {
     const keyByIdx = [
       'exchange', 'symbol_display', 'underlying', 'asset_class',
       'base', 'quote', 'price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p',
-      'market_type', 'timestamp'
+      'dex_volume_24h', 'dex_liquidity', 'market_type', 'timestamp'
     ];
     const ths = Array.from(document.querySelectorAll('#spot-overview-table thead th'));
     ths.forEach((th, idx) => {
@@ -2681,7 +2737,7 @@ function renderSpotOverview() {
           sovSortDir = sovSortDir === 'asc' ? 'desc' : 'asc';
         } else {
           sovSortKey = k;
-          sovSortDir = (k === 'timestamp' || k === 'price' || k === 'volume_24h_exchange' || k === 'volume_24h_reference' || k === 'depth_bid_2p' || k === 'depth_ask_2p') ? 'desc' : 'asc';
+          sovSortDir = (k === 'timestamp' || k === 'price' || k === 'volume_24h_exchange' || k === 'volume_24h_reference' || k === 'depth_bid_2p' || k === 'depth_ask_2p' || k === 'dex_volume_24h' || k === 'dex_liquidity') ? 'desc' : 'asc';
         }
         updateSpotOverviewSortHeader();
         renderSpotOverview();
@@ -2713,7 +2769,7 @@ function renderSpotOverview() {
         const tb = kb ? Date.parse(kb) : null;
         return cmpNullable(ta, tb, sovSortDir);
       }
-      if (['price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p'].includes(sovSortKey)) {
+      if (['price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p', 'dex_volume_24h', 'dex_liquidity'].includes(sovSortKey)) {
         const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
         const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
         return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, sovSortDir);
@@ -2738,6 +2794,8 @@ function renderSpotOverview() {
       <td title="Underlying traditional-market reference volume">${r.volume_24h_reference != null ? fmtOI(r.volume_24h_reference) : '<span class="na">—</span>'}</td>
       <td>${r.depth_bid_2p != null ? fmtOI(r.depth_bid_2p) : '<span class="na">—</span>'}</td>
       <td>${r.depth_ask_2p != null ? fmtOI(r.depth_ask_2p) : '<span class="na">—</span>'}</td>
+      <td>${fmtUsdCompact(r.dex_volume_24h)}</td>
+      <td>${fmtUsdCompact(r.dex_liquidity)}</td>
       <td>${r.market_type || '<span class="na">—</span>'}</td>
       <td>${r.timestamp || '<span class="na">—</span>'}</td>
     `;
@@ -2745,11 +2803,142 @@ function renderSpotOverview() {
   });
 }
 
+
+// ─────────────────────────────────────────────
+// Tab 8: DEX Spot (tokenized stocks on-chain pools)
+// ─────────────────────────────────────────────
+function fmtUsdCompact(v) {
+  if (v === null || v === undefined || v === '') return '<span class="na">—</span>';
+  const n = Number(v);
+  if (!Number.isFinite(n)) return '<span class="na">—</span>';
+  if (n === 0) return '$0';
+  return '$' + fmtOI(n);
+}
+
+async function loadDexSpot() {
+  try {
+    const res = await fetch('dex_spot_overview.json?_t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    dexSpotData = await res.json();
+  } catch (err) {
+    document.getElementById('dex-spot-meta').textContent = 'DEX 现货数据读取失败：' + err.message;
+    return;
+  }
+  dexByUnderlying = {};
+  (dexSpotData.data || []).forEach(r => {
+    const k = (r.underlying || '').toUpperCase();
+    if (!k) return;
+    const agg = dexByUnderlying[k] || (dexByUnderlying[k] = { volume: 0, liquidity: 0 });
+    agg.volume += Number(r.volume_24h_usd) || 0;
+    agg.liquidity += Number(r.liquidity_usd) || 0;
+  });
+  renderSpotOverview();
+  renderDexSpot();
+}
+
+function cexSpotVolumeByUnderlying() {
+  const out = {};
+  ((spotOverviewData && spotOverviewData.data) || []).forEach(r => {
+    const k = (r.underlying || '').toUpperCase();
+    const v = Number(r.volume_24h_exchange ?? r.volume_24h);
+    if (k && Number.isFinite(v)) out[k] = (out[k] || 0) + v;
+  });
+  return out;
+}
+
+function renderDexSpot() {
+  if (!dexSpotData) return;
+  const rowsAll = dexSpotData.data || [];
+  const meta = document.getElementById('dex-spot-meta');
+  meta.innerHTML = `快照 ${escapeHtml(new Date(dexSpotData.ts).toLocaleString())} · ${escapeHtml(dexSpotData.data_type)} · 质量等级 ${escapeHtml(dexSpotData.quality_grade)} · canonical 代币 ${dexSpotData.registry_tokens}，有池 ${dexSpotData.tokens_with_pools}
+    <details><summary>口径说明</summary>${(dexSpotData.notes || []).map(n => `<div>${escapeHtml(n)}</div>`).join('')}<div>来源：${escapeHtml(dexSpotData.source)}</div></details>`;
+
+  const sum = (rows, k) => rows.reduce((a, r) => a + (Number(r[k]) || 0), 0);
+  const totalVol = sum(rowsAll, 'volume_24h_usd'), totalLiq = sum(rowsAll, 'liquidity_usd');
+  document.getElementById('dex-spot-kpis').innerHTML = [
+    ['有池代币', rowsAll.length.toLocaleString()],
+    ['池子数', sum(rowsAll, 'pool_count').toLocaleString()],
+    ['DEX 24h 成交额', fmtUsdCompact(totalVol)],
+    ['流动性（已验证）', fmtUsdCompact(totalLiq)],
+    ['流动性（未验证，不计入）', fmtUsdCompact(sum(rowsAll, 'liquidity_unverified_usd'))],
+    ['V/L', totalLiq ? (totalVol / totalLiq).toFixed(2) : '—'],
+  ].map(([k, v]) => `<div class="kpi"><span>${k}</span><b>${v}</b></div>`).join('');
+
+  const pt = document.querySelector('#dex-product-table tbody');
+  pt.innerHTML = Object.entries(dexSpotData.products || {}).map(([name, p]) => `<tr>
+    <td>${escapeHtml(name)}</td><td>${p.tokens}</td><td>${p.pools}</td>
+    <td>${fmtUsdCompact(p.volume_24h_usd)}</td><td>${fmtUsdCompact(p.liquidity_usd)}</td>
+    <td class="low">${fmtUsdCompact(p.liquidity_unverified_usd)}</td>
+    <td>${p.liquidity_usd ? (p.volume_24h_usd / p.liquidity_usd).toFixed(2) : '—'}</td></tr>`).join('');
+
+  const qEl = document.getElementById('dex-q'), prodEl = document.getElementById('dex-product');
+  const chainEl = document.getElementById('dex-chain'), liqEl = document.getElementById('dex-min-liq');
+  if (!qEl.dataset.ready) {
+    const fill = (el, values) => values.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = v; el.appendChild(o); });
+    fill(prodEl, [...new Set(rowsAll.map(r => r.product))].sort());
+    fill(chainEl, [...new Set(rowsAll.map(r => r.chain))].sort());
+    [qEl, prodEl, chainEl, liqEl].forEach(el => el.addEventListener(el === qEl ? 'input' : 'change', renderDexSpot));
+    document.getElementById('dex-reset').addEventListener('click', () => {
+      qEl.value = ''; prodEl.value = ''; chainEl.value = ''; liqEl.value = '0';
+      dexSortKey = 'volume_24h_usd'; dexSortDir = 'desc'; renderDexSpot();
+    });
+    document.querySelectorAll('#dex-token-table thead th[data-k]').forEach(th => {
+      th.style.cursor = 'pointer';
+      th.addEventListener('click', () => {
+        const k = th.dataset.k;
+        if (dexSortKey === k) dexSortDir = dexSortDir === 'asc' ? 'desc' : 'asc';
+        else { dexSortKey = k; dexSortDir = ['symbol', 'underlying', 'product', 'chain'].includes(k) ? 'asc' : 'desc'; }
+        renderDexSpot();
+      });
+    });
+    qEl.dataset.ready = '1';
+  }
+
+  const cex = cexSpotVolumeByUnderlying();
+  const q = qEl.value.trim().toUpperCase(), minLiq = Number(liqEl.value) || 0;
+  const rows = rowsAll.filter(r => {
+    if (q && !((r.symbol || '').toUpperCase().includes(q) || (r.underlying || '').toUpperCase().includes(q))) return false;
+    if (prodEl.value && r.product !== prodEl.value) return false;
+    if (chainEl.value && r.chain !== chainEl.value) return false;
+    return (Number(r.liquidity_usd) || 0) >= minLiq;
+  }).map(r => ({ ...r, vl: r.liquidity_usd ? r.volume_24h_usd / r.liquidity_usd : null, cex_volume: cex[(r.underlying || '').toUpperCase()] ?? null }));
+  rows.sort((a, b) => cmpNullable(a[dexSortKey], b[dexSortKey], dexSortDir));
+  document.querySelectorAll('#dex-token-table thead th[data-k]').forEach(th => {
+    const base = (th.dataset.baseText || th.textContent).replace(/\s*[↑↓]$/, '');
+    th.dataset.baseText = base;
+    th.textContent = th.dataset.k === dexSortKey ? `${base} ${dexSortDir === 'asc' ? '↑' : '↓'}` : base;
+  });
+  document.getElementById('dex-spot-title').textContent = `DEX 现货（${rows.length}/${rowsAll.length} tokens）`;
+
+  const tbody = document.querySelector('#dex-token-table tbody');
+  const shown = rows.slice(0, 1500);
+  tbody.innerHTML = shown.map((r, i) => `<tr class="dex-row" data-i="${i}">
+    <td title="${escapeHtml(r.token_address)}">${escapeHtml(r.symbol || '')}</td>
+    <td>${escapeHtml(r.underlying || '')}</td><td>${escapeHtml(r.product)}</td><td>${escapeHtml(r.chain)}</td>
+    <td>${r.pool_count}${r.pools_capped ? '+' : ''}</td>
+    <td>${fmtUsdCompact(r.volume_24h_usd)}</td><td>${fmtUsdCompact(r.liquidity_usd)}</td>
+    <td class="low">${fmtUsdCompact(r.liquidity_unverified_usd)}</td>
+    <td>${r.vl != null ? r.vl.toFixed(2) : '<span class="na">—</span>'}</td>
+    <td>${r.price_usd != null ? '$' + fmt(r.price_usd, 4) : '<span class="na">—</span>'}</td>
+    <td>${fmtUsdCompact(r.cex_volume)}</td>
+    <td>${r.top_pool_url ? `<a href="${escapeHtml(r.top_pool_url)}" target="_blank" rel="noopener">${escapeHtml(r.top_dex || 'pool')}</a>` : '<span class="na">—</span>'}</td>
+  </tr>`).join('') + (rows.length > shown.length ? `<tr><td colspan="12" class="na">仅显示前 ${shown.length} 行，请用筛选缩小范围</td></tr>` : '');
+  tbody.querySelectorAll('tr.dex-row').forEach(tr => tr.addEventListener('click', () => {
+    const next = tr.nextElementSibling;
+    if (next && next.classList.contains('dex-pools')) { next.remove(); return; }
+    const r = shown[Number(tr.dataset.i)];
+    const detail = document.createElement('tr');
+    detail.className = 'dex-pools';
+    detail.innerHTML = `<td colspan="12">${(r.pools || []).map(p => `<div>${p.quote_verified ? '✓' : '⚠ 未验证'} ${escapeHtml(p.dex || '')} · ${escapeHtml(p.base_symbol || '')}/${escapeHtml(p.quote_symbol || '')} · 24h ${fmtUsdCompact(p.volume_24h_usd)} · 流动性 ${fmtUsdCompact(p.liquidity_usd)} · tx ${p.tx_count_24h ?? '—'} ${p.url ? `· <a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">pool</a>` : ''}</div>`).join('') || '无池明细'}${r.pool_count > (r.pools || []).length ? `<div class="na">按流动性显示前 ${(r.pools || []).length} / ${r.pool_count} 个池</div>` : ''}</td>`;
+    tr.after(detail);
+  }));
+}
+
 function updateSpotOverviewSortHeader() {
   const keyByIdx = [
     'exchange', 'symbol_display', 'underlying', 'asset_class',
     'base', 'quote', 'price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p',
-    'market_type', 'timestamp'
+    'dex_volume_24h', 'dex_liquidity', 'market_type', 'timestamp'
   ];
   const ths = Array.from(document.querySelectorAll('#spot-overview-table thead th'));
   ths.forEach((th, idx) => {
