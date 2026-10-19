@@ -1,7 +1,7 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-19T02:13:50.464500+00:00
-研究窗口：2026-09-18T04:00:00+00:00 至 2026-10-18T04:00:00+00:00（右端不含）。
+生成时间：2026-10-19T04:38:05.074932+00:00
+研究窗口：2026-09-19T04:00:00+00:00 至 2026-10-19T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
 
@@ -28,38 +28,38 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 
 | 标的 | 类别 | 配对 A / B | 常规盘基差中位数 bps | 非常规盘基差中位数 bps | 常规/非常规绝对P95 | 有效覆盖率 |
 | --- | --- | --- | ---: | ---: | --- | --- |
-| SNDK | 合约跨平台 | aster / futures / SNDKUSDT ↔ gateio / futures / SNDK_USDT | -2.73 | -2.53 | 16.32 / 10.79 | 69.7% / 47.3% |
-| SNDK | 合约跨平台 | aster / futures / SNDKUSDT ↔ bitget / futures / SNDKUSDT | -2.09 | -1.79 | 16.04 / 10.74 | 69.7% / 47.3% |
-| SNDK | 本所现货—合约 | okx / futures / SNDK-USDT-SWAP ↔ okx / spot / XSNDK-USDT | 6.38 | 5.78 | 13.37 / 11.74 | 71.2% / 56.5% |
-| SPCX | 合约跨平台 | aster / futures / SPCXUSDT ↔ gateio / futures / SPCX_USDT | 0.58 | 0.58 | 15.89 / 9.18 | 62.0% / 23.2% |
-| SPCX | 合约跨平台 | aster / futures / SPCXUSDT ↔ okx / futures / SPCX-USDT-SWAP | 1.33 | 1.34 | 15.58 / 8.93 | 62.0% / 23.2% |
-| SPCX | 本所现货—合约 | okx / futures / SPCX-USDT-SWAP ↔ okx / spot / XSPCX-USDT | 5.13 | 3.93 | 13.31 / 9.78 | 71.0% / 54.5% |
-| MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | 0.65 | 1.20 | 24.77 / 16.56 | 53.3% / 16.8% |
-| MU | 合约跨平台 | aster / futures / MUUSDT ↔ bitget / futures / MUUSDT | 0.19 | 1.13 | 23.85 / 16.41 | 53.3% / 16.8% |
-| MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 6.50 | 6.18 | 14.69 / 12.42 | 69.7% / 61.0% |
-| CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -3.64 | -1.24 | 25.81 / 17.98 | 63.9% / 37.1% |
-| CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ bitget / futures / CRCLUSDT | -1.20 | -1.21 | 24.66 / 17.99 | 63.9% / 37.1% |
-| CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 2.47 | 1.19 | 14.04 / 13.10 | 71.2% / 68.1% |
-| MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ bitget / futures / MSTRUSDT | -1.92 | -3.06 | 22.05 / 20.25 | 64.0% / 43.4% |
-| MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ binance / futures / MSTRUSDT | 0.29 | 0.62 | 22.34 / 19.07 | 64.0% / 43.4% |
-| MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 4.49 | 2.58 | 13.49 / 10.02 | 71.4% / 69.0% |
-| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | 1.73 | 1.33 | 12.22 / 10.39 | 44.9% / 16.9% |
-| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ okx / futures / NVDA-USDT-SWAP | 1.73 | 1.35 | 12.42 / 9.60 | 44.9% / 16.9% |
-| NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 6.51 | 6.05 | 12.85 / 11.55 | 66.8% / 52.9% |
-| INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ bitget / futures / INTCUSDT | -0.85 | 0.00 | 32.47 / 23.48 | 46.0% / 19.6% |
-| INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ gateio / futures / INTC_USDT | -0.94 | 0.86 | 33.34 / 21.36 | 46.0% / 19.6% |
-| INTC | 本所现货—合约 | okx / futures / INTC-USDT-SWAP ↔ okx / spot / XINTC-USDT | 7.08 | 6.46 | 17.12 / 14.85 | 69.4% / 56.3% |
-| TSLA | 合约跨平台 | aster / futures / TSLAUSDT ↔ bitget / futures / TSLAUSDT | -0.28 | -0.27 | 18.96 / 12.37 | 44.1% / 15.1% |
-| TSLA | 合约跨平台 | aster / futures / TSLAUSDT ↔ binance / futures / TSLAUSDT | 1.11 | 1.61 | 17.73 / 10.73 | 44.1% / 15.3% |
-| TSLA | 本所现货—合约 | okx / futures / TSLA-USDT-SWAP ↔ okx / spot / XTSLA-USDT | 7.10 | 6.58 | 14.57 / 11.87 | 68.3% / 44.1% |
-| HOOD | 合约跨平台 | aster / futures / HOODUSDT ↔ bybit / futures / HOODUSDT | 1.72 | 1.76 | 36.77 / 19.95 | 38.0% / 15.4% |
-| HOOD | 合约跨平台 | aster / futures / HOODUSDT ↔ bitget / futures / HOODUSDT | -1.85 | -2.40 | 35.26 / 20.56 | 37.9% / 15.2% |
-| HOOD | 本所现货—合约 | okx / futures / HOOD-USDT-SWAP ↔ okx / spot / XHOOD-USDT | 7.91 | 6.81 | 19.84 / 15.84 | 65.1% / 42.3% |
+| SNDK | 合约跨平台 | aster / futures / SNDKUSDT ↔ gateio / futures / SNDK_USDT | -2.67 | -2.35 | 17.74 / 12.90 | 96.3% / 69.4% |
+| SNDK | 合约跨平台 | aster / futures / SNDKUSDT ↔ bitget / futures / SNDKUSDT | -1.98 | -1.89 | 17.64 / 12.53 | 96.3% / 69.4% |
+| SNDK | 本所现货—合约 | okx / futures / SNDK-USDT-SWAP ↔ okx / spot / XSNDK-USDT | 5.22 | 4.10 | 13.22 / 11.94 | 99.7% / 82.1% |
+| SPCX | 合约跨平台 | aster / futures / SPCXUSDT ↔ gateio / futures / SPCX_USDT | 0.00 | -0.59 | 16.33 / 10.62 | 89.1% / 36.6% |
+| SPCX | 合约跨平台 | aster / futures / SPCXUSDT ↔ okx / futures / SPCX-USDT-SWAP | 1.31 | 0.67 | 15.86 / 10.22 | 89.1% / 36.6% |
+| SPCX | 本所现货—合约 | okx / futures / SPCX-USDT-SWAP ↔ okx / spot / XSPCX-USDT | 5.06 | 3.43 | 13.18 / 9.54 | 99.2% / 81.8% |
+| MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | -0.56 | -0.28 | 26.10 / 18.70 | 77.0% / 30.5% |
+| MU | 合约跨平台 | aster / futures / MUUSDT ↔ bitget / futures / MUUSDT | -0.10 | 0.18 | 24.43 / 18.12 | 77.0% / 30.4% |
+| MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 6.17 | 5.42 | 14.40 / 11.81 | 98.2% / 85.9% |
+| CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -3.62 | -2.16 | 23.89 / 17.88 | 90.8% / 51.8% |
+| CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ bitget / futures / CRCLUSDT | -1.19 | -1.17 | 23.15 / 17.97 | 90.8% / 51.6% |
+| CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 2.51 | 1.22 | 13.98 / 14.90 | 99.7% / 96.9% |
+| MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ bitget / futures / MSTRUSDT | -1.88 | -2.70 | 22.81 / 19.99 | 89.2% / 56.3% |
+| MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ binance / futures / MSTRUSDT | 0.63 | 0.65 | 22.75 / 18.93 | 89.2% / 56.3% |
+| MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 4.43 | 1.93 | 12.93 / 9.49 | 99.9% / 99.1% |
+| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | 0.43 | 0.00 | 12.76 / 10.40 | 68.0% / 27.1% |
+| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ bitget / futures / NVDAUSDT | 0.00 | -0.44 | 12.58 / 9.61 | 68.0% / 27.0% |
+| NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 6.27 | 5.54 | 13.37 / 11.31 | 94.2% / 77.1% |
+| INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ bitget / futures / INTCUSDT | -0.85 | 0.00 | 31.17 / 22.91 | 72.8% / 29.4% |
+| INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ gateio / futures / INTC_USDT | -1.66 | 0.84 | 30.95 / 21.67 | 72.8% / 29.4% |
+| INTC | 本所现货—合约 | okx / futures / INTC-USDT-SWAP ↔ okx / spot / XINTC-USDT | 6.63 | 5.91 | 17.11 / 14.10 | 97.4% / 80.9% |
+| TSLA | 合约跨平台 | aster / futures / TSLAUSDT ↔ bitget / futures / TSLAUSDT | -0.53 | 0.27 | 16.63 / 11.93 | 68.9% / 28.7% |
+| TSLA | 合约跨平台 | aster / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | -0.27 | 0.80 | 15.61 / 11.28 | 68.9% / 28.9% |
+| TSLA | 本所现货—合约 | okx / futures / TSLA-USDT-SWAP ↔ okx / spot / XTSLA-USDT | 6.58 | 6.00 | 14.10 / 11.34 | 93.9% / 65.7% |
+| HOOD | 合约跨平台 | aster / futures / HOODUSDT ↔ bybit / futures / HOODUSDT | 1.86 | 1.83 | 33.85 / 19.27 | 57.6% / 20.6% |
+| HOOD | 合约跨平台 | aster / futures / HOODUSDT ↔ bitget / futures / HOODUSDT | -0.91 | -1.75 | 33.57 / 20.02 | 57.5% / 20.2% |
+| HOOD | 本所现货—合约 | okx / futures / HOOD-USDT-SWAP ↔ okx / spot / XHOOD-USDT | 7.40 | 6.44 | 19.97 / 15.59 | 89.2% / 56.3% |
 
 ## 可比配对的整体特征
 
-- 跨平台合约：9 组配对同时达到两类时段的描述性门槛，其中 2 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 3.82 bps 变为非常规盘 3.69 bps；这是本窗口的描述性观察，不是显著性或因果结论。
-- 同平台现货—合约：没有同时达到常规盘与非常规盘覆盖门槛的配对，不能据此概括稳定规律。
+- 跨平台合约：99 组配对同时达到两类时段的描述性门槛，其中 53 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 2.06 bps 变为非常规盘 2.02 bps；这是本窗口的描述性观察，不是显著性或因果结论。
+- 同平台现货—合约：7 组配对同时达到两类时段的描述性门槛，其中 0 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 5.62 bps 变为非常规盘 5.24 bps；这是本窗口的描述性观察，不是显著性或因果结论。
 
 ## 资金费率的交易时段对比
 
@@ -67,89 +67,89 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 
 | 标的 | 平台/合约 | 常规盘8h等效中位数 % | 非常规盘8h等效中位数 % | 覆盖率 常规/非常规 |
 | --- | --- | ---: | ---: | --- |
-| CRCL | aster / futures / CRCLUSDT | 0.02207 | 0.00336 | 85.7% / 86.2% |
-| CRCL | binance / futures / CRCLUSDT | 0.01948 | 0.00113 | 100.0% / 99.3% |
-| CRCL | bitget / futures / CRCLUSDT | 0.03150 | 0.00000 | 81.0% / 83.2% |
-| CRCL | bybit / futures / CRCLUSDT | 0.01506 | 0.01067 | 76.2% / 76.1% |
+| CRCL | aster / futures / CRCLUSDT | 0.02207 | 0.00171 | 100.0% / 99.3% |
+| CRCL | binance / futures / CRCLUSDT | 0.02135 | 0.00116 | 100.0% / 99.3% |
+| CRCL | bitget / futures / CRCLUSDT | 0.02980 | 0.00000 | 100.0% / 99.3% |
+| CRCL | bybit / futures / CRCLUSDT | 0.01114 | 0.00510 | 100.0% / 99.3% |
 | CRCL | gateio / futures / CRCL_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| CRCL | hyperliquid / futures / xyz:CRCL | 0.01213 | 0.00840 | 100.0% / 99.8% |
-| CRCL | lighter / futures / CRCL | 0.01120 | 0.00480 | 100.0% / 99.8% |
-| CRCL | okx / futures / CRCL-USDT-SWAP | 0.01720 | 0.01312 | 71.4% / 69.0% |
-| HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 100.0% / 95.2% |
-| HOOD | binance / futures / HOODUSDT | 0.00147 | 0.00000 | 100.0% / 95.2% |
-| HOOD | bitget / futures / HOODUSDT | 0.02620 | 0.00000 | 71.4% / 69.0% |
-| HOOD | bybit / futures / HOODUSDT | 0.00938 | 0.00000 | 76.2% / 72.0% |
+| CRCL | hyperliquid / futures / xyz:CRCL | 0.01254 | 0.00806 | 100.0% / 99.8% |
+| CRCL | lighter / futures / CRCL | 0.00840 | 0.00320 | 100.0% / 99.8% |
+| CRCL | okx / futures / CRCL-USDT-SWAP | 0.01519 | 0.00286 | 100.0% / 99.3% |
+| HOOD | aster / futures / HOODUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| HOOD | binance / futures / HOODUSDT | 0.00147 | 0.00000 | 100.0% / 99.3% |
+| HOOD | bitget / futures / HOODUSDT | 0.02190 | 0.00000 | 100.0% / 99.3% |
+| HOOD | bybit / futures / HOODUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| HOOD | hyperliquid / futures / xyz:HOOD | 0.00500 | 0.00500 | 100.0% / 99.8% |
-| HOOD | lighter / futures / HOOD | 0.00640 | 0.00320 | 100.0% / 99.8% |
-| HOOD | okx / futures / HOOD-USDT-SWAP | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| INTC | aster / futures / INTCUSDT | 0.00276 | 0.00000 | 90.5% / 89.2% |
-| INTC | binance / futures / INTCUSDT | 0.01309 | 0.00455 | 100.0% / 99.3% |
-| INTC | bitget / futures / INTCUSDT | 0.02840 | 0.00000 | 71.4% / 69.0% |
-| INTC | bybit / futures / INTCUSDT | 0.01059 | 0.00472 | 76.2% / 72.0% |
+| HOOD | hyperliquid / futures / xyz:HOOD | 0.00521 | 0.00500 | 100.0% / 99.8% |
+| HOOD | lighter / futures / HOOD | 0.00680 | 0.00320 | 100.0% / 99.8% |
+| HOOD | okx / futures / HOOD-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| INTC | aster / futures / INTCUSDT | 0.00276 | 0.00000 | 100.0% / 99.3% |
+| INTC | binance / futures / INTCUSDT | 0.01327 | 0.00443 | 100.0% / 99.3% |
+| INTC | bitget / futures / INTCUSDT | 0.03010 | 0.00000 | 100.0% / 99.3% |
+| INTC | bybit / futures / INTCUSDT | 0.01488 | 0.00667 | 100.0% / 99.3% |
 | INTC | gateio / futures / INTC_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| INTC | hyperliquid / futures / xyz:INTC | 0.01044 | 0.00693 | 100.0% / 99.8% |
+| INTC | hyperliquid / futures / xyz:INTC | 0.01035 | 0.00661 | 100.0% / 99.8% |
 | INTC | lighter / futures / INTC | 0.00800 | 0.00480 | 100.0% / 99.8% |
-| INTC | okx / futures / INTC-USDT-SWAP | 0.00503 | 0.00159 | 71.4% / 69.0% |
-| MSTR | aster / futures / MSTRUSDT | 0.00000 | 0.00000 | 95.2% / 92.2% |
-| MSTR | binance / futures / MSTRUSDT | 0.00280 | 0.00000 | 100.0% / 95.2% |
-| MSTR | bitget / futures / MSTRUSDT | 0.02900 | 0.00000 | 71.4% / 69.0% |
-| MSTR | bybit / futures / MSTRUSDT | 0.01877 | 0.01126 | 76.2% / 76.1% |
+| INTC | okx / futures / INTC-USDT-SWAP | 0.00839 | 0.00258 | 100.0% / 99.3% |
+| MSTR | aster / futures / MSTRUSDT | 0.00016 | 0.00000 | 100.0% / 99.3% |
+| MSTR | binance / futures / MSTRUSDT | 0.00495 | 0.00000 | 100.0% / 99.3% |
+| MSTR | bitget / futures / MSTRUSDT | 0.02710 | 0.00000 | 100.0% / 99.3% |
+| MSTR | bybit / futures / MSTRUSDT | 0.00887 | 0.00915 | 100.0% / 99.3% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| MSTR | hyperliquid / futures / xyz:MSTR | 0.01219 | 0.01041 | 100.0% / 99.8% |
+| MSTR | hyperliquid / futures / xyz:MSTR | 0.01254 | 0.00947 | 100.0% / 99.8% |
 | MSTR | lighter / futures / MSTR | 0.00320 | 0.00320 | 100.0% / 99.8% |
-| MSTR | okx / futures / MSTR-USDT-SWAP | 0.00773 | 0.00000 | 71.4% / 69.0% |
-| MU | aster / futures / MUUSD1 | 0.00000 | 0.00000 | 97.1% / 99.3% |
-| MU | aster / futures / MUUSDT | 0.00366 | 0.00000 | 71.4% / 69.0% |
-| MU | binance / futures / MUUSDT | 0.00416 | 0.00000 | 92.3% / 92.2% |
-| MU | bitget / futures / MUUSDT | 0.00980 | 0.00000 | 71.4% / 69.0% |
-| MU | bybit / futures / MUUSDT | 0.00000 | 0.00000 | 76.2% / 72.0% |
+| MSTR | okx / futures / MSTR-USDT-SWAP | 0.00112 | 0.00000 | 100.0% / 99.3% |
+| MU | aster / futures / MUUSD1 | 0.00000 | 0.00000 | 96.9% / 99.3% |
+| MU | aster / futures / MUUSDT | 0.00338 | 0.00000 | 96.9% / 99.3% |
+| MU | binance / futures / MUUSDT | 0.00437 | 0.00000 | 96.9% / 99.3% |
+| MU | bitget / futures / MUUSDT | 0.01290 | 0.00000 | 100.0% / 99.3% |
+| MU | bybit / futures / MUUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MU | gateio / futures / MU_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MU | hyperliquid / futures / xyz:MU | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | MU | lighter / futures / MU | 0.00320 | 0.00320 | 100.0% / 99.8% |
-| MU | okx / futures / MU-USDT-SWAP | 0.00214 | 0.00000 | 71.4% / 69.0% |
-| NVDA | aster / futures / NVDAUSDT | 0.00624 | 0.00000 | 90.5% / 89.2% |
-| NVDA | binance / futures / NVDAUSDT | 0.01321 | 0.00707 | 95.2% / 92.2% |
-| NVDA | bitget / futures / NVDAUSDT | 0.01780 | 0.00000 | 71.4% / 69.0% |
-| NVDA | bybit / futures / NVDAUSDT | 0.00000 | 0.00000 | 71.4% / 69.0% |
+| MU | okx / futures / MU-USDT-SWAP | 0.00275 | 0.00000 | 100.0% / 99.3% |
+| NVDA | aster / futures / NVDAUSDT | 0.00569 | 0.00000 | 100.0% / 99.3% |
+| NVDA | binance / futures / NVDAUSDT | 0.01286 | 0.00466 | 100.0% / 99.3% |
+| NVDA | bitget / futures / NVDAUSDT | 0.01670 | 0.00000 | 100.0% / 99.3% |
+| NVDA | bybit / futures / NVDAUSDT | 0.00013 | 0.00000 | 100.0% / 99.3% |
 | NVDA | gateio / futures / NVDA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | NVDA | hyperliquid / futures / xyz:NVDA | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | NVDA | lighter / futures / NVDA | 0.00320 | 0.00320 | 100.0% / 99.8% |
-| NVDA | okx / futures / NVDA-USDT-SWAP | 0.00312 | 0.00000 | 71.4% / 69.0% |
-| SKHY | aster / futures / SKHYUSDT | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SKHY | binance / futures / SKHYUSDT | 0.00000 | 0.00000 | 81.0% / 83.2% |
-| SKHY | bitget / futures / SKHYUSDT | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SKHY | bybit / futures / SKHYUSDT | 0.00000 | 0.00000 | 76.2% / 72.0% |
+| NVDA | okx / futures / NVDA-USDT-SWAP | 0.00202 | 0.00000 | 100.0% / 99.3% |
+| SKHY | aster / futures / SKHYUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SKHY | binance / futures / SKHYUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SKHY | bitget / futures / SKHYUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SKHY | bybit / futures / SKHYUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SKHY | gateio / futures / SKHY_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SKHY | lighter / futures / SKHY | -0.00640 | 0.00320 | 100.0% / 99.8% |
-| SKHY | okx / futures / SKHY-USDT-SWAP | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SNDK | aster / futures / SNDKUSD1 | 0.00000 | 0.00000 | 100.0% / 95.2% |
-| SNDK | aster / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 95.2% |
-| SNDK | binance / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 95.2% |
-| SNDK | bitget / futures / SNDKUSDT | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SNDK | bybit / futures / SNDKUSDT | 0.00000 | 0.00000 | 71.4% / 69.0% |
+| SKHY | okx / futures / SKHY-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SNDK | aster / futures / SNDKUSD1 | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SNDK | aster / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SNDK | binance / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SNDK | bitget / futures / SNDKUSDT | 0.01115 | 0.00000 | 100.0% / 99.3% |
+| SNDK | bybit / futures / SNDKUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SNDK | gateio / futures / SNDK_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SNDK | hyperliquid / futures / xyz:SNDK | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | SNDK | lighter / futures / SNDK | 0.00320 | 0.00320 | 100.0% / 99.8% |
-| SNDK | okx / futures / SNDK-USDT-SWAP | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SPCX | aster / futures / SPCXUSD1 | 0.00000 | 0.00000 | 76.2% / 80.2% |
-| SPCX | aster / futures / SPCXUSDT | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| SPCX | binance / futures / SPCXUSDT | 0.00000 | 0.00000 | 81.0% / 83.2% |
-| SPCX | bitget / futures / SPCXUSDT | 0.01500 | 0.00000 | 85.7% / 86.2% |
-| SPCX | bybit / futures / SPCXUSDT | 0.00000 | 0.00000 | 76.2% / 72.0% |
+| SNDK | okx / futures / SNDK-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SPCX | aster / futures / SPCXUSD1 | 0.00816 | 0.00000 | 100.0% / 99.3% |
+| SPCX | aster / futures / SPCXUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SPCX | binance / futures / SPCXUSD1 | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| SPCX | binance / futures / SPCXUSDT | 0.01055 | 0.00000 | 100.0% / 99.3% |
+| SPCX | bitget / futures / SPCXUSDT | 0.01980 | 0.00000 | 100.0% / 99.3% |
+| SPCX | bybit / futures / SPCXUSDT | 0.00199 | 0.00000 | 100.0% / 99.3% |
 | SPCX | gateio / futures / SPCX_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | SPCX | hyperliquid / futures / xyz:SPCX | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | SPCX | lighter / futures / SPCX | 0.00320 | 0.00320 | 100.0% / 99.8% |
-| SPCX | okx / futures / SPCX-USDT-SWAP | 0.00000 | 0.00000 | 71.4% / 69.0% |
-| TSLA | aster / futures / TSLAUSDT | 0.00116 | 0.00000 | 71.4% / 69.0% |
-| TSLA | binance / futures / TSLAUSDT | 0.00000 | 0.00000 | 95.2% / 92.2% |
-| TSLA | bitget / futures / TSLAUSDT | 0.01300 | 0.00000 | 71.4% / 69.0% |
-| TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 76.2% / 72.0% |
+| SPCX | okx / futures / SPCX-USDT-SWAP | 0.00167 | 0.00000 | 100.0% / 99.3% |
+| TSLA | aster / futures / TSLAUSDT | 0.00237 | 0.00000 | 100.0% / 99.3% |
+| TSLA | binance / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
+| TSLA | bitget / futures / TSLAUSDT | 0.00510 | 0.00000 | 100.0% / 99.3% |
+| TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | hyperliquid / futures / xyz:TSLA | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | TSLA | lighter / futures / TSLA | 0.00320 | 0.00320 | 100.0% / 99.8% |
-| TSLA | okx / futures / TSLA-USDT-SWAP | 0.00000 | 0.00000 | 71.4% / 69.0% |
+| TSLA | okx / futures / TSLA-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
 
 本窗口本地事件库记录：MU 2026-10-14 除息。事件库不是完整性保证。
 
