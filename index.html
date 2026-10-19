@@ -861,7 +861,7 @@
     <div class="dex-kpis" id="dex-spot-kpis"></div>
     <div class="ic-section">
       <h3>按发行方</h3>
-      <div style="overflow:auto"><table class="data-table" id="dex-product-table"><thead><tr><th>product</th><th>tokens</th><th>pools</th><th>24h volume</th><th>liquidity (verified)</th><th>liquidity (unverified)</th><th>V/L</th></tr></thead><tbody></tbody></table></div>
+      <div style="overflow:auto"><table class="data-table" id="dex-product-table"><thead><tr><th>product</th><th>tokens</th><th>pools</th><th>24h volume</th><th>liquidity (verified)</th><th>liquidity (unverified)</th><th>24h volume (unverified)</th><th>V/L</th></tr></thead><tbody></tbody></table></div>
     </div>
     <div class="overview-filters">
       <input id="dex-q" placeholder="筛选 symbol / underlying" />
@@ -878,7 +878,7 @@
         <thead><tr>
           <th data-k="symbol">symbol</th><th data-k="underlying">underlying</th><th data-k="product">product</th><th data-k="chain">chain</th>
           <th data-k="pool_count" title="已索引池数量；30+ 表示 DexScreener 截断，长尾池可能更多">pools</th>
-          <th data-k="volume_24h_usd">24h volume</th>
+          <th data-k="volume_24h_usd" title="仅已验证池；未验证池成交额见行展开">24h volume</th>
           <th data-k="liquidity_usd" title="对手资产为主流报价资产或 canonical 代币化股票的池，两侧资产美元总价值">liquidity (verified)</th>
           <th data-k="liquidity_unverified_usd" title="对手资产无法验证的池，可能为伪造报价资产，不计入主口径">liquidity (unverified)</th>
           <th data-k="vl">V/L</th><th data-k="price_usd">price</th>
@@ -2861,6 +2861,7 @@ function renderDexSpot() {
     ['DEX 24h 成交额', fmtUsdCompact(totalVol)],
     ['流动性（已验证）', fmtUsdCompact(totalLiq)],
     ['流动性（未验证，不计入）', fmtUsdCompact(sum(rowsAll, 'liquidity_unverified_usd'))],
+    ['成交额（未验证，不计入）', fmtUsdCompact(sum(rowsAll, 'volume_unverified_usd'))],
     ['V/L', totalLiq ? (totalVol / totalLiq).toFixed(2) : '—'],
   ].map(([k, v]) => `<div class="kpi"><span>${k}</span><b>${v}</b></div>`).join('');
 
@@ -2869,6 +2870,7 @@ function renderDexSpot() {
     <td>${escapeHtml(name)}</td><td>${p.tokens}</td><td>${p.pools}</td>
     <td>${fmtUsdCompact(p.volume_24h_usd)}</td><td>${fmtUsdCompact(p.liquidity_usd)}</td>
     <td class="low">${fmtUsdCompact(p.liquidity_unverified_usd)}</td>
+    <td class="low">${fmtUsdCompact(p.volume_unverified_usd)}</td>
     <td>${p.liquidity_usd ? (p.volume_24h_usd / p.liquidity_usd).toFixed(2) : '—'}</td></tr>`).join('');
 
   const qEl = document.getElementById('dex-q'), prodEl = document.getElementById('dex-product');
