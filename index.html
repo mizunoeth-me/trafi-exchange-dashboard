@@ -2916,14 +2916,14 @@ function renderDexSpot() {
   const shown = rows.slice(0, 1500);
   tbody.innerHTML = shown.map((r, i) => `<tr class="dex-row" data-i="${i}">
     <td title="${escapeHtml(r.token_address)}">${escapeHtml(r.symbol || '')}</td>
-    <td>${escapeHtml(r.underlying || '')}</td><td>${escapeHtml(r.product)}</td><td>${escapeHtml(r.chain)}</td>
+    <td>${escapeHtml(r.underlying || '')}</td><td style="white-space:nowrap">${escapeHtml(r.product)}</td><td>${escapeHtml(r.chain)}</td>
     <td>${r.pool_count}${r.pools_capped ? '+' : ''}</td>
     <td>${fmtUsdCompact(r.volume_24h_usd)}</td><td>${fmtUsdCompact(r.liquidity_usd)}</td>
     <td class="low">${fmtUsdCompact(r.liquidity_unverified_usd)}</td>
     <td>${r.vl != null ? r.vl.toFixed(2) : '<span class="na">—</span>'}</td>
     <td>${r.price_usd != null ? '$' + fmt(r.price_usd, 4) : '<span class="na">—</span>'}</td>
     <td>${fmtUsdCompact(r.cex_volume)}</td>
-    <td>${r.top_pool_url ? `<a href="${escapeHtml(r.top_pool_url)}" target="_blank" rel="noopener">${escapeHtml(r.top_dex || 'pool')}</a>` : '<span class="na">—</span>'}</td>
+    <td>${r.top_pool_url ? `<a href="${escapeHtml(r.top_pool_url)}" target="_blank" rel="noopener" style="color:var(--accent)">${escapeHtml(r.top_dex || 'pool')}</a>` : '<span class="na">—</span>'}</td>
   </tr>`).join('') + (rows.length > shown.length ? `<tr><td colspan="12" class="na">仅显示前 ${shown.length} 行，请用筛选缩小范围</td></tr>` : '');
   tbody.querySelectorAll('tr.dex-row').forEach(tr => tr.addEventListener('click', () => {
     const next = tr.nextElementSibling;
