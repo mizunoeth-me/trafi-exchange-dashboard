@@ -464,6 +464,15 @@
     <span><span class="status-dot"></span>本地动态 + 研究快照</span>
     <span id="fs-ts"></span>
     <span id="ic-ts"></span>
+    <span id="refresh-controls" style="display:none">
+      <select id="refresh-mode" title="选择刷新范围">
+        <option value="market">行情（约 3 分钟）</option>
+        <option value="research">DEX / 研究（约 1 小时）</option>
+      </select>
+      <button id="refresh-btn">刷新数据</button>
+      <span id="refresh-status" class="table-note"></span>
+    </span>
+    <span id="refresh-public-note" class="table-note" style="display:none">数据每天 09:00 / 21:00（北京时间）自动更新；按需刷新请在内网看板操作</span>
   </div>
 </header>
 
@@ -1180,7 +1189,8 @@ async function loadData() {
     const stale = quality.contracts.filter(r => !r.latest || now-Date.parse(r.latest)>quality.stale_after_minutes*60000);
     const missingFields = quality.contracts.filter(r => (r.missing_fields || []).length);
     const badSources = quality.sources.filter(r => r.status !== 'ok' || !r.last_success || now-Date.parse(r.last_success)>30*3600000);
-    document.getElementById('data-quality').innerHTML = `<strong>数据覆盖</strong>：行情 ${quality.contracts.length-stale.length}/${quality.contracts.length} 项在 ${quality.stale_after_minutes} 分钟内更新；目标每 ${quality.quote_target_minutes} 分钟采集。${missingFields.length ? ` ${missingFields.length} 个合约存在缺失字段。` : ''}核验 ${escapeHtml(new Date(quality.checked_at).toLocaleString())}。
+    const fmtMinutes = m => m >= 60 ? `${+(m / 60).toFixed(1)} 小时` : `${m} 分钟`;
+    document.getElementById('data-quality').innerHTML = `<strong>数据覆盖</strong>：行情 ${quality.contracts.length-stale.length}/${quality.contracts.length} 项在 ${fmtMinutes(quality.stale_after_minutes)} 内更新；定时每天 09:00 / 21:00（北京时间）采集，内网看板可按需刷新。${missingFields.length ? ` ${missingFields.length} 个合约存在缺失字段。` : ''}核验 ${escapeHtml(new Date(quality.checked_at).toLocaleString())}。
       <details><summary>查看 ${stale.length} 项行情缺失／滞后、${badSources.length} 项研究来源覆盖限制／异常及历史覆盖</summary>
       <p>已结算费率与预测快照分开展示；无记录不填零。指数图使用真实指数价格；部分平台仅有采样历史。</p>
       ${stale.map(r => `<div>${escapeHtml(r.exchange+':'+r.symbol)}：${escapeHtml(r.latest || '无记录')}</div>`).join('')}
@@ -2935,6 +2945,78 @@ function renderDexSpot() {
     tr.after(detail);
   }));
 }
+
+
+// ─────────────────────────────────────────────
+// On-demand refresh (local server only; GitHub Pages is static)
+// ─────────────────────────────────────────────
+const REFRESH_STEP_LABELS = {
+  quotes: '采集行情', build_market: '构建看板数据', coverage: '覆盖率检查', validate_market: '校验', publish_market: '发布到 GitHub Pages',
+  metadata: '刷新交易对清单', dynamic_research: '研究数据', dex_spot: 'DEX 现货', issuance: '发行数据', research_history: '研究历史',
+  basis_all: '基差采集', basis_build_all: '基差构建', basis_cex: 'CEX 基差采集', basis_build_cex: 'CEX 基差构建', publish_research: '发布到 GitHub Pages',
+};
+let refreshPollTimer = null;
+
+function describeRefresh(state) {
+  if (!state) return '';
+  const steps = state.steps || [];
+  const last = steps[steps.length - 1];
+  if (state.running) {
+    const done = steps.map(s => REFRESH_STEP_LABELS[s.step] || s.step).join(' → ');
+    return `运行中（开始于 ${new Date(state.started_at).toLocaleTimeString()}）${done ? '：已完成 ' + done : ''}`;
+  }
+  if (!state.finished_at) return '';
+  const failed = steps.filter(s => s.exit_code !== 0).map(s => REFRESH_STEP_LABELS[s.step] || s.step);
+  return `上次 ${new Date(state.finished_at).toLocaleString()} ${state.status === 'ok' ? '完成' : '部分失败：' + failed.join('、')}`;
+}
+
+async function pollRefresh(mode, reloadWhenDone) {
+  clearTimeout(refreshPollTimer);
+  const btn = document.getElementById('refresh-btn');
+  const statusEl = document.getElementById('refresh-status');
+  try {
+    const status = await (await fetch('/api/refresh/status?_t=' + Date.now())).json();
+    const state = status[mode];
+    statusEl.textContent = describeRefresh(state);
+    btn.disabled = !!state.running;
+    if (state.running) {
+      refreshPollTimer = setTimeout(() => pollRefresh(mode, true), 5000);
+    } else if (reloadWhenDone) {
+      statusEl.textContent = describeRefresh(state) + '，正在重新加载页面…';
+      setTimeout(() => location.reload(), 1500);
+    }
+  } catch (err) {
+    statusEl.textContent = '状态读取失败：' + err.message;
+    btn.disabled = false;
+  }
+}
+
+function initRefreshControls() {
+  if (location.hostname.endsWith('.github.io')) {
+    document.getElementById('refresh-public-note').style.display = '';
+    return;
+  }
+  document.getElementById('refresh-controls').style.display = '';
+  const modeEl = document.getElementById('refresh-mode');
+  const btn = document.getElementById('refresh-btn');
+  modeEl.addEventListener('change', () => pollRefresh(modeEl.value, false));
+  btn.addEventListener('click', async () => {
+    const mode = modeEl.value;
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/refresh?mode=' + mode, { method: 'POST' });
+      const body = await res.json();
+      document.getElementById('refresh-status').textContent = res.status === 409 ? '已有同类刷新在运行，显示其进度…' : '已启动…';
+      if (res.status >= 400 && res.status !== 409) throw new Error(body.error || res.status);
+      setTimeout(() => pollRefresh(mode, true), 2000);
+    } catch (err) {
+      document.getElementById('refresh-status').textContent = '启动失败：' + err.message;
+      btn.disabled = false;
+    }
+  });
+  pollRefresh(modeEl.value, false);
+}
+initRefreshControls();
 
 function updateSpotOverviewSortHeader() {
   const keyByIdx = [
