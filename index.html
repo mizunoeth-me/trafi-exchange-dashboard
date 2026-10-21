@@ -154,6 +154,11 @@
   .dex-kpis .kpi { background: var(--surface); border:1px solid var(--border); border-radius:8px; padding:10px 14px; min-width:160px; }
   .dex-kpis .kpi b { display:block; font-size:18px; margin-top:4px; }
   .dex-kpis .kpi span { color: var(--muted); font-size:11px; }
+  /* DEX tab stacks KPIs, issuer table and filters above the token list; a fixed-height
+     flex panel squeezed the list to 0px on short windows, so this panel grows and main scrolls. */
+  #panel-8.active { height: auto; }
+  #dex-token-wrap { overflow: auto; max-height: 80vh; min-height: 360px; flex: none; }
+  #dex-token-table thead th { position: sticky; top: 0; background: var(--surface); z-index: 1; }
   #dex-token-table tr.dex-pools td { background:#0d1117; font-size:11px; text-align:left; }
   #dex-token-table tbody tr.dex-row { cursor:pointer; }
 
@@ -882,7 +887,7 @@
       </select>
       <button id="dex-reset">重置筛选</button>
     </div>
-    <div style="overflow:auto; flex:1;">
+    <div id="dex-token-wrap">
       <table class="data-table" id="dex-token-table">
         <thead><tr>
           <th data-k="symbol">symbol</th><th data-k="underlying">underlying</th><th data-k="product">product</th><th data-k="chain">chain</th>
