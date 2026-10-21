@@ -78,7 +78,7 @@ MSTR,bitget|spot|RMSTRUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 MSTR,okx|futures|MSTR-USDT-SWAP,8640,8638,8640,0.9997685185185186,1789876800000,1792468500000,90,0.0062870506397937,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,gateio|futures|MSTR_USDT,8640,8640,8640,1.0,1789876800000,1792468500000,90,0.010267,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,bitget|futures|MSTRUSDT,8640,8640,8640,1.0,1789876800000,1792468500000,90,0.014602,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-MSTR,hyperliquid|futures|xyz:MSTR,8352,8119,8640,0.939699074074074,1789876800000,1792382100000,720,0.0108783002,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+MSTR,hyperliquid|futures|xyz:MSTR,8640,8396,8640,0.9717592592592592,1789876800000,1792468500000,720,0.0108783002,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,lighter|futures|MSTR,8640,7452,8640,0.8625,1789876800000,1792468500000,720,0.0070940000000000005,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,aster|futures|MSTRUSDT,8640,5398,8640,0.6247685185185186,1789876800000,1792468500000,90,0.0063419,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,binance|futures|MSTRUSDT,8640,8640,8640,1.0,1789876800000,1792468500000,90,0.00737006,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
