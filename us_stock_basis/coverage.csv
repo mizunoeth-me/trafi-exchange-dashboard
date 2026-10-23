@@ -36,7 +36,7 @@ MU,bitget|spot|RMUUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitg
 MU,okx|futures|MU-USDT-SWAP,8640,8640,8640,1.0,1790049600000,1792641300000,90,0.0054686218328244,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,gateio|futures|MU_USDT,8640,8639,8640,0.9998842592592593,1790049600000,1792641300000,90,0.0019399999999999999,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,bitget|futures|MUUSDT,8640,8635,8640,0.9994212962962963,1790049600000,1792641300000,90,0.007247,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-MU,hyperliquid|futures|xyz:MU,8352,8342,8640,0.9655092592592592,1790049600000,1792554900000,720,0.0070842757,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+MU,hyperliquid|futures|xyz:MU,8640,8630,8640,0.9988425925925926,1790049600000,1792641300000,720,0.0070842757,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,lighter|futures|MU,8640,8241,8640,0.9538194444444444,1790049600000,1792641300000,720,0.00503,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,aster|futures|MUUSD1,8640,8625,8640,0.9982638888888888,1790049600000,1792641300000,94,0.0027520400000000003,93,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,aster|futures|MUUSDT,8640,3741,8640,0.4329861111111111,1790049600000,1792641300000,94,0.00546732,93,registry_per_share,已取得实际结算,,5m_trade_close_proxy
