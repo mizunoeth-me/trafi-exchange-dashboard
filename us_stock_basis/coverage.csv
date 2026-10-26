@@ -120,7 +120,7 @@ TSLA,bitget|spot|RTSLAUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 TSLA,okx|futures|TSLA-USDT-SWAP,8640,8545,8640,0.9890046296296297,1790308800000,1792900500000,90,0.0055434553953274,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,gateio|futures|TSLA_USDT,8640,8625,8640,0.9982638888888888,1790308800000,1792900500000,90,0.004141,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,bitget|futures|TSLAUSDT,8640,8447,8640,0.977662037037037,1790308800000,1792900500000,90,0.010641,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-TSLA,hyperliquid|futures|xyz:TSLA,8352,8314,8640,0.9622685185185185,1790308800000,1792814100000,720,0.0069002357,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+TSLA,hyperliquid|futures|xyz:TSLA,8640,8597,8640,0.9950231481481482,1790308800000,1792900500000,720,0.0069002357,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,lighter|futures|TSLA,8640,8256,8640,0.9555555555555556,1790308800000,1792900500000,720,0.005683,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,aster|futures|TSLAUSDT,8640,3761,8640,0.43530092592592595,1790308800000,1792900500000,90,0.0061220400000000005,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,binance|futures|TSLAUSDT,8640,8640,8640,1.0,1790308800000,1792900500000,90,0.0055968699999999994,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
