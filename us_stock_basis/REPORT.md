@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-29T14:17:13.528640+00:00
+生成时间：2026-10-30T02:21:51.037624+00:00
 研究窗口：2026-09-29T04:00:00+00:00 至 2026-10-29T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -43,7 +43,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ binance / futures / MSTRUSDT | 1.28 | 2.04 | 24.90 / 18.70 | 84.6% / 54.6% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ okx / futures / MSTR-USDT-SWAP | 0.73 | 1.95 | 24.99 / 18.59 | 84.6% / 54.6% |
 | MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 4.29 | 2.09 | 11.76 / 9.49 | 99.9% / 99.1% |
-| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -0.92 | -0.93 | 14.36 / 10.78 | 64.9% / 31.1% |
+| NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -1.26 | -1.24 | 14.67 / 10.86 | 67.6% / 32.2% |
 | NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ okx / futures / NVDA-USDT-SWAP | 0.00 | 0.42 | 14.70 / 10.37 | 67.6% / 32.2% |
 | NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 5.89 | 5.43 | 13.04 / 11.06 | 92.6% / 82.1% |
 | INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ gateio / futures / INTC_USDT | -2.29 | 0.00 | 28.06 / 22.42 | 76.4% / 33.2% |

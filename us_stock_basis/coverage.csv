@@ -22,7 +22,7 @@ SPCX,bitget|spot|RSPCXUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 SPCX,okx|futures|SPCX-USDT-SWAP,8640,8636,8640,0.999537037037037,1790654400000,1793246100000,90,0.0049032785196665,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,gateio|futures|SPCX_USDT,8640,8640,8640,1.0,1790654400000,1793246100000,90,0.001004,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,bitget|futures|SPCXUSDT,8640,8563,8640,0.991087962962963,1790654400000,1793246100000,90,0.009107,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-SPCX,hyperliquid|futures|xyz:SPCX,8352,8350,8640,0.9664351851851852,1790654400000,1793159700000,720,0.0051992621,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+SPCX,hyperliquid|futures|xyz:SPCX,8640,8638,8640,0.9997685185185186,1790654400000,1793246100000,720,0.0051992621,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,lighter|futures|SPCX,8640,8535,8640,0.9878472222222222,1790654400000,1793246100000,720,0.006155,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,aster|futures|SPCXUSD1,8640,7899,8640,0.9142361111111111,1790654400000,1793246100000,90,0.00644971,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SPCX,aster|futures|SPCXUSDT,8640,5005,8640,0.5792824074074074,1790654400000,1793246100000,90,0.0053004,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
@@ -36,7 +36,7 @@ MU,bitget|spot|RMUUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitg
 MU,okx|futures|MU-USDT-SWAP,8640,8640,8640,1.0,1790654400000,1793246100000,90,0.0065776857070629,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,gateio|futures|MU_USDT,8640,8639,8640,0.9998842592592593,1790654400000,1793246100000,90,0.002453,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,bitget|futures|MUUSDT,8640,8639,8640,0.9998842592592593,1790654400000,1793246100000,90,0.008234,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-MU,hyperliquid|futures|xyz:MU,8352,8346,8640,0.9659722222222222,1790654400000,1793159700000,720,0.0069233643,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+MU,hyperliquid|futures|xyz:MU,8640,8634,8640,0.9993055555555556,1790654400000,1793246100000,720,0.0069233643,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,lighter|futures|MU,8640,8418,8640,0.9743055555555555,1790654400000,1793246100000,720,0.005032,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,aster|futures|MUUSD1,8640,8634,8640,0.9993055555555556,1790654400000,1793246100000,94,0.00207776,93,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MU,aster|futures|MUUSDT,8640,4050,8640,0.46875,1790654400000,1793246100000,94,0.00541877,93,registry_per_share,已取得实际结算,,5m_trade_close_proxy
@@ -78,7 +78,7 @@ MSTR,bitget|spot|RMSTRUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,
 MSTR,okx|futures|MSTR-USDT-SWAP,8640,8638,8640,0.9997685185185186,1790654400000,1793246100000,90,0.003758586132605,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,gateio|futures|MSTR_USDT,8640,8640,8640,1.0,1790654400000,1793246100000,90,0.007114,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,bitget|futures|MSTRUSDT,8640,8640,8640,1.0,1790654400000,1793246100000,90,0.010946000000000001,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-MSTR,hyperliquid|futures|xyz:MSTR,8352,8063,8640,0.9332175925925926,1790654400000,1793159700000,720,0.0089567229,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+MSTR,hyperliquid|futures|xyz:MSTR,8640,8336,8640,0.9648148148148148,1790654400000,1793246100000,720,0.0089567229,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,lighter|futures|MSTR,8640,7432,8640,0.8601851851851852,1790654400000,1793246100000,720,0.0047279999999999996,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,aster|futures|MSTRUSDT,8640,5230,8640,0.6053240740740741,1790654400000,1793246100000,90,0.0064186700000000005,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 MSTR,binance|futures|MSTRUSDT,8640,8640,8640,1.0,1790654400000,1793246100000,90,0.00379945,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
@@ -91,7 +91,7 @@ NVDA,binance|spot|NVDABUSDT,8640,8631,8640,0.9989583333333333,1790654400000,1793
 NVDA,bybit|spot|NVDAXUSDT,8640,4993,8640,0.5778935185185186,1790654400000,1793246100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 NVDA,bitget|spot|RNVDAUSDT,0,0,8640,0.0,,,0,,0,share_ratio_unverified,不适用,Bitget rToken K线可能为参考市场；不纳入交易价历史,5m_trade_close_proxy
 NVDA,okx|futures|NVDA-USDT-SWAP,8640,8601,8640,0.9954861111111111,1790654400000,1793246100000,90,0.0027707961447426,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-NVDA,gateio|futures|NVDA_USDT,8352,8352,8640,0.9666666666666667,1790654400000,1793159700000,90,0.0007379999999999999,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+NVDA,gateio|futures|NVDA_USDT,8640,8640,8640,1.0,1790654400000,1793246100000,90,0.0007379999999999999,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 NVDA,bitget|futures|NVDAUSDT,8640,8513,8640,0.9853009259259259,1790654400000,1793246100000,90,0.004833,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 NVDA,hyperliquid|futures|xyz:NVDA,8640,8640,8640,1.0,1790654400000,1793246100000,720,0.0047907188000000005,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 NVDA,lighter|futures|NVDA,8640,8616,8640,0.9972222222222222,1790654400000,1793246100000,720,0.004095,720,registry_per_share,已取得实际结算,,5m_trade_close_proxy
