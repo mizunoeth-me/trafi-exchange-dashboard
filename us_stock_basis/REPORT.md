@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-10-30T14:25:14.386023+00:00
+生成时间：2026-10-31T01:51:20.753745+00:00
 研究窗口：2026-09-30T04:00:00+00:00 至 2026-10-30T04:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -96,7 +96,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MSTR | bitget / futures / MSTRUSDT | 0.02470 | 0.00000 | 100.0% / 99.3% |
 | MSTR | bybit / futures / MSTRUSDT | 0.00316 | 0.00075 | 100.0% / 99.3% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| MSTR | hyperliquid / futures / xyz:MSTR | 0.00855 | 0.00901 | 95.5% / 96.8% |
+| MSTR | hyperliquid / futures / xyz:MSTR | 0.00852 | 0.00893 | 100.0% / 99.8% |
 | MSTR | lighter / futures / MSTR | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | MSTR | okx / futures / MSTR-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | MU | aster / futures / MUUSD1 | 0.00000 | 0.00000 | 97.2% / 99.3% |
@@ -147,7 +147,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | TSLA | bitget / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | bybit / futures / TSLAUSDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
 | TSLA | gateio / futures / TSLA_USDT | 0.00000 | 0.00000 | 100.0% / 99.3% |
-| TSLA | hyperliquid / futures / xyz:TSLA | 0.00500 | 0.00500 | 95.5% / 96.8% |
+| TSLA | hyperliquid / futures / xyz:TSLA | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | TSLA | lighter / futures / TSLA | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | TSLA | okx / futures / TSLA-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.3% |
 
