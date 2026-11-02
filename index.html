@@ -221,6 +221,8 @@
     opacity: 0.35;
     text-decoration: line-through;
   }
+  .arb-tag { display:inline-block; padding:1px 7px; border-radius:10px; background:#1f6f43; color:#fff; font-size:11px; white-space:nowrap; }
+  .arb-tag--tradable { background:#4a5568; }
   .overview-kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
   .overview-kpi { background:linear-gradient(145deg,#161b22,#121820); border:1px solid var(--border); border-radius:10px; padding:16px; }
   .overview-kpi .label { color:var(--muted); font-size:11px; margin-bottom:8px; }
@@ -808,6 +810,7 @@
             <th>symbol</th>
             <th>underlying</th>
             <th>asset_class</th>
+            <th title="tfund3 套利策略实例当前正在交易该交易所-品种（来自 tfund3 持仓/可交易资产快照）">套利在做</th>
             <th>base</th>
             <th>quote</th>
             <th>price</th>
@@ -848,6 +851,7 @@
             <th>symbol</th>
             <th>underlying</th>
             <th>asset_class</th>
+            <th title="tfund3 套利策略实例当前正在交易该交易所-品种（来自 tfund3 持仓/可交易资产快照）">套利在做</th>
             <th>base</th>
             <th>quote</th>
             <th>price</th>
@@ -2531,13 +2535,14 @@ function renderOverview() {
   const resetEl = document.getElementById('ov-reset');
   if (!overviewData || !Array.isArray(overviewData.data)) {
     title.textContent = 'Futures 总览（无数据）';
-    tbody.innerHTML = '<tr><td colspan="14" class="na">暂无数据</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="17" class="na">暂无数据</td></tr>';
     return;
   }
 
   const allRows = overviewData.data.map(r => ({
     ...r,
-    symbol_display: r.registry_symbol || r.native_symbol || r.symbol || ''
+    symbol_display: r.registry_symbol || r.native_symbol || r.symbol || '',
+    arb_count: arbSortValue(r)
   }));
 
   if (!exEl.dataset.ready) {
@@ -2571,7 +2576,7 @@ function renderOverview() {
 
     // 可点击表头排序
     const keyByIdx = [
-      'exchange', 'symbol_display', 'underlying', 'asset_class',
+      'exchange', 'symbol_display', 'underlying', 'asset_class', 'arb_count',
       'base', 'quote',
       'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate',
       'funding_interval_hours', 'funding_annualized_rate',
@@ -2588,7 +2593,7 @@ function renderOverview() {
           ovSortDir = ovSortDir === 'asc' ? 'desc' : 'asc';
         } else {
           ovSortKey = k;
-          ovSortDir = (k === 'timestamp' || k === 'price' || k === 'oi_base' || k === 'oi_value' || k === 'volume_24h' || k === 'funding_rate' || k === 'funding_interval_hours' || k === 'funding_annualized_rate') ? 'desc' : 'asc';
+          ovSortDir = (k === 'timestamp' || k === 'arb_count' || k === 'price' || k === 'oi_base' || k === 'oi_value' || k === 'volume_24h' || k === 'funding_rate' || k === 'funding_interval_hours' || k === 'funding_annualized_rate') ? 'desc' : 'asc';
         }
         updateOverviewSortHeader();
         renderOverview();
@@ -2622,7 +2627,7 @@ function renderOverview() {
         return cmpNullable(ta, tb, ovSortDir);
       }
       // 数值字段排序
-      if (['price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate', 'funding_interval_hours', 'funding_annualized_rate'].includes(ovSortKey)) {
+      if (['arb_count', 'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate', 'funding_interval_hours', 'funding_annualized_rate'].includes(ovSortKey)) {
         const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
         const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
         return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, ovSortDir);
@@ -2641,6 +2646,7 @@ function renderOverview() {
       <td>${r.symbol_display || '<span class="na">—</span>'}</td>
       <td>${r.underlying || '<span class="na">—</span>'}</td>
       <td>${r.asset_class || '<span class="na">—</span>'}</td>
+      <td>${fmtArbTag(r)}</td>
       <td>${r.base || '<span class="na">—</span>'}</td>
       <td>${r.quote || '<span class="na">—</span>'}</td>
       <td>${r.price != null ? ('$' + fmt(r.price, 6)) : '<span class="na">—</span>'}</td>
@@ -2658,9 +2664,26 @@ function renderOverview() {
   });
 }
 
+// sort key: pairs with live arbitrage positions rank above merely-tradable ones
+function arbSortValue(r) {
+  const list = Array.isArray(r.arb_strategies) ? r.arb_strategies : [];
+  const holding = list.filter(x => String(x).includes('（持仓）')).length;
+  return holding * 1000 + list.length;
+}
+
+function fmtArbTag(r) {
+  const list = Array.isArray(r.arb_strategies) ? r.arb_strategies : [];
+  if (!list.length) return '<span class="na">—</span>';
+  const title = list.map(x => String(x).replace(/"/g, '&quot;')).join('\n');
+  const holding = list.filter(x => String(x).includes('（持仓）')).length;
+  // green = an arbitrage instance currently holds this pair; grey = only in an instance's tradable universe
+  if (holding) return `<span class="arb-tag" title="${title}">套利持仓 ×${holding}</span>`;
+  return `<span class="arb-tag arb-tag--tradable" title="${title}">可交易 ×${list.length}</span>`;
+}
+
 function updateOverviewSortHeader() {
   const keyByIdx = [
-    'exchange', 'symbol_display', 'underlying', 'asset_class',
+    'exchange', 'symbol_display', 'underlying', 'asset_class', 'arb_count',
     'base', 'quote',
     'price', 'oi_base', 'oi_value', 'volume_24h', 'funding_rate',
     'funding_interval_hours', 'funding_annualized_rate',
@@ -2693,7 +2716,7 @@ function renderSpotOverview() {
 
   if (!spotOverviewData || !Array.isArray(spotOverviewData.data)) {
     title.textContent = 'Spot 总览（无数据）';
-    tbody.innerHTML = '<tr><td colspan="15" class="na">暂无数据</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="16" class="na">暂无数据</td></tr>';
     return;
   }
 
@@ -2702,6 +2725,7 @@ function renderSpotOverview() {
     return {
       ...r,
       symbol_display: r.registry_symbol || r.native_symbol || r.symbol || '',
+      arb_count: arbSortValue(r),
       dex_volume_24h: dex ? dex.volume : null,
       dex_liquidity: dex ? dex.liquidity : null,
     };
@@ -2737,7 +2761,7 @@ function renderSpotOverview() {
     });
 
     const keyByIdx = [
-      'exchange', 'symbol_display', 'underlying', 'asset_class',
+      'exchange', 'symbol_display', 'underlying', 'asset_class', 'arb_count',
       'base', 'quote', 'price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p',
       'dex_volume_24h', 'dex_liquidity', 'market_type', 'timestamp'
     ];
@@ -2752,7 +2776,7 @@ function renderSpotOverview() {
           sovSortDir = sovSortDir === 'asc' ? 'desc' : 'asc';
         } else {
           sovSortKey = k;
-          sovSortDir = (k === 'timestamp' || k === 'price' || k === 'volume_24h_exchange' || k === 'volume_24h_reference' || k === 'depth_bid_2p' || k === 'depth_ask_2p' || k === 'dex_volume_24h' || k === 'dex_liquidity') ? 'desc' : 'asc';
+          sovSortDir = (k === 'timestamp' || k === 'arb_count' || k === 'price' || k === 'volume_24h_exchange' || k === 'volume_24h_reference' || k === 'depth_bid_2p' || k === 'depth_ask_2p' || k === 'dex_volume_24h' || k === 'dex_liquidity') ? 'desc' : 'asc';
         }
         updateSpotOverviewSortHeader();
         renderSpotOverview();
@@ -2784,7 +2808,7 @@ function renderSpotOverview() {
         const tb = kb ? Date.parse(kb) : null;
         return cmpNullable(ta, tb, sovSortDir);
       }
-      if (['price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p', 'dex_volume_24h', 'dex_liquidity'].includes(sovSortKey)) {
+      if (['arb_count', 'price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p', 'dex_volume_24h', 'dex_liquidity'].includes(sovSortKey)) {
         const na = (ka === null || ka === undefined || ka === '') ? null : Number(ka);
         const nb = (kb === null || kb === undefined || kb === '') ? null : Number(kb);
         return cmpNullable(Number.isFinite(na) ? na : null, Number.isFinite(nb) ? nb : null, sovSortDir);
@@ -2802,6 +2826,7 @@ function renderSpotOverview() {
       <td>${r.symbol_display || '<span class="na">—</span>'}</td>
       <td>${r.underlying || '<span class="na">—</span>'}</td>
       <td>${r.asset_class || '<span class="na">—</span>'}</td>
+      <td>${fmtArbTag(r)}</td>
       <td>${r.base || '<span class="na">—</span>'}</td>
       <td>${r.quote || '<span class="na">—</span>'}</td>
       <td>${r.price != null ? ('$' + fmt(r.price, 6)) : '<span class="na">—</span>'}</td>
@@ -3025,7 +3050,7 @@ initRefreshControls();
 
 function updateSpotOverviewSortHeader() {
   const keyByIdx = [
-    'exchange', 'symbol_display', 'underlying', 'asset_class',
+    'exchange', 'symbol_display', 'underlying', 'asset_class', 'arb_count',
     'base', 'quote', 'price', 'volume_24h_exchange', 'volume_24h_reference', 'depth_bid_2p', 'depth_ask_2p',
     'dex_volume_24h', 'dex_liquidity', 'market_type', 'timestamp'
   ];
