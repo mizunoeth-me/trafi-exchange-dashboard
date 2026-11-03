@@ -2833,8 +2833,8 @@ function renderSpotOverview() {
       <td>${r.price != null ? ('$' + fmt(r.price, 6)) : '<span class="na">—</span>'}</td>
       <td title="Exchange volume">${(r.volume_24h_exchange ?? r.volume_24h) != null ? fmtOI(r.volume_24h_exchange ?? r.volume_24h) : '<span class="na">—</span>'}</td>
       <td title="Underlying traditional-market reference volume">${r.volume_24h_reference != null ? fmtOI(r.volume_24h_reference) : '<span class="na">—</span>'}</td>
-      <td>${r.depth_bid_2p != null ? fmtOI(r.depth_bid_2p) : '<span class="na">—</span>'}</td>
-      <td>${r.depth_ask_2p != null ? fmtOI(r.depth_ask_2p) : '<span class="na">—</span>'}</td>
+      <td>${r.depth_bid_2p != null ? (fmtOI(r.depth_bid_2p) ?? '0') : '<span class="na">—</span>'}</td>
+      <td>${r.depth_ask_2p != null ? (fmtOI(r.depth_ask_2p) ?? '0') : '<span class="na">—</span>'}</td>
       <td>${fmtUsdCompact(r.dex_volume_24h)}</td>
       <td>${fmtUsdCompact(r.dex_liquidity)}</td>
       <td>${r.market_type || '<span class="na">—</span>'}</td>
