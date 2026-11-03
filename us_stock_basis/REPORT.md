@@ -1,6 +1,6 @@
 # 美股 Top10 基差与资金费率分析
 
-生成时间：2026-11-02T14:08:38.004303+00:00
+生成时间：2026-11-03T01:54:10.863281+00:00
 研究窗口：2026-10-03T04:00:00+00:00 至 2026-11-02T05:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -36,19 +36,19 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | SPCX | 本所现货—合约 | okx / futures / SPCX-USDT-SWAP ↔ okx / spot / XSPCX-USDT | 4.13 | 3.06 | 11.78 / 9.02 | 99.5% / 90.5% |
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ gateio / futures / MU_USDT | -1.13 | -1.06 | 22.76 / 20.23 | 78.7% / 38.6% |
 | MU | 合约跨平台 | aster / futures / MUUSDT ↔ bybit / futures / MUUSDT | 0.87 | 1.08 | 22.63 / 19.56 | 78.7% / 38.6% |
-| MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 5.66 | 4.97 | 13.33 / 11.69 | 98.7% / 83.5% |
+| MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 5.66 | 5.01 | 13.33 / 11.79 | 98.7% / 85.0% |
 | CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ bybit / futures / CRCLUSDT | 0.00 | 1.22 | 21.84 / 18.22 | 88.6% / 44.0% |
 | CRCL | 合约跨平台 | aster / futures / CRCLUSDT ↔ bitget / futures / CRCLUSDT | -1.16 | 0.00 | 22.15 / 18.43 | 88.6% / 43.7% |
 | CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 2.36 | 1.15 | 13.45 / 17.80 | 99.9% / 95.9% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ okx / futures / MSTR-USDT-SWAP | 1.21 | 1.83 | 26.09 / 19.40 | 82.9% / 51.6% |
 | MSTR | 合约跨平台 | aster / futures / MSTRUSDT ↔ bitget / futures / MSTRUSDT | -1.21 | -1.24 | 26.44 / 19.40 | 82.9% / 51.6% |
-| MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 4.53 | 2.17 | 11.57 / 9.59 | 99.9% / 94.8% |
+| MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 4.53 | 2.06 | 11.57 / 9.71 | 99.9% / 98.9% |
 | NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -2.15 | -1.68 | 15.70 / 11.34 | 63.8% / 29.6% |
 | NVDA | 合约跨平台 | aster / futures / NVDAUSDT ↔ okx / futures / NVDA-USDT-SWAP | -0.45 | 0.00 | 15.61 / 10.83 | 63.8% / 29.6% |
 | NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 5.49 | 4.69 | 12.79 / 10.45 | 93.3% / 82.5% |
 | INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ gateio / futures / INTC_USDT | -3.15 | -1.14 | 29.47 / 24.62 | 78.0% / 34.1% |
 | INTC | 合约跨平台 | aster / futures / INTCUSDT ↔ binance / futures / INTCUSDT | 0.87 | 1.09 | 27.83 / 23.57 | 78.0% / 34.1% |
-| INTC | 本所现货—合约 | okx / futures / INTC-USDT-SWAP ↔ okx / spot / XINTC-USDT | 6.39 | 5.04 | 17.45 / 15.98 | 96.5% / 79.3% |
+| INTC | 本所现货—合约 | okx / futures / INTC-USDT-SWAP ↔ okx / spot / XINTC-USDT | 6.39 | 4.63 | 17.45 / 20.72 | 96.5% / 83.4% |
 | TSLA | 合约跨平台 | aster / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | 3.19 | 2.69 | 15.01 / 11.93 | 77.4% / 36.6% |
 | TSLA | 合约跨平台 | aster / futures / TSLAUSDT ↔ bybit / futures / TSLAUSDT | 2.37 | 2.10 | 14.91 / 11.43 | 77.4% / 36.6% |
 | TSLA | 本所现货—合约 | okx / futures / TSLA-USDT-SWAP ↔ okx / spot / XTSLA-USDT | 4.74 | 5.17 | 13.79 / 10.50 | 93.1% / 69.4% |
@@ -80,7 +80,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | HOOD | bitget / futures / HOODUSDT | 0.00890 | 0.00000 | 100.0% / 99.2% |
 | HOOD | bybit / futures / HOODUSDT | 0.00000 | 0.00000 | 100.0% / 99.2% |
 | HOOD | gateio / futures / HOOD_USDT | 0.00000 | 0.00000 | 100.0% / 99.2% |
-| HOOD | hyperliquid / futures / xyz:HOOD | 0.00500 | 0.00500 | 100.0% / 99.7% |
+| HOOD | hyperliquid / futures / xyz:HOOD | 0.00500 | 0.00500 | 100.0% / 99.8% |
 | HOOD | lighter / futures / HOOD | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | HOOD | okx / futures / HOOD-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.2% |
 | INTC | aster / futures / INTCUSDT | 0.00000 | 0.00000 | 100.0% / 99.2% |
@@ -96,7 +96,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MSTR | bitget / futures / MSTRUSDT | 0.02470 | 0.00000 | 100.0% / 99.2% |
 | MSTR | bybit / futures / MSTRUSDT | 0.00412 | 0.00075 | 100.0% / 99.2% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.2% |
-| MSTR | hyperliquid / futures / xyz:MSTR | 0.00778 | 0.00882 | 100.0% / 95.6% |
+| MSTR | hyperliquid / futures / xyz:MSTR | 0.00778 | 0.00875 | 100.0% / 99.8% |
 | MSTR | lighter / futures / MSTR | 0.00320 | 0.00320 | 100.0% / 99.8% |
 | MSTR | okx / futures / MSTR-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.2% |
 | MU | aster / futures / MUUSD1 | 0.00000 | 0.00000 | 96.9% / 99.2% |
