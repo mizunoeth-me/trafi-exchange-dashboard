@@ -96,12 +96,12 @@ TSLA,gateio|futures|TSLA_USDT,8652,8651,8652,0.9998844197873324,1791604800000,17
 TSLA,bitget|futures|TSLAUSDT,8652,8405,8652,0.971451687471105,1791604800000,1794200100000,90,0.004829,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,binance|futures|TSLAUSDT,8652,8652,8652,1.0,1791604800000,1794200100000,90,0.00394457,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,bybit|futures|TSLAUSDT,8652,8615,8652,0.9957235321312992,1791604800000,1794200100000,90,0.0040488500000000005,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-AAPL,gateio|spot|AAPLX_USDT,8364,5149,8652,0.5951225150254277,1791604800000,1794113700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
-AAPL,binance|spot|AAPLBUSDT,8364,8004,8652,0.9251040221914009,1791604800000,1794113700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
-AAPL,gateio|spot|AAPLG_USDT,8364,6450,8652,0.7454923717059639,1791604800000,1794113700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
-AAPL,gateio|spot|AAPLON_USDT,8364,4069,8652,0.470295885344429,1791604800000,1794113700000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
-AAPL,okx|spot|XAAPL-USDT,8364,5306,8652,0.6132686084142395,1791604800000,1794113700000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
-AAPL,bybit|spot|AAPLXUSDT,8076,3665,8652,0.42360147942672216,1791604800000,1794027300000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+AAPL,gateio|spot|AAPLX_USDT,8652,5241,8652,0.605755894590846,1791604800000,1794200100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+AAPL,binance|spot|AAPLBUSDT,8652,8281,8652,0.9571197411003236,1791604800000,1794200100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+AAPL,gateio|spot|AAPLG_USDT,8652,6569,8652,0.7592464170134073,1791604800000,1794200100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+AAPL,gateio|spot|AAPLON_USDT,8652,4139,8652,0.4783865002311604,1791604800000,1794200100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
+AAPL,okx|spot|XAAPL-USDT,8652,5456,8652,0.6306056403143782,1791604800000,1794200100000,0,,0,scaled_share_verified,不适用,,5m_trade_close_proxy
+AAPL,bybit|spot|AAPLXUSDT,8652,3820,8652,0.4415164123901988,1791604800000,1794200100000,0,,0,share_ratio_unverified,不适用,,5m_trade_close_proxy
 AAPL,bitget|spot|RAAPLUSDT,0,0,8652,0.0,,,0,,0,share_ratio_unverified,不适用,Bitget rToken K线可能为参考市场；不纳入交易价历史,5m_trade_close_proxy
 AAPL,gateio|futures|AAPL_USDT,8652,8628,8652,0.9972260748959778,1791604800000,1794200100000,90,-0.000936,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 AAPL,bitget|futures|AAPLUSDT,8652,8056,8652,0.9311141932501156,1791604800000,1794200100000,90,-0.000184,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
