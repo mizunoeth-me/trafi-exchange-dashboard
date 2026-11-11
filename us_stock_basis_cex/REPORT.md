@@ -3,7 +3,7 @@
 范围：Binance、Bybit、OKX、Bitget、Gate.io。排名、市场配对、基差、资金费率及覆盖率均只计 CEX。
 选样快照：2026-09-18T06:19:32.597373+00:00；与原版使用同一批快照，仅改变平台范围。CEX 第十名为 MRVL，原版 GOOGL 不在本版 Top10。
 
-生成时间：2026-11-10T14:32:22.589224+00:00
+生成时间：2026-11-11T01:59:54.509459+00:00
 研究窗口：2026-10-11T04:00:00+00:00 至 2026-11-10T05:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -45,10 +45,10 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 0.00 | -1.22 | 18.69 / 19.58 | 100.0% / 96.6% |
 | MSTR | 合约跨平台 | bybit / futures / MSTRUSDT ↔ gateio / futures / MSTR_USDT | -3.02 | -2.14 | 9.94 / 8.87 | 100.0% / 100.0% |
 | MSTR | 合约跨平台 | bitget / futures / MSTRUSDT ↔ gateio / futures / MSTR_USDT | -1.42 | 0.00 | 7.63 / 8.35 | 100.0% / 100.0% |
-| MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 3.65 | 2.15 | 11.76 / 10.38 | 95.2% / 95.8% |
+| MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 3.93 | 2.22 | 11.97 / 10.45 | 100.0% / 98.8% |
 | INTC | 合约跨平台 | bitget / futures / INTCUSDT ↔ gateio / futures / INTC_USDT | -2.16 | -1.76 | 7.54 / 8.46 | 100.0% / 99.9% |
 | INTC | 合约跨平台 | bybit / futures / INTCUSDT ↔ gateio / futures / INTC_USDT | -2.11 | -1.54 | 7.65 / 7.44 | 100.0% / 99.9% |
-| INTC | 本所现货—合约 | okx / futures / INTC-USDT-SWAP ↔ okx / spot / XINTC-USDT | 3.99 | 2.20 | 22.64 / 21.81 | 92.9% / 86.5% |
+| INTC | 本所现货—合约 | okx / futures / INTC-USDT-SWAP ↔ okx / spot / XINTC-USDT | 4.26 | 2.20 | 22.49 / 21.49 | 97.6% / 89.5% |
 | NVDA | 合约跨平台 | bybit / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -2.83 | -2.76 | 7.88 / 7.45 | 100.0% / 99.9% |
 | NVDA | 合约跨平台 | binance / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -2.97 | -2.67 | 6.03 / 5.39 | 100.0% / 100.0% |
 | NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 5.11 | 3.93 | 12.95 / 10.42 | 95.7% / 88.3% |
@@ -56,12 +56,12 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | TSLA | 合约跨平台 | binance / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | 2.39 | 1.58 | 7.48 / 6.14 | 100.0% / 100.0% |
 | TSLA | 本所现货—合约 | okx / futures / TSLA-USDT-SWAP ↔ okx / spot / XTSLA-USDT | 4.34 | 4.65 | 13.63 / 10.71 | 95.1% / 73.8% |
 | AAPL | 合约跨平台 | binance / futures / AAPLUSDT ↔ gateio / futures / AAPL_USDT | 6.44 | 5.77 | 10.00 / 9.35 | 100.0% / 99.8% |
-| AAPL | 合约跨平台 | gateio / futures / AAPL_USDT ↔ okx / futures / AAPL-USDT-SWAP | -5.00 | -4.95 | 8.96 / 9.25 | 95.2% / 95.9% |
-| AAPL | 本所现货—合约 | okx / futures / AAPL-USDT-SWAP ↔ okx / spot / XAAPL-USDT | 0.85 | 2.34 | 11.63 / 10.55 | 81.6% / 56.7% |
+| AAPL | 合约跨平台 | gateio / futures / AAPL_USDT ↔ okx / futures / AAPL-USDT-SWAP | -4.93 | -4.91 | 8.92 / 9.23 | 100.0% / 98.8% |
+| AAPL | 本所现货—合约 | okx / futures / AAPL-USDT-SWAP ↔ okx / spot / XAAPL-USDT | 0.58 | 2.31 | 11.76 / 10.47 | 85.2% / 58.7% |
 
 ## 可比配对的整体特征
 
-- 跨平台合约：90 组配对同时达到两类时段的描述性门槛，其中 44 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 1.85 bps 变为非常规盘 1.85 bps；这是本窗口的描述性观察，不是显著性或因果结论。
+- 跨平台合约：90 组配对同时达到两类时段的描述性门槛，其中 45 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 1.86 bps 变为非常规盘 1.83 bps；这是本窗口的描述性观察，不是显著性或因果结论。
 - 同平台现货—合约：8 组配对同时达到两类时段的描述性门槛，其中 1 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 4.84 bps 变为非常规盘 4.53 bps；这是本窗口的描述性观察，不是显著性或因果结论。
 
 ## 资金费率的交易时段对比
@@ -73,7 +73,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | AAPL | binance / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | AAPL | bitget / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | AAPL | bybit / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
-| AAPL | gateio / futures / AAPL_USDT | 0.00000 | 0.00000 | 95.2% / 96.2% |
+| AAPL | gateio / futures / AAPL_USDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | AAPL | okx / futures / AAPL-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | CRCL | binance / futures / CRCLUSDT | 0.00710 | 0.00000 | 100.0% / 99.1% |
 | CRCL | bitget / futures / CRCLUSDT | 0.01380 | 0.00000 | 100.0% / 99.1% |
@@ -87,7 +87,7 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | INTC | okx / futures / INTC-USDT-SWAP | 0.00555 | 0.00435 | 100.0% / 99.1% |
 | MSTR | binance / futures / MSTRUSDT | 0.00181 | 0.00000 | 100.0% / 99.1% |
 | MSTR | bitget / futures / MSTRUSDT | 0.02530 | 0.00750 | 100.0% / 99.1% |
-| MSTR | bybit / futures / MSTRUSDT | 0.00316 | 0.00038 | 95.2% / 96.2% |
+| MSTR | bybit / futures / MSTRUSDT | 0.00121 | 0.00000 | 100.0% / 99.1% |
 | MSTR | gateio / futures / MSTR_USDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | MSTR | okx / futures / MSTR-USDT-SWAP | 0.00112 | 0.00000 | 100.0% / 99.1% |
 | MU | binance / futures / MUUSDT | 0.00730 | 0.00000 | 97.1% / 99.1% |
