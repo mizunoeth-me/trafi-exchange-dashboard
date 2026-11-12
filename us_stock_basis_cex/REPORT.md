@@ -3,7 +3,7 @@
 范围：Binance、Bybit、OKX、Bitget、Gate.io。排名、市场配对、基差、资金费率及覆盖率均只计 CEX。
 选样快照：2026-09-18T06:19:32.597373+00:00；与原版使用同一批快照，仅改变平台范围。CEX 第十名为 MRVL，原版 GOOGL 不在本版 Top10。
 
-生成时间：2026-11-11T14:27:40.941736+00:00
+生成时间：2026-11-12T01:51:48.036008+00:00
 研究窗口：2026-10-12T04:00:00+00:00 至 2026-11-11T05:00:00+00:00（右端不含）。
 
 ## 样本与口径
@@ -41,8 +41,8 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | MU | 合约跨平台 | bitget / futures / MUUSDT ↔ gateio / futures / MU_USDT | -2.12 | -1.26 | 5.78 / 5.65 | 100.0% / 100.0% |
 | MU | 本所现货—合约 | okx / futures / MU-USDT-SWAP ↔ okx / spot / XMU-USDT | 5.12 | 4.13 | 14.02 / 12.44 | 99.2% / 91.4% |
 | CRCL | 合约跨平台 | bybit / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -2.20 | -2.60 | 10.07 / 9.10 | 100.0% / 100.0% |
-| CRCL | 合约跨平台 | bitget / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -1.37 | -1.35 | 9.62 / 8.85 | 95.5% / 96.0% |
-| CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 0.00 | -1.32 | 18.69 / 20.08 | 95.5% / 94.0% |
+| CRCL | 合约跨平台 | bitget / futures / CRCLUSDT ↔ gateio / futures / CRCL_USDT | -1.45 | -1.36 | 9.52 / 8.81 | 100.0% / 99.0% |
+| CRCL | 本所现货—合约 | okx / futures / CRCL-USDT-SWAP ↔ okx / spot / XCRCL-USDT | 0.00 | -1.26 | 18.03 / 19.62 | 100.0% / 97.0% |
 | MSTR | 合约跨平台 | bybit / futures / MSTRUSDT ↔ gateio / futures / MSTR_USDT | -2.83 | -2.20 | 9.80 / 8.98 | 100.0% / 100.0% |
 | MSTR | 合约跨平台 | bitget / futures / MSTRUSDT ↔ gateio / futures / MSTR_USDT | -1.42 | 0.00 | 7.63 / 8.33 | 100.0% / 100.0% |
 | MSTR | 本所现货—合约 | okx / futures / MSTR-USDT-SWAP ↔ okx / spot / XMSTR-USDT | 3.97 | 2.70 | 11.95 / 10.50 | 100.0% / 98.8% |
@@ -52,17 +52,17 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | NVDA | 合约跨平台 | bybit / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -2.81 | -2.80 | 7.91 / 7.46 | 100.0% / 100.0% |
 | NVDA | 合约跨平台 | binance / futures / NVDAUSDT ↔ gateio / futures / NVDA_USDT | -3.16 | -2.76 | 6.78 / 5.50 | 100.0% / 100.0% |
 | NVDA | 本所现货—合约 | okx / futures / NVDA-USDT-SWAP ↔ okx / spot / XNVDA-USDT | 5.04 | 3.85 | 12.85 / 10.42 | 95.9% / 89.6% |
-| TSLA | 合约跨平台 | bitget / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | 2.72 | 1.86 | 7.58 / 6.92 | 95.5% / 94.3% |
+| TSLA | 合约跨平台 | bitget / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | 2.61 | 1.76 | 7.52 / 6.87 | 100.0% / 97.3% |
 | TSLA | 合约跨平台 | binance / futures / TSLAUSDT ↔ gateio / futures / TSLA_USDT | 2.37 | 1.60 | 7.39 / 6.15 | 100.0% / 100.0% |
 | TSLA | 本所现货—合约 | okx / futures / TSLA-USDT-SWAP ↔ okx / spot / XTSLA-USDT | 4.28 | 4.57 | 13.77 / 10.77 | 95.0% / 75.0% |
-| AAPL | 合约跨平台 | binance / futures / AAPLUSDT ↔ gateio / futures / AAPL_USDT | 6.44 | 5.82 | 10.00 / 9.38 | 95.5% / 96.9% |
-| AAPL | 合约跨平台 | gateio / futures / AAPL_USDT ↔ okx / futures / AAPL-USDT-SWAP | -4.93 | -4.95 | 8.92 / 9.25 | 95.5% / 96.5% |
-| AAPL | 本所现货—合约 | okx / futures / AAPL-USDT-SWAP ↔ okx / spot / XAAPL-USDT | 0.58 | 2.04 | 11.76 / 10.60 | 81.3% / 57.4% |
+| AAPL | 合约跨平台 | binance / futures / AAPLUSDT ↔ gateio / futures / AAPL_USDT | 6.42 | 5.83 | 10.00 / 9.38 | 100.0% / 100.0% |
+| AAPL | 合约跨平台 | gateio / futures / AAPL_USDT ↔ okx / futures / AAPL-USDT-SWAP | -4.89 | -4.93 | 8.81 / 9.23 | 100.0% / 99.5% |
+| AAPL | 本所现货—合约 | okx / futures / AAPL-USDT-SWAP ↔ okx / spot / XAAPL-USDT | 0.58 | 1.76 | 11.76 / 10.50 | 84.6% / 59.2% |
 
 ## 可比配对的整体特征
 
-- 跨平台合约：90 组配对同时达到两类时段的描述性门槛，其中 46 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 1.85 bps 变为非常规盘 1.83 bps；这是本窗口的描述性观察，不是显著性或因果结论。
-- 同平台现货—合约：8 组配对同时达到两类时段的描述性门槛，其中 1 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 4.84 bps 变为非常规盘 4.53 bps；这是本窗口的描述性观察，不是显著性或因果结论。
+- 跨平台合约：90 组配对同时达到两类时段的描述性门槛，其中 45 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 1.86 bps 变为非常规盘 1.83 bps；这是本窗口的描述性观察，不是显著性或因果结论。
+- 同平台现货—合约：8 组配对同时达到两类时段的描述性门槛，其中 1 组在非常规盘的绝对基差中位数更大。逐配对等权中位数由常规盘 4.76 bps 变为非常规盘 4.52 bps；这是本窗口的描述性观察，不是显著性或因果结论。
 
 ## 资金费率的交易时段对比
 
@@ -72,8 +72,8 @@ OKX 合约成交额估算与稳定币平价会影响边界排名；不把滚动2
 | --- | --- | ---: | ---: | --- |
 | AAPL | binance / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | AAPL | bitget / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
-| AAPL | bybit / futures / AAPLUSDT | 0.00000 | 0.00000 | 95.5% / 96.1% |
-| AAPL | gateio / futures / AAPL_USDT | 0.00000 | 0.00000 | 95.5% / 96.1% |
+| AAPL | bybit / futures / AAPLUSDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
+| AAPL | gateio / futures / AAPL_USDT | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | AAPL | okx / futures / AAPL-USDT-SWAP | 0.00000 | 0.00000 | 100.0% / 99.1% |
 | CRCL | binance / futures / CRCLUSDT | 0.00596 | 0.00000 | 100.0% / 99.1% |
 | CRCL | bitget / futures / CRCLUSDT | 0.01380 | 0.00000 | 100.0% / 99.1% |
