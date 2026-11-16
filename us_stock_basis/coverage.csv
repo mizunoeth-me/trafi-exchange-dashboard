@@ -7,7 +7,7 @@ SNDK,okx|futures|SNDK-USDT-SWAP,8652,8652,8652,1.0,1792123200000,1794718500000,9
 SNDK,gateio|futures|SNDK_USDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,0.004183,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SNDK,bitget|futures|SNDKUSDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,0.014502,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SNDK,hyperliquid|futures|xyz:SNDK,8652,8652,8652,1.0,1792123200000,1794718500000,721,0.0083137494,721,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-SNDK,lighter|futures|SNDK,8364,8361,8652,0.9663661581137309,1792123200000,1794632100000,721,0.013044,721,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+SNDK,lighter|futures|SNDK,8652,8649,8652,0.9996532593619972,1792123200000,1794718500000,721,0.013044,721,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SNDK,aster|futures|SNDKUSD1,8652,8650,8652,0.9997688395746648,1792123200000,1794718500000,90,0.00260001,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SNDK,aster|futures|SNDKUSDT,8652,6080,8652,0.7027276930189551,1792123200000,1794718500000,90,0.00972968,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 SNDK,binance|futures|SNDKUSDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,0.00942539,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
@@ -65,7 +65,7 @@ SKHY,bitget|spot|RSKHYUSDT,0,0,8652,0.0,,,0,,0,share_ratio_unverified,不适用,
 SKHY,okx|futures|SKHY-USDT-SWAP,8652,8652,8652,1.0,1792123200000,1794718500000,90,-0.00027816410013189997,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,gateio|futures|SKHY_USDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,-0.000219,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,bitget|futures|SKHYUSDT,8652,8645,8652,0.9991909385113269,1792123200000,1794718500000,90,-0.001245,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
-SKHY,lighter|futures|SKHY,8364,7994,8652,0.9239482200647249,1792123200000,1794632100000,721,0.0009779999999999997,721,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
+SKHY,lighter|futures|SKHY,8652,8239,8652,0.9522653721682848,1792123200000,1794718500000,721,0.0009779999999999997,721,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,aster|futures|SKHYUSDT,8652,4618,8652,0.5337494220989366,1792123200000,1794718500000,90,-0.00357823,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,binance|futures|SKHYUSDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,-0.00398611,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
 SKHY,bybit|futures|SKHYUSDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,-0.00123211,90,share_ratio_unverified,已取得实际结算,,5m_trade_close_proxy
@@ -121,7 +121,7 @@ TSLA,okx|futures|TSLA-USDT-SWAP,8652,8643,8652,0.9989597780859917,1792123200000,
 TSLA,gateio|futures|TSLA_USDT,8652,8651,8652,0.9998844197873324,1792123200000,1794718500000,90,0.0017159999999999999,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,bitget|futures|TSLAUSDT,8652,8462,8652,0.9780397595931577,1792123200000,1794718500000,90,0.004021,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,hyperliquid|futures|xyz:TSLA,8652,8601,8652,0.9941054091539528,1792123200000,1794718500000,721,0.0046768169,721,registry_per_share,已取得实际结算,,5m_trade_close_proxy
-TSLA,lighter|futures|TSLA,8364,8361,8652,0.9663661581137309,1792123200000,1794632100000,721,0.00538,721,registry_per_share,已取得实际结算,,5m_trade_close_proxy
+TSLA,lighter|futures|TSLA,8652,8649,8652,0.9996532593619972,1792123200000,1794718500000,721,0.00538,721,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,aster|futures|TSLAUSDT,8652,4111,8652,0.47515025427646784,1792123200000,1794718500000,90,0.00373216,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,binance|futures|TSLAUSDT,8652,8652,8652,1.0,1792123200000,1794718500000,90,0.0037267,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
 TSLA,bybit|futures|TSLAUSDT,8652,8640,8652,0.9986130374479889,1792123200000,1794718500000,90,0.00338681,90,registry_per_share,已取得实际结算,,5m_trade_close_proxy
